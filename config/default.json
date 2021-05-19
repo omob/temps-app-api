@@ -1,8 +1,8 @@
 {
   "jwtPrivateKey": "bbfbb84b8b67aaaa76114401ccc53f56e99d699fa6cefba3e7ce4b20d70ce02b",
   "db": "mongodb://localhost:27017/mls-security",
-//   "dbProd": "mongodb://sanabliss:deevcorp@sanabliss-shard-00-00.qhca0.azure.mongodb.net:27017,sanabliss-shard-00-01.qhca0.azure.mongodb.net:27017,sanabliss-shard-00-02.qhca0.azure.mongodb.net:27017/sanabliss?ssl=true&replicaSet=atlas-8u861s-shard-0&authSource=admin&retryWrites=true&w=majority",
   "port": "3900",
+  "host": "localhost",
   "requiresAuth": true,
   "frontEndUrl": "http://localhost:3000",
   "tokenExpiration": 3600,
@@ -11,5 +11,5 @@
     "pass": "",
     "host": ""
   },
-  "adminEmail": "aboayosam@gmail.com",
+  "adminEmail": "aboayosam@gmail.com"
 }

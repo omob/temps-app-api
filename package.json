@@ -29,6 +29,7 @@
     "mongoose": "^5.0.2",
     "node-cron": "^2.0.3",
     "nodemailer": "^6.4.10",
+    "swagger-ui-express": "^4.1.6",
     "winston": "^2.4.0",
     "winston-mongodb": "^3.0.0"
   },
