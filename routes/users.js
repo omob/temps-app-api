@@ -24,28 +24,6 @@ router.post("/", async (req, res) => {
   userServices.register(req, res);
 });
 
-// subscribe to a product
-router.post("/subscriptions", auth, (req, res) => {
-  userServices.subscribeToProduct(req, res);
-});
-
-// get all get user subscriptions
-router.get("/subscriptions", auth, (req, res) => {
-  userServices.getSubscriptions(req, res);
-});
-
-// deletes a subscription or unsubscribe from a product
-router.delete("/subscriptions/:id", auth, validateObjectId, (req, res) => {
-  userServices.unsubscribe(req, res);
-});
-
-router.get("/cardstatus", auth, (req, res) => {
-  userServices.getCardStatus(req, res);
-});
-
-router.post("/creditcard", auth, (req, res) => {
-  userServices.addCreditCard(req, res);
-});
 
 /********************* ADMIN **************************/
 

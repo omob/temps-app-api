@@ -29,8 +29,7 @@ const initializeRoles = async () => {
 // initializeRoles();
 
 Roles.findOne({}).exec(async (err, roles) => {
-  //   console.log(roles.admin);
-  if (roles && roles.length == 0) initializeRoles();
+  if (!roles || roles.length === 0) initializeRoles();
 });
 
 // const role = new Roles({

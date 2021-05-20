@@ -13,7 +13,7 @@ const swaggerDocument = {
     },
   },
   host: `${config.get("host")}:${config.get("port")}`,
-  basePath: "/",
+  basePath: "/api",
   tags: [
     {
       name: "Users",
@@ -37,40 +37,97 @@ const swaggerDocument = {
           },
         },
       },
+      post: {
+        tags: ["Users"],
+        summary: "Creates a new user",
+        parameters: [
+          {
+            name: "user",
+            in: "body",
+            description: "User that we want to create",
+            schema: {
+              $ref: "#/definitions/User",
+            },
+          },
+        ],
+        produces: ["application/json"],
+        responses: {
+          201: {
+            description: "Created",
+            schema: {
+              $ref: "#/definitions/User",
+            },
+          },
+        },
+      },
     },
   },
   definitions: {
     User: {
-      required: ["name", "_id", "companies"],
+      required: [
+        "name",
+        "contact.phoneNumber",
+        "gender",
+        "email",
+        "nextOfKin.contact.phoneNumber",
+      ],
       properties: {
         _id: {
-          type: "integer",
+          type: "string",
           uniqueItems: true,
-        },
-        isPublic: {
-          type: "boolean",
+          description:
+            "A unique identifier for user. Automatically assigned by the API when the movie is created",
         },
         name: {
-          type: "string",
-        },
-        books: {
-          type: "array",
-          items: {
-            type: "object",
-            properties: {
-              name: {
-                type: "string",
-              },
-              amount: {
-                type: "number",
-              },
-            },
+          type: "object",
+          properties: {
+            firstName: { type: "string" },
+            lastName: { type: "string" },
+            middleName: { type: "string" },
           },
         },
-        companies: {
-          type: "array",
-          items: {
-            type: "string",
+        gender: { type: "string" },
+        email: { type: "string", uniqueItems: true },
+        contact: {
+          type: "object",
+          properties: {
+            address: {
+              type: "object",
+              properties: {
+                line1: { type: "string" },
+                line2: { type: "string" },
+                city: { type: "string" },
+                state: { type: "string" },
+                country: { type: "string" },
+                postCode: { type: "string" },
+              },
+            },
+            phoneNumber: { type: "string", required: true },
+          },
+        },
+        nextOfKin: {
+          type: "object",
+          properties: {
+            firstName: { type: "string" },
+            lastName: { type: "string" },
+            relationship: { type: "string" },
+            contact: {
+              type: "object",
+              properties: {
+                address: {
+                  type: "object",
+                  properties: {
+                    line1: { type: "string" },
+                    line2: { type: "string" },
+                    city: { type: "string" },
+                    state: { type: "string" },
+                    country: { type: "string" },
+                    postCode: { type: "string" },
+                  },
+                },
+                phoneNumber: { type: "string", required: true },
+              },
+            },
           },
         },
       },
