@@ -11,13 +11,13 @@ const {
 
 
 const getProfile = async (req, res) => {
-  const userDocument = await User.findById(req.user._id).select("-password");
+  const userDocument = await User.findById(req.user._id).select("-password -isDeleted -__v -canLogin");
 
   if (!userDocument) return res.status(404).send("User not found");
 
   const user = userDocument.toJSON();
 
-  res.send(user);
+  res.status(200).json({ data: user, message: "success"})
 };
 
 const updateProfile = async (req, res) => {

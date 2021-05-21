@@ -61,6 +61,30 @@ const swaggerDocument = {
         },
       },
     },
+    "/users/me": {
+      get: {
+        tags: ["User"],
+        summary: "Gets my profile",
+        parameters: [
+          {
+            name: "x-auth-token",
+            in: "header",
+            description: "My auth token",
+            schema: {
+              type: "string",
+            },
+          },
+        ],
+        responses: {
+          200: {
+            description: "OK",
+            schema: {
+              $ref: "#/definitions/Response",
+            },
+          },
+        },
+      },
+    },
     "/users/register": {
       post: {
         tags: ["Users"],
@@ -213,7 +237,11 @@ const swaggerDocument = {
           },
         },
         gender: { type: "string", example: "male" },
-        email: { type: "string", uniqueItems: true, example: "administrator@email.com" },
+        email: {
+          type: "string",
+          uniqueItems: true,
+          example: "administrator@email.com",
+        },
         contact: {
           type: "object",
           properties: {
@@ -264,11 +292,73 @@ const swaggerDocument = {
       type: "array",
       $ref: "#/definitions/User",
     },
+    UserProfile: {
+      properties: {
+        name: {
+          type: "object",
+          properties: {
+            firstName: { type: "string" },
+            lastName: { type: "string" },
+            middleName: { type: "string" },
+          },
+        },
+        gender: { type: "string" },
+        email: { type: "string", uniqueItems: true },
+        contact: {
+          type: "object",
+          properties: {
+            address: {
+              type: "object",
+              properties: {
+                line1: { type: "string" },
+                line2: { type: "string" },
+                city: { type: "string" },
+                state: { type: "string" },
+                country: { type: "string" },
+                postCode: { type: "string" },
+              },
+            },
+            phoneNumber: { type: "string", required: true },
+          },
+        },
+        nextOfKin: {
+          type: "object",
+          properties: {
+            firstName: { type: "string" },
+            lastName: { type: "string" },
+            relationship: { type: "string" },
+            contact: {
+              type: "object",
+              properties: {
+                address: {
+                  type: "object",
+                  properties: {
+                    line1: { type: "string" },
+                    line2: { type: "string" },
+                    city: { type: "string" },
+                    state: { type: "string" },
+                    country: { type: "string" },
+                    postCode: { type: "string" },
+                  },
+                },
+                phoneNumber: { type: "string", required: true },
+              },
+            },
+          },
+        },
+      },
+    },
     Login: {
       required: ["email", "password"],
       properties: {
-        email: { type: "string", example: "james@email.com"},
+        email: { type: "string", example: "james@email.com" },
         password: { type: "string", example: "111111" },
+      },
+    },
+    Response: {
+      properties: {
+        data: { type: "object", $ref: "#/definitions/UserProfile" },
+        message: { type: "string" },
       },
     },
   },
