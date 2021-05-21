@@ -5,9 +5,11 @@ const mongoose = require("mongoose");
 const ObjectId = mongoose.Types.ObjectId;
 const Joi = require("joi");
 
+const config = require('config');
+
 const validateLogin = (requestBody) => {
   const schema = {
-    email: Joi.string().min(5).max(255).required().email(),
+    email: Joi.string().min(5).max(255).required(),
     password: Joi.string().min(5).max(255).required(),
   };
 
@@ -29,9 +31,11 @@ const getUserRoles = async (user) => {
             userIndex = index;
             return true;
           }
+          return false;
         })[userIndex];
       } catch (e) {}
     }
+    return false;
   });
 
   return userRoles;
@@ -43,7 +47,14 @@ const login = async (req, res) => {
 
   const { email, password } = req.body;
 
-  let user = await User.findOne({ email });
+  let userEmail = email;
+
+  //check if user did not include domain name.
+  if (!userEmail.includes("@") && !userEmail.includes(`@${config.get("domainName")}`)) {
+    userEmail = `${userEmail}@${config.get("domainName")}`;
+  }
+
+  let user = await User.findOne({ email: userEmail });
   if (!user) return res.status(400).send("Invalid email or password."); // just to make imposter think both is wrong
 
   const validPassword = await user.comparePassword(password);

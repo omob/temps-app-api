@@ -61,6 +61,38 @@ const swaggerDocument = {
         },
       },
     },
+
+    "/auth": {
+      post: {
+        tags: ["Users"],
+        summary: "Logs in a user",
+        parameters: [
+          {
+            name: "user login details",
+            in: "body",
+            description: "User that wants to log in",
+            schema: {
+              $ref: "#/definitions/Login",
+            },
+          },
+        ],
+        produces: ["application/json"],
+        responses: {
+          200: {
+            description: "Success",
+            schema: {
+              type: "string",
+            },
+          },
+          400: {
+            description: "Bad Request",
+            schema: {
+              type: "string",
+            },
+          },
+        },
+      },
+    },
   },
   definitions: {
     User: {
@@ -70,6 +102,7 @@ const swaggerDocument = {
         "gender",
         "email",
         "nextOfKin.contact.phoneNumber",
+        "password",
       ],
       properties: {
         _id: {
@@ -130,11 +163,19 @@ const swaggerDocument = {
             },
           },
         },
+        password: { type: "string", required: true },
       },
     },
     Users: {
       type: "array",
       $ref: "#/definitions/User",
+    },
+    Login: {
+      required: ["email", "password"],
+      properties: {
+        email: { type: "string" },
+        password: { type: "string" },
+      },
     },
   },
 };
