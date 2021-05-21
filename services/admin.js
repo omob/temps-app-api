@@ -1,50 +1,80 @@
-const { User, validateUser } = require("../models/user"); // Using User schema in the user route
+const { Employee: User } = require("../models/employee"); // Using User schema in the user route
+const {
+  validateUser,
+} = require("../functions/user");
+const _ = require("lodash");
 const bcrypt = require("bcrypt");
 const { Roles } = require("../models/roles");
 
 const registerUser = async (req, res) => {
+  // const { error } = validateUser(req.body);
+  // if (error) return res.status(400).send(error.details[0].message);
+
+  // const {
+  //   firstName,
+  //   lastName,
+  //   phoneNumber,
+  //   email,
+  //   password,
+  //   addressline1,
+  //   city,
+  //   state,
+  //   role,
+  // } = req.body;
+
+  // let user = await User.findOne({
+  //   $or: [{ email }, { phoneNumber }],
+  // });
+  // if (user)
+  //   return res
+  //     .status(400)
+  //     .send("User with same email or phone number already registered.");
+
+  // user = new User({
+  //   name: {
+  //     firstName,
+  //     lastName,
+  //   },
+  //   email,
+  //   phoneNumber,
+  //   password,
+  //   address: {
+  //     line1: addressline1,
+  //     city,
+  //     state,
+  //   },
+  // });
+
+  // const salt = await bcrypt.genSalt(10);
+  // user.password = await bcrypt.hash(user.password, salt);
+
   const { error } = validateUser(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  const {
-    firstName,
-    lastName,
-    phoneNumber,
-    email,
-    password,
-    addressline1,
-    city,
-    state,
-    role,
-  } = req.body;
+  const { name, gender, email, contact, password, nextOfKin, role } = req.body;
 
   let user = await User.findOne({
-    $or: [{ email }, { phoneNumber }],
+    $or: [{ email }, { phoneNumber: contact.phoneNumber }],
   });
+
   if (user)
     return res
       .status(400)
-      .send("User with same email or phone number already registered.");
+      .json("User with same email or phone number already registered.");
 
   user = new User({
-    name: {
-      firstName,
-      lastName,
-    },
+    name,
     email,
-    phoneNumber,
+    gender,
+    contact,
     password,
-    address: {
-      line1: addressline1,
-      city,
-      state,
-    },
+    nextOfKin,
   });
 
   const salt = await bcrypt.genSalt(10);
   user.password = await bcrypt.hash(user.password, salt);
-
   await user.save();
+
   // add user to roles
   await Roles.findOneAndUpdate(
     {},
@@ -56,7 +86,9 @@ const registerUser = async (req, res) => {
       },
     }
   );
-  res.send("Success");
+  res
+    .status(201)
+    .json({ data: {..._.pick(user, ["_id", "name", "email"]), role }, message: "success"});
 };
 
 const getRoles = async (req, res) => {

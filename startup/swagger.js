@@ -61,7 +61,39 @@ const swaggerDocument = {
         },
       },
     },
-
+    "/users/register": {
+      post: {
+        tags: ["Users"],
+        summary: "Admin registering a new user",
+      },
+      parameters: [
+        {
+          name: "user",
+          in: "body",
+          description: "User details that admin wants to create",
+          schema: {
+            $ref: "#/definitions/UserAdmin",
+          },
+        },
+        {
+          name: "x-auth-token",
+          in: "headers",
+          description: "Admin auth token",
+          schema: {
+            type: "string",
+          },
+        },
+      ],
+      produces: ["application/json"],
+      responses: {
+        201: {
+          description: "Created",
+          schema: {
+            $ref: "#/definitions/UserAdmin",
+          },
+        },
+      },
+    },
     "/auth": {
       post: {
         tags: ["Users"],
@@ -98,6 +130,7 @@ const swaggerDocument = {
     User: {
       required: [
         "name",
+        "contact",
         "contact.phoneNumber",
         "gender",
         "email",
@@ -105,12 +138,6 @@ const swaggerDocument = {
         "password",
       ],
       properties: {
-        _id: {
-          type: "string",
-          uniqueItems: true,
-          description:
-            "A unique identifier for user. Automatically assigned by the API when the movie is created",
-        },
         name: {
           type: "object",
           properties: {
@@ -166,6 +193,73 @@ const swaggerDocument = {
         password: { type: "string", required: true },
       },
     },
+    UserAdmin: {
+      required: [
+        "name",
+        "contact",
+        "contact.phoneNumber",
+        "gender",
+        "email",
+        "nextOfKin.contact.phoneNumber",
+        "password",
+      ],
+      properties: {
+        name: {
+          type: "object",
+          properties: {
+            firstName: { type: "string", example: "admin" },
+            lastName: { type: "string", example: "admin" },
+            middleName: { type: "string", example: "admin" },
+          },
+        },
+        gender: { type: "string", example: "male" },
+        email: { type: "string", uniqueItems: true, example: "administrator@email.com" },
+        contact: {
+          type: "object",
+          properties: {
+            address: {
+              type: "object",
+              properties: {
+                line1: { type: "string" },
+                line2: { type: "string" },
+                city: { type: "string" },
+                state: { type: "string" },
+                country: { type: "string" },
+                postCode: { type: "string" },
+              },
+            },
+            phoneNumber: { type: "string", required: true },
+          },
+        },
+        nextOfKin: {
+          type: "object",
+          properties: {
+            firstName: { type: "string" },
+            lastName: { type: "string" },
+            relationship: { type: "string" },
+            contact: {
+              type: "object",
+              properties: {
+                address: {
+                  type: "object",
+                  properties: {
+                    line1: { type: "string" },
+                    line2: { type: "string" },
+                    city: { type: "string" },
+                    state: { type: "string" },
+                    country: { type: "string" },
+                    postCode: { type: "string" },
+                  },
+                },
+                phoneNumber: { type: "string", required: true },
+              },
+            },
+          },
+        },
+        password: { type: "string", required: true },
+        role: { type: "string", enum: ["admin", ""] },
+      },
+    },
     Users: {
       type: "array",
       $ref: "#/definitions/User",
@@ -173,8 +267,8 @@ const swaggerDocument = {
     Login: {
       required: ["email", "password"],
       properties: {
-        email: { type: "string" },
-        password: { type: "string" },
+        email: { type: "string", example: "james@email.com"},
+        password: { type: "string", example: "111111" },
       },
     },
   },

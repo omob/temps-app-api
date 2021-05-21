@@ -13,17 +13,21 @@ const nameSchema = () => Joi.string()
       }),
       email: Joi.string().min(5).max(255).required().email(),
       password: Joi.string().min(5).max(255).required(),
-      contact: Joi.object().keys({
-        phoneNumber: Joi.string().required(),
-        address: Joi.object().keys({
-          line1: Joi.string(),
-          line2: Joi.string(),
-          city: Joi.string(),
-          state: Joi.string(),
-          country: Joi.string(),
-          postCode: Joi.string(),
-        }),
-      }),
+      contact: Joi.object()
+        .keys({
+          phoneNumber: Joi.string()
+            .required()
+            .label("contact phone number"),
+          address: Joi.object().keys({
+            line1: Joi.string(),
+            line2: Joi.string(),
+            city: Joi.string(),
+            state: Joi.string(),
+            country: Joi.string(),
+            postCode: Joi.string(),
+          }),
+        })
+        .required(),
       gender: Joi.string().required(),
       role: Joi.string(),
       nextOfKin: Joi.object().keys({
@@ -31,7 +35,7 @@ const nameSchema = () => Joi.string()
         lastName: nameSchema(),
         relationship: Joi.string(),
         contact: Joi.object().keys({
-          phoneNumber: Joi.string().required(),
+          phoneNumber: Joi.string().required().label("Next of Kin Phone Number"),
           address: Joi.object().keys({
             line1: Joi.string(),
             line2: Joi.string(),

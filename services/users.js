@@ -115,7 +115,7 @@ const register = async (req, res) => {
     .header("x-auth-token", token)
     .header("access-control-expose-headers", "x-auth-token")
     .status(201)
-    .json({ data: _.pick(user, ["_id", "firstName", "email"]), message: "success"});
+    .json({ data: _.pick(user, ["_id", "name", "email"]), message: "success"});
 };
 
 

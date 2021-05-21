@@ -8,6 +8,8 @@ const validateObjectId = require("../middleware/validateObjectId");
 const userServices = require("../services/users");
 const adminServices = require("../services/admin");
 
+// route - api/users
+
 router.get("/me", auth, (req, res) => {
   userServices.getProfile(req, res);
 });
