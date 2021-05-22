@@ -22,6 +22,7 @@ router.put("/me", auth, (req, res) => {
   userServices.updateProfile(req, res);
 });
 
+// user registering self
 router.post("/", async (req, res) => {
   userServices.register(req, res);
 });
@@ -34,7 +35,7 @@ router.post("/register", auth, admin, async (req, res) =>
   adminServices.registerUser(req, res)
 );
 
-router.get("/roles", async (req, res) => {
+router.get("/roles", auth, admin, async (req, res) => {
   adminServices.getRoles(req, res);
 });
 

@@ -57,6 +57,7 @@ const login = async (req, res) => {
   let user = await User.findOne({ email: userEmail });
   if (!user) return res.status(400).send("Invalid email or password."); // just to make imposter think both is wrong
 
+  console.log(user);
   const validPassword = await user.comparePassword(password);
   if (!validPassword) return res.status(400).send("Invalid email or password.");
 

@@ -24,7 +24,7 @@ const updateProfile = async (req, res) => {
   const { error } = validateUserOnUpdate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
- const { name, gender, contact, password, nextOfKin } = req.body; // User should not be able to update email
+ const { name, gender, contact, nextOfKin } = req.body; // User should not be able to update email
 
   await User.findOneAndUpdate(
     { _id: req.user._id },
@@ -32,7 +32,6 @@ const updateProfile = async (req, res) => {
       name,
       gender,
       contact,
-      password,
       nextOfKin,
     }
   );
