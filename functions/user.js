@@ -52,15 +52,47 @@ const nameSchema = () => Joi.string()
   };
 
 function validateUserOnUpdate(employee) {
-  const schema = {
-    email: Joi.string().min(5).max(255).required().email(),
-    phoneNumber: Joi.string().required(),
-    firstName: Joi.string().required(),
-    lastName: Joi.string().required(),
-    addressline1: Joi.string(),
-    state: Joi.string(),
-    city: Joi.string(),
-  };
+    const schema = {
+      name: Joi.object().keys({
+        firstName: nameSchema().required(),
+        lastName: nameSchema().required(),
+        middleName: nameSchema(),
+      }),
+      email: Joi.string().min(5).max(255).required().email(),
+      contact: Joi.object()
+        .keys({
+          phoneNumber: Joi.string().required().label("contact phone number"),
+          address: Joi.object().keys({
+            line1: Joi.string(),
+            line2: Joi.string(),
+            city: Joi.string(),
+            state: Joi.string(),
+            country: Joi.string(),
+            postCode: Joi.string(),
+          })
+        })
+        .required(),
+      documents: Joi.array(),
+      gender: Joi.string().required(),
+      nextOfKin: Joi.object().keys({
+        firstName: nameSchema(),
+        lastName: nameSchema(),
+        relationship: Joi.string(),
+        contact: Joi.object().keys({
+          phoneNumber: Joi.string()
+            .required()
+            .label("Next of Kin Phone Number"),
+          address: Joi.object().keys({
+            line1: Joi.string(),
+            line2: Joi.string(),
+            city: Joi.string(),
+            state: Joi.string(),
+            country: Joi.string(),
+            postCode: Joi.string(),
+          }),
+        }),
+      }),
+    };
 
   return Joi.validate(employee, schema);
 }

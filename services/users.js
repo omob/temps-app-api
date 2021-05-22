@@ -24,31 +24,19 @@ const updateProfile = async (req, res) => {
   const { error } = validateUserOnUpdate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  const {
-    firstName,
-    lastName,
-    phoneNumber,
-    addressline1,
-    city,
-    state,
-  } = req.body;
+ const { name, gender, contact, password, nextOfKin } = req.body; // User should not be able to update email
 
   await User.findOneAndUpdate(
     { _id: req.user._id },
     {
-      name: {
-        firstName,
-        lastName,
-      },
-      phoneNumber,
-      address: {
-        line1: addressline1,
-        city,
-        state,
-      },
+      name,
+      gender,
+      contact,
+      password,
+      nextOfKin,
     }
   );
-  res.send("Done");
+  res.status(200).json({ message: "success"});
 };
 
 const changePassword = async (req, res) => {
