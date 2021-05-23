@@ -77,7 +77,13 @@ const employeeSchema = new Schema({
   documents: {
     type: Array,
   },
-  createdDate: { type: Date, default: new Date ()}
+  createdDate: { type: Date, default: new Date() },
+  status: {
+    type: String,
+    required: true,
+    default: "unverified",
+    enum: ["verified", "unverified"],
+  },
 });
 
 employeeSchema.methods.generateAuthToken = function () {

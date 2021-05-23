@@ -1,11 +1,8 @@
 const { Employee: User } = require("../models/employee");
-const { Roles } = require("../models/roles");
-
-const mongoose = require("mongoose");
-const ObjectId = mongoose.Types.ObjectId;
 const Joi = require("joi");
 
 const config = require('config');
+const { getUserRoles } = require("../functions/user");
 
 const validateLogin = (requestBody) => {
   const schema = {
@@ -16,30 +13,6 @@ const validateLogin = (requestBody) => {
   return Joi.validate(requestBody, schema);
 };
 
-const getUserRoles = async (user) => {
-  const response = (await Roles.findOne({})).toObject();
-
-  const userRoles = {};
-
-  // find user roles
-  Object.keys(response).map((key) => {
-    if (typeof response[key] === "object" && key !== "_id") {
-      try {
-        let userIndex;
-        userRoles[key] = Array.from(response[key]).map((userInDb, index) => {
-          if (userInDb.userId === ObjectId(user._id).toHexString()) {
-            userIndex = index;
-            return true;
-          }
-          return false;
-        })[userIndex];
-      } catch (e) {}
-    }
-    return false;
-  });
-
-  return userRoles;
-};
 
 const login = async (req, res) => {
   const { error } = validateLogin(req.body);
@@ -57,7 +30,6 @@ const login = async (req, res) => {
   let user = await User.findOne({ email: userEmail });
   if (!user) return res.status(400).send("Invalid email or password."); // just to make imposter think both is wrong
 
-  console.log(user);
   const validPassword = await user.comparePassword(password);
   if (!validPassword) return res.status(400).send("Invalid email or password.");
 
@@ -68,7 +40,7 @@ const login = async (req, res) => {
 
   if (user.isDeleted) return res.status(403).send("Account has been deleted!");
 
-  user.userRoles = await getUserRoles(user);
+  user.userRoles = await getUserRoles(user._id);
 
   const token = user.generateAuthToken();
   res.send(token);

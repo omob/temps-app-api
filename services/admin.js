@@ -1,10 +1,20 @@
 const { Employee: User } = require("../models/employee"); // Using User schema in the user route
 const {
-  validateUser,
+  validateUser, getUserRoles,
 } = require("../functions/user");
 const _ = require("lodash");
 const bcrypt = require("bcrypt");
 const { Roles } = require("../models/roles");
+
+const USER_STATUS = {
+  VERIFIED : "verified",
+  UNVERIFIED : "unverified"
+};
+
+const USER_ROLES = {
+  ADMIN: "admin",
+  EMPLOYEE: "employee"
+};
 
 const registerUser = async (req, res) => {
   // const { error } = validateUser(req.body);
@@ -69,6 +79,7 @@ const registerUser = async (req, res) => {
     contact,
     password,
     nextOfKin,
+    status: role && role.toLowerCase() === "admin" ? USER_STATUS.VERIFIED : USER_STATUS.UNVERIFIED,
   });
 
   const salt = await bcrypt.genSalt(10);
@@ -118,12 +129,19 @@ const getUserProfile = async (req, res) => {
   res.send(userDocument);
 };
 
-const getAllUsers = async (req, res) => {
-  const usersInDb = await User.find({}).select("name isDeleted");
 
-  const users = usersInDb.filter((user) => {
-    return user.isDeleted == null || !user.isDeleted;
-  });
+// complete this
+const getAllUsers = async (req, res) => {
+  const usersInDb = await User.find({}).select("name isDeleted status");
+
+  const users = await Promise.all(usersInDb.map(async user => {
+    let userRole= await getUserRoles(user._id);
+    
+    userRole = userRole[USER_ROLES.ADMIN] ? USER_ROLES.ADMIN : USER_ROLES.EMPLOYEE;
+    return { ...user._doc, role: userRole };
+  }));
+
+  
   res.send(users);
 };
 

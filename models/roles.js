@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const Joi = require("joi");
 const Schema = mongoose.Schema;
 
 const rolesSchema = new Schema({
@@ -7,12 +6,7 @@ const rolesSchema = new Schema({
     type: Array,
     userId: { type: Schema.Types.ObjectId },
   },
-  moderator: {
-    type: Array,
-    userId: { type: Schema.Types.ObjectId },
-    default: [],
-  },
-  editor: {
+  employee: {
     type: Array,
     userId: { type: Schema.Types.ObjectId },
     default: [],

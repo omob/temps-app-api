@@ -1,4 +1,9 @@
 const Joi = require("joi");
+const { Roles } = require("../models/roles");
+
+const mongoose = require("mongoose");
+const ObjectId = mongoose.Types.ObjectId;
+
 
 const nameSchema = () => Joi.string()
   .regex(/^[A-Z]+$/)
@@ -105,8 +110,34 @@ function validatePassword(password) {
   return Joi.validate(password, schema);
 }
 
+const getUserRoles = async (userId) => {
+  const response = (await Roles.findOne({})).toObject();
+
+  const userRoles = {};
+
+  // find user roles
+  Object.keys(response).map((key) => {
+    if (typeof response[key] === "object" && key !== "_id") {
+      try {
+        let userIndex;
+        userRoles[key] = Array.from(response[key]).map((userInDb, index) => {
+          if (userInDb.userId === ObjectId(userId).toHexString()) {
+            userIndex = index;
+            return true;
+          }
+          return false;
+        })[userIndex];
+      } catch (e) {}
+    }
+    return false;
+  });
+
+  return userRoles;
+};
+
 module.exports = {
   validateUser,
   validateUserOnUpdate,
   validatePassword,
+  getUserRoles,
 };

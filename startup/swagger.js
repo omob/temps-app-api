@@ -28,11 +28,37 @@ const swaggerDocument = {
       get: {
         tags: ["Users"],
         summary: "Get all users in system",
+        parameters: [
+          {
+            name: "x-auth-token",
+            in: "header",
+            description: "Admin auth token",
+            schema: {
+              type: "string",
+            },
+          },
+        ],
         responses: {
           200: {
             description: "OK",
             schema: {
-              $ref: "#/definitions/Users",
+              type: "array",
+              items: {
+                properties: {
+                  name: {
+                    type: "object",
+                    properties: {
+                      firstName: { type: "string" },
+                      middleName: { type: "string" },
+                      lastName: { type: "string" },
+                    },
+                  },
+                  isDeleted: { type: "boolean" },
+                  status: { type: "string", enum: ["verified", "unverified"] },
+                  _id: { type: "string" },
+                  role: { type: "string", enum: ["admin", "employee"] },
+                },
+              },
             },
           },
         },
@@ -111,7 +137,7 @@ const swaggerDocument = {
           200: {
             description: "OK",
             schema: {
-               message: { type: "string"}
+              message: { type: "string" },
             },
           },
         },
