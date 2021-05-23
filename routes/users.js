@@ -47,6 +47,10 @@ router.put("/revoke", auth, admin, async (req, res) => {
 router.get("/:id", auth, admin, validateObjectId, async (req, res) => {
   adminServices.getUserProfile(req, res);
 });
+// admin update other user's profile
+router.put("/:id", auth, admin, validateObjectId, async (req, res) => {
+  adminServices.updateUserProfile(req, res);
+});
 
 router.get("/", auth, admin, async (req, res) => {
   adminServices.getAllUsers(req, res);

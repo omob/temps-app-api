@@ -111,7 +111,49 @@ const swaggerDocument = {
           200: {
             description: "OK",
             schema: {
-              $ref: "#/definitions/Response"
+              $ref: "#/definitions/Response",
+            },
+          },
+        },
+      },
+      put: {
+        tags: ["Users"],
+        summary: "Updates User profile",
+        parameters: [
+          {
+            name: "x-auth-token",
+            in: "header",
+            description: "Admin auth token",
+            type: "string",
+            required: true,
+          },
+          {
+            name: "id",
+            in: "path",
+            description: "user ID",
+            type: "string",
+            required: true,
+          },
+          {
+            name: "user profile",
+            in: "body",
+            description: "data to be updated",
+            schema: {
+              $ref: "#/definitions/UserUpdate",
+              type: "object",
+              properties: {
+                canLogin: { type: "boolean" }
+              }
+            },
+          },
+        ],
+
+        produces: ["application/json"],
+        responses: {
+          200: {
+            description: "OK",
+            schema: {
+              message: { type: "string" },
             },
           },
         },

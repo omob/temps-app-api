@@ -97,6 +97,8 @@ function validateUserOnUpdate(employee) {
           }),
         }),
       }),
+      canLogin: Joi.boolean(),
+      status: Joi.string(),
     };
 
   return Joi.validate(employee, schema);

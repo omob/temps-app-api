@@ -1,6 +1,6 @@
 const { Employee: User } = require("../models/employee"); // Using User schema in the user route
 const {
-  validateUser, getUserRoles,
+  validateUser, getUserRoles, validateUserOnUpdate,
 } = require("../functions/user");
 const _ = require("lodash");
 const bcrypt = require("bcrypt");
@@ -89,7 +89,28 @@ const getUserProfile = async (req, res) => {
 };
 
 
-// complete this
+const updateUserProfile = async (req, res) => {
+ const { id } = req.params;
+ const { error } = validateUserOnUpdate(req.body);
+ if (error) return res.status(400).send(error.details[0].message);
+
+ const { name, gender, email, contact, nextOfKin, status, canLogin } = req.body; // User should not be able to update email
+
+ await User.findOneAndUpdate(
+   { _id: id },
+   {
+     name,
+     email,
+     gender,
+     contact,
+     nextOfKin,
+     status,
+     canLogin: canLogin === null ? true : canLogin,
+   }
+ );
+ res.status(200).json({ message: "success" });
+};
+
 const getAllUsers = async (req, res) => {
   const usersInDb = await User.find({}).select("name isDeleted status");
 
@@ -100,7 +121,6 @@ const getAllUsers = async (req, res) => {
     return { ...user._doc, role: userRole };
   }));
 
-  
   res.send(users);
 };
 
@@ -119,4 +139,5 @@ module.exports = {
   getUserProfile,
   getAllUsers,
   deleteUser,
+  updateUserProfile,
 };
