@@ -87,6 +87,36 @@ const swaggerDocument = {
         },
       },
     },
+    "/users/{id}": {
+      get: {
+        tags: ["Users"],
+        summary: "Get user details based on user id",
+        parameters: [
+          {
+            name: "x-auth-token",
+            in: "header",
+            description: "Admin auth token",
+            type: "string",
+            required: true,
+          },
+          {
+            name: "id",
+            in: "path",
+            description: "user ID",
+            type: "string",
+            required: true,
+          },
+        ],
+        responses: {
+          200: {
+            description: "OK",
+            schema: {
+              $ref: "#/definitions/Response"
+            },
+          },
+        },
+      },
+    },
     "/users/me": {
       get: {
         tags: ["Users"],
@@ -183,8 +213,8 @@ const swaggerDocument = {
                         lastName: { type: "string" },
                       },
                     },
-                    email: { type: "string"},
-                    role: { type: "string" }
+                    email: { type: "string" },
+                    role: { type: "string" },
                   },
                 },
                 message: { type: "string" },

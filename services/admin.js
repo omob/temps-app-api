@@ -80,12 +80,12 @@ const manageAccess = async (req, res) => {
 const getUserProfile = async (req, res) => {
   const { id } = req.params;
   const userDocument = await User.findById({ _id: id }).select(
-    "-password -creditCard"
+    "-password"
   );
 
   if (!userDocument) return res.status(404).send("User not found");
 
-  res.send(userDocument);
+  res.status(200).json({ data: userDocument, message: "success"});
 };
 
 
