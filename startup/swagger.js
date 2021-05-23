@@ -147,31 +147,49 @@ const swaggerDocument = {
       post: {
         tags: ["Users"],
         summary: "Admin registering a new user",
-      },
-      parameters: [
-        {
-          name: "user",
-          in: "body",
-          description: "User details that admin wants to create",
-          schema: {
-            $ref: "#/definitions/UserAdmin",
+        parameters: [
+          {
+            name: "user",
+            in: "body",
+            description: "User details that admin wants to create",
+            schema: {
+              $ref: "#/definitions/UserAdmin",
+            },
           },
-        },
-        {
-          name: "x-auth-token",
-          in: "headers",
-          description: "Admin auth token",
-          schema: {
-            type: "string",
+          {
+            name: "x-auth-token",
+            in: "header",
+            description: "Admin auth token",
+            schema: {
+              type: "string",
+            },
           },
-        },
-      ],
-      produces: ["application/json"],
-      responses: {
-        201: {
-          description: "Created",
-          schema: {
-            $ref: "#/definitions/UserAdmin",
+        ],
+        produces: ["application/json"],
+        responses: {
+          201: {
+            description: "Created",
+            schema: {
+              properties: {
+                data: {
+                  type: "object",
+                  properties: {
+                    _id: { type: "string" },
+                    name: {
+                      type: "object",
+                      properties: {
+                        firstName: { type: "string" },
+                        middleName: { type: "string" },
+                        lastName: { type: "string" },
+                      },
+                    },
+                    email: { type: "string"},
+                    role: { type: "string" }
+                  },
+                },
+                message: { type: "string" },
+              },
+            },
           },
         },
       },

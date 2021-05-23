@@ -17,47 +17,6 @@ const USER_ROLES = {
 };
 
 const registerUser = async (req, res) => {
-  // const { error } = validateUser(req.body);
-  // if (error) return res.status(400).send(error.details[0].message);
-
-  // const {
-  //   firstName,
-  //   lastName,
-  //   phoneNumber,
-  //   email,
-  //   password,
-  //   addressline1,
-  //   city,
-  //   state,
-  //   role,
-  // } = req.body;
-
-  // let user = await User.findOne({
-  //   $or: [{ email }, { phoneNumber }],
-  // });
-  // if (user)
-  //   return res
-  //     .status(400)
-  //     .send("User with same email or phone number already registered.");
-
-  // user = new User({
-  //   name: {
-  //     firstName,
-  //     lastName,
-  //   },
-  //   email,
-  //   phoneNumber,
-  //   password,
-  //   address: {
-  //     line1: addressline1,
-  //     city,
-  //     state,
-  //   },
-  // });
-
-  // const salt = await bcrypt.genSalt(10);
-  // user.password = await bcrypt.hash(user.password, salt);
-
   const { error } = validateUser(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
