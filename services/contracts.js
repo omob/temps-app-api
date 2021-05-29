@@ -30,19 +30,21 @@ const createContract = async (req, res) => {
     await productions.map(async (production) => {
       // each production contains an array of locations
       
-	  let locationsRecord;
+	  // let locationsRecord;
 
-	  if (production.locations) {
-		 locationsRecord = (
-			await Location.insertMany([...production.locations])
-			).map((location) => ({ location: location._id }));
-	  }
+	  // if (production.locations) {
+		//  locationsRecord = (
+		// 	await Location.insertMany([...production.locations])
+		// 	).map((location) => ({ location: location._id }));
+	  // }
 
-      const { locations, ...otherFields } = production;
-      const savedProduction = await Production.create({
-        ...otherFields,
-        locations: locationsRecord,
-      });
+    //   const { locations, ...otherFields } = production;
+      // const savedProduction = await Production.create({
+      //   ...otherFields,
+      //   locations: locationsRecord,
+      // });
+
+      const savedProduction = await Production.create({ ...production })
 
       return savedProduction._id;
     })

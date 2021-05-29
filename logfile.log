@@ -755,3 +755,10 @@
 {"message":"Unexpected token } in JSON at position 146","stack":"SyntaxError: Unexpected token } in JSON at position 146\n    at JSON.parse (<anonymous>)\n    at parse (D:\\Project\\GitHub Project\\mls-security\\server\\node_modules\\body-parser\\lib\\types\\json.js:89:19)\n    at D:\\Project\\GitHub Project\\mls-security\\server\\node_modules\\body-parser\\lib\\read.js:121:18\n    at invokeCallback (D:\\Project\\GitHub Project\\mls-security\\server\\node_modules\\raw-body\\index.js:224:16)\n    at done (D:\\Project\\GitHub Project\\mls-security\\server\\node_modules\\raw-body\\index.js:213:7)\n    at IncomingMessage.onEnd (D:\\Project\\GitHub Project\\mls-security\\server\\node_modules\\raw-body\\index.js:273:7)\n    at IncomingMessage.emit (events.js:323:22)\n    at endReadableNT (_stream_readable.js:1204:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)","expose":true,"statusCode":400,"status":400,"body":"{\n  \"name\": \"Micheal Stacks\",\n  \"email\": \"m@stacks.com\",\n  \"contactNumber\": \"89298488382\",\n  \"productions\": [\n    {\n      \"name\": \"ATL\",\n    \n    }\n  ]\n}","type":"entity.parse.failed","level":"error","timestamp":"2021-05-29T01:41:06.383Z"}
 {"level":"info","message":"Listening on port 3900...","timestamp":"2021-05-29T01:49:58.294Z"}
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-05-29T01:49:58.318Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-05-29T10:07:20.903Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-05-29T10:11:53.255Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-05-29T10:11:53.275Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-05-29T10:24:42.521Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-05-29T10:24:42.541Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-05-29T10:26:18.471Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-05-29T10:26:18.492Z"}
