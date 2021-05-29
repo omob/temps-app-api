@@ -302,6 +302,36 @@ const swaggerDocument = {
       },
     },
 
+    "/contracts/{id}": {
+      get: {
+        tags: ["Contracts"],
+        summary: "Get specific contract in system",
+        parameters: [
+          {
+            name: "x-auth-token",
+            in: "header",
+            description: "Admin auth token",
+            type: "string",
+            required: true,
+          },
+          {
+            name: "id",
+            in: "path",
+            description: "contract ID",
+            type: "string",
+            required: true,
+          },
+        ],
+        responses: {
+          200: {
+            description: "OK",
+            schema: {
+              $ref: "#/definitions/ContractReadDto",
+            },
+          },
+        },
+      },
+    },
     "/contracts": {
       get: {
         tags: ["Contracts"],

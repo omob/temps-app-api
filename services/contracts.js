@@ -86,8 +86,21 @@ const getAllContracts = async (req, res) => {
     .send({ data: contracts, message: "success"});
 };
 
+const getContractProfile = async (req, res) => {
+  const { id } = req.params;
+  const contractInDb = await Contract.findById(id).populate({
+    path: "productions",
+    model: "Production",
+  });
+
+  if (!contractInDb) return res.status(404).send("Contract not found");
+
+  res.status(200).json({ data: contractInDb, message: "success" });
+};
+
 module.exports = {
   createContract,
   updateContract,
   getAllContracts,
+  getContractProfile
 };
