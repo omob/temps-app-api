@@ -19,6 +19,10 @@ const swaggerDocument = {
       name: "Users",
       description: "API for users in the system",
     },
+    {
+      name: "Contracts",
+      description: "API for clients / contracts in the system",
+    },
   ],
   schemes: ["http"],
   consumes: ["application/json"],
@@ -142,8 +146,8 @@ const swaggerDocument = {
               $ref: "#/definitions/UserUpdate",
               type: "object",
               properties: {
-                canLogin: { type: "boolean" }
-              }
+                canLogin: { type: "boolean" },
+              },
             },
           },
         ],
@@ -292,6 +296,32 @@ const swaggerDocument = {
             description: "Bad Request",
             schema: {
               type: "string",
+            },
+          },
+        },
+      },
+    },
+
+    "/contracts": {
+      post: {
+        tags: ["Contracts"],
+        summary: "Creates a new contract",
+        parameters: [
+          {
+            name: "contract",
+            in: "body",
+            description: "Contract profile to be created",
+            schema: {
+              $ref: "#/definitions/ContractCreateDto",
+            },
+          },
+        ],
+        produces: ["application/json"],
+        responses: {
+          201: {
+            description: "Created",
+            schema: {
+              $ref: "#/definitions/ContractReadDto",
             },
           },
         },
@@ -562,6 +592,102 @@ const swaggerDocument = {
       properties: {
         data: { type: "object", $ref: "#/definitions/UserProfile" },
         message: { type: "string" },
+      },
+    },
+    ContractCreateDto: {
+      required: ["name", "productions"],
+      properties: {
+        name: { type: "string" },
+        email: { type: "string", unique: true },
+        contactNumber: { type: "string" },
+        address: {
+          type: "object",
+          properties: {
+            line1: { type: "string" },
+            line2: { type: "string" },
+            city: { type: "string" },
+            state: { type: "string" },
+            country: { type: "string" },
+            postCode: { type: "string", required: true },
+          },
+        },
+        inRate: { type: "number" },
+        productions: {
+          type: "array",
+          items: {
+            properties: {
+              name: { type: "string" },
+              licenses: { type: "array", items: { type: "string" } },
+              locations: {
+                type: "array",
+                items: {
+                  properties: {
+                    name: { type: "string" },
+                    address: {
+                      type: "object",
+                      properties: {
+                        line1: { type: "string" },
+                        line2: { type: "string" },
+                        city: { type: "string" },
+                        state: { type: "string" },
+                        country: { type: "string" },
+                        postCode: { type: "string", required: true },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    ContractReadDto: {
+      properties: {
+        _id: { type: "string" },
+        name: { type: "string" },
+        email: { type: "string", unique: true },
+        contactNumber: { type: "string" },
+        address: {
+          type: "object",
+          properties: {
+            line1: { type: "string" },
+            line2: { type: "string" },
+            city: { type: "string" },
+            state: { type: "string" },
+            country: { type: "string" },
+            postCode: { type: "string", required: true },
+          },
+        },
+        inRate: { type: "number" },
+        productions: {
+          type: "array",
+          items: {
+            properties: {
+              name: { type: "string" },
+              licenses: { type: "array", items: { type: "string" } },
+              locations: {
+                type: "array",
+                items: {
+                  properties: {
+                    name: { type: "string" },
+                    address: {
+                      type: "object",
+                      properties: {
+                        line1: { type: "string" },
+                        line2: { type: "string" },
+                        city: { type: "string" },
+                        state: { type: "string" },
+                        country: { type: "string" },
+                        postCode: { type: "string", required: true },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
       },
     },
   },
