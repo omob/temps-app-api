@@ -10,7 +10,7 @@ const nameSchema = () =>
 
 function validateContract(contract) {
   const schema = {
-    name: nameSchema().required(),
+    name: Joi.string().required(),
     contactNumber: Joi.string(),
     email: Joi.string().min(5).max(255).required().email(),
     businessType: Joi.string(),
@@ -48,7 +48,7 @@ function validateContract(contract) {
 
 function validateContractOnUpdate(contract) {
   const schema = {
-    name: nameSchema().required(),
+    name: Joi.string().required(),
     contactNumber: Joi.string(),
     email: Joi.string().min(5).max(255).required().email(),
     businessType: Joi.string(),

@@ -61,13 +61,30 @@ const createContract = async (req, res) => {
   });
 
   const savedContract = await contract.save();
+
+  const fetchedContract = await Contract.findById(savedContract._id).populate({
+    path: "productions",
+    model: "Production",
+  });
   
-  res.status(201).json({ data: savedContract, message: "success"});
+  res.status(201).json({ data: fetchedContract, message: "success"});
 };
 
-const updateContract = async (req, res) => {};
+const updateContract = async (req, res) => {
 
-const getAllContracts = async (req, res) => {};
+};
+
+const getAllContracts = async (req, res) => {
+   const contracts = await Contract.find({})
+    .populate({
+      path: "productions",
+      model: "Production",
+    });
+  
+   res
+    .status(200)
+    .send({ data: contracts, message: "success"});
+};
 
 module.exports = {
   createContract,

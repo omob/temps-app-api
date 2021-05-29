@@ -303,10 +303,40 @@ const swaggerDocument = {
     },
 
     "/contracts": {
+      get: {
+        tags: ["Contracts"],
+        summary: "Get all contracts in system",
+        parameters: [
+          {
+            name: "x-auth-token",
+            in: "header",
+            description: "Admin auth token",
+            schema: {
+              type: "string",
+            },
+          },
+        ],
+        responses: {
+          200: {
+            description: "OK",
+            schema: {
+              $ref: "#/definitions/ContractReadDto",
+            },
+          },
+        },
+      },
       post: {
         tags: ["Contracts"],
         summary: "Creates a new contract",
         parameters: [
+          {
+            name: "x-auth-token",
+            in: "header",
+            description: "Admin auth token",
+            schema: {
+              type: "string",
+            },
+          },
           {
             name: "contract",
             in: "body",
@@ -627,7 +657,6 @@ const swaggerDocument = {
                       type: "object",
                       properties: {
                         line1: { type: "string" },
-                        line2: { type: "string" },
                         city: { type: "string" },
                         state: { type: "string" },
                         country: { type: "string" },
@@ -664,18 +693,19 @@ const swaggerDocument = {
           type: "array",
           items: {
             properties: {
+              _id: { type: "string" },
               name: { type: "string" },
               licenses: { type: "array", items: { type: "string" } },
               locations: {
                 type: "array",
                 items: {
                   properties: {
+                    _id: { type: "string" },
                     name: { type: "string" },
                     address: {
                       type: "object",
                       properties: {
                         line1: { type: "string" },
-                        line2: { type: "string" },
                         city: { type: "string" },
                         state: { type: "string" },
                         country: { type: "string" },
