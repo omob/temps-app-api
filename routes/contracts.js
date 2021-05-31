@@ -18,4 +18,8 @@ router.get("/:id", auth, admin, validateObjectId, async (req, res) => {
   contractServices.getContractProfile(req, res);
 });
 
+router.put("/:id", auth, admin, validateObjectId, (req, res) => {
+  contractServices.updateContract(req, res);
+});
+
 module.exports = router;

@@ -23,11 +23,11 @@ const contractSchema = new Schema({
   inRate: { type: Number, default: 0 },
   createdDate: { type: Date, default: new Date() },
   productions: [
-      { 
-          type: mongoose.Schema.Types.ObjectId,
-          ref: 'Production'
-      }
-    ]
+    {
+      _id: { type: mongoose.Schema.Types.ObjectId, ref: "Production" },
+      isDeleted: { type: Boolean, default: false }
+    },
+  ],
 });
 
 const Contract = mongoose.model("Contract", contractSchema);

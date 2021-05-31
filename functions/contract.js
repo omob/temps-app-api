@@ -19,7 +19,7 @@ function validateContract(contract) {
       line2: Joi.string().allow(null).allow(""),
       city: Joi.string().allow(null).allow(""),
       state: Joi.string(),
-      country: Joi.string(),
+      country: Joi.string().allow(null).allow(""),
       postCode: Joi.string().required(),
     }),
     productions: Joi.array().items(
@@ -29,13 +29,13 @@ function validateContract(contract) {
         locations: Joi.array().items(
           Joi.object().keys({
             name: Joi.string().label("Location Name"),
-            address: Joi.object()
-              .keys({
-                line1: Joi.string().label("Location Address Line 1"),
-                city: Joi.string().label("Location city"),
-                state: Joi.string().label("Loaction State"),
-                postCode: Joi.string().required().label("Location Postcode"),
-              })
+            address: Joi.object().keys({
+              line1: Joi.string().label("Location Address Line 1"),
+              city: Joi.string().label("Location city"),
+              state: Joi.string().label("Loaction State"),
+              country: Joi.string().label("Location Country"),
+              postCode: Joi.string().required().label("Location Postcode"),
+            }),
           })
         ),
       })
@@ -57,22 +57,33 @@ function validateContractOnUpdate(contract) {
       line2: Joi.string().allow(null).allow(""),
       city: Joi.string().allow(null).allow(""),
       state: Joi.string(),
-      country: Joi.string(),
+      country: Joi.string().allow(null).allow(""),
       postCode: Joi.string().required(),
     }),
     productions: Joi.array().items(
       Joi.object().keys({
+        _id: Joi.string().required().label("Production Id"),
         name: Joi.string().required().label("Production Name"),
         licenses: Joi.array(),
         locations: Joi.array().items(
           Joi.object().keys({
+            _id: Joi.string().label("Location Id"),
             name: Joi.string().label("Location Name"),
-            address: Joi.object().keys({
-              line1: Joi.string().label("Location Address Line 1"),
-              city: Joi.string().label("Location city"),
-              state: Joi.string().label("Loaction State"),
-              postCode: Joi.string().required().label("Location Postcode"),
-            }).required(),
+            address: Joi.object()
+              .keys({
+                line1: Joi.string().label("Location Address Line 1"),
+                city: Joi.string().label("Location city"),
+                state: Joi.string()
+                  .label("Location State")
+                  .allow(null)
+                  .allow(""),
+                country: Joi.string()
+                  .label("Location Country")
+                  .allow(null)
+                  .allow(""),
+                postCode: Joi.string().required().label("Location Postcode"),
+              })
+              .required(),
           })
         ),
       })

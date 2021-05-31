@@ -29,7 +29,7 @@ const productionSchema = new Schema({
         postCode: { type: String, required: true },
       },
     },
-  ],
+  ]
 });
 
 const Production = mongoose.model("Production", productionSchema);
