@@ -419,6 +419,44 @@ const swaggerDocument = {
         },
       },
     },
+
+    "/main/dashboard": {
+      get: {
+        tags: ["Main"],
+        summary: "Get dasbboard information",
+        parameters: [
+          {
+            name: "x-auth-token",
+            in: "header",
+            description: "Admin auth token",
+            schema: {
+              type: "string",
+            },
+          },
+        ],
+        responses: {
+          200: {
+            description: "OK",
+            schema: {
+                type: "object",
+                properties: {
+                  data: {
+                    type: "object",
+                    properties: {
+                      employeeCount: { type: "number" },
+                      contractCount: { type: "number" },
+                      activities: {
+                        type: "object",
+                      },
+                    },
+                  },
+                  message: { type: "string" },
+                },
+            },
+          },
+        },
+      },
+    },
   },
   definitions: {
     User: {
