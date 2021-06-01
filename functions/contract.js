@@ -82,8 +82,7 @@ function validateContractOnUpdate(contract) {
                   .allow(null)
                   .allow(""),
                 postCode: Joi.string().required().label("Location Postcode"),
-              })
-              .required(),
+              }).required(),
           })
         ),
       })

@@ -331,6 +331,38 @@ const swaggerDocument = {
           },
         },
       },
+      put: {
+        tags: ["Contracts"],
+        summary: "Updates a contract profile",
+        parameters: [
+          {
+            name: "x-auth-token",
+            in: "header",
+            description: "My auth token",
+            schema: {
+              type: "string",
+            },
+          },
+          {
+            name: "contract profile",
+            in: "body",
+            description: "data to be updated",
+            schema: {
+              $ref: "#/definitions/ContractUpdateDto",
+            },
+          },
+        ],
+
+        produces: ["application/json"],
+        responses: {
+          200: {
+            description: "OK",
+            schema: {
+              message: { type: "string" },
+            },
+          },
+        },
+      },
     },
     "/contracts": {
       get: {
@@ -732,6 +764,56 @@ const swaggerDocument = {
                   properties: {
                     _id: { type: "string" },
                     name: { type: "string" },
+                    address: {
+                      type: "object",
+                      properties: {
+                        line1: { type: "string" },
+                        city: { type: "string" },
+                        state: { type: "string" },
+                        country: { type: "string" },
+                        postCode: { type: "string", required: true },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    ContractUpdateDto: {
+      required: ["name", "email", "productions.name", "productions._id"],
+      properties: {
+        name: { type: "string" },
+        businessType: { type: "string" },
+        email: { type: "string", unique: true },
+        contactNumber: { type: "string" },
+        address: {
+          type: "object",
+          properties: {
+            line1: { type: "string" },
+            line2: { type: "string" },
+            city: { type: "string" },
+            state: { type: "string" },
+            country: { type: "string" },
+            postCode: { type: "string", required: true },
+          },
+        },
+        inRate: { type: "number" },
+        productions: {
+          type: "array",
+          items: {
+            properties: {
+              name: { type: "string", required: true },
+              _id: { type: "string", required: true },
+              licenses: { type: "array", items: { type: "string" } },
+              locations: {
+                type: "array",
+                items: {
+                  properties: {
+                    name: { type: "string" },
+                    _id: { type: "string" },
                     address: {
                       type: "object",
                       properties: {

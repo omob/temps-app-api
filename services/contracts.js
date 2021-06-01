@@ -118,8 +118,7 @@ const updateContract = async (req, res) => {
         }
         return { _id: updatedProduction._id }
       }));
-   }
-
+   };
 
    await Contract.findByIdAndUpdate(contractId, {
      name,
@@ -132,7 +131,7 @@ const updateContract = async (req, res) => {
    });
 
    const contractInDb  = await _getContractById(contractId);
-   res.send(contractInDb);
+   res.status(200).json({ data: contractInDb, message: "success"});
 };
 
 const getAllContracts = async (req, res) => {
