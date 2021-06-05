@@ -7,4 +7,8 @@ router.get("/dashboard", (req, res) => {
   mainServices.dashboardInfo(req, res)
 });
 
+router.get("/stats", (req, res) => {
+  mainServices.stats(req, res)
+});
+
 module.exports = router;

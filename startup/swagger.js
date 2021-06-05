@@ -27,6 +27,10 @@ const swaggerDocument = {
       name: "Shifts",
       description: "API for managing Shifts",
     },
+    {
+      name: "Auth",
+      description: "API for Authentication",
+    },
   ],
   schemes: ["http"],
   consumes: ["application/json"],
@@ -276,7 +280,7 @@ const swaggerDocument = {
     },
     "/auth": {
       post: {
-        tags: ["Users"],
+        tags: ["Auth"],
         summary: "Logs in a user",
         parameters: [
           {

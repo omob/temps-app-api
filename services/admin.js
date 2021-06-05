@@ -85,7 +85,7 @@ const getUserProfile = async (req, res) => {
 
   if (!userDocument) return res.status(404).send("User not found");
 
-  res.status(200).json({ data: userDocument, message: "success"});
+  res.status(200).json({ ...userDocument.toObject() });
 };
 
 

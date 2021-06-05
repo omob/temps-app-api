@@ -10,16 +10,54 @@ const dashboardInfo = async (req, res) => {
 
     const contractCount = await Contract.find({}).countDocuments();
 
-    const activities = {
+    const activities = [];
 
-    }
-
-    res.status(200).json({ data: {
+    res.status(200).json({
         employeeCount, contractCount, activities
-    }, message: "success" })
+    })
 };
+
+const stats = async (req, res) => {
+  const employeeCount = await Employee.find({}).countDocuments();
+
+  const contractCount = await Contract.find({}).countDocuments();
+
+  res.status(200).json({
+      employeeCount,
+      contractCount
+    });
+}
+
+// mock data
+ const allActivitiesData = [
+   {
+     id: "001",
+     heading: "Awaiting Approval",
+     type: "approval",
+     message: "James Williams documents are awaiting approval",
+     url: "...",
+     isRead: false,
+   },
+   {
+     id: "002",
+     heading: "Awaiting Approval",
+     type: "approval",
+     message: "Micheal Opayemi Williams documents are awaiting approval",
+     url: "...",
+     isRead: false,
+   },
+   {
+     id: "003",
+     heading: "Awaiting Approval",
+     type: "approval",
+     message: "James Williams documents are awaiting approval",
+     url: "...",
+     isRead: false,
+   },
+ ];
 
 
 module.exports = {
   dashboardInfo,
+  stats
 };
