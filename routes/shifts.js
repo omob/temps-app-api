@@ -22,6 +22,12 @@ router.put("/:id", auth, admin, (req, res) => {
     shiftsServices.updateShift(req, res);
 })
 
+router.delete("/:id", auth, admin, (req, res) => {
+    shiftsServices.deleteShift(req, res);
+})
+
+
+
 router.post("/", (req, res) => res.send("Hello"));
 
 module.exports = router;

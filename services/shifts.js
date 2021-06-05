@@ -197,10 +197,19 @@ const getShiftById = async (req, res) => {
   res.send(mappedShift)
 }
 
+const deleteShift = async (req, res) => {
+    const { id } = req.params;
+    await Shift.deleteOne({ _id: id});
+
+    winston.info("ACTION - DELETE SHIFT ");
+    res.status(204).send("Deleted");
+}
+
 
 module.exports = {
-    createShift,
-    getAllShifts,
-    getShiftById,
-    updateShift
-}
+  createShift,
+  getAllShifts,
+  getShiftById,
+  updateShift,
+  deleteShift,
+};

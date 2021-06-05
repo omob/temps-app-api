@@ -242,3 +242,21 @@
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-05T01:19:36.369Z"}
 {"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-05T01:23:25.399Z"}
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-05T01:23:25.455Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-05T01:24:33.535Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-05T01:24:33.570Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-05T17:39:03.138Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-05T17:39:56.211Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-05T17:39:56.257Z"}
+{"message":"Unexpected string in JSON at position 638","stack":"SyntaxError: Unexpected string in JSON at position 638\n    at JSON.parse (<anonymous>)\n    at parse (D:\\Project\\GitHub Project\\mls-security\\server\\node_modules\\body-parser\\lib\\types\\json.js:89:19)\n    at D:\\Project\\GitHub Project\\mls-security\\server\\node_modules\\body-parser\\lib\\read.js:121:18\n    at invokeCallback (D:\\Project\\GitHub Project\\mls-security\\server\\node_modules\\raw-body\\index.js:224:16)\n    at done (D:\\Project\\GitHub Project\\mls-security\\server\\node_modules\\raw-body\\index.js:213:7)\n    at IncomingMessage.onEnd (D:\\Project\\GitHub Project\\mls-security\\server\\node_modules\\raw-body\\index.js:273:7)\n    at IncomingMessage.emit (events.js:323:22)\n    at endReadableNT (_stream_readable.js:1204:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)","expose":true,"statusCode":400,"status":400,"body":"{\n  \"contractInfo\": {\n    \"contract\": {\n      \"_id\": \"60b5600781a461177cb92b66\",\n      \"name\": \"HUSTLE LAND STREET\"\n    },\n    \"production\": {\n      \"_id\": \"60b5600781a461177cb92b60\",\n      \"name\": \"React Native\"\n    },\n    \"location\": {\n      \"address\": {\n        \"line1\": \"Leavesden, Abbots Langley, Hertfordshire, England, UK\",\n        \"city\": \"City\",\n        \"state\": \"London\",\n        \"country\": \"\",\n        \"postCode\": \"WD25 7LR\"\n      },\n      \"_id\": \"60b55b0ef259a1304c0b15b3\",\n      \"name\": \"WB Studio Leavesden\"\n    },\n    \"outRate\": 0,\n    \"position\": \"\"\n  },\n  \"status\": \"ACCEPTED\",\n  \"employee\": \"60a5ce008659d705f4865e9b\"\n  \"date\": \"2021-06-05T00:00:00.000Z\",\n  \"time\": {\n    \"start\": \"10:00\",\n    \"end\": \"12:00\",\n    \"break\": \"\"\n  },\n  \"milleage\": \"\",\n  \"meal\": \"\",\n  \"notes\": \"Do your best\",\n  \"__v\": 0\n}","type":"entity.parse.failed","level":"error","timestamp":"2021-06-05T17:46:53.560Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-06-05T17:50:04.777Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-06-05T17:51:36.122Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-05T17:53:12.451Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-05T17:53:12.471Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-05T17:57:00.233Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-05T17:57:00.255Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-05T17:57:02.268Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-05T17:57:02.291Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-05T17:58:04.387Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-05T17:58:04.407Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-05T17:58:07.800Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-05T17:58:07.820Z"}
