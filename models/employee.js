@@ -81,8 +81,8 @@ const employeeSchema = new Schema({
   status: {
     type: String,
     required: true,
-    default: "unverified",
-    enum: ["verified", "unverified"],
+    default: "UNVERIFIED",
+    enum: ["VERIFIED", "UNVERIFIED"],
   },
 });
 

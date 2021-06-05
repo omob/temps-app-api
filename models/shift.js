@@ -10,7 +10,7 @@ const shiftSchema = new Schema(
       outRate: { type: Number },
       position: { type: String },
     },
-    employee: { type: Schema.Types.ObjectId },
+    employee: { type: Schema.Types.ObjectId, ref: "Employee" },
     date: { type: Date },
     time: {
       type: "object",
@@ -21,8 +21,11 @@ const shiftSchema = new Schema(
     milleage: { type: String },
     meal: { type: String },
     notes: { type: String },
-    status: { type: String },
-    isAccepted: { type: Schema.Types.Boolean, default: false },
+    status: { 
+      type: String, 
+      enum: ["ACCEPTED", "REJECTED", "OUTDATED", "ONGOING", "COMPLETED", "PENDING"],
+      default: "PENDING" 
+    },
     createdDate: { type: Date, default: new Date() },
   },
   { typePojoToMixed: false }

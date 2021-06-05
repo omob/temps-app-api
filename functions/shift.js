@@ -14,8 +14,8 @@ function validateShift(shiftInfo) {
       employees: Joi.array(),
       dates: Joi.array(),
       time: Joi.object().keys({
-        start: Joi.string().label("Start Time"),
-        end: Joi.string().label("End Time"),
+        start: Joi.string().label("Start Time").required(),
+        end: Joi.string().label("End Time").required(),
         break: Joi.string().label("Break").allow(null).allow(""),
       }),
       milleage: Joi.string().label("Milleage").allow(null).allow(""),
@@ -26,7 +26,33 @@ function validateShift(shiftInfo) {
     return Joi.validate(shiftInfo, schema);
 }
 
+function validateShiftOnUpdate (shiftInfo) {
+  const schema = {
+    contract: Joi.object().keys({
+      id: Joi.string().label("Contract ID").required(),
+      production: Joi.object().keys({
+        id: Joi.string().label("Production ID").required(),
+        location: Joi.string().label("Location Id").required(),
+      }),
+      outRate: Joi.number().label("Out Rate").required(),
+      position: Joi.string().label("Position").allow(null).allow(""),
+    }),
+    employee: Joi.string().required(),
+    date: Joi.string().required(),
+    time: Joi.object().keys({
+      start: Joi.string().label("Start Time"),
+      end: Joi.string().label("End Time"),
+      break: Joi.string().label("Break").allow(null).allow(""),
+    }),
+    milleage: Joi.string().label("Milleage").allow(null).allow(""),
+    meal: Joi.string().allow(null).allow(""),
+    notes: Joi.string().label("Notes").allow(null).allow(""),
+  };
+
+  return Joi.validate(shiftInfo, schema);
+}
 
 module.exports = {
-  validateShift
+  validateShift,
+  validateShiftOnUpdate,
 };

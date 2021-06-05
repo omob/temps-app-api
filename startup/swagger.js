@@ -23,6 +23,10 @@ const swaggerDocument = {
       name: "Contracts",
       description: "API for clients / contracts in the system",
     },
+    {
+      name: "Shifts",
+      description: "API for managing Shifts",
+    },
   ],
   schemes: ["http"],
   consumes: ["application/json"],
@@ -438,20 +442,152 @@ const swaggerDocument = {
           200: {
             description: "OK",
             schema: {
-                type: "object",
-                properties: {
-                  data: {
-                    type: "object",
-                    properties: {
-                      employeeCount: { type: "number" },
-                      contractCount: { type: "number" },
-                      activities: {
-                        type: "object",
-                      },
+              type: "object",
+              properties: {
+                data: {
+                  type: "object",
+                  properties: {
+                    employeeCount: { type: "number" },
+                    contractCount: { type: "number" },
+                    activities: {
+                      type: "object",
                     },
                   },
-                  message: { type: "string" },
                 },
+                message: { type: "string" },
+              },
+            },
+          },
+        },
+      },
+    },
+
+    "/shifts/{id}": {
+      get: {
+        tags: ["Shifts"],
+        summary: "Get specific shift detail",
+        parameters: [
+          {
+            name: "x-auth-token",
+            in: "header",
+            description: "Admin auth token",
+            type: "string",
+            required: true,
+          },
+          {
+            name: "id",
+            in: "path",
+            description: "shift ID",
+            type: "string",
+            required: true,
+          },
+        ],
+        produces: ["application/json"],
+        responses: {
+          200: {
+            description: "OK",
+            schema: {
+              $ref: "#/definitions/ShiftReadDto",
+            },
+          },
+        },
+      },
+      put: {
+        tags: ["Shifts"],
+        summary: "Updates Shift profile",
+        parameters: [
+          {
+            name: "x-auth-token",
+            in: "header",
+            description: "Admin auth token",
+            type: "string",
+            required: true,
+          },
+          {
+            name: "id",
+            in: "path",
+            description: "user ID",
+            type: "string",
+            required: true,
+          },
+          {
+            name: "shift profile",
+            in: "body",
+            description: "data to be updated",
+            schema: {
+              $ref: "#/definitions/ShiftUpdateDto",
+              type: "object",
+              properties: {
+                canLogin: { type: "boolean" },
+              },
+            },
+          },
+        ],
+
+        produces: ["application/json"],
+        responses: {
+          200: {
+            description: "OK",
+            schema: {
+              $ref: "#/definitions/ShiftReadDto",
+            },
+          },
+        },
+      },
+    },
+    "/shifts": {
+      get: {
+        tags: ["Shifts"],
+        summary: "Get all shifts",
+        parameters: [
+          {
+            name: "x-auth-token",
+            in: "header",
+            description: "Admin auth token",
+            schema: {
+              type: "string",
+            },
+          },
+        ],
+        responses: {
+          200: {
+            description: "OK",
+            schema: {
+              type: "array",
+              items: {
+                $ref: "#/definitions/ShiftReadDto",
+              },
+            },
+          },
+        },
+      },
+      post: {
+        tags: ["Shifts"],
+        summary: "Creates a new shift",
+        parameters: [
+          {
+            name: "x-auth-token",
+            in: "header",
+            description: "Admin auth token",
+            schema: {
+              type: "string",
+            },
+          },
+          {
+            name: "shift",
+            in: "body",
+            description: "Shift that we want to create",
+            schema: {
+              $ref: "#/definitions/ShiftCreateDto",
+            },
+          },
+        ],
+        produces: ["application/json"],
+        responses: {
+          201: {
+            description: "Created",
+            schema: {
+              $ref: "#/definitions/ShiftReadtDto",
             },
           },
         },
@@ -868,6 +1004,153 @@ const swaggerDocument = {
             },
           },
         },
+      },
+    },
+    ShiftReadDto: {
+      properties: {
+        _id: { type: "string" },
+        employee: {
+          type: "object",
+          properties: {
+            name: {
+              type: "object",
+              properties: {
+                firstName: { type: "string" },
+                lastName: { type: "string" },
+                middleName: { type: "string" },
+              },
+            },
+            _id: { type: "string" },
+          },
+        },
+        contractInfo: {
+          type: "object",
+          properties: {
+            contract: {
+              type: "object",
+              properties: { _id: { type: "string" }, name: { type: "string" } },
+            },
+            production: {
+              type: "object",
+              properties: { _id: { type: "string" }, name: { type: "string" } },
+            },
+            location: {
+              type: "object",
+              properties: {
+                _id: { type: "string" },
+                address: {
+                  type: "object",
+                  properties: {
+                    line1: { type: "string" },
+                    city: { type: "string" },
+                    state: { type: "string" },
+                    country: { type: "string" },
+                    postCode: { type: "string" },
+                  },
+                },
+              },
+            },
+          },
+        },
+        status: {
+          type: "string",
+          enum: [
+            "PENDING",
+            "ACCEPTED",
+            "REJECTED",
+            "OUTDATED",
+            "ONGOING",
+            "COMPLETED",
+          ],
+        },
+        date: { type: "date" },
+        time: {
+          type: "object",
+          properties: {
+            start: { type: "string" },
+            end: { type: "string" },
+            break: { type: "string" },
+          },
+        },
+        milleage: { type: "string" },
+        meal: { type: "string" },
+        notes: { type: "string" },
+      },
+    },
+    ShiftCreateDto: {
+      properties: {
+        employee: { type: "string" },
+        contract: {
+          type: "object",
+          properties: {
+            id: { type: "string" },
+            production: {
+              type: "object",
+              properties: {
+                id: { type: "string" },
+                location: { type: "string" },
+              },
+            },
+            outRate: { type: "string" },
+            position: { type: "string" },
+          },
+        },
+        employees: { type: "array", items: { type: "string" } },
+        dates: { type: "array", items: { type: "dates" } },
+        time: {
+          type: "object",
+          properties: {
+            start: { type: "string" },
+            end: { type: "string" },
+            break: { type: "string" },
+          },
+        },
+        milleage: { type: "string" },
+        meal: { type: "string" },
+        notes: { type: "string" },
+        status: {
+          type: "string",
+          enum: [
+            "PENDING",
+            "ACCEPTED",
+            "REJECTED",
+            "OUTDATED",
+            "ONGOING",
+            "COMPLETED",
+          ],
+        },
+      },
+    },
+    ShiftUpdateDto: {
+      properties: {
+        contract: {
+          type: "object",
+          properties: {
+            id: { type: "string" },
+            production: {
+              type: "object",
+              properties: {
+                id: { type: "string" },
+                location: { type: "string" },
+              },
+            },
+            outRate: { type: "string" },
+            position: { type: "string" },
+          },
+        },
+        employee: { type: "string" },
+        date: { type: "string" },
+        time: {
+          type: "object",
+          properties: {
+            start: { type: "string" },
+            end: { type: "string" },
+            break: { type: "string" },
+          },
+        },
+        milleage: { type: "string" },
+        meal: { type: "string" },
+        notes: { type: "string" },
       },
     },
   },
