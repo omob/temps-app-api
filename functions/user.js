@@ -5,27 +5,22 @@ const mongoose = require("mongoose");
 const ObjectId = mongoose.Types.ObjectId;
 
 
-const nameSchema = () => Joi.string()
-  .regex(/^[A-Z]+$/)
-  .uppercase();
-
   function validateUser(user) {
     const schema = {
       name: Joi.object().keys({
-        firstName: nameSchema().required(),
-        lastName: nameSchema().required(),
-        middleName: nameSchema(),
+        firstName: Joi.string().required(),
+        lastName: Joi.string().required(),
+        middleName: Joi.string().allow(null).allow(""),
       }),
+      title: Joi.string().allow(null).allow(""),
+      utrNumber: Joi.string().allow(null).allow(""),
       email: Joi.string().min(5).max(255).required().email(),
-      password: Joi.string().min(5).max(255).required(),
       contact: Joi.object()
         .keys({
-          phoneNumber: Joi.string()
-            .required()
-            .label("contact phone number"),
+          phoneNumber: Joi.string().required().label("contact phone number"),
           address: Joi.object().keys({
             line1: Joi.string(),
-            line2: Joi.string(),
+            line2: Joi.string().allow(null).allow(""),
             city: Joi.string(),
             state: Joi.string(),
             country: Joi.string(),
@@ -33,23 +28,23 @@ const nameSchema = () => Joi.string()
           }),
         })
         .required(),
+      documents: Joi.array(),
       gender: Joi.string().required(),
-      role: Joi.string(),
       nextOfKin: Joi.object().keys({
-        firstName: nameSchema(),
-        lastName: nameSchema(),
-        relationship: Joi.string(),
-        contact: Joi.object().keys({
-          phoneNumber: Joi.string().required().label("Next of Kin Phone Number"),
-          address: Joi.object().keys({
-            line1: Joi.string(),
-            line2: Joi.string(),
-            city: Joi.string(),
-            state: Joi.string(),
-            country: Joi.string(),
-            postCode: Joi.string(),
-          }),
-        }),
+        firstName: Joi.string().allow(null).allow(""),
+        lastName: Joi.string().allow(null).allow(""),
+        relationship: Joi.string().allow(null).allow(""),
+        phoneNumber: Joi.string().required().label("Next of Kin Phone Number"),
+        // contact: Joi.object().keys({
+        //   address: Joi.object().keys({
+        //     line1: Joi.string(),
+        //     line2: Joi.string().allow(null).allow(""),
+        //     city: Joi.string().allow(null).allow(""),
+        //     state: Joi.string().allow(null).allow(""),
+        //     country: Joi.string().allow(null).allow(""),
+        //     postCode: Joi.string().allow(null).allow(""),
+        //   }),
+        // }),
       }),
     };
 
@@ -59,50 +54,50 @@ const nameSchema = () => Joi.string()
 function validateUserOnUpdate(employee) {
     const schema = {
       name: Joi.object().keys({
-        firstName: nameSchema().required(),
-        lastName: nameSchema().required(),
-        middleName: nameSchema(),
+        firstName: Joi.string().required(),
+        lastName: Joi.string().required(),
+        middleName: Joi.string().allow(null).allow(""),
       }),
+      title: Joi.string().allow(null).allow(""),
+      utrNumber: Joi.string().allow(null).allow(""),
       email: Joi.string().min(5).max(255).required().email(),
       contact: Joi.object()
         .keys({
           phoneNumber: Joi.string().required().label("contact phone number"),
           address: Joi.object().keys({
             line1: Joi.string(),
-            line2: Joi.string(),
-            city: Joi.string(),
-            state: Joi.string(),
-            country: Joi.string(),
-            postCode: Joi.string(),
-          })
-        })
-        .required(),
-      documents: Joi.array(),
-      gender: Joi.string().required(),
-      nextOfKin: Joi.object().keys({
-        firstName: nameSchema(),
-        lastName: nameSchema(),
-        relationship: Joi.string(),
-        contact: Joi.object().keys({
-          phoneNumber: Joi.string()
-            .required()
-            .label("Next of Kin Phone Number"),
-          address: Joi.object().keys({
-            line1: Joi.string(),
-            line2: Joi.string(),
+            line2: Joi.string().allow(null).allow(""),
             city: Joi.string(),
             state: Joi.string(),
             country: Joi.string(),
             postCode: Joi.string(),
           }),
-        }),
+        })
+        .required(),
+      documents: Joi.array(),
+      gender: Joi.string().required(),
+      nextOfKin: Joi.object().keys({
+        firstName: Joi.string().allow(null).allow(""),
+        lastName: Joi.string().allow(null).allow(""),
+        relationship: Joi.string().allow(null).allow(""),
+        phoneNumber: Joi.string().required().label("Next of Kin Phone Number"),
+        // contact: Joi.object().keys({
+        //   address: Joi.object().keys({
+        //     line1: Joi.string(),
+        //     line2: Joi.string().allow(null).allow(""),
+        //     city: Joi.string().allow(null).allow(""),
+        //     state: Joi.string().allow(null).allow(""),
+        //     country: Joi.string().allow(null).allow(""),
+        //     postCode: Joi.string().allow(null).allow(""),
+        //   }),
+        // }),
       }),
-      canLogin: Joi.boolean(),
-      status: Joi.string(),
     };
 
   return Joi.validate(employee, schema);
 }
+
+
 
 function validatePassword(password) {
   const schema = {
@@ -137,9 +132,114 @@ const getUserRoles = async (userId) => {
   return userRoles;
 };
 
+
+
+
+
+// ADMIN USER ENTRY VALIDATION
+
+  function validateAdminUser(user) {
+    const schema = {
+      name: Joi.object().keys({
+        firstName: Joi.string().required(),
+        lastName: Joi.string().required(),
+        middleName: Joi.string().allow(null).allow(""),
+      }),
+      title: Joi.string().allow(null).allow(""),
+      utrNumber: Joi.string().allow(null).allow(""),
+      email: Joi.string().min(5).max(255).required().email(),
+      contact: Joi.object()
+        .keys({
+          phoneNumber: Joi.string().required().label("contact phone number"),
+          address: Joi.object().keys({
+            line1: Joi.string(),
+            line2: Joi.string().allow(null).allow(""),
+            city: Joi.string(),
+            state: Joi.string(),
+            country: Joi.string(),
+            postCode: Joi.string(),
+          }),
+        })
+        .required(),
+      documents: Joi.array(),
+      gender: Joi.string().required(),
+      nextOfKin: Joi.object().keys({
+        firstName: Joi.string().allow(null).allow(""),
+        lastName: Joi.string().allow(null).allow(""),
+        relationship: Joi.string().allow(null).allow(""),
+        phoneNumber: Joi.string().allow(null).allow("").label("Next of Kin Phone Number"),
+        // contact: Joi.object().keys({
+        //   address: Joi.object().keys({
+        //     line1: Joi.string(),
+        //     line2: Joi.string().allow(null).allow(""),
+        //     city: Joi.string().allow(null).allow(""),
+        //     state: Joi.string().allow(null).allow(""),
+        //     country: Joi.string().allow(null).allow(""),
+        //     postCode: Joi.string().allow(null).allow(""),
+        //   }),
+        // }),
+      }),
+      canLogin: Joi.boolean(),
+      role: Joi.string()
+    };
+
+    return Joi.validate(user, schema);
+  };
+
+function validateAdminUserOnUpdate(employee) {
+  const schema = {
+    name: Joi.object().keys({
+      firstName: Joi.string().required(),
+      lastName: Joi.string().required(),
+      middleName: Joi.string().allow(null).allow(""),
+    }),
+    title: Joi.string().allow(null).allow(""),
+    utrNumber: Joi.string().allow(null).allow(""),
+    email: Joi.string().min(5).max(255).required().email(),
+    contact: Joi.object()
+      .keys({
+        phoneNumber: Joi.string().required().label("contact phone number"),
+        address: Joi.object().keys({
+          line1: Joi.string(),
+          line2: Joi.string().allow(null).allow(""),
+          city: Joi.string(),
+          state: Joi.string(),
+          country: Joi.string(),
+          postCode: Joi.string(),
+        }),
+      })
+      .required(),
+    documents: Joi.array(),
+    gender: Joi.string().required(),
+    nextOfKin: Joi.object().keys({
+      firstName: Joi.string().allow(null).allow(""),
+      lastName: Joi.string().allow(null).allow(""),
+      relationship: Joi.string().allow(null).allow(""),
+      phoneNumber: Joi.string().allow(null).allow("").label("Next of Kin Phone Number"),
+      // contact: Joi.object().keys({
+      //   address: Joi.object().keys({
+      //     line1: Joi.string(),
+      //     line2: Joi.string().allow(null).allow(""),
+      //     city: Joi.string().allow(null).allow(""),
+      //     state: Joi.string().allow(null).allow(""),
+      //     country: Joi.string().allow(null).allow(""),
+      //     postCode: Joi.string().allow(null).allow(""),
+      //   }),
+      // }),
+    }),
+    canLogin: Joi.boolean(),
+    role: Joi.string(),
+  };
+
+  return Joi.validate(employee, schema);
+}
+
+
 module.exports = {
   validateUser,
   validateUserOnUpdate,
   validatePassword,
   getUserRoles,
+  validateAdminUserOnUpdate,
+  validateAdminUser
 };

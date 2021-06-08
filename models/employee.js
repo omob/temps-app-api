@@ -10,6 +10,7 @@ const employeeSchema = new Schema({
     lastName: { type: String, required: true },
     middleName: { type: String, default: "" },
   },
+  title: {type: String },
   gender: { type: String, required: true, enum: ["male", "female"] },
   email: {
     type: String,
@@ -41,13 +42,12 @@ const employeeSchema = new Schema({
     firstName: { type: String, default: "" },
     lastName: { type: String, default: "" },
     relationship: { type: String, default: "" },
+    phoneNumber: {
+      type: String,
+      required: true,
+    },
     contact: {
       type: Object,
-      phoneNumber: {
-        type: String,
-        required: true,
-        unique: true,
-      },
       address: {
         type: Object,
         line1: { type: String, default: "" },

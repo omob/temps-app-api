@@ -1,6 +1,6 @@
 const { Employee: User } = require("../models/employee"); // Using User schema in the user route
 const {
-  validateUser, getUserRoles, validateUserOnUpdate,
+  validateAdminUser, getUserRoles, validateAdminUserOnUpdate,
 } = require("../functions/user");
 const _ = require("lodash");
 const bcrypt = require("bcrypt");
@@ -17,7 +17,7 @@ const USER_ROLES = {
 };
 
 const registerUser = async (req, res) => {
-  const { error } = validateUser(req.body);
+  const { error } = validateAdminUser(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
   const { name, gender, email, contact, password, nextOfKin, role } = req.body;
@@ -85,16 +85,21 @@ const getUserProfile = async (req, res) => {
 
   if (!userDocument) return res.status(404).send("User not found");
 
-  res.status(200).json({ ...userDocument.toObject() });
+  let userRole = await getUserRoles(id);
+  userRole = userRole[USER_ROLES.ADMIN]
+     ? USER_ROLES.ADMIN
+     : USER_ROLES.EMPLOYEE;
+
+  res.status(200).json({ ...userDocument.toObject(), role: userRole });
 };
 
 
 const updateUserProfile = async (req, res) => {
  const { id } = req.params;
- const { error } = validateUserOnUpdate(req.body);
+ const { error } = validateAdminUserOnUpdate(req.body);
  if (error) return res.status(400).send(error.details[0].message);
 
- const { name, gender, email, contact, nextOfKin, status, canLogin } = req.body; // User should not be able to update email
+ const { name, gender, email, contact, nextOfKin, canLogin } = req.body; 
 
  await User.findOneAndUpdate(
    { _id: id },
@@ -104,7 +109,6 @@ const updateUserProfile = async (req, res) => {
      gender,
      contact,
      nextOfKin,
-     status,
      canLogin: canLogin === null ? true : canLogin,
    }
  );
