@@ -101,7 +101,7 @@ function validateUserOnUpdate(employee) {
 
 function validatePassword(password) {
   const schema = {
-    password: Joi.string().min(6).required(),
+    password: Joi.string().min(5).required(),
   };
 
   return Joi.validate(password, schema);
@@ -167,7 +167,10 @@ const getUserRoles = async (userId) => {
         firstName: Joi.string().allow(null).allow(""),
         lastName: Joi.string().allow(null).allow(""),
         relationship: Joi.string().allow(null).allow(""),
-        phoneNumber: Joi.string().allow(null).allow("").label("Next of Kin Phone Number"),
+        phoneNumber: Joi.string()
+          .allow(null)
+          .allow("")
+          .label("Next of Kin Phone Number"),
         // contact: Joi.object().keys({
         //   address: Joi.object().keys({
         //     line1: Joi.string(),
@@ -180,7 +183,8 @@ const getUserRoles = async (userId) => {
         // }),
       }),
       canLogin: Joi.boolean(),
-      role: Joi.string()
+      role: Joi.string(),
+      password: Joi.string().min(5).required(),
     };
 
     return Joi.validate(user, schema);

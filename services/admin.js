@@ -56,6 +56,9 @@ const registerUser = async (req, res) => {
       },
     }
   );
+
+  // raise an event on completion. This can then be used to either send mail or log
+
   res
     .status(201)
     .json({ data: {..._.pick(user, ["_id", "name", "email"]), role }, message: "success"});
