@@ -13,7 +13,7 @@ function validateContract(contract) {
     name: Joi.string().required(),
     contactNumber: Joi.string(),
     email: Joi.string().min(5).max(255).required().email(),
-    businessType: Joi.string(),
+    businessType: Joi.string().allow(null).allow(""),
     address: Joi.object().keys({
       line1: Joi.string(),
       line2: Joi.string().allow(null).allow(""),
@@ -25,7 +25,7 @@ function validateContract(contract) {
     productions: Joi.array().items(
       Joi.object().keys({
         name: Joi.string().required().label("Production Name"),
-        licenses: Joi.array(),
+        licenses: Joi.string().allow(null).allow(""),
         locations: Joi.array().items(
           Joi.object().keys({
             name: Joi.string().label("Location Name"),
@@ -51,7 +51,7 @@ function validateContractOnUpdate(contract) {
     name: Joi.string().required(),
     contactNumber: Joi.string(),
     email: Joi.string().min(5).max(255).required().email(),
-    businessType: Joi.string(),
+    businessType: Joi.string().allow(null).allow(""),
     address: Joi.object().keys({
       line1: Joi.string(),
       line2: Joi.string().allow(null).allow(""),
@@ -64,7 +64,7 @@ function validateContractOnUpdate(contract) {
       Joi.object().keys({
         _id: Joi.string().required().label("Production Id"),
         name: Joi.string().required().label("Production Name"),
-        licenses: Joi.array(),
+        licenses: Joi.string().allow(null).allow(""),
         locations: Joi.array().items(
           Joi.object().keys({
             _id: Joi.string().label("Location Id"),
@@ -82,7 +82,8 @@ function validateContractOnUpdate(contract) {
                   .allow(null)
                   .allow(""),
                 postCode: Joi.string().required().label("Location Postcode"),
-              }).required(),
+              })
+              .required(),
           })
         ),
       })
