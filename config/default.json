@@ -4,7 +4,7 @@
   "domainName": "mls-security.com",
   "port": "3900",
   "host": "localhost",
-  "requiresAuth": true,
+  "requiresAuth": false,
   "frontEndUrl": "http://localhost:3000",
   "tokenExpiration": 3600,
   "email": {

@@ -2,6 +2,7 @@ const { validateContract, validateContractOnUpdate } = require("../functions/con
 const { Contract } = require("../models/contract");
 const { Location } = require("../models/location");
 const { Production } = require("../models/production");
+const { Shift } = require("../models/shift");
 const _ = require("lodash");
 
 
@@ -155,11 +156,27 @@ const getContractProfile = async (req, res) => {
   res.status(200).json({ data: contractInDb, message: "success" });
 };
 
+const getAllContractWithEmployeesCount = async (req, res) => {
+     const contracts = await Contract.find({})
+       .select("name address.state inRate");
+
+      const _allContract = [];
+      await Promise.all(contracts.map(async (contract) => {
+        const totalEmployees = await Shift
+          .find({ "contractInfo.contract": contract._id, status: { $ne: "OUTDATED" } })
+          .distinct("employee");
+        
+        _allContract.push({...contract.toObject(), location: contract.address.state , totalEmployees: totalEmployees.length})
+    }));
+
+     res.status(200).send(_allContract);
+}
 
 module.exports = {
   createContract,
   updateContract,
   getAllContracts,
   getContractProfile,
-  updateContract
+  updateContract,
+  getAllContractWithEmployeesCount,
 };
