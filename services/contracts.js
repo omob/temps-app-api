@@ -3,6 +3,7 @@ const { Contract } = require("../models/contract");
 const { Location } = require("../models/location");
 const { Production } = require("../models/production");
 const { Shift } = require("../models/shift");
+const winston = require("winston");
 const _ = require("lodash");
 
 
@@ -153,7 +154,7 @@ const getContractProfile = async (req, res) => {
 
   if (!contractInDb) return res.status(404).send("Contract not found");
 
-  res.status(200).json({ data: contractInDb, message: "success" });
+  res.status(200).json(contractInDb);
 };
 
 const getAllContractWithEmployeesCount = async (req, res) => {
@@ -172,6 +173,49 @@ const getAllContractWithEmployeesCount = async (req, res) => {
      res.status(200).send(_allContract);
 }
 
+const getEmployeesShiftInfo = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+      const shiftRecord = await Shift.find(
+          {
+            "contractInfo.contract": id,
+            status: { $ne: "OUTDATED" },
+          },
+          // { select: "contractInfo.production.name contractInfo.outRate" }
+        ).select("contractInfo.production contractInfo.location contractInfo.outRate time employee")
+        .populate("employee", "name")
+        .populate("contractInfo.production")
+
+        const employeesShiftsInfo = [];
+
+        shiftRecord.forEach(({ contractInfo, employee, time, _id }) => {
+          let { production, location , outRate} = contractInfo;
+          production.locations.forEach(loc => {
+            if (loc._id.toString() === location.toString()) {
+              location = loc
+            }
+          })
+          employeesShiftsInfo.push({
+            _id,
+            production: production.name,
+            location: location.name,
+            name: employee.name,
+            outRate,
+            startToFinish: `${time.start} - ${time.end}`,
+            hours: parseInt(time.end) - parseInt(time.start)
+          })
+        })
+        
+        res.status(200).send(employeesShiftsInfo);
+
+    } catch (err) {
+      winston.error(err);
+      res.send(400).send("Something went wrong");
+    }
+ 
+};
+
 module.exports = {
   createContract,
   updateContract,
@@ -179,4 +223,5 @@ module.exports = {
   getContractProfile,
   updateContract,
   getAllContractWithEmployeesCount,
+  getEmployeesShiftInfo,
 };

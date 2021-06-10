@@ -19,6 +19,10 @@ router.get("/dashboard", auth, admin, async (req, res) => {
   contractServices.getAllContractWithEmployeesCount(req, res);
 });
 
+router.get("/:id/empactive", auth, admin, validateObjectId, (req, res) => {
+  contractServices.getEmployeesShiftInfo(req, res);
+});
+
 router.get("/:id", auth, admin, validateObjectId, async (req, res) => {
   contractServices.getContractProfile(req, res);
 });
@@ -26,6 +30,7 @@ router.get("/:id", auth, admin, validateObjectId, async (req, res) => {
 router.put("/:id", auth, admin, validateObjectId, (req, res) => {
   contractServices.updateContract(req, res);
 });
+
 
 
 module.exports = router;
