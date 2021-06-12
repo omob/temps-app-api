@@ -50,14 +50,13 @@ const createContract = async (req, res) => {
   const savedContract = await contract.save();
 
   const contractInDb = await _getContractById(savedContract._id);
-  console.log(contractInDb)
   res.status(201).json({ data: contractInDb, message: "success" });
 };
 
 const _contractReadDTo = (contract) => {
   const {productions, ...otherProps } = contract;
   
-  const mappedProduction = productions.map(({ _id}) => ({ ..._id._doc}))
+  const mappedProduction = productions && productions.map(({ _id}) => ({ ..._id._doc}))
 
   const _mappedContract = {...otherProps._doc, productions: mappedProduction};
   
@@ -65,12 +64,13 @@ const _contractReadDTo = (contract) => {
 }
 
 const _getContractById = async (contractId) => {
-  const contract =  await Contract.findById(contractId)
-  .populate({
-    path: "productions._id",
-    model: "Production"
-  })
-  .select({ "productions.isDeleted": 0 })
+  const contract = await Contract.findById(contractId)
+    .populate({
+      path: "productions._id",
+      model: "Production",
+      select: "-__v -productions.isDeleted",
+    })
+    .select("-__v -createdDate");
   
   if(!contract) return null;
 
@@ -93,33 +93,28 @@ const updateContract = async (req, res) => {
      inRate,
    } = req.body;
 
-   let productionsId; 
+   let productionsId = []; 
 
 
    // get all productions in contract
 
-  //  const productionsInContract = await Contract.findById(contractId)
-  //    .select("productions")
-  //    .populate({
-  //      path: "productions._id",
-  //      model: "Production",
-  //    });
-  // const mappedProductionsInDb = _contractReadDTo(productionsInContract).productions;
-
-  //  return res.send(mappedProductionsInDb);
-  //  console.log(productions)
    if (productions && productions.length > 0) {
-     productionsId = await Promise.all(await productions.map(async (production) => {
-       
-       const { _id, licenses, name, locations } = production;
+     productionsId = await Promise.all(
+       await productions.map(async (production) => {
+         const { _id, licenses, name, locations } = production;
+          
+         let updatedProduction = await Production.findByIdAndUpdate(_id, {
+           licenses,
+           name,
+           locations,
+         });
 
-        let updatedProduction = await Production.findByIdAndUpdate(_id, { licenses, name, locations });
-    
-        if (!updatedProduction) {
+         if (!updatedProduction) {
            updatedProduction = await Production.create({ ...production });
-        }
-        return { _id: updatedProduction._id }
-      }));
+         }
+         return { _id: updatedProduction._id };
+       })
+     );
    };
 
    await Contract.findByIdAndUpdate(contractId, {

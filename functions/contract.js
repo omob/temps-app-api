@@ -25,14 +25,14 @@ function validateContract(contract) {
     productions: Joi.array().items(
       Joi.object().keys({
         name: Joi.string().required().label("Production Name"),
-        licenses: Joi.string().allow(null).allow(""),
+        licenses: Joi.array().allow([]),
         locations: Joi.array().items(
           Joi.object().keys({
             name: Joi.string().label("Location Name"),
             address: Joi.object().keys({
               line1: Joi.string().label("Location Address Line 1"),
               city: Joi.string().label("Location city"),
-              state: Joi.string().label("Loaction State"),
+              state: Joi.string().label("Location State"),
               country: Joi.string().label("Location Country"),
               postCode: Joi.string().required().label("Location Postcode"),
             }),
@@ -48,6 +48,7 @@ function validateContract(contract) {
 
 function validateContractOnUpdate(contract) {
   const schema = {
+    _id: Joi.string(),
     name: Joi.string().required(),
     contactNumber: Joi.string(),
     email: Joi.string().min(5).max(255).required().email(),
@@ -62,9 +63,9 @@ function validateContractOnUpdate(contract) {
     }),
     productions: Joi.array().items(
       Joi.object().keys({
-        _id: Joi.string().required().label("Production Id"),
+        _id: Joi.string().label("Production Id"),
         name: Joi.string().required().label("Production Name"),
-        licenses: Joi.string().allow(null).allow(""),
+        licenses: Joi.array().allow([]),
         locations: Joi.array().items(
           Joi.object().keys({
             _id: Joi.string().label("Location Id"),
