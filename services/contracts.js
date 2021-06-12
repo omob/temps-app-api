@@ -173,18 +173,22 @@ const getEmployeesShiftInfo = async (req, res) => {
 
     try {
       const shiftRecord = await Shift.find(
-          {
-            "contractInfo.contract": id,
-            status: { $ne: "OUTDATED" },
-          },
-          // { select: "contractInfo.production.name contractInfo.outRate" }
-        ).select("contractInfo.production contractInfo.location contractInfo.outRate time employee")
+        {
+          "contractInfo.contract": id,
+          status: { $ne: "OUTDATED" },
+        }
+        // { select: "contractInfo.production.name contractInfo.outRate" }
+      )
+        .select(
+          "contractInfo.production contractInfo.location contractInfo.outRate time employee date"
+        )
         .populate("employee", "name")
         .populate("contractInfo.production")
+        .sort("date");
 
         const employeesShiftsInfo = [];
 
-        shiftRecord.forEach(({ contractInfo, employee, time, _id }) => {
+        shiftRecord.forEach(({ contractInfo, employee, time, _id, date }) => {
           let { production, location , outRate} = contractInfo;
           production.locations.forEach(loc => {
             if (loc._id.toString() === location.toString()) {
@@ -198,7 +202,8 @@ const getEmployeesShiftInfo = async (req, res) => {
             name: employee.name,
             outRate,
             startToFinish: `${time.start} - ${time.end}`,
-            hours: parseInt(time.end) - parseInt(time.start)
+            hours: parseInt(time.end) - parseInt(time.start),
+            date
           })
         })
         
