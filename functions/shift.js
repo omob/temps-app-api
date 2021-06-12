@@ -3,15 +3,20 @@ const Joi = require("joi");
 function validateShift(shiftInfo) {
     const schema = {
       contract: Joi.object().keys({
-        id: Joi.string().label("Contract ID").required(),
+        _id: Joi.string().label("Contract ID").required(),
         production: Joi.object().keys({
-          id: Joi.string().label("Production ID").required(),
-          location: Joi.string().label("Location Id").required(),
+          _id: Joi.string().label("Production ID").required(),
+          locationId: Joi.string().label("Location Id").required(),
         }),
         outRate: Joi.number().label("Out Rate").required(),
         position: Joi.string().label("Position").allow(null).allow(""),
       }),
-      employees: Joi.array(),
+      employees: Joi.array().items(
+         Joi.object().keys({
+          _id: Joi.string().label("Employee Id").required(),
+          name: Joi.string(),
+         })
+      ),
       dates: Joi.array(),
       time: Joi.object().keys({
         start: Joi.string().label("Start Time").required(),

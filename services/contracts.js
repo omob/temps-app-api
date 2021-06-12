@@ -140,7 +140,7 @@ const getAllContracts = async (req, res) => {
 
    res
     .status(200)
-    .send({ data: mappedContract, message: "success"});
+    .send(mappedContract);
 };
 
 const getContractProfile = async (req, res) => {

@@ -10,9 +10,17 @@ router.post("/", auth, admin, (req, res) => {
     shiftsServices.createShift(req, res);
 });
 
+router.get("/shiftsDetails", auth, admin, (req, res) => {
+  shiftsServices.getAllShiftsDetails(req, res);
+});
+
 router.get("/", auth, admin, (req, res) => {
     shiftsServices.getAllShifts(req, res);
 })
+
+
+
+
 
 router.get("/:id", auth, admin, (req, res) => {
     shiftsServices.getShiftById(req, res);

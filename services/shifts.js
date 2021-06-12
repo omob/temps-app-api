@@ -20,7 +20,7 @@ const createShift = async (req, res) => {
         contract, employees, dates, time, milleage, meal, notes
     } = req.body
 
-    const { id: contractId, production: { id: productionId, location: locationId }, outRate, position} = contract;
+    const { _id: contractId, production: { _id: productionId, locationId }, outRate, position} = contract;
 
     try {
 
@@ -33,7 +33,7 @@ const createShift = async (req, res) => {
             outRate,
             position,
           },
-          employee: employees[0],
+          employee: employees[0]._id,
           date: dates[0],
           time,
           milleage,
@@ -43,7 +43,7 @@ const createShift = async (req, res) => {
 
         await newShift.save();
         winston.info("ACTION - CREATED NEW SHIFTS");
-        return res.status(204).json({ data: newShift, message: "success" });
+        return res.status(204).json(newShift);
       }
 
       for (var i = 0; i < employees.length; i++) {
@@ -56,7 +56,7 @@ const createShift = async (req, res) => {
               outRate,
               position,
             },
-            employee: employees[i],
+            employee: employees[i]._id,
             date: dates[j],
             time,
             milleage,
@@ -102,13 +102,13 @@ const getAllShifts = async (req, res) => {
       .select("-createdDate");
      
     try {
-      const newShift = await Promise.all(
+      const mappedShifts = await Promise.all(
         allShifts.map(async (shift) => {
          return _mapShiftToUi(shift)
         })
       );
 
-      res.send(newShift);
+      res.send(mappedShifts);
 
     } catch (err) {
       winston.error("SOMETHING WRONG HAPPENED: ", err.message);
@@ -206,10 +206,192 @@ const deleteShift = async (req, res) => {
 }
 
 
+const getAllShiftsDetails = async (req, res) => {
+     const allShifts = await Shift.find({})
+       .populate({ path: "contractInfo.contract", select: "name" })
+       .populate({ path: "contractInfo.production", select: "name locations" })
+       .populate({ path: "employee", select: "name" })
+       .select("-createdDate");
+
+     try {
+       const mappedShifts = await Promise.all(
+         allShifts.map(async (shift) => {
+           return _mapShiftToUi(shift);
+         })
+       );
+
+       const shiftsDetails = mappedShifts.map(ms => ({
+         _id: ms._id,
+          name: ms.employee.name,
+          userId: ms.employee._id,
+          shiftInfo: { 
+            location: ms.contractInfo.location.name,
+            time: `${ms.time.start} - ${ms.time.end}`,
+            hours: parseInt(ms.time.end) - parseInt(ms.time.start),
+            date: ms.date
+          }
+       }))
+
+       res.send(shiftsDetails)
+
+     } catch (err) {
+       winston.error("SOMETHING WRONG HAPPENED: ", err.message);
+       res.status(500).send(err.message);
+     }
+}
+
+//  {
+//     id: "1",
+//     name: {
+//       firstName: "James",
+//       lastName: "Williams",
+//     },
+//     shiftInfo: {
+//       location: "Wb Studio, Leavesden",
+//       time: "06:00 - 18:00",
+//       date: new Date(),
+//       hours: 12,
+//     },
+//   },
+
+const allShiftDetails = [
+  {
+    id: "1",
+    name: {
+      firstName: "James",
+      lastName: "Williams",
+    },
+    shiftInfo: {
+      location: "Wb Studio, Leavesden",
+      time: "06:00 - 18:00",
+      date: new Date(),
+      hours: 12,
+    },
+  },
+  {
+    id: "2",
+    name: {
+      firstName: "Micheal",
+      lastName: "Flitch",
+    },
+    shiftInfo: {
+      location: "Wb Studio, Leavesden",
+      time: "06:00 - 18:00",
+      date: new Date("2021, 05, 05"),
+      hours: 12,
+    },
+  },
+  {
+    id: "3",
+    name: {
+      firstName: "Rebecca",
+      lastName: "Richarch",
+    },
+    shiftInfo: {
+      location: "Wb Studio, Leavesden",
+      time: "06:00 - 18:00",
+      date: new Date(),
+      hours: 12,
+    },
+  },
+  {
+    id: "4",
+    name: {
+      firstName: "Ayodeji",
+      lastName: "Abodunrin",
+    },
+    shiftInfo: {
+      location: "Wb Studio, Leavesden",
+      time: "06:00 - 18:00",
+      date: new Date("2021, 05, 05"),
+      hours: 12,
+    },
+  },
+  {
+    id: "5",
+    name: {
+      firstName: "Ayodeji",
+      lastName: "Abodunrin",
+    },
+    shiftInfo: {
+      location: "Wb Studio, Leavesden",
+      time: "06:00 - 18:00",
+      date: new Date(),
+      hours: 12,
+    },
+  },
+  {
+    id: "6",
+    name: {
+      firstName: "Ayodeji",
+      lastName: "Abodunrin",
+    },
+    shiftInfo: {
+      location: "Wb Studio, Leavesden",
+      time: "06:00 - 18:00",
+      date: new Date(),
+      hours: 12,
+    },
+  },
+  {
+    id: "7",
+    name: {
+      firstName: "Ayodeji",
+      lastName: "Abodunrin",
+    },
+    shiftInfo: {
+      location: "Wb Studio, Leavesden",
+      time: "06:00 - 18:00",
+      date: new Date(),
+      hours: 12,
+    },
+  },
+  {
+    id: "8",
+    name: {
+      firstName: "Ayodeji",
+      lastName: "Abodunrin",
+    },
+    shiftInfo: {
+      location: "Harry Sleaves, Leavesden",
+      time: "06:00 - 18:00",
+      date: new Date(),
+      hours: 12,
+    },
+  },
+  {
+    id: "9",
+    name: {
+      firstName: "Ayodeji",
+      lastName: "Abodunrin",
+    },
+    shiftInfo: {
+      location: "Wb Studio, Leavesden",
+      time: "06:00 - 18:00",
+      date: new Date(),
+      hours: 12,
+    },
+  },
+  {
+    id: "10",
+    name: {
+      firstName: "Ayodeji",
+      lastName: "Abodunrin",
+    },
+    shiftInfo: {
+      location: "Wb Studio, Leavesden",
+      time: "06:00 - 18:00",
+      date: new Date("2021, 07, 24"),
+      hours: 12,
+    },
+  },
+];
+
 module.exports = {
   createShift,
   getAllShifts,
   getShiftById,
   updateShift,
   deleteShift,
+  getAllShiftsDetails,
 };
