@@ -71,7 +71,7 @@ const createShift = async (req, res) => {
       return res.status(204).json({ message: "success" });
 
     } catch (err) {
-        winston.error("SOMETHING WRONG HAPPENED: ", err.message);
+        winston.error("SOMETHING WRONG HAPPENED: HERE", err.message);
         res.status(500).send(err.message)
     }
 }
@@ -84,6 +84,7 @@ const _mapShiftToUi = (shift) => {
    const { locations, ...otherProps } = shiftObject.contractInfo.production;
    shiftObject.contractInfo.production = otherProps;
 
+   console.log(shiftObject.contractInfo.location);
    const foundLocation = locations.find(
      (loc) =>
        loc._id.toString() === shiftObject.contractInfo.location.toString()
@@ -111,7 +112,7 @@ const getAllShifts = async (req, res) => {
       res.send(mappedShifts);
 
     } catch (err) {
-      winston.error("SOMETHING WRONG HAPPENED: ", err.message);
+      winston.error("SOMETHING WRONG HAPPENED: ALLSHIFT", err.message);
       res.status(500).send(err.message);
     }
 }
@@ -126,8 +127,8 @@ const updateShift = async (req, res) => {
     } = req.body;
 
     const {
-      id: contractId,
-      production: { id: productionId, location: locationId },
+      _id: contractId,
+      production: { _id: productionId, locationId },
       outRate,
       position,
     } = contract;
@@ -171,7 +172,7 @@ const updateShift = async (req, res) => {
       outRate,
       position,
     };
-    shiftInDb.data = date;
+    shiftInDb.date = date;
     shiftInDb.time = time;
     shiftInDb.milleage = milleage;
     shiftInDb.meal = meal;
@@ -235,7 +236,7 @@ const getAllShiftsDetails = async (req, res) => {
        res.send(shiftsDetails)
 
      } catch (err) {
-       winston.error("SOMETHING WRONG HAPPENED: ", err.message);
+       winston.error("SOMETHING WRONG HAPPENED: HERE", err.message);
        res.status(500).send(err.message);
      }
 }

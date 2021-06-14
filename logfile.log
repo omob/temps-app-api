@@ -658,3 +658,63 @@
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-12T18:12:46.024Z"}
 {"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-12T18:13:05.086Z"}
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-12T18:13:05.108Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-12T18:28:14.892Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-12T18:28:14.917Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-13T18:34:08.615Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-13T18:34:08.639Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS","timestamp":"2021-06-13T18:45:42.497Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-14T12:22:34.326Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-14T12:22:34.444Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-14T12:28:00.666Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-14T12:28:00.686Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-14T12:29:53.898Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-14T12:29:53.924Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-14T12:30:57.318Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-14T12:30:57.339Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-06-14T12:31:03.153Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-06-14T12:38:47.424Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-14T12:39:12.964Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-14T12:39:12.991Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-14T12:41:33.335Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-14T12:41:33.360Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-06-14T12:41:47.445Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED:  Cannot read property 'toString' of null","timestamp":"2021-06-14T12:41:47.567Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED:  Cannot read property 'toString' of null","timestamp":"2021-06-14T12:43:52.557Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-14T12:45:53.798Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-14T12:45:53.819Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED:  Cannot read property 'toString' of null","timestamp":"2021-06-14T12:45:57.136Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-14T12:46:23.939Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-14T12:46:23.960Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: ALLSHIFT Cannot read property 'toString' of null","timestamp":"2021-06-14T12:46:28.287Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-14T12:46:57.411Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-14T12:46:57.432Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: ALLSHIFT Cannot read property 'toString' of null","timestamp":"2021-06-14T12:47:03.438Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: ALLSHIFT Cannot read property 'toString' of null","timestamp":"2021-06-14T12:51:53.724Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: ALLSHIFT Cannot read property 'toString' of null","timestamp":"2021-06-14T12:52:08.578Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-14T12:53:22.365Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-14T12:53:22.392Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: ALLSHIFT Cannot read property 'toString' of null","timestamp":"2021-06-14T12:53:25.805Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-14T12:54:04.791Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-14T12:54:04.811Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: ALLSHIFT Cannot read property 'toString' of null","timestamp":"2021-06-14T12:54:12.636Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-14T12:56:20.494Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-14T12:56:20.522Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: ALLSHIFT Cannot read property 'toString' of null","timestamp":"2021-06-14T12:56:23.698Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-14T12:58:05.829Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-14T12:58:05.852Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-14T12:58:53.552Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-14T12:58:53.594Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-06-14T12:59:10.207Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-06-14T12:59:35.742Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-06-14T12:59:53.261Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-06-14T13:01:03.752Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-06-14T13:01:56.512Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-14T13:03:02.984Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-14T13:03:03.026Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-06-14T13:03:16.025Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-06-14T13:03:47.012Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-06-14T13:04:33.831Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-06-14T13:05:44.140Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-06-14T13:06:08.524Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-06-14T13:06:17.697Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS","timestamp":"2021-06-14T13:06:33.698Z"}

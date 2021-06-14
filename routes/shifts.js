@@ -18,10 +18,6 @@ router.get("/", auth, admin, (req, res) => {
     shiftsServices.getAllShifts(req, res);
 })
 
-
-
-
-
 router.get("/:id", auth, admin, (req, res) => {
     shiftsServices.getShiftById(req, res);
 })

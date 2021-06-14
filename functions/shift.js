@@ -33,11 +33,12 @@ function validateShift(shiftInfo) {
 
 function validateShiftOnUpdate (shiftInfo) {
   const schema = {
+    _id: Joi.string().label("Shift ID"),
     contract: Joi.object().keys({
-      id: Joi.string().label("Contract ID").required(),
+      _id: Joi.string().label("Contract ID").required(),
       production: Joi.object().keys({
-        id: Joi.string().label("Production ID").required(),
-        location: Joi.string().label("Location Id").required(),
+        _id: Joi.string().label("Production ID").required(),
+        locationId: Joi.string().label("Location Id").required(),
       }),
       outRate: Joi.number().label("Out Rate").required(),
       position: Joi.string().label("Position").allow(null).allow(""),
