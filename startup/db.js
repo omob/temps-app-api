@@ -1,10 +1,8 @@
 const winston = require("winston");
 const mongoose = require("mongoose");
-const config = require("config");
 
 module.exports = function () {
-  const db = process.env.db || config.get("db");
-  winston.info(db)
+  const db = process.env.DB_CONN;
   mongoose
     .connect(db, {
       useNewUrlParser: true,

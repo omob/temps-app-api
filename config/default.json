@@ -1,10 +1,5 @@
 {
-  "jwtPrivateKey": "bbfbb84b8b67aaaa76114401ccc53f56e99d699fa6cefba3e7ce4b20d70ce02b",
-  "dbL": "mongodb://localhost:27017/mls-security",
-  "db": "mongodb+srv://testuser:test1234@mlscluster.sod8f.mongodb.net/mlsdbtest?retryWrites=true&w=majority",
   "domainName": "mls-security.com",
-  "port": "3900",
-  "host": "localhost",
   "requiresAuth": true,
   "frontEndUrl": "http://localhost:3000",
   "tokenExpiration": 3600,

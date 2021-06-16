@@ -68,7 +68,7 @@ userSchema.methods.generateAuthToken = function () {
       email: this.email,
       roles: this.userRoles,
     },
-    config.get("jwtPrivateKey"),
+    process.env.SECRET_KEY,
     {
       expiresIn: config.get("tokenExpiration"),
     }

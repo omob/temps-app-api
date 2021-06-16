@@ -1,5 +1,4 @@
 const swaggerUi = require("swagger-ui-express");
-const config = require("config");
 
 const swaggerDocument = {
   swagger: "2.0",
@@ -12,7 +11,7 @@ const swaggerDocument = {
       url: "https://opensource.org/licenses/MIT",
     },
   },
-  host:  `${process.env.host || config.get("host")}:${process.env.port || config.get("port")}`,
+  host: (process.env.PRODUCTION) ? process.env.HOST :  `${process.env.HOST}:${process.env.PORT}`,
   basePath: "/api",
   tags: [
     {
@@ -32,7 +31,7 @@ const swaggerDocument = {
       description: "API for Authentication",
     },
   ],
-  schemes: ["http"],
+  schemes: ["http", "https"],
   consumes: ["application/json"],
   produces: ["application/json"],
   paths: {
