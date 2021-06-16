@@ -46,6 +46,7 @@ const ObjectId = mongoose.Types.ObjectId;
         //   }),
         // }),
       }),
+      password: Joi.string().min(5).required()
     };
 
     return Joi.validate(user, schema);
