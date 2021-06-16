@@ -7,3 +7,5 @@
 {"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-16T11:03:07.023Z"}
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-16T11:03:10.114Z"}
 {"level":"info","message":"New user registered! { middleName: 'admin', firstName: 'admin', lastName: 'admin' }","timestamp":"2021-06-16T11:03:21.942Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-16T13:02:41.630Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-16T13:02:47.268Z"}
