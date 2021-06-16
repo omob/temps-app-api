@@ -12,7 +12,7 @@ const swaggerDocument = {
       url: "https://opensource.org/licenses/MIT",
     },
   },
-  host: `${config.get("host")}:${config.get("port")}`,
+  host:  `${process.env.host || config.get("host")}:${process.env.port || config.get("port")}`,
   basePath: "/api",
   tags: [
     {

@@ -9,3 +9,6 @@
 {"level":"info","message":"New user registered! { middleName: 'admin', firstName: 'admin', lastName: 'admin' }","timestamp":"2021-06-16T11:03:21.942Z"}
 {"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-16T13:02:41.630Z"}
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-16T13:02:47.268Z"}
+{"level":"info","message":"mongodb+srv://testuser:test1234@mlscluster.sod8f.mongodb.net/mlsdbtest?retryWrites=true&w=majority","timestamp":"2021-06-16T22:13:28.226Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-16T22:13:28.258Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-16T22:13:33.916Z"}
