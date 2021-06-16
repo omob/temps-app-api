@@ -16,6 +16,7 @@ require("./startup/swagger")(app);
 require("./startup/db")();
 require("./startup/validation")();
 
+console.log(process.env.NODE_ENV)
 const port = process.env.PORT;
 const server = app.listen(port, () =>
   winston.info(`Listening on port ${port}...`)

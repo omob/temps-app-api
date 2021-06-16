@@ -11,7 +11,7 @@ const swaggerDocument = {
       url: "https://opensource.org/licenses/MIT",
     },
   },
-  host: (process.env.PRODUCTION) ? process.env.HOST :  `${process.env.HOST}:${process.env.PORT}`,
+  host: (process.env.NODE_ENV == "production") ? process.env.HOST :  `${process.env.HOST}:${process.env.PORT}`,
   basePath: "/api",
   tags: [
     {
