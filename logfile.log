@@ -110,3 +110,5 @@
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-16T23:37:12.553Z"}
 {"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-16T23:38:02.182Z"}
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-16T23:38:04.385Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-17T00:38:46.054Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-17T00:38:48.650Z"}
