@@ -4,11 +4,20 @@ const _ = require("lodash");
 const {
   Employee: User,
 } = require("../models/employee"); // Using User schema in the user route
-const {  
+const { Token } = require("../models/token");
+
+const {
   validateUser,
   validateUserOnUpdate,
-  validatePassword } = require("../functions/user");
+  validatePassword,
+  validateEmail,
+  validateResetPassword,
+} = require("../functions/user");
 
+const { generateRandomNumbers, addMinutesToDate } = require("../functions");
+const Email = require("./email");
+
+const MAX_MINUTES_BEFORE_EXPIRATION = 20;
 
 const getProfile = async (req, res) => {
   const userDocument = await User.findById(req.user._id).select("-password -isDeleted -__v -canLogin");
@@ -38,6 +47,7 @@ const updateProfile = async (req, res) => {
   res.status(200).json({ message: "success"});
 };
 
+// for signed in user
 const changePassword = async (req, res) => {
   const { error } = validatePassword(req.body);
   if (error) return res.status(400).send(error.details[0].message);
@@ -105,27 +115,83 @@ const register = async (req, res) => {
     .json({ data: _.pick(user, ["_id", "name", "email"]), message: "success"});
 };
 
+const _checkEmail = async (email) =>{
+  const user = await User.findOne({email: email});
 
-// const getSubscriptions = async (req, res) => {
-//   const result = await Subscription.findOne({
-//     userId: req.user._id,
-//   })
-//     .populate({
-//       path: "subscriptions.productId",
-//       model: "Product",
-//     })
-//     .populate({
-//       path: "subscriptions.subscriptionPlan",
-//       model: "SubscriptionPlan",
-//     });
+  if (!user) return false;
 
-//   res.send((result && result.subscriptions) || []);
-// };
+  return true;
+}
 
+const _saveTokenInDb = async (token, email, userId) => {
+  // save token in DB
+  const newToken = new Token({
+    email: email,
+    userId: userId,
+    token: token,
+    tokenExpirationDate: addMinutesToDate(
+      new Date(),
+      MAX_MINUTES_BEFORE_EXPIRATION
+    ),
+  });
 
+  await newToken.save();
+
+}
+
+const forgotPassword = async (req, res) => {
+  const { error } = validateEmail(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+  const { email } = req.body;
+
+  const user = await User.findOne({ email: email });
+  if (!user) {
+    winston.info(`FORGOT PASSWORD - Email ${email} doest not exist`);
+    return res.status(404).send("Error");
+  }
+
+  const token = generateRandomNumbers(5);
+  await _saveTokenInDb(token, email, user._id);
+
+  // send email to user
+  new Email().sendToken(email, user.name, token, MAX_MINUTES_BEFORE_EXPIRATION);
+
+  res.send("Success");
+}
+
+const resetPassword = async (req, res) => {
+  // validate entry
+  const { error } = validateResetPassword(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+  const { email, token, password } = req.body;
+
+  // check if token has expired
+  const tokenInDb = await Token.findOne({email, token});
+  if (!tokenInDb) return res.status(404).send("Invalid email / token");
+
+  if (new Date().getTime() > new Date(tokenInDb.tokenExpirationDate).getTime())
+    return res.status(400).send("Token expired");
+
+  const salt = await bcrypt.genSalt(10);
+  const newPassword = await bcrypt.hash(password, salt);
+
+  const _user = await User.findOneAndUpdate(
+    { email },
+    {
+      password: newPassword,
+    }
+  );
+  new Email().sendPasswordChangeNotification(email, _user.name );
+  res.send("Password changed");
+}
+
+console.log(new Date().getTime());
+console.log(new Date("2021-06-19T16:19:28.133+00:00").getTime());
 module.exports = {
   getProfile,
   updateProfile,
   register,
   changePassword,
+  forgotPassword,
+  resetPassword
 };

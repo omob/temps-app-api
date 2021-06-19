@@ -46,6 +46,10 @@ const addDaysToDate = (date_, days) => {
   return copy;
 };
 
+function addMinutesToDate(date, minutes) {
+  return new Date(date.getTime() + minutes * 60000);
+}
+
 const generateNextBillingDate = (duration, billingDay) => {
   const billingDate = addDaysToDate(new Date(), duration);
 
@@ -92,6 +96,17 @@ const getDayOfTheWeekFromNumber = (dayOfTheWeek) => {
   return dayInString;
 };
 
+const generateRandomNumbers = (length) => {
+  let generatedNumbers = "";
+
+  while (length !== 0) {
+    generatedNumbers += Math.floor(Math.random() * 10);
+    length--;
+  }
+
+  return generatedNumbers;
+};
+
 module.exports = {
   getDayOfTheWeekInNumber,
   differenceInDays,
@@ -99,4 +114,6 @@ module.exports = {
   generateNextBillingDate,
   formatNumberWithComma,
   getDayOfTheWeekFromNumber,
+  generateRandomNumbers,
+  addMinutesToDate,
 };

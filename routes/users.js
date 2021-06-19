@@ -22,11 +22,19 @@ router.put("/me", auth, (req, res) => {
   userServices.updateProfile(req, res);
 });
 
+// check if email exists
+router.post("/forgot-password", async (req, res) => {
+  userServices.forgotPassword(req, res);
+});
+
+router.post("/reset-password", async (req, res) => {
+  userServices.resetPassword(req, res);
+});
+
 // user registering self
 router.post("/", async (req, res) => {
   userServices.register(req, res);
 });
-
 
 /********************* ADMIN **************************/
 
@@ -59,5 +67,7 @@ router.get("/", auth, admin, async (req, res) => {
 router.delete("/:id", auth, admin, validateObjectId, async (req, res) => {
   adminServices.deleteUser(req, res);
 });
+
+
 
 module.exports = router;

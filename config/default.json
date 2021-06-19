@@ -1,12 +1,5 @@
 {
   "domainName": "mls-security.com",
   "requiresAuth": true,
-  "frontEndUrl": "http://localhost:3000",
-  "tokenExpiration": 3600,
-  "email": {
-    "user": "",
-    "pass": "",
-    "host": ""
-  },
-  "adminEmail": "aboayosam@gmail.com"
+  "tokenExpiration": 3600
 }
