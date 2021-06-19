@@ -31,6 +31,10 @@ router.post("/reset-password", async (req, res) => {
   userServices.resetPassword(req, res);
 });
 
+router.post("/resend-token", async (req, res) => {
+  userServices.resendToken(req, res);
+});
+
 // user registering self
 router.post("/", async (req, res) => {
   userServices.register(req, res);
