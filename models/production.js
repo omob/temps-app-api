@@ -22,6 +22,7 @@ const productionSchema = new Schema({
     {
       name: { type: "string", required: true },
       address: {
+        type: Object,
         line1: { type: String, default: "" },
         city: { type: String, default: "" },
         state: { type: String, default: "" },
@@ -29,7 +30,7 @@ const productionSchema = new Schema({
         postCode: { type: String, required: true },
       },
     },
-  ]
+  ],
 });
 
 const Production = mongoose.model("Production", productionSchema);
