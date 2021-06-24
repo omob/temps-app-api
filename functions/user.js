@@ -25,6 +25,7 @@ function validateUser(user) {
           state: Joi.string(),
           country: Joi.string(),
           postCode: Joi.string(),
+          location: Joi.object().allow(null)
         }),
       })
       .required(),
@@ -72,6 +73,7 @@ function validateUserOnUpdate(employee) {
             state: Joi.string(),
             country: Joi.string(),
             postCode: Joi.string(),
+            location: Joi.object().allow(null),
           }),
         })
         .required(),
@@ -173,6 +175,7 @@ function validateAdminUser(user) {
           state: Joi.string(),
           country: Joi.string(),
           postCode: Joi.string(),
+          location: Joi.object().allow(null),
         }),
       })
       .required(),
@@ -225,6 +228,7 @@ function validateAdminUserOnUpdate(employee) {
           state: Joi.string(),
           country: Joi.string(),
           postCode: Joi.string(),
+          location: Joi.object().allow(null),
         }),
       })
       .required(),
@@ -234,7 +238,10 @@ function validateAdminUserOnUpdate(employee) {
       firstName: Joi.string().allow(null).allow(""),
       lastName: Joi.string().allow(null).allow(""),
       relationship: Joi.string().allow(null).allow(""),
-      phoneNumber: Joi.string().allow(null).allow("").label("Next of Kin Phone Number"),
+      phoneNumber: Joi.string()
+        .allow(null)
+        .allow("")
+        .label("Next of Kin Phone Number"),
       // contact: Joi.object().keys({
       //   address: Joi.object().keys({
       //     line1: Joi.string(),

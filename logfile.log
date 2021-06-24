@@ -295,3 +295,11 @@
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-19T20:04:39.171Z"}
 {"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-19T20:04:47.842Z"}
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-19T20:04:47.867Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-21T22:13:21.581Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-21T22:13:21.817Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS","timestamp":"2021-06-21T22:34:48.324Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS","timestamp":"2021-06-21T23:23:00.499Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-24T02:18:01.862Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-24T02:18:01.883Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-06-24T04:14:24.339Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-06-24T04:14:24.369Z"}
