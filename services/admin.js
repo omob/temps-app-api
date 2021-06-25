@@ -131,6 +131,42 @@ const getAllUsers = async (req, res) => {
   res.send(users);
 };
 
+
+const _getDistanceBetweenLocationInMiles = (lat1, lat2, lon1, lon2) => {
+    // The math module contains a function
+    // named toRadians which converts from
+    // degrees to radians.
+    lon1 =  lon1 * Math.PI / 180;
+    lon2 = lon2 * Math.PI / 180;
+    lat1 = lat1 * Math.PI / 180;
+    lat2 = lat2 * Math.PI / 180;
+
+    // Haversine formula
+    let dlon = lon2 - lon1;
+    let dlat = lat2 - lat1;
+    let a = Math.pow(Math.sin(dlat / 2), 2)
+              + Math.cos(lat1) * Math.cos(lat2)
+              * Math.pow(Math.sin(dlon / 2),2);
+            
+    let c = 2 * Math.asin(Math.sqrt(a));
+
+    // Radius of earth in kilometers. Use 3956
+    // for miles
+    let r = 3956;
+
+    // calculate the result
+    return c * r;
+}
+
+const getAllUsersSortingByGeoCode = async (req, res) => {
+  const { longitude, latitude } = req.query;
+  const usersInDb = await User.find({})
+  .select("name contact.address.location contact.address.postCode");
+
+  // Loop through here to calculate distance in miles between two location
+  res.send(usersInDb);
+}
+
 const deleteUser = async (req, res) => {
   const { id: _id } = req.params;
   if (_id === req.user._id) return res.status(403).send("Cannot deleted Self");
@@ -147,4 +183,5 @@ module.exports = {
   getAllUsers,
   deleteUser,
   updateUserProfile,
+  getAllUsersSortingByGeoCode,
 };
