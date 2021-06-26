@@ -159,12 +159,31 @@ const _getDistanceBetweenLocationInMiles = (lat1, lat2, lon1, lon2) => {
 }
 
 const getAllUsersSortingByGeoCode = async (req, res) => {
+  
   const { longitude, latitude } = req.query;
   const usersInDb = await User.find({})
-  .select("name contact.address.location contact.address.postCode");
+  .select("name contact.address.location contact.address.postCode")
 
-  // Loop through here to calculate distance in miles between two location
-  res.send(usersInDb);
+  const result = usersInDb.map(({ name, _id, contact }) => {
+    if(!contact.address.location) {
+      return { 
+        name, _id, postCode: contact.address.postCode, distanceInMiles: null
+      };
+    }
+
+    const { latitude:lat2, longitude:long2 } = contact.address.location;
+    const distanceInMiles = _getDistanceBetweenLocationInMiles(
+      latitude,
+      lat2,
+      longitude,
+      long2
+    );
+
+    return { 
+      name, _id, postCode: contact.address.postCode, distanceInMiles
+    }
+  })
+  res.send(result.sort((a, b) => a.distanceInMiles < b.distanceInMiles));
 }
 
 const deleteUser = async (req, res) => {

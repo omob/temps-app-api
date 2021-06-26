@@ -15,6 +15,7 @@ function validateShift(shiftInfo) {
          Joi.object().keys({
           _id: Joi.string().label("Employee Id").required(),
           name: Joi.string(),
+          distanceInMiles: Joi.number()
          })
       ),
       dates: Joi.array(),
