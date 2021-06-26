@@ -31,6 +31,10 @@ router.post("/reset-password", async (req, res) => {
   userServices.resetPassword(req, res);
 });
 
+router.post("/resend-token", async (req, res) => {
+  userServices.resendToken(req, res);
+});
+
 // user registering self
 router.post("/", async (req, res) => {
   userServices.register(req, res);
@@ -51,6 +55,9 @@ router.put("/revoke", auth, admin, async (req, res) => {
   adminServices.manageAccess(req, res);
 });
 
+router.get("/geocode", auth, admin, async (req, res) => {
+  adminServices.getAllUsersSortingByGeoCode(req, res);
+});
 // get user profile (admin getting other users' profile)
 router.get("/:id", auth, admin, validateObjectId, async (req, res) => {
   adminServices.getUserProfile(req, res);
@@ -63,6 +70,9 @@ router.put("/:id", auth, admin, validateObjectId, async (req, res) => {
 router.get("/", auth, admin, async (req, res) => {
   adminServices.getAllUsers(req, res);
 });
+
+
+
 
 router.delete("/:id", auth, admin, validateObjectId, async (req, res) => {
   adminServices.deleteUser(req, res);

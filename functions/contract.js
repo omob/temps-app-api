@@ -21,6 +21,7 @@ function validateContract(contract) {
       state: Joi.string(),
       country: Joi.string().allow(null).allow(""),
       postCode: Joi.string().required(),
+      location: Joi.object().allow(null),
     }),
     productions: Joi.array().items(
       Joi.object().keys({
@@ -35,6 +36,7 @@ function validateContract(contract) {
               state: Joi.string().label("Location State"),
               country: Joi.string().label("Location Country"),
               postCode: Joi.string().required().label("Location Postcode"),
+              location: Joi.object().allow(null),
             }),
           })
         ),
@@ -60,6 +62,7 @@ function validateContractOnUpdate(contract) {
       state: Joi.string(),
       country: Joi.string().allow(null).allow(""),
       postCode: Joi.string().required(),
+      location: Joi.object().allow(null),
     }),
     productions: Joi.array().items(
       Joi.object().keys({
@@ -83,6 +86,7 @@ function validateContractOnUpdate(contract) {
                   .allow(null)
                   .allow(""),
                 postCode: Joi.string().required().label("Location Postcode"),
+                location: Joi.object().allow(null),
               })
               .required(),
           })

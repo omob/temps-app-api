@@ -13,6 +13,7 @@ const contractSchema = new Schema({
   businessType: { type: String },
   contactNumber: { type: String, default: "" },
   address: {
+    type: Object,
     line1: { type: String, default: "" },
     line2: { type: String, default: "" },
     city: { type: String, default: "" },
@@ -25,7 +26,7 @@ const contractSchema = new Schema({
   productions: [
     {
       _id: { type: mongoose.Schema.Types.ObjectId, ref: "Production" },
-      isDeleted: { type: Boolean, default: false }
+      isDeleted: { type: Boolean, default: false },
     },
   ],
 });

@@ -131,6 +131,61 @@ const getAllUsers = async (req, res) => {
   res.send(users);
 };
 
+
+const _getDistanceBetweenLocationInMiles = (lat1, lat2, lon1, lon2) => {
+    // The math module contains a function
+    // named toRadians which converts from
+    // degrees to radians.
+    lon1 =  lon1 * Math.PI / 180;
+    lon2 = lon2 * Math.PI / 180;
+    lat1 = lat1 * Math.PI / 180;
+    lat2 = lat2 * Math.PI / 180;
+
+    // Haversine formula
+    let dlon = lon2 - lon1;
+    let dlat = lat2 - lat1;
+    let a = Math.pow(Math.sin(dlat / 2), 2)
+              + Math.cos(lat1) * Math.cos(lat2)
+              * Math.pow(Math.sin(dlon / 2),2);
+            
+    let c = 2 * Math.asin(Math.sqrt(a));
+
+    // Radius of earth in kilometers. Use 3956
+    // for miles
+    let r = 3956;
+
+    // calculate the result
+    return c * r;
+}
+
+const getAllUsersSortingByGeoCode = async (req, res) => {
+  
+  const { longitude, latitude } = req.query;
+  const usersInDb = await User.find({})
+  .select("name contact.address.location contact.address.postCode")
+
+  const result = usersInDb.map(({ name, _id, contact }) => {
+    if(!contact.address.location) {
+      return { 
+        name, _id, postCode: contact.address.postCode, distanceInMiles: null
+      };
+    }
+
+    const { latitude:lat2, longitude:long2 } = contact.address.location;
+    const distanceInMiles = _getDistanceBetweenLocationInMiles(
+      latitude,
+      lat2,
+      longitude,
+      long2
+    );
+
+    return { 
+      name, _id, postCode: contact.address.postCode, distanceInMiles
+    }
+  })
+  res.send(result.sort((a, b) => a.distanceInMiles < b.distanceInMiles));
+}
+
 const deleteUser = async (req, res) => {
   const { id: _id } = req.params;
   if (_id === req.user._id) return res.status(403).send("Cannot deleted Self");
@@ -147,4 +202,5 @@ module.exports = {
   getAllUsers,
   deleteUser,
   updateUserProfile,
+  getAllUsersSortingByGeoCode,
 };

@@ -155,8 +155,11 @@ const forgotPassword = async (req, res) => {
 
   // send email to user
   new Email().sendToken(email, user.name, token, MAX_MINUTES_BEFORE_EXPIRATION);
-
   res.send("Success");
+}
+
+const resendToken = async (req, res) => {
+  return await forgotPassword(req, res);
 }
 
 const resetPassword = async (req, res) => {
@@ -166,7 +169,7 @@ const resetPassword = async (req, res) => {
   const { email, token, password } = req.body;
 
   // check if token has expired
-  const tokenInDb = await Token.findOne({email, token});
+  const tokenInDb = await Token.findOne({email, token: token.trim()});
   if (!tokenInDb) return res.status(404).send("Invalid email / token");
 
   if (new Date().getTime() > new Date(tokenInDb.tokenExpirationDate).getTime())
@@ -185,13 +188,12 @@ const resetPassword = async (req, res) => {
   res.send("Password changed");
 }
 
-console.log(new Date().getTime());
-console.log(new Date("2021-06-19T16:19:28.133+00:00").getTime());
 module.exports = {
   getProfile,
   updateProfile,
   register,
   changePassword,
   forgotPassword,
-  resetPassword
+  resetPassword,
+  resendToken
 };
