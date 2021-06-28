@@ -1,16 +1,14 @@
 const nodemailer = require("nodemailer");
 const config = require("config");
 const winston = require("winston");
-const { formatNumberWithComma } = require("../functions");
-
-// host: "sanablissglobal.com",
 
 module.exports = class Email {
   constructor() {
     this.transporter = nodemailer.createTransport({
+      name: config.get("domainName"),
       port: process.env.EMAILPORT,
       host: process.env.EMAILHOST,
-      secure: false, // true for 465, false for other ports
+      secure: true, // true for 465, false for other ports
       auth: {
         user: process.env.EMAILUSER,
         pass: process.env.EMAILPASS,
@@ -30,7 +28,6 @@ module.exports = class Email {
       html: `${message}`, // html body
     });
     winston.log("Message sent: %s", info.messageId);
-
     winston.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
   }
 
@@ -100,7 +97,7 @@ module.exports = class Email {
       await this.sendMail("Password Reset Notification", message, email);
       winston.info(`Password Change request email by ${name.firstName} ${name.lastName} sent` );
     } catch (error) {
-      winston.error("Error received: ", error);
+      winston.error(`Error received why sending email to: ${email}`, error);
     }
   };
 
