@@ -71,7 +71,10 @@ router.get("/", auth, admin, async (req, res) => {
   adminServices.getAllUsers(req, res);
 });
 
-
+// admin upload 
+router.post("/upload-document", async (req, res) => {
+  adminServices.uploadDocument(req, res);
+});
 
 
 router.delete("/:id", auth, admin, validateObjectId, async (req, res) => {

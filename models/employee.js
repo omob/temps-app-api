@@ -10,7 +10,7 @@ const employeeSchema = new Schema({
     lastName: { type: String, required: true },
     middleName: { type: String, default: "" },
   },
-  title: {type: String },
+  title: { type: String },
   gender: { type: String, required: true, enum: ["male", "female"] },
   email: {
     type: String,
@@ -69,14 +69,22 @@ const employeeSchema = new Schema({
   canLogin: {
     type: Boolean,
     default: true,
+    enum: [true, false],
   },
   isDeleted: {
     type: Boolean,
     default: false,
   },
-  documents: {
-    type: Array,
-  },
+  documents: [
+    {
+      type: Object,
+      name: { type: String, default: "" },
+      issueDate: { type: Date },
+      expiryDate: { type: Date },
+      url: { type: String, default: "" },
+      addedDate: new Date(),
+    },
+  ],
   createdDate: { type: Date, default: new Date() },
   status: {
     type: String,

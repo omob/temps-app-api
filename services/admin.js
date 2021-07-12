@@ -2,9 +2,46 @@ const { Employee: User } = require("../models/employee"); // Using User schema i
 const {
   validateAdminUser, getUserRoles, validateAdminUserOnUpdate,
 } = require("../functions/user");
+const { Roles } = require("../models/roles");
 const _ = require("lodash");
 const bcrypt = require("bcrypt");
-const { Roles } = require("../models/roles");
+const multer = require("multer");
+const path = require("path");
+
+const uploadPath = "./resources/uploads/staff/";
+
+const storage = multer.diskStorage({
+  destination: uploadPath,
+  filename: (req, file, callback) => {
+    callback(
+      null,
+      `${file.fieldname}-${Date.now()}${path.extname(
+        file.originalname
+      )}`
+    );
+  },
+});
+
+// Check file type
+const checkFileType = (file, callback) => {
+  // allowed ext
+  const filetypes = /jpeg|jpg|png|gif|doc|docx|pdf/;
+  // check ext
+  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+  // check mime
+  const mimetype = filetypes.test(file.mimetype);
+  if (mimetype && extname) return callback(null, true);
+  return callback("Error: Invalid file type");
+};
+
+const upload = multer({
+  storage,
+  limits: { fileSize: 2000000 },
+  fileFilter: (req, file, callback) => {
+    checkFileType(file, callback);
+  },
+}).single("doc");
+
 
 const USER_STATUS = {
   VERIFIED : "verified",
@@ -194,6 +231,39 @@ const deleteUser = async (req, res) => {
   res.send("Deleted");
 };
 
+const uploadDocument = async (req, res) => {
+  upload(req, res, async (err) => {
+    // if (err instanceof multer.MulterError) return res.status(500).json(err);
+    // if (err) return res.status(500).json(err);
+    if (err) return res.status(500).json({ success: false, message: err });
+    if (req.file === undefined)
+      return res.json({ success: false, message: "No file uploaded" });
+
+    const {type, name, doc_name, issueDate, expiryDate, userId } = req.body;
+
+    const staff = await User.findOne({_id: userId});
+    if (!staff) return res.json({ success: false, message: "user not found"});
+
+    staff.documents.push({
+      url: `${process.env.HOST}:${process.env.PORT}/uploads/staff/${req.file.filename}`,
+      name,
+      doc_name,
+      issueDate,
+      expiryDate,
+      type
+    });
+
+    await staff.save();
+
+    return res.json({
+      success: true,
+      message: "File Added Successfully",
+    });
+
+  });
+
+}
+
 module.exports = {
   registerUser,
   getRoles,
@@ -203,4 +273,5 @@ module.exports = {
   deleteUser,
   updateUserProfile,
   getAllUsersSortingByGeoCode,
+  uploadDocument,
 };
