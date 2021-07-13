@@ -239,7 +239,7 @@ const uploadDocument = async (req, res) => {
     if (req.file === undefined)
       return res.json({ success: false, message: "No file uploaded" });
 
-    const {type, name, doc_name, issueDate, expiryDate, userId } = req.body;
+    const {type, name, doc_name, doc_number, issueDate, expiryDate, userId } = req.body;
 
     const staff = await User.findOne({_id: userId});
     if (!staff) return res.json({ success: false, message: "user not found"});
@@ -248,6 +248,7 @@ const uploadDocument = async (req, res) => {
       url: `${process.env.HOST}:${process.env.PORT}/uploads/staff/${req.file.filename}`,
       name,
       doc_name,
+      doc_number,
       issueDate,
       expiryDate,
       type

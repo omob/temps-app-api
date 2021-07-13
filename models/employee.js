@@ -78,6 +78,7 @@ const employeeSchema = new Schema({
   documents: [
     {
       type: Object,
+      _id: Schema.Types.ObjectId,
       name: { type: String, default: "" },
       issueDate: { type: Date },
       expiryDate: { type: Date },
