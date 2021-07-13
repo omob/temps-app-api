@@ -11,4 +11,7 @@ module.exports = function() {
   if(!process.env.HOST) {
     throw new Error('FATAL ERROR: HOST is not defined.');
   }
+  if(!process.env.HOSTURL) {
+    throw new Error('FATAL ERROR: HOST URL is not defined.');
+  }
 }

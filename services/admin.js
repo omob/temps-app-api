@@ -245,13 +245,13 @@ const uploadDocument = async (req, res) => {
     if (!staff) return res.json({ success: false, message: "user not found"});
 
     staff.documents.push({
-      url: `${process.env.HOST}:${process.env.PORT}/uploads/staff/${req.file.filename}`,
+      url: `${process.env.HOSTURL}:${process.env.PORT}/uploads/staff/${req.file.filename}`,
       name,
       doc_name,
       doc_number,
       issueDate,
       expiryDate,
-      type
+      type,
     });
 
     await staff.save();
