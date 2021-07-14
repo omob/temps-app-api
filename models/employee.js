@@ -93,6 +93,7 @@ const employeeSchema = new Schema({
     default: "unverified",
     enum: ["verified", "unverified"],
   },
+  profileImageUrl: { type: String }
 });
 
 employeeSchema.methods.generateAuthToken = function () {

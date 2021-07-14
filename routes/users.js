@@ -76,6 +76,10 @@ router.post("/upload-document", async (req, res) => {
   adminServices.uploadDocument(req, res);
 });
 
+router.post("/profile-image", async (req, res) => {
+  adminServices.uploadProfileImage(req, res);
+});
+
 
 router.delete("/:id", auth, admin, validateObjectId, async (req, res) => {
   adminServices.deleteUser(req, res);

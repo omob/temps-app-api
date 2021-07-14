@@ -8,7 +8,7 @@ const bcrypt = require("bcrypt");
 const multer = require("multer");
 const path = require("path");
 
-const uploadPath = "./resources/uploads/staff/";
+const uploadPath = "./resources/uploads/staff/documents";
 
 const storage = multer.diskStorage({
   destination: uploadPath,
@@ -241,6 +241,7 @@ const uploadDocument = async (req, res) => {
 
     const {type, name, doc_name, doc_number, issueDate, expiryDate, userId } = req.body;
 
+    console.log(req.file)
     const staff = await User.findOne({_id: userId});
     if (!staff) return res.json({ success: false, message: "user not found"});
 
@@ -265,6 +266,54 @@ const uploadDocument = async (req, res) => {
 
 }
 
+
+
+
+
+const uploadImagePath = "./resources/uploads/staff/images";
+const imageStorage = multer.diskStorage({
+  destination: uploadImagePath,
+  filename: (req, file, callback) => {
+    callback(
+      null,
+      `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`
+    );
+  },
+});
+
+const uploadImage = multer({
+  imageStorage,
+  limits: { fileSize: 256000 },
+  fileFilter: (req, file, callback) => {
+    checkFileType(file, callback);
+  },
+}).single("profileImage");
+
+
+const uploadProfileImage = async (req, res) => {
+  uploadImage(req, res, async (err) => {
+    if (err) return res.status(500).json({ success: false, message: err });
+    if (req.file === undefined)
+      return res.json({ success: false, message: "No file uploaded" });
+
+      console.log(req.file)
+    const { userId } = req.body;
+
+    await User.findOneAndUpdate(
+      { _id: userId },
+      {
+        profileImageUrl: `${process.env.HOSTURL}/uploads/staff/images/${req.file.filename}`,
+      }
+    );
+  
+    return res.json({
+      success: true,
+      message: "Profile Image Set Successfully",
+    });
+  });
+
+}
+
 module.exports = {
   registerUser,
   getRoles,
@@ -275,4 +324,5 @@ module.exports = {
   updateUserProfile,
   getAllUsersSortingByGeoCode,
   uploadDocument,
+  uploadProfileImage
 };
