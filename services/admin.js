@@ -5,42 +5,8 @@ const {
 const { Roles } = require("../models/roles");
 const _ = require("lodash");
 const bcrypt = require("bcrypt");
-const multer = require("multer");
-const path = require("path");
-
-const uploadPath = "./resources/uploads/staff/documents";
-
-const storage = multer.diskStorage({
-  destination: uploadPath,
-  filename: (req, file, callback) => {
-    callback(
-      null,
-      `${file.fieldname}-${Date.now()}${path.extname(
-        file.originalname
-      )}`
-    );
-  },
-});
-
-// Check file type
-const checkFileType = (file, callback) => {
-  // allowed ext
-  const filetypes = /jpeg|jpg|png|gif|doc|docx|pdf/;
-  // check ext
-  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-  // check mime
-  const mimetype = filetypes.test(file.mimetype);
-  if (mimetype && extname) return callback(null, true);
-  return callback("Error: Invalid file type");
-};
-
-const upload = multer({
-  storage,
-  limits: { fileSize: 2000000 },
-  fileFilter: (req, file, callback) => {
-    checkFileType(file, callback);
-  },
-}).single("doc");
+const { uploadImage } = require("../functions/uploadImage");
+const { uploadUserDocument } = require("../functions/uploadDocument");
 
 
 const USER_STATUS = {
@@ -133,7 +99,6 @@ const getUserProfile = async (req, res) => {
   res.status(200).json({ ...userDocument.toObject(), role: userRole });
 };
 
-
 const updateUserProfile = async (req, res) => {
  const { id } = req.params;
  const { error } = validateAdminUserOnUpdate(req.body);
@@ -156,7 +121,7 @@ const updateUserProfile = async (req, res) => {
 };
 
 const getAllUsers = async (req, res) => {
-  const usersInDb = await User.find({}).select("name isDeleted status");
+  const usersInDb = await User.find({}).select("name isDeleted status profileImageUrl");
 
   const users = await Promise.all(usersInDb.map(async user => {
     let userRole= await getUserRoles(user._id);
@@ -167,7 +132,6 @@ const getAllUsers = async (req, res) => {
 
   res.send(users);
 };
-
 
 const _getDistanceBetweenLocationInMiles = (lat1, lat2, lon1, lon2) => {
     // The math module contains a function
@@ -232,21 +196,18 @@ const deleteUser = async (req, res) => {
 };
 
 const uploadDocument = async (req, res) => {
-  upload(req, res, async (err) => {
-    // if (err instanceof multer.MulterError) return res.status(500).json(err);
-    // if (err) return res.status(500).json(err);
+  uploadUserDocument(req, res, async (err) => {
     if (err) return res.status(500).json({ success: false, message: err });
     if (req.file === undefined)
       return res.json({ success: false, message: "No file uploaded" });
 
     const {type, name, doc_name, doc_number, issueDate, expiryDate, userId } = req.body;
 
-    console.log(req.file)
     const staff = await User.findOne({_id: userId});
     if (!staff) return res.json({ success: false, message: "user not found"});
 
     staff.documents.push({
-      url: `${process.env.HOSTURL}/uploads/staff/${req.file.filename}`,
+      url: `${process.env.HOSTURL}/uploads/staff/documents/${req.file.filename}`,
       name,
       doc_name,
       doc_number,
@@ -267,36 +228,12 @@ const uploadDocument = async (req, res) => {
 }
 
 
-
-
-
-const uploadImagePath = "./resources/uploads/staff/images";
-const imageStorage = multer.diskStorage({
-  destination: uploadImagePath,
-  filename: (req, file, callback) => {
-    callback(
-      null,
-      `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`
-    );
-  },
-});
-
-const uploadImage = multer({
-  imageStorage,
-  limits: { fileSize: 256000 },
-  fileFilter: (req, file, callback) => {
-    checkFileType(file, callback);
-  },
-}).single("profileImage");
-
-
 const uploadProfileImage = async (req, res) => {
   uploadImage(req, res, async (err) => {
     if (err) return res.status(500).json({ success: false, message: err });
     if (req.file === undefined)
       return res.json({ success: false, message: "No file uploaded" });
 
-      console.log(req.file)
     const { userId } = req.body;
 
     await User.findOneAndUpdate(

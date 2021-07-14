@@ -99,7 +99,7 @@ const getAllShifts = async (req, res) => {
     const allShifts = await Shift.find({})
       .populate({ path: "contractInfo.contract", select: "name" })
       .populate({ path: "contractInfo.production", select: "name locations" })
-      .populate({ path: "employee", select: "name" })
+      .populate({ path: "employee", select: "name profileImageUrl" })
       .select("-createdDate");
      
     try {
@@ -205,7 +205,6 @@ const deleteShift = async (req, res) => {
     winston.info("ACTION - DELETE SHIFT ");
     res.status(204).send("Deleted");
 }
-
 
 const getAllShiftsDetails = async (req, res) => {
      const allShifts = await Shift.find({})
