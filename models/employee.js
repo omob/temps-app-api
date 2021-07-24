@@ -105,6 +105,7 @@ employeeSchema.methods.generateAuthToken = function () {
         lastName: this.name.lastName,
       },
       email: this.email,
+      profileImageUrl: this.profileImageUrl,
       roles: this.userRoles,
     },
     process.env.SECRET_KEY,
