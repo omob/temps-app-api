@@ -84,7 +84,7 @@ const _mapShiftToUi = (shift) => {
    const { locations, ...otherProps } = shiftObject.contractInfo.production;
    shiftObject.contractInfo.production = otherProps;
 
-   console.log(shiftObject.contractInfo.location);
+  //  console.log(shiftObject.contractInfo.location);
    const foundLocation = locations.find(
      (loc) =>
        loc._id.toString() === shiftObject.contractInfo.location.toString()

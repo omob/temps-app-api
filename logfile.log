@@ -37,3 +37,5 @@
 {"level":"info","message":"Listening on port 3900...","timestamp":"2021-07-27T11:53:31.133Z"}
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-07-27T11:53:31.156Z"}
 {"level":"info","message":"ACTION - CREATED NEW SHIFTS","timestamp":"2021-07-27T11:54:38.879Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-07-27T12:35:04.587Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-07-27T12:35:04.619Z"}
