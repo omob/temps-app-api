@@ -162,17 +162,22 @@ const _getDistanceBetweenLocationInMiles = (lat1, lat2, lon1, lon2) => {
 const getAllUsersSortingByGeoCode = async (req, res) => {
   
   const { longitude, latitude } = req.query;
-  const usersInDb = await User.find({})
-  .select("name contact.address.location contact.address.postCode")
+  const usersInDb = await User.find({}).select(
+    "name contact.address.location contact.address.postCode profileImageUrl"
+  );
 
-  const result = usersInDb.map(({ name, _id, contact }) => {
-    if(!contact.address.location) {
-      return { 
-        name, _id, postCode: contact.address.postCode, distanceInMiles: null
+  const result = usersInDb.map(({ name, _id, contact, profileImageUrl }) => {
+    if (!contact.address.location) {
+      return {
+        name,
+        profileImageUrl,
+        _id,
+        postCode: contact.address.postCode,
+        distanceInMiles: null,
       };
     }
 
-    const { latitude:lat2, longitude:long2 } = contact.address.location;
+    const { latitude: lat2, longitude: long2 } = contact.address.location;
     const distanceInMiles = _getDistanceBetweenLocationInMiles(
       latitude,
       lat2,
@@ -180,10 +185,14 @@ const getAllUsersSortingByGeoCode = async (req, res) => {
       long2
     );
 
-    return { 
-      name, _id, postCode: contact.address.postCode, distanceInMiles
-    }
-  })
+    return {
+      name,
+      profileImageUrl,
+      _id,
+      postCode: contact.address.postCode,
+      distanceInMiles,
+    };
+  });
   res.send(result.sort((a, b) => a.distanceInMiles < b.distanceInMiles));
 }
 
