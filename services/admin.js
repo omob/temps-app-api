@@ -114,7 +114,7 @@ const updateUserProfile = async (req, res) => {
      gender,
      contact,
      nextOfKin,
-     canLogin: canLogin === null ? true : canLogin,
+     canLogin: canLogin === undefined ? true : canLogin,
    }
  );
  res.status(200).json({ message: "success" });
