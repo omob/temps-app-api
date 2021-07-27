@@ -147,7 +147,7 @@ const forgotPassword = async (req, res) => {
   const user = await User.findOne({ email: email });
   if (!user) {
     winston.info(`FORGOT PASSWORD - Email ${email} doest not exist`);
-    return res.status(404).send("Error");
+    return res.status(404).send("Email does not exist");
   }
 
   const token = generateRandomNumbers(5);
