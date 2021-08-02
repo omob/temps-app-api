@@ -17,7 +17,7 @@ const createShift = async (req, res) => {
     if (error) return res.status(400).send(error.details[0].message);
 
     const { 
-        contract, employees, dates, time, milleage, meal, notes
+        contract, employees, dates, time, milleage, meal, accommodation, perDiems, notes
     } = req.body
 
     const { _id: contractId, production: { _id: productionId, locationId }, outRate, position} = contract;
@@ -38,6 +38,8 @@ const createShift = async (req, res) => {
           time,
           milleage,
           meal,
+          accommodation,
+          perDiems,
           notes,
         });
 
@@ -61,6 +63,8 @@ const createShift = async (req, res) => {
             time,
             milleage,
             meal,
+            accommodation,
+            perDiems,
             notes,
           });
           await newShift.save();
@@ -122,8 +126,16 @@ const updateShift = async (req, res) => {
     const { error } = validateShiftOnUpdate(req.body);
     if (error) return res.status(400).send(error.details[0].message);
 
-    const { 
-      contract, employee, date, time, milleage, meal, notes
+    const {
+      contract,
+      employee,
+      date,
+      time,
+      milleage,
+      meal,
+      accommodation,
+      perDiems,
+      notes,
     } = req.body;
 
     const {
@@ -156,6 +168,8 @@ const updateShift = async (req, res) => {
         time,
         milleage,
         meal,
+        accommodation,
+        perDiems,
         notes,
       });
 
@@ -176,6 +190,8 @@ const updateShift = async (req, res) => {
     shiftInDb.time = time;
     shiftInDb.milleage = milleage;
     shiftInDb.meal = meal;
+    shiftInDb.accommodation = accommodation;
+    shiftInDb.perDiems = perDiems;
     shiftInDb.notes = notes;
 
     await shiftInDb.save();

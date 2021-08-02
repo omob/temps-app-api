@@ -25,8 +25,10 @@ function validateShift(shiftInfo) {
         end: Joi.string().label("End Time").required(),
         break: Joi.string().label("Break").allow(null).allow(""),
       }),
-      milleage: Joi.string().label("Milleage").allow(null).allow(""),
-      meal: Joi.string().allow(null).allow(""),
+      milleage: Joi.string().label("Milleage").optional().allow(""),
+      meal: Joi.string().optional().allow(""),
+      accommodation: Joi.string().optional().allow(""),
+      perDiems: Joi.string().optional().allow(""),
       notes: Joi.string().label("Notes").allow(null).allow(""),
     };
 
@@ -52,8 +54,10 @@ function validateShiftOnUpdate (shiftInfo) {
       end: Joi.string().label("End Time"),
       break: Joi.string().label("Break").allow(null).allow(""),
     }),
-    milleage: Joi.string().label("Milleage").allow(null).allow(""),
-    meal: Joi.string().allow(null).allow(""),
+    milleage: Joi.number().label("Milleage").optional().allow("").allow(null),
+    meal: Joi.number().optional().allow("").allow(null),
+    accommodation: Joi.number().optional().allow("").allow(null),
+    perDiems: Joi.number().optional().allow("").allow(null),
     notes: Joi.string().label("Notes").allow(null).allow(""),
   };
 
