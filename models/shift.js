@@ -17,14 +17,25 @@ const shiftSchema = new Schema(
       start: { type: Schema.Types.Date },
       end: { type: Schema.Types.Date },
       break: { type: Schema.Types.Date },
+      clockIn: { type: Schema.Types.Date },
+      clockOut: { type: Schema.Types.Date}
     },
-    milleage: { type: String },
-    meal: { type: String },
+    milleage: { type: Number },
+    meal: { type: Number },
+    accomodation: { type: Number },
+    perDiems: { type: Number },
     notes: { type: String },
-    status: { 
-      type: String, 
-      enum: ["ACCEPTED", "REJECTED", "OUTDATED", "ONGOING", "COMPLETED", "PENDING"],
-      default: "PENDING" 
+    status: {
+      type: String,
+      enum: [
+        "ACCEPTED",
+        "REJECTED",
+        "OUTDATED",
+        "ONGOING",
+        "COMPLETED",
+        "PENDING",
+      ],
+      default: "PENDING",
     },
     createdDate: { type: Date, default: new Date() },
   },

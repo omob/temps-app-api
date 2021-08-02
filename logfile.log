@@ -56,3 +56,6 @@
 {"level":"info","message":"FORGOT PASSWORD - Email pucit@paulusoro.com doest not exist","timestamp":"2021-07-27T13:14:37.382Z"}
 {"level":"info","message":"FORGOT PASSWORD - Email pucit@paulusoro.com doest not exist","timestamp":"2021-07-27T13:14:38.141Z"}
 {"level":"info","message":"FORGOT PASSWORD - Email pucit@paulusoro.com doest not exist","timestamp":"2021-07-27T13:14:43.010Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-02T18:40:10.821Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-02T18:40:10.971Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-08-02T18:55:23.053Z"}
