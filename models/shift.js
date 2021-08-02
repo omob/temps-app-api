@@ -22,7 +22,7 @@ const shiftSchema = new Schema(
     },
     milleage: { type: Number },
     meal: { type: Number },
-    accomodation: { type: Number },
+    accommodation: { type: Number },
     perDiems: { type: Number },
     notes: { type: String },
     status: {
