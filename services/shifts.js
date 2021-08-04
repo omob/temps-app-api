@@ -1,5 +1,8 @@
 const { validateShift, validateShiftOnUpdate } = require("../functions/shift");
 const { Shift } = require("../models/shift");
+const {
+  Employee: User,
+} = require("../models/employee"); // Using User schema in the user route
 const winston = require("winston");
 const { Production } = require("../models/production");
 
@@ -256,152 +259,54 @@ const getAllShiftsDetails = async (req, res) => {
      }
 }
 
-//  {
-//     id: "1",
-//     name: {
-//       firstName: "James",
-//       lastName: "Williams",
-//     },
-//     shiftInfo: {
-//       location: "Wb Studio, Leavesden",
-//       time: "06:00 - 18:00",
-//       date: new Date(),
-//       hours: 12,
-//     },
-//   },
 
-const allShiftDetails = [
-  {
-    id: "1",
-    name: {
-      firstName: "James",
-      lastName: "Williams",
-    },
-    shiftInfo: {
-      location: "Wb Studio, Leavesden",
-      time: "06:00 - 18:00",
-      date: new Date(),
-      hours: 12,
-    },
-  },
-  {
-    id: "2",
-    name: {
-      firstName: "Micheal",
-      lastName: "Flitch",
-    },
-    shiftInfo: {
-      location: "Wb Studio, Leavesden",
-      time: "06:00 - 18:00",
-      date: new Date("2021, 05, 05"),
-      hours: 12,
-    },
-  },
-  {
-    id: "3",
-    name: {
-      firstName: "Rebecca",
-      lastName: "Richarch",
-    },
-    shiftInfo: {
-      location: "Wb Studio, Leavesden",
-      time: "06:00 - 18:00",
-      date: new Date(),
-      hours: 12,
-    },
-  },
-  {
-    id: "4",
-    name: {
-      firstName: "Ayodeji",
-      lastName: "Abodunrin",
-    },
-    shiftInfo: {
-      location: "Wb Studio, Leavesden",
-      time: "06:00 - 18:00",
-      date: new Date("2021, 05, 05"),
-      hours: 12,
-    },
-  },
-  {
-    id: "5",
-    name: {
-      firstName: "Ayodeji",
-      lastName: "Abodunrin",
-    },
-    shiftInfo: {
-      location: "Wb Studio, Leavesden",
-      time: "06:00 - 18:00",
-      date: new Date(),
-      hours: 12,
-    },
-  },
-  {
-    id: "6",
-    name: {
-      firstName: "Ayodeji",
-      lastName: "Abodunrin",
-    },
-    shiftInfo: {
-      location: "Wb Studio, Leavesden",
-      time: "06:00 - 18:00",
-      date: new Date(),
-      hours: 12,
-    },
-  },
-  {
-    id: "7",
-    name: {
-      firstName: "Ayodeji",
-      lastName: "Abodunrin",
-    },
-    shiftInfo: {
-      location: "Wb Studio, Leavesden",
-      time: "06:00 - 18:00",
-      date: new Date(),
-      hours: 12,
-    },
-  },
-  {
-    id: "8",
-    name: {
-      firstName: "Ayodeji",
-      lastName: "Abodunrin",
-    },
-    shiftInfo: {
-      location: "Harry Sleaves, Leavesden",
-      time: "06:00 - 18:00",
-      date: new Date(),
-      hours: 12,
-    },
-  },
-  {
-    id: "9",
-    name: {
-      firstName: "Ayodeji",
-      lastName: "Abodunrin",
-    },
-    shiftInfo: {
-      location: "Wb Studio, Leavesden",
-      time: "06:00 - 18:00",
-      date: new Date(),
-      hours: 12,
-    },
-  },
-  {
-    id: "10",
-    name: {
-      firstName: "Ayodeji",
-      lastName: "Abodunrin",
-    },
-    shiftInfo: {
-      location: "Wb Studio, Leavesden",
-      time: "06:00 - 18:00",
-      date: new Date("2021, 07, 24"),
-      hours: 12,
-    },
-  },
-];
+const getAllUserShifts = async (req, res) => {
+   const { id: userId } = req.params;
+
+  try {
+    const userInfo = await User.findById(userId).select("name")
+    if (!userInfo) return res.status(500).send("User not found");
+
+    const allShifts = await Shift.find({
+      employee: userId,
+      status: SHIFT_STATUS.COMPLETED,
+    })
+      .populate({ path: "contractInfo.contract", select: "name" })
+      .populate({ path: "contractInfo.production", select: "name locations" })
+      .select("-createdDate")
+      .sort({"date": -1}); // sorts by date descending order
+
+    const mappedShifts = await Promise.all(
+      allShifts.map(async ({ contractInfo, time, _id, date, admin }) => {
+        let { production, location, outRate } = contractInfo;
+        production.locations.forEach((loc) => {
+          if (loc._id.toString() === location.toString()) {
+            location = loc;
+          }
+        });
+        const hours = parseInt(time.clockOut) - parseInt(time.clockIn);
+        return {
+          _id,
+          production: production.name,
+          location: location.name,
+          outRate,
+          clockIn: time.clockIn,
+          clockOut: time.clockOut,
+          hours: hours,
+          totalPay: parseInt(outRate) * hours,
+          isPaid: false,
+          date, admin
+        };
+      })
+    );
+
+    res.send({userInfo, shifts: mappedShifts });
+  } catch (err) {
+    winston.error("SOMETHING WRONG HAPPENED: ALLSHIFT", err.message);
+    res.status(500).send(err.message);
+  }
+}
+
 
 module.exports = {
   createShift,
@@ -410,4 +315,5 @@ module.exports = {
   updateShift,
   deleteShift,
   getAllShiftsDetails,
+  getAllUserShifts,
 };

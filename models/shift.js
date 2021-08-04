@@ -37,6 +37,7 @@ const shiftSchema = new Schema(
       ],
       default: "PENDING",
     },
+    admin: { type: Object },
     createdDate: { type: Date, default: new Date() },
   },
   { typePojoToMixed: false }

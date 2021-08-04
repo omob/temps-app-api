@@ -30,6 +30,10 @@ router.delete("/:id", auth, admin, (req, res) => {
     shiftsServices.deleteShift(req, res);
 })
 
+// get all shifts for a user
+router.get("/user/:id", auth, admin, (req, res) => {
+  shiftsServices.getAllUserShifts(req, res);
+});
 
 
 router.post("/", (req, res) => res.send("Hello"));
