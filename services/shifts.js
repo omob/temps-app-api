@@ -277,27 +277,46 @@ const getAllUserShifts = async (req, res) => {
       .sort({"date": -1}); // sorts by date descending order
 
     const mappedShifts = await Promise.all(
-      allShifts.map(async ({ contractInfo, time, _id, date, admin }) => {
-        let { production, location, outRate } = contractInfo;
-        production.locations.forEach((loc) => {
-          if (loc._id.toString() === location.toString()) {
-            location = loc;
-          }
-        });
-        const hours = parseInt(time.clockOut) - parseInt(time.clockIn);
-        return {
+      allShifts.map(
+        async ({
+          contractInfo,
+          time,
           _id,
-          production: production.name,
-          location: location.name,
-          outRate,
-          clockIn: time.clockIn,
-          clockOut: time.clockOut,
-          hours: hours,
-          totalPay: parseInt(outRate) * hours,
-          isPaid: false,
-          date, admin
-        };
-      })
+          date,
+          admin,
+          milleage,
+          meal,
+          accommodation,
+          perDiems,
+        }) => {
+          let { production, location, outRate, contract } = contractInfo;
+
+          production.locations.forEach((loc) => {
+            if (loc._id.toString() === location.toString()) {
+              location = loc;
+            }
+          });
+          const hours = parseInt(time.clockOut) - parseInt(time.clockIn);
+          return {
+            _id,
+            contract: contract.name,
+            production: production.name,
+            location: location.name,
+            outRate,
+            time,
+            hours: hours,
+            totalPay: parseInt(outRate) * hours,
+            isPaid: false,
+            date,
+            admin,
+            milleage,
+            meal,
+            accommodation,
+            perDiems,
+          };
+          // TO_DO - Add accommodation, milleage and meal to totalPay if they have value
+        }
+      )
     );
 
     res.send({userInfo, shifts: mappedShifts });
