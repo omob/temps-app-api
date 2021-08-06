@@ -326,6 +326,69 @@ const getAllUserShifts = async (req, res) => {
   }
 }
 
+const getAllUsersShifts = async (req, res) => {
+    try {
+      const allShifts = await Shift.find({
+        status: SHIFT_STATUS.COMPLETED,
+      })
+        .populate({ path: "contractInfo.contract", select: "name" })
+        .populate({ path: "contractInfo.production", select: "name locations" })
+        .populate({ path: "employee", select: "name" })
+        .select("-createdDate")
+        .sort({ date: -1 }); // sorts by date descending order
+
+      const mappedShifts = await Promise.all(
+        allShifts.map(
+          async ({
+            contractInfo,
+            time,
+            _id,
+            date,
+            admin,
+            milleage,
+            meal,
+            accommodation,
+            perDiems,
+            employee
+          }) => {
+            let { production, location, outRate, contract } = contractInfo;
+
+            production.locations.forEach((loc) => {
+              if (loc._id.toString() === location.toString()) {
+                location = loc;
+              }
+            });
+            const hours = parseInt(time.clockOut) - parseInt(time.clockIn);
+            return {
+              _id,
+              employee,
+              contract: contract.name,
+              production: production.name,
+              location: location.name,
+              outRate,
+              time,
+              hours: hours,
+              totalPay: parseInt(outRate) * hours,
+              isPaid: false,
+              date,
+              admin,
+              milleage,
+              meal,
+              accommodation,
+              perDiems,
+            };
+            // TO_DO - Add accommodation, milleage and meal to totalPay if they have value
+          }
+        )
+      );
+
+      res.send({ shifts: mappedShifts });
+    } catch (err) {
+      winston.error("SOMETHING WRONG HAPPENED: getAllUsersShifts", err.message);
+      res.status(500).send(err.message);
+    }
+}
+
 
 module.exports = {
   createShift,
@@ -335,4 +398,5 @@ module.exports = {
   deleteShift,
   getAllShiftsDetails,
   getAllUserShifts,
+  getAllUsersShifts,
 };

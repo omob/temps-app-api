@@ -18,6 +18,18 @@ router.get("/", auth, admin, (req, res) => {
     shiftsServices.getAllShifts(req, res);
 })
 
+// get all time sheet shifts for a user
+router.get("/users/:id", auth, admin, (req, res) => {
+  shiftsServices.getAllUserShifts(req, res);
+});
+
+
+// get all timesheet shifts for users
+router.get("/users", auth, admin, (req, res) => {
+  shiftsServices.getAllUsersShifts(req, res);
+});
+
+
 router.get("/:id", auth, admin, (req, res) => {
     shiftsServices.getShiftById(req, res);
 })
@@ -29,12 +41,6 @@ router.put("/:id", auth, admin, (req, res) => {
 router.delete("/:id", auth, admin, (req, res) => {
     shiftsServices.deleteShift(req, res);
 })
-
-// get all shifts for a user
-router.get("/user/:id", auth, admin, (req, res) => {
-  shiftsServices.getAllUserShifts(req, res);
-});
-
 
 router.post("/", (req, res) => res.send("Hello"));
 
