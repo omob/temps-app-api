@@ -29,6 +29,11 @@ router.get("/users", auth, admin, (req, res) => {
   shiftsServices.getAllUsersShifts(req, res);
 });
 
+// update confirmation for user timesheet
+router.put("/user/update-confirmation", auth, admin, (req, res) => {
+  shiftsServices.updateUserShiftConfirmation(req, res);
+});
+
 
 router.get("/:id", auth, admin, (req, res) => {
     shiftsServices.getShiftById(req, res);

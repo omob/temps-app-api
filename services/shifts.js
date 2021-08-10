@@ -100,7 +100,6 @@ const _mapShiftToUi = (shift) => {
    return shiftObject;
 }
 
-
 const getAllShifts = async (req, res) => {
     // if query -> date, filter by date 
     const allShifts = await Shift.find({})
@@ -259,7 +258,6 @@ const getAllShiftsDetails = async (req, res) => {
      }
 }
 
-
 const getAllUserShifts = async (req, res) => {
    const { id: userId } = req.params;
 
@@ -273,8 +271,9 @@ const getAllUserShifts = async (req, res) => {
     })
       .populate({ path: "contractInfo.contract", select: "name" })
       .populate({ path: "contractInfo.production", select: "name locations" })
+      .populate({ path: "admin.approvedBy", select: "name" })
       .select("-createdDate")
-      .sort({"date": -1}); // sorts by date descending order
+      .sort({ date: -1 }); // sorts by date descending order
 
     const mappedShifts = await Promise.all(
       allShifts.map(
@@ -306,7 +305,14 @@ const getAllUserShifts = async (req, res) => {
             time,
             hours: hours,
             totalPay: parseInt(outRate) * hours,
-            isPaid: false,
+            isPaid:
+              admin.isPaid === undefined || admin.isPaid === false
+                ? false
+                : true,
+            isChecked:
+              admin.isChecked === undefined || admin.isChecked === false
+                ? false
+                : true,
             date,
             admin,
             milleage,
@@ -334,6 +340,7 @@ const getAllUsersShifts = async (req, res) => {
         .populate({ path: "contractInfo.contract", select: "name" })
         .populate({ path: "contractInfo.production", select: "name locations" })
         .populate({ path: "employee", select: "name" })
+        .populate({ path: "admin.approvedBy", select: "name" })
         .select("-createdDate")
         .sort({ date: -1 }); // sorts by date descending order
 
@@ -358,6 +365,7 @@ const getAllUsersShifts = async (req, res) => {
                 location = loc;
               }
             });
+
             const hours = parseInt(time.clockOut) - parseInt(time.clockIn);
             return {
               _id,
@@ -369,7 +377,14 @@ const getAllUsersShifts = async (req, res) => {
               time,
               hours: hours,
               totalPay: parseInt(outRate) * hours,
-              isPaid: false,
+              isPaid:
+                admin.isPaid === undefined || admin.isPaid === false
+                  ? false
+                  : true,
+              isChecked:
+                admin.isChecked === undefined || admin.isChecked === false
+                  ? false
+                  : true,
               date,
               admin,
               milleage,
@@ -389,6 +404,25 @@ const getAllUsersShifts = async (req, res) => {
     }
 }
 
+const updateUserShiftConfirmation = async (req, res) => {
+  const { shiftId, isChecked } = req.body;
+  if (shiftId === undefined || isChecked === undefined) 
+    return res.status(400).send("ShiftId and isChecked are required");
+
+  const shiftInDb = await Shift.findById(shiftId);
+  if (!shiftInDb) return res.status(404).send("Shift Not Found");
+  console.log(shiftInDb)
+
+  const result = await Shift.findByIdAndUpdate(shiftId, {
+    status: "COMPLETED",
+    admin: {
+      isChecked: isChecked,
+      approvedBy: isChecked ? req.user._id : null,
+    },
+  });
+  winston.info(`ACTION - UPDATED SHIFT INFO CONFIRMATION BY ${req.user.name.firstName} ${req.user.name.lastName}` );
+  res.status(200).send(result);
+}
 
 module.exports = {
   createShift,
@@ -399,4 +433,5 @@ module.exports = {
   getAllShiftsDetails,
   getAllUserShifts,
   getAllUsersShifts,
+  updateUserShiftConfirmation,
 };

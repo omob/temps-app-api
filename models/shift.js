@@ -18,7 +18,7 @@ const shiftSchema = new Schema(
       end: { type: Schema.Types.Date },
       break: { type: Schema.Types.Date },
       clockIn: { type: Schema.Types.Date },
-      clockOut: { type: Schema.Types.Date}
+      clockOut: { type: Schema.Types.Date },
     },
     milleage: { type: Number },
     meal: { type: Number },
@@ -37,7 +37,12 @@ const shiftSchema = new Schema(
       ],
       default: "PENDING",
     },
-    admin: { type: Object },
+    admin: {
+      notes: { type: String },
+      isChecked: { type: Boolean },
+      isPaid: { type: Boolean },
+      approvedBy: { type: Schema.Types.ObjectId, ref: "Employee" },
+    },
     createdDate: { type: Date, default: new Date() },
   },
   { typePojoToMixed: false }
