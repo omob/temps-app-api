@@ -53,6 +53,8 @@ function validateShiftOnUpdate (shiftInfo) {
       start: Joi.string().label("Start Time"),
       end: Joi.string().label("End Time"),
       break: Joi.string().label("Break").allow(null).allow(""),
+      clockIn: Joi.string().label("Clock In").allow(null).allow(""),
+      clockOut: Joi.string().label("Clock Out").allow(null).allow(""),
     }),
     milleage: Joi.number().label("Milleage").optional().allow("").allow(null),
     meal: Joi.number().optional().allow("").allow(null),

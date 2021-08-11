@@ -151,6 +151,8 @@ const updateShift = async (req, res) => {
     if(!shiftInDb) return res.status(404).send("Shift Not Found");
 
     if(shiftInDb.status === SHIFT_STATUS.OUTDATED) return res.status(400).send("Cannot update outdated shift");
+    
+    if((time.clockIn || time.clockOut) && !SHIFT_STATUS.COMPLETED) return res.status(400).send("Shift not completed. Cannot modify clockIn and clockout");
 
     if (employee.toString() !== shiftInDb.employee.toString()) {
       // shift has been assigned to someone else, change status of shift
@@ -411,7 +413,6 @@ const updateUserShiftConfirmation = async (req, res) => {
 
   const shiftInDb = await Shift.findById(shiftId);
   if (!shiftInDb) return res.status(404).send("Shift Not Found");
-  console.log(shiftInDb)
 
   const result = await Shift.findByIdAndUpdate(shiftId, {
     status: "COMPLETED",
