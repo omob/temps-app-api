@@ -299,6 +299,9 @@ const getAllUserShifts = async (req, res) => {
             }
           });
           const hours = parseInt(time.clockOut) - parseInt(time.clockIn);
+          let totalPay = parseInt(outRate) * hours;
+          totalPay += milleage + meal + accommodation + perDiems;
+          
           return {
             _id,
             contract: contract.name,
@@ -308,7 +311,7 @@ const getAllUserShifts = async (req, res) => {
             outRate,
             time,
             hours: hours,
-            totalPay: parseInt(outRate) * hours,
+            totalPay: totalPay,
             isPaid:
               admin.isPaid === undefined || admin.isPaid === false
                 ? false
@@ -324,7 +327,6 @@ const getAllUserShifts = async (req, res) => {
             accommodation,
             perDiems,
           };
-          // TO_DO - Add accommodation, milleage and meal to totalPay if they have value
         }
       )
     );
@@ -371,6 +373,8 @@ const getAllUsersShifts = async (req, res) => {
             });
 
             const hours = parseInt(time.clockOut) - parseInt(time.clockIn);
+            let totalPay = parseInt(outRate) * hours;
+            totalPay += milleage + meal + accommodation + perDiems;
             return {
               _id,
               employee,
@@ -380,7 +384,7 @@ const getAllUsersShifts = async (req, res) => {
               outRate,
               time,
               hours: hours,
-              totalPay: parseInt(outRate) * hours,
+              totalPay: totalPay,
               isPaid:
                 admin.isPaid === undefined || admin.isPaid === false
                   ? false
@@ -396,7 +400,6 @@ const getAllUsersShifts = async (req, res) => {
               accommodation,
               perDiems,
             };
-            // TO_DO - Add accommodation, milleage and meal to totalPay if they have value
           }
         )
       );
