@@ -381,3 +381,65 @@
 {"level":"info","message":"ACTION - UPDATED SHIFT INFO CONFIRMATION BY James Williams","timestamp":"2021-08-11T01:18:33.205Z"}
 {"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-11T01:19:17.133Z"}
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-11T01:19:17.162Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-11T23:28:43.134Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-11T23:28:43.159Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-11T23:34:43.286Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-11T23:34:43.311Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-12T22:24:58.825Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-12T22:24:58.917Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-12T22:25:11.940Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-12T22:25:11.962Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-12T23:11:52.000Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-12T23:11:52.021Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-12T23:17:45.875Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-12T23:17:45.903Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-12T23:19:25.852Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-12T23:19:25.883Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-12T23:40:56.316Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-12T23:40:56.344Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-12T23:41:14.669Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-12T23:41:14.698Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-12T23:41:21.637Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-12T23:41:21.665Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-12T23:43:34.083Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-12T23:43:34.114Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-12T23:45:02.239Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-12T23:45:02.270Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-12T23:45:12.601Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-12T23:45:12.627Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-12T23:50:20.530Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-12T23:50:20.556Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-12T23:51:04.428Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-12T23:51:04.463Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-12T23:53:00.838Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-12T23:53:00.866Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-12T23:54:26.862Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-12T23:54:26.914Z"}
+{"level":"info","message":"ACTION - UPDATED PAYMENT INFO FOR SHIFT BY James Williams","timestamp":"2021-08-12T23:54:38.881Z"}
+{"level":"info","message":"ACTION - UPDATED PAYMENT INFO FOR SHIFT BY James Williams","timestamp":"2021-08-12T23:54:38.891Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-12T23:59:50.505Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-12T23:59:50.538Z"}
+{"level":"info","message":"ACTION - UPDATED PAYMENT INFO FOR SHIFT BY James Williams","timestamp":"2021-08-13T00:00:19.559Z"}
+{"level":"info","message":"ACTION - UPDATED PAYMENT INFO FOR SHIFT BY James Williams","timestamp":"2021-08-13T00:00:19.560Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-13T00:01:44.856Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-13T00:01:44.884Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-13T00:02:20.264Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-13T00:02:20.293Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-13T00:02:32.318Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-13T00:02:32.361Z"}
+{"level":"info","message":"ACTION - UPDATED PAYMENT INFO FOR SHIFT BY James Williams","timestamp":"2021-08-13T00:02:46.495Z"}
+{"level":"info","message":"ACTION - UPDATED PAYMENT INFO FOR SHIFT BY James Williams","timestamp":"2021-08-13T00:02:46.496Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-13T00:03:59.707Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-13T00:03:59.737Z"}
+{"level":"info","message":"ACTION - UPDATED PAYMENT INFO FOR SHIFT BY James Williams","timestamp":"2021-08-13T00:04:29.610Z"}
+{"level":"info","message":"ACTION - UPDATED PAYMENT INFO FOR SHIFT BY James Williams","timestamp":"2021-08-13T00:04:29.611Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-13T00:09:19.059Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-13T00:09:19.091Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT INFO CONFIRMATION BY James Williams","timestamp":"2021-08-13T00:09:25.969Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT INFO CONFIRMATION BY James Williams","timestamp":"2021-08-13T00:09:52.619Z"}
+{"level":"info","message":"ACTION - UPDATED PAYMENT INFO FOR SHIFT BY James Williams","timestamp":"2021-08-13T00:10:22.893Z"}
+{"level":"info","message":"ACTION - UPDATED PAYMENT INFO FOR SHIFT BY James Williams","timestamp":"2021-08-13T00:10:22.894Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-13T00:30:57.564Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-13T00:30:57.596Z"}
+{"level":"info","message":"ACTION - UPDATED PAYMENT INFO FOR SHIFT BY James Williams","timestamp":"2021-08-13T00:34:55.616Z"}
+{"level":"info","message":"ACTION - UPDATED PAYMENT INFO FOR SHIFT BY James Williams","timestamp":"2021-08-13T00:34:55.617Z"}

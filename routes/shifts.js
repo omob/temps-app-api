@@ -34,6 +34,11 @@ router.put("/user/update-confirmation", auth, admin, (req, res) => {
   shiftsServices.updateUserShiftConfirmation(req, res);
 });
 
+// add payment invoice for shift and update isPaid for userTimesheet confirmation for user timesheet
+router.post("/user/shift-payment", auth, admin, (req, res) => {
+  shiftsServices.updateUserShiftPayment(req, res);
+});
+
 
 router.get("/:id", auth, admin, (req, res) => {
     shiftsServices.getShiftById(req, res);

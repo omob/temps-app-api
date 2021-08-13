@@ -4,7 +4,8 @@ const {
   Employee: User,
 } = require("../models/employee"); // Using User schema in the user route
 const winston = require("winston");
-const { Production } = require("../models/production");
+const { uploadReceiptDocument } = require("../functions/uploadInvoice");
+const { Payment } = require("../models/payments");
 
 const SHIFT_STATUS = {
   PENDING: "PENDING",
@@ -303,6 +304,7 @@ const getAllUserShifts = async (req, res) => {
             contract: contract.name,
             production: production.name,
             location: location.name,
+            employeeId: userId,
             outRate,
             time,
             hours: hours,
@@ -425,6 +427,55 @@ const updateUserShiftConfirmation = async (req, res) => {
   res.status(200).send(result);
 }
 
+const updateUserShiftPayment = async (req, res) => {
+  uploadReceiptDocument(req, res, async (err) => {
+    if (err) return res.status(500).json({ success: false, message: err });
+    if (req.file === undefined)
+      return res.json({ success: false, message: "No file uploaded" });
+
+    const { shiftsInfo, note } = req.body;
+
+    try {
+      await Promise.all(
+        JSON.parse(shiftsInfo).map(async (shiftInfo) => {
+          // populate payment table
+          // update shift table
+
+          const payment = new Payment({
+            shiftId: shiftInfo._id,
+            receiptUrl: `${process.env.HOSTURL}/uploads/staff/receipts/${req.file.filename}`,
+            uploadedBy: req.user._id,
+            notes: note,
+            employee: shiftInfo.employeeId,
+            status: "PAID",
+          });
+          await payment.save();
+
+          var shift = await Shift.findById(shiftInfo._id);
+          shift.admin.isPaid = true;
+          shift.admin.receiptUrl = `${process.env.HOSTURL}/uploads/staff/receipts/${req.file.filename}`;
+          await shift.save();
+
+          winston.info(
+            `ACTION - UPDATED PAYMENT INFO FOR SHIFT BY ${req.user.name.firstName} ${req.user.name.lastName}`
+          );
+        })
+      );
+
+      return res.json({
+        success: true,
+        message: "Success updating record",
+      });
+    } catch (error) {
+      winston.error(
+        `ERROR OCCURED UPDATING PAYMENT INFO FOR SHIFT BY ${req.user.name.firstName} ${req.user.name.lastName}`
+      );
+      res.status(500).send("Something unexpected happened");
+    }
+
+  });
+}
+
 module.exports = {
   createShift,
   getAllShifts,
@@ -435,4 +486,5 @@ module.exports = {
   getAllUserShifts,
   getAllUsersShifts,
   updateUserShiftConfirmation,
+  updateUserShiftPayment,
 };
