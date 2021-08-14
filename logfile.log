@@ -458,3 +458,60 @@
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-13T23:42:53.285Z"}
 {"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-13T23:48:23.289Z"}
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-13T23:48:23.321Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-13T23:50:41.565Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-13T23:50:41.600Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-13T23:50:43.258Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-13T23:50:43.280Z"}
+{"level":"info","message":"ACTION - UPDATED PAYMENT INFO FOR SHIFT BY James Williams","timestamp":"2021-08-13T23:55:24.479Z"}
+{"level":"info","message":"ACTION - UPDATED PAYMENT INFO FOR SHIFT BY James Williams","timestamp":"2021-08-13T23:55:24.479Z"}
+{"level":"info","message":"ACTION - UPDATED PAYMENT INFO FOR SHIFT BY James Williams","timestamp":"2021-08-13T23:58:10.732Z"}
+{"level":"info","message":"ACTION - UPDATED PAYMENT INFO FOR SHIFT BY James Williams","timestamp":"2021-08-13T23:58:10.733Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-08-14T00:19:56.259Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-14T00:23:32.700Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-14T00:23:32.729Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-14T00:26:06.634Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-14T00:26:06.660Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-14T00:27:25.839Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-14T00:27:25.867Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-08-14T00:27:32.658Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-08-14T00:27:52.143Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-08-14T00:30:06.923Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS","timestamp":"2021-08-14T06:52:30.198Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-08-14T06:52:55.098Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-08-14T06:53:24.927Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-08-14T06:53:41.240Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-08-14T06:54:26.522Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS","timestamp":"2021-08-14T07:53:28.456Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-08-14T07:53:54.772Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-08-14T08:08:18.036Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-08-14T08:08:54.881Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-08-14T08:09:27.361Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-08-14T08:09:40.670Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-08-14T08:10:05.684Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS","timestamp":"2021-08-14T08:11:26.464Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-08-14T08:11:51.060Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-08-14T08:12:24.888Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT INFO CONFIRMATION BY James Williams","timestamp":"2021-08-14T08:25:12.152Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT INFO CONFIRMATION BY James Williams","timestamp":"2021-08-14T08:25:17.771Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT INFO CONFIRMATION BY James Williams","timestamp":"2021-08-14T08:25:22.949Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT INFO CONFIRMATION BY James Williams","timestamp":"2021-08-14T08:25:35.804Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT INFO CONFIRMATION BY James Williams","timestamp":"2021-08-14T08:25:45.031Z"}
+{"level":"info","message":"ACTION - UPDATED PAYMENT INFO FOR SHIFT BY James Williams","timestamp":"2021-08-14T08:26:31.005Z"}
+{"level":"info","message":"ACTION - UPDATED PAYMENT INFO FOR SHIFT BY James Williams","timestamp":"2021-08-14T08:26:31.006Z"}
+{"level":"info","message":"ACTION - UPDATED PAYMENT INFO FOR SHIFT BY James Williams","timestamp":"2021-08-14T08:26:31.007Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-14T18:16:56.425Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-14T18:16:56.447Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-14T18:21:22.107Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-14T18:21:22.130Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-14T18:21:45.365Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-14T18:21:45.404Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-14T18:22:11.136Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-14T18:22:11.163Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-14T18:22:19.743Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-14T18:22:19.770Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-14T18:24:10.608Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-14T18:24:10.632Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-14T18:25:51.854Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-14T18:25:51.889Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-14T18:34:46.424Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-14T18:34:46.450Z"}

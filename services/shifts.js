@@ -139,6 +139,7 @@ const updateShift = async (req, res) => {
       accommodation,
       perDiems,
       notes,
+      status
     } = req.body;
 
     const {
@@ -153,7 +154,7 @@ const updateShift = async (req, res) => {
 
     if(shiftInDb.status === SHIFT_STATUS.OUTDATED) return res.status(400).send("Cannot update outdated shift");
     
-    if((time.clockIn || time.clockOut) && !SHIFT_STATUS.COMPLETED) return res.status(400).send("Shift not completed. Cannot modify clockIn and clockout");
+    if((time.clockIn || time.clockOut) && shiftInDb.status !== SHIFT_STATUS.COMPLETED) return res.status(400).send("Shift not completed. Cannot modify clockIn and clockout");
 
     if (employee.toString() !== shiftInDb.employee.toString()) {
       // shift has been assigned to someone else, change status of shift
@@ -198,6 +199,7 @@ const updateShift = async (req, res) => {
     shiftInDb.accommodation = accommodation;
     shiftInDb.perDiems = perDiems;
     shiftInDb.notes = notes;
+    shiftInDb.status = status;
 
     await shiftInDb.save();
     winston.info("ACTION - UPDATED SHIFT DETAIL");
@@ -339,9 +341,11 @@ const getAllUserShifts = async (req, res) => {
 }
 
 const getAllUsersShifts = async (req, res) => {
+    const { isPaid } = req.query;
     try {
       const allShifts = await Shift.find({
         status: SHIFT_STATUS.COMPLETED,
+        "admin.isPaid": isPaid,
       })
         .populate({ path: "contractInfo.contract", select: "name" })
         .populate({ path: "contractInfo.production", select: "name locations" })

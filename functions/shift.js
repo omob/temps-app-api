@@ -47,6 +47,7 @@ function validateShiftOnUpdate (shiftInfo) {
       outRate: Joi.number().label("Out Rate").required(),
       position: Joi.string().label("Position").allow(null).allow(""),
     }),
+    status: Joi.string().label("Status"),
     employee: Joi.string().required(),
     date: Joi.string().required(),
     time: Joi.object().keys({

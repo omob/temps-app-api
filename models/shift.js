@@ -42,6 +42,7 @@ const shiftSchema = new Schema(
       isChecked: { type: Boolean },
       isPaid: { type: Boolean },
       approvedBy: { type: Schema.Types.ObjectId, ref: "Employee" },
+      receiptUrl: { type: String }
     },
     createdDate: { type: Date, default: new Date() },
   },
