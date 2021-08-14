@@ -35,7 +35,7 @@ const dashboardInfo = async (req, res) => {
            : `is ${shiftsAwaitingConfirmationCount} shift`
        } awaiting review and confirmation`,
        type: "approval",
-       url: "./timesheet",
+       url: "/admin/timesheet",
      });
    }
 
@@ -49,7 +49,7 @@ const dashboardInfo = async (req, res) => {
            : `is ${shiftsAwaitingPaymentCount} shift`
        } awaiting review and payment`,
        type: "approval",
-       url: "./timesheet",
+       url: "/admin/timesheet",
      });
    }
 

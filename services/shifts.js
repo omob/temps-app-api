@@ -302,8 +302,8 @@ const getAllUserShifts = async (req, res) => {
           });
           const hours = parseInt(time.clockOut) - parseInt(time.clockIn);
           let totalPay = parseInt(outRate) * hours;
-          totalPay += milleage + meal + accommodation + perDiems;
           
+          totalPay += milleage || null + meal || null + accommodation || null + perDiems || null;
           return {
             _id,
             contract: contract.name,
@@ -378,7 +378,13 @@ const getAllUsersShifts = async (req, res) => {
 
             const hours = parseInt(time.clockOut) - parseInt(time.clockIn);
             let totalPay = parseInt(outRate) * hours;
-            totalPay += milleage + meal + accommodation + perDiems;
+            totalPay +=
+              milleage ||
+              null + meal ||
+              null + accommodation ||
+              null + perDiems ||
+              null;
+
             return {
               _id,
               employee,
