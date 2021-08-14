@@ -484,6 +484,7 @@ const updateUserShiftPayment = async (req, res) => {
 }
 
 module.exports = {
+  SHIFT_STATUS,
   createShift,
   getAllShifts,
   getShiftById,
