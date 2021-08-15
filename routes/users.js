@@ -62,6 +62,12 @@ router.get("/geocode", auth, admin, async (req, res) => {
 router.get("/:id", auth, admin, validateObjectId, async (req, res) => {
   adminServices.getUserProfile(req, res);
 });
+
+// update user verification status
+router.put("/verify-status", auth, admin, async (req, res) => {
+  adminServices.userStatusVerification(req, res);
+});
+
 // admin update other user's profile
 router.put("/:id", auth, admin, validateObjectId, async (req, res) => {
   adminServices.updateUserProfile(req, res);

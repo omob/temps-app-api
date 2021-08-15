@@ -597,3 +597,31 @@
 {"level":"info","message":"ACTION - UPDATED SHIFT INFO CONFIRMATION BY James Williams","timestamp":"2021-08-14T21:57:42.239Z"}
 {"level":"info","message":"ACTION - UPDATED SHIFT INFO CONFIRMATION BY James Williams","timestamp":"2021-08-14T21:58:06.462Z"}
 {"level":"info","message":"ACTION - UPDATED PAYMENT INFO FOR SHIFT BY James Williams","timestamp":"2021-08-14T21:58:15.083Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-15T11:49:11.229Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-15T11:49:11.258Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-15T11:49:17.740Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-15T11:49:17.768Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-15T11:50:51.675Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-15T11:50:51.697Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-15T11:50:57.157Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-15T11:50:57.178Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-15T11:51:00.130Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-15T11:51:00.153Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-15T11:55:33.745Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-15T11:55:33.780Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-15T11:55:46.085Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-15T11:55:46.108Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-15T11:55:48.697Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-15T11:55:48.722Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-15T11:56:31.380Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-15T11:56:31.415Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-15T11:57:41.053Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-15T11:57:41.080Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-15T11:58:14.025Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-15T11:58:14.055Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-15T11:58:28.380Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-15T11:58:28.423Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-15T11:58:58.467Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-15T11:58:58.498Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-08-15T12:00:14.441Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-08-15T12:00:14.468Z"}

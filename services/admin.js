@@ -260,6 +260,22 @@ const uploadProfileImage = async (req, res) => {
 
 }
 
+
+const userStatusVerification = async (req, res) => {
+  const { staffId, verification } = req.body;
+
+  const result = await User.findOneAndUpdate(
+    { _id: staffId },
+    {
+      status: verification
+    }
+  );
+
+  if(!result) return res.status(404).send("Not found");
+  
+  res.status(200).json({ message: "success" });
+};
+
 module.exports = {
   registerUser,
   getRoles,
@@ -270,5 +286,6 @@ module.exports = {
   updateUserProfile,
   getAllUsersSortingByGeoCode,
   uploadDocument,
-  uploadProfileImage
+  uploadProfileImage,
+  userStatusVerification,
 };
