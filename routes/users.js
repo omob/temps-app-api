@@ -68,6 +68,11 @@ router.put("/verify-status", auth, admin, async (req, res) => {
   adminServices.userStatusVerification(req, res);
 });
 
+// accept user's document
+router.put("/accept-document", auth, admin, async (req, res) => {
+  adminServices.acceptUserDocument(req, res);
+});
+
 // admin update other user's profile
 router.put("/:id", auth, admin, validateObjectId, async (req, res) => {
   adminServices.updateUserProfile(req, res);

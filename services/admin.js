@@ -7,7 +7,7 @@ const _ = require("lodash");
 const bcrypt = require("bcrypt");
 const { uploadImage } = require("../functions/uploadImage");
 const { uploadUserDocument } = require("../functions/uploadDocument");
-
+const mongoose = require("mongoose");
 
 const USER_STATUS = {
   VERIFIED : "verified",
@@ -216,6 +216,7 @@ const uploadDocument = async (req, res) => {
     if (!staff) return res.json({ success: false, message: "user not found"});
 
     staff.documents.push({
+      _id: mongoose.Types.ObjectId(),
       url: `${process.env.HOSTURL}/uploads/staff/documents/${req.file.filename}`,
       name,
       doc_name,
@@ -223,6 +224,8 @@ const uploadDocument = async (req, res) => {
       issueDate,
       expiryDate,
       type,
+      verified: false,
+      addedDate: new Date()
     });
 
     await staff.save();
@@ -276,7 +279,23 @@ const userStatusVerification = async (req, res) => {
   res.status(200).json({ message: "success" });
 };
 
+const acceptUserDocument = async (req, res) => {
+  const {staffId,
+    documentId,
+    isVerified} = req.body;
+
+    await User.findOneAndUpdate(
+      { 
+        _id: staffId, 
+        "documents._id": documentId
+      },
+      { $set: { "documents.$.verified": isVerified } }
+    );
+    res.status(200).json({ message: "success" });
+}
+
 module.exports = {
+  acceptUserDocument,
   registerUser,
   getRoles,
   manageAccess,

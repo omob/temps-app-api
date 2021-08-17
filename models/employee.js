@@ -77,13 +77,16 @@ const employeeSchema = new Schema({
   },
   documents: [
     {
-      type: Object,
       _id: Schema.Types.ObjectId,
       name: { type: String, default: "" },
       issueDate: { type: Date },
       expiryDate: { type: Date },
       url: { type: String, default: "" },
-      addedDate: new Date(),
+      addedDate: { type: Date, default: new Date() },
+      verified: { type: Boolean, default: false },
+      doc_name: { type: String },
+      doc_number: { type: String },
+      type: { type: String }
     },
   ],
   createdDate: { type: Date, default: new Date() },
@@ -93,7 +96,7 @@ const employeeSchema = new Schema({
     default: "unverified",
     enum: ["verified", "unverified"],
   },
-  profileImageUrl: { type: String }
+  profileImageUrl: { type: String },
 });
 
 employeeSchema.methods.generateAuthToken = function () {
