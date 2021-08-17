@@ -73,6 +73,11 @@ router.put("/accept-document", auth, admin, async (req, res) => {
   adminServices.acceptUserDocument(req, res);
 });
 
+// reject user's document
+router.put("/reject-document", auth, admin, async (req, res) => {
+  adminServices.rejectUserDocument(req, res);
+});
+
 // admin update other user's profile
 router.put("/:id", auth, admin, validateObjectId, async (req, res) => {
   adminServices.updateUserProfile(req, res);

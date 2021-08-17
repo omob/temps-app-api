@@ -86,7 +86,9 @@ const employeeSchema = new Schema({
       verified: { type: Boolean, default: false },
       doc_name: { type: String },
       doc_number: { type: String },
-      type: { type: String }
+      type: { type: String },
+      note: { type: String },
+      status: { type: String }
     },
   ],
   createdDate: { type: Date, default: new Date() },

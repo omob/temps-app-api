@@ -239,7 +239,6 @@ const uploadDocument = async (req, res) => {
 
 }
 
-
 const uploadProfileImage = async (req, res) => {
   uploadImage(req, res, async (err) => {
     if (err) return res.status(500).json({ success: false, message: err });
@@ -262,7 +261,6 @@ const uploadProfileImage = async (req, res) => {
   });
 
 }
-
 
 const userStatusVerification = async (req, res) => {
   const { staffId, verification } = req.body;
@@ -294,6 +292,25 @@ const acceptUserDocument = async (req, res) => {
     res.status(200).json({ message: "success" });
 }
 
+const rejectUserDocument = async (req, res) => {
+  const { staffId, documentId, note } = req.body;
+
+  await User.findOneAndUpdate(
+    {
+      _id: staffId,
+      "documents._id": documentId,
+    },
+    {
+      $set: {
+        "documents.$.verified": false,
+        "documents.$.note": note,
+        "documents.$.status": 'REJECTED',
+      },
+    }
+  );
+  res.status(200).json({ message: "success" });
+}
+
 module.exports = {
   acceptUserDocument,
   registerUser,
@@ -307,4 +324,5 @@ module.exports = {
   uploadDocument,
   uploadProfileImage,
   userStatusVerification,
+  rejectUserDocument,
 };
