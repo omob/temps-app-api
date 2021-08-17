@@ -162,7 +162,7 @@ const _getDistanceBetweenLocationInMiles = (lat1, lat2, lon1, lon2) => {
 const getAllUsersSortingByGeoCode = async (req, res) => {
   
   const { longitude, latitude } = req.query;
-  const usersInDb = await User.find({}).select(
+  const usersInDb = await User.find({status: 'verified'}).select(
     "name contact.address.location contact.address.postCode profileImageUrl"
   );
 
