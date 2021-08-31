@@ -4,10 +4,14 @@ const {
 } = require("../functions/user");
 const { Roles } = require("../models/roles");
 const _ = require("lodash");
+const fs = require("fs");
+const path = require("path");
 const bcrypt = require("bcrypt");
 const { uploadImage } = require("../functions/uploadImage");
 const { uploadUserDocument } = require("../functions/uploadDocument");
 const mongoose = require("mongoose");
+const winston = require("winston");
+const Email = require("../services/email");
 
 const USER_STATUS = {
   VERIFIED : "verified",
@@ -18,6 +22,24 @@ const USER_ROLES = {
   ADMIN: "admin",
   EMPLOYEE: "employee"
 };
+
+const _sendAccountCreatedEmail = (name, email, password) => {
+  fs.readFile(
+    path.join(__dirname, "../templates/user-registeration.html"),
+    "utf8",
+    (err, data) => {
+      if (err) return winston.error("Could not read user-registeration.html");
+
+      let message = data;
+      message = message.replace("{{username}}", name.firstName);
+      message = message.replace("{{password}}", password);
+      message = message.replace("{{url}}", process.env.FRONTEND_URL);
+
+      new Email().sendMail("New User Registration", message, email)
+     // winston.info(`Email sent successfully to ${name.firstName} on account creation`);
+    }
+  );
+}
 
 const registerUser = async (req, res) => {
   const { error } = validateAdminUser(req.body);
@@ -61,6 +83,7 @@ const registerUser = async (req, res) => {
   );
 
   // raise an event on completion. This can then be used to either send mail or log
+  _sendAccountCreatedEmail(name, email, password);
 
   res
     .status(201)

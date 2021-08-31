@@ -136,8 +136,7 @@ const getAllContracts = async (req, res) => {
      .populate({ path: "productions._id", model: "Production" })
      .select({ "productions.isDeleted": 0 });
   
-  const mappedContract = contracts.map((contract) => (_contractReadDTo(contract)));
-
+   const mappedContract = contracts.map((contract) => (_contractReadDTo(contract)));
    res
     .status(200)
     .send(mappedContract);
@@ -147,8 +146,7 @@ const getContractProfile = async (req, res) => {
   const { id } = req.params;
   const contractInDb = await _getContractById(id);
 
-  if (!contractInDb) return res.status(404).send("Contract not found");
-
+  if (!contractInDb) return res.status(404).send("Contract not found")
   res.status(200).json(contractInDb);
 };
 

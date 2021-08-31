@@ -18,46 +18,22 @@ module.exports = class Email {
       },
     });
   }
-  //  await this.sendMail("Subscription Reminder", message, email);
 
   async sendMail(subject, message, email) {
-    const info = await this.transporter.sendMail({
-      from: `"MLS Security " <${process.env.EMAILUSER}>`, // sender address
-      to: `${email}`, // list of receivers
-      subject: `${subject}`, // Subject line
-      html: `${message}`, // html body
-    });
-    winston.log("Message sent: %s", info.messageId);
-    winston.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-  }
-
-  // sendRenewalReminder = async (
-  //   { name, email },
-  //   { price: productPrice, name: productName },
-  //   subscriptionPlan,
-  //   remainingDays
-  // ) => {
-  //   const message = `
-  //    <h3>Hi ${name.firstName} </h3>
-     
-  //    <p>
-  //    Please be informed your subscription to <b>${productName}</b> will be renewed in ${remainingDays} day${
-  //     remainingDays > 1 ? "s" : ""
-  //   }.</p>
-  //    <p>Ensure you have enough funds in your account to keep your subscription active. </p>
+    try {
+      const info = await this.transporter.sendMail({
+          from: `"MLS Security " <${process.env.EMAILUSER}>`, // sender address
+          to: `${email}`, // list of receivers
+          subject: `${subject}`, // Subject line
+          html: `${message}`, // html body
+        });
+        winston.info("Message sent: %s", info.messageId);
+        winston.info("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+    } catch (error) {
+      winston.error("Error sending mail. " + error);
+    }
     
-  //   <p> Regards </p>
-  //    <b>Sanabliss Billing Team</b>
-  //   `;
-  //   try {
-  //     await this.sendMail("Subscription Reminder", message, email);
-  //     winston.info(
-  //       `Send reminder to ${name.firstName} ${name.lastName} on subscription payment date`
-  //     );
-  //   } catch (error) {
-  //     winston.error("Error received: ", error);
-  //   }
-  // };
+  }
 
   sendPasswordChangeNotification = async (email, name) => {
     const message = `
