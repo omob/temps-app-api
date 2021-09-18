@@ -1,0 +1,11 @@
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-04T12:20:56.620Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-04T12:20:56.709Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-18T23:39:30.554Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-18T23:39:30.710Z"}
+{"level":"info","message":"Message sent: <ddcda2e1-998c-87a1-b050-8e9fd7e4be31@mls-protection.co.uk>","timestamp":"2021-09-18T23:48:47.846Z"}
+{"level":"info","message":"Preview URL: false","timestamp":"2021-09-18T23:48:47.847Z"}
+{"level":"info","message":"Password Change request email by James Williams sent","timestamp":"2021-09-18T23:48:47.847Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-18T23:50:35.497Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-18T23:50:35.517Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-18T23:50:43.810Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-18T23:50:43.831Z"}
