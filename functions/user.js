@@ -148,6 +148,7 @@ function validateAdminUser(user) {
     title: Joi.string().allow(null).allow(""),
     utrNumber: Joi.string().allow(null).allow(""),
     email: Joi.string().min(5).max(255).required().email(),
+    notifyUser: Joi.boolean(),
     contact: Joi.object()
       .keys({
         phoneNumber: Joi.string().required().label("contact phone number"),
@@ -192,6 +193,7 @@ function validateAdminUserOnUpdate(employee) {
     dob: Joi.string().required().label("Date of Birth"),
     utrNumber: Joi.string().allow(null).allow(""),
     email: Joi.string().min(5).max(255).required().email(),
+    notifyUser: Joi.boolean(),
     contact: Joi.object()
       .keys({
         phoneNumber: Joi.string().required().label("contact phone number"),
@@ -215,7 +217,7 @@ function validateAdminUserOnUpdate(employee) {
       phoneNumber: Joi.string()
         .allow(null)
         .allow("")
-        .label("Next of Kin Phone Number")
+        .label("Next of Kin Phone Number"),
     }),
     canLogin: Joi.boolean(),
     role: Joi.string(),

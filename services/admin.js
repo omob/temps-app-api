@@ -45,7 +45,7 @@ const registerUser = async (req, res) => {
   const { error } = validateAdminUser(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  const { name, gender, dob, utrNumber, email, contact, password, nextOfKin, role } = req.body;
+  const { name, gender, dob, utrNumber, email, contact, password, nextOfKin, role, notifyUser } = req.body;
 
   let user = await User.findOne({
     $or: [{ email }, { phoneNumber: contact.phoneNumber }],
@@ -88,8 +88,11 @@ const registerUser = async (req, res) => {
   );
 
   // raise an event on completion. This can then be used to either send mail or log
-  _sendAccountCreatedEmail(name, email, password);
+  if (notifyUser)
+    _sendAccountCreatedEmail(name, email, password);
 
+  winston.info(`New User Registered By Admin ${email}`);
+  
   res
     .status(201)
     .json({ data: {..._.pick(user, ["_id", "name", "email"]), role }, message: "success"});
@@ -132,7 +135,7 @@ const updateUserProfile = async (req, res) => {
  const { error } = validateAdminUserOnUpdate(req.body);
  if (error) return res.status(400).send(error.details[0].message);
 
- const { name, gender, dob, utrNumber, email, contact, nextOfKin, canLogin } =
+ const { name, gender, dob, utrNumber, email, contact, nextOfKin, canLogin, notifyUser } =
    req.body; 
 
  await User.findOneAndUpdate(
