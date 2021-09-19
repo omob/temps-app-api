@@ -34,7 +34,7 @@ const employeeSchema = new Schema({
       line1: { type: String, default: "" },
       line2: { type: String, default: "" },
       city: { type: String, default: "" },
-      state: { type: String, default: "" },
+      county: { type: String, default: "" },
       country: { type: String, default: "" },
       postCode: String,
     },

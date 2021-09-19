@@ -19,3 +19,5 @@
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-19T00:11:50.195Z"}
 {"level":"info","message":"Message sent: <ac6f4bd1-c740-462c-df99-9b9607dfe40b@mls-protection.co.uk>","timestamp":"2021-09-19T00:19:39.123Z"}
 {"level":"info","message":"Preview URL: false","timestamp":"2021-09-19T00:19:39.124Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-19T00:21:55.285Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-19T00:21:55.315Z"}
