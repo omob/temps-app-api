@@ -10,6 +10,8 @@ const employeeSchema = new Schema({
     lastName: { type: String, required: true },
     middleName: { type: String, default: "" },
   },
+  dob: { type: String, required: true },
+  utrNumber: { type: String },
   title: { type: String },
   gender: { type: String, required: true, enum: ["male", "female"] },
   email: {
@@ -88,7 +90,7 @@ const employeeSchema = new Schema({
       doc_number: { type: String },
       type: { type: String },
       note: { type: String },
-      status: { type: String }
+      status: { type: String },
     },
   ],
   createdDate: { type: Date, default: new Date() },

@@ -13,6 +13,7 @@ function validateUser(user) {
       middleName: Joi.string().allow(null).allow(""),
     }),
     title: Joi.string().allow(null).allow(""),
+    dob: Joi.string().required().label("Date of Birth"),
     utrNumber: Joi.string().allow(null).allow(""),
     email: Joi.string().min(5).max(255).required().email(),
     contact: Joi.object()
@@ -25,7 +26,7 @@ function validateUser(user) {
           state: Joi.string(),
           country: Joi.string(),
           postCode: Joi.string(),
-          location: Joi.object().allow(null)
+          location: Joi.object().allow(null),
         }),
       })
       .required(),
@@ -35,19 +36,9 @@ function validateUser(user) {
       firstName: Joi.string().allow(null).allow(""),
       lastName: Joi.string().allow(null).allow(""),
       relationship: Joi.string().allow(null).allow(""),
-      phoneNumber: Joi.string().required().label("Next of Kin Phone Number"),
-      // contact: Joi.object().keys({
-      //   address: Joi.object().keys({
-      //     line1: Joi.string(),
-      //     line2: Joi.string().allow(null).allow(""),
-      //     city: Joi.string().allow(null).allow(""),
-      //     state: Joi.string().allow(null).allow(""),
-      //     country: Joi.string().allow(null).allow(""),
-      //     postCode: Joi.string().allow(null).allow(""),
-      //   }),
-      // }),
+      phoneNumber: Joi.string().required().label("Next of Kin Phone Number")
     }),
-    password: Joi.string().min(5).required()
+    password: Joi.string().min(5).required(),
   };
 
   return Joi.validate(user, schema);
@@ -61,6 +52,7 @@ function validateUserOnUpdate(employee) {
         middleName: Joi.string().allow(null).allow(""),
       }),
       title: Joi.string().allow(null).allow(""),
+      dob: Joi.string().required().label("Date of Birth"),
       utrNumber: Joi.string().allow(null).allow(""),
       email: Joi.string().min(5).max(255).required().email(),
       contact: Joi.object()
@@ -83,17 +75,7 @@ function validateUserOnUpdate(employee) {
         firstName: Joi.string().allow(null).allow(""),
         lastName: Joi.string().allow(null).allow(""),
         relationship: Joi.string().allow(null).allow(""),
-        phoneNumber: Joi.string().required().label("Next of Kin Phone Number"),
-        // contact: Joi.object().keys({
-        //   address: Joi.object().keys({
-        //     line1: Joi.string(),
-        //     line2: Joi.string().allow(null).allow(""),
-        //     city: Joi.string().allow(null).allow(""),
-        //     state: Joi.string().allow(null).allow(""),
-        //     country: Joi.string().allow(null).allow(""),
-        //     postCode: Joi.string().allow(null).allow(""),
-        //   }),
-        // }),
+        phoneNumber: Joi.string().required().label("Next of Kin Phone Number")
       }),
     };
 
@@ -162,6 +144,7 @@ function validateAdminUser(user) {
       lastName: Joi.string().required(),
       middleName: Joi.string().allow(null).allow(""),
     }),
+    dob: Joi.string().required().label("Date of Birth"),
     title: Joi.string().allow(null).allow(""),
     utrNumber: Joi.string().allow(null).allow(""),
     email: Joi.string().min(5).max(255).required().email(),
@@ -189,16 +172,6 @@ function validateAdminUser(user) {
         .allow(null)
         .allow("")
         .label("Next of Kin Phone Number"),
-      // contact: Joi.object().keys({
-      //   address: Joi.object().keys({
-      //     line1: Joi.string(),
-      //     line2: Joi.string().allow(null).allow(""),
-      //     city: Joi.string().allow(null).allow(""),
-      //     state: Joi.string().allow(null).allow(""),
-      //     country: Joi.string().allow(null).allow(""),
-      //     postCode: Joi.string().allow(null).allow(""),
-      //   }),
-      // }),
     }),
     canLogin: Joi.boolean(),
     role: Joi.string(),
@@ -216,6 +189,7 @@ function validateAdminUserOnUpdate(employee) {
       middleName: Joi.string().allow(null).allow(""),
     }),
     title: Joi.string().allow(null).allow(""),
+    dob: Joi.string().required().label("Date of Birth"),
     utrNumber: Joi.string().allow(null).allow(""),
     email: Joi.string().min(5).max(255).required().email(),
     contact: Joi.object()
@@ -241,17 +215,7 @@ function validateAdminUserOnUpdate(employee) {
       phoneNumber: Joi.string()
         .allow(null)
         .allow("")
-        .label("Next of Kin Phone Number"),
-      // contact: Joi.object().keys({
-      //   address: Joi.object().keys({
-      //     line1: Joi.string(),
-      //     line2: Joi.string().allow(null).allow(""),
-      //     city: Joi.string().allow(null).allow(""),
-      //     state: Joi.string().allow(null).allow(""),
-      //     country: Joi.string().allow(null).allow(""),
-      //     postCode: Joi.string().allow(null).allow(""),
-      //   }),
-      // }),
+        .label("Next of Kin Phone Number")
     }),
     canLogin: Joi.boolean(),
     role: Joi.string(),

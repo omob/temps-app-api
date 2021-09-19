@@ -45,7 +45,7 @@ const registerUser = async (req, res) => {
   const { error } = validateAdminUser(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  const { name, gender, email, contact, password, nextOfKin, role } = req.body;
+  const { name, gender, dob, utrNumber, email, contact, password, nextOfKin, role } = req.body;
 
   let user = await User.findOne({
     $or: [{ email }, { phoneNumber: contact.phoneNumber }],
@@ -63,7 +63,12 @@ const registerUser = async (req, res) => {
     contact,
     password,
     nextOfKin,
-    status: role && role.toLowerCase() === "admin" ? USER_STATUS.VERIFIED : USER_STATUS.UNVERIFIED,
+    dob,
+    utrNumber,
+    status:
+      role && role.toLowerCase() === "admin"
+        ? USER_STATUS.VERIFIED
+        : USER_STATUS.UNVERIFIED,
   });
 
   const salt = await bcrypt.genSalt(10);
@@ -127,7 +132,8 @@ const updateUserProfile = async (req, res) => {
  const { error } = validateAdminUserOnUpdate(req.body);
  if (error) return res.status(400).send(error.details[0].message);
 
- const { name, gender, email, contact, nextOfKin, canLogin } = req.body; 
+ const { name, gender, dob, utrNumber, email, contact, nextOfKin, canLogin } =
+   req.body; 
 
  await User.findOneAndUpdate(
    { _id: id },
@@ -137,6 +143,8 @@ const updateUserProfile = async (req, res) => {
      gender,
      contact,
      nextOfKin,
+     dob,
+     utrNumber,
      canLogin: canLogin === undefined ? true : canLogin,
    }
  );

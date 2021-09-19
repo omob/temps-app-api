@@ -9,3 +9,13 @@
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-18T23:50:35.517Z"}
 {"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-18T23:50:43.810Z"}
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-18T23:50:43.831Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-19T00:07:24.846Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-19T00:07:24.869Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-19T00:08:43.056Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-19T00:08:43.078Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-19T00:11:25.741Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-19T00:11:25.764Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-19T00:11:50.161Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-19T00:11:50.195Z"}
+{"level":"info","message":"Message sent: <ac6f4bd1-c740-462c-df99-9b9607dfe40b@mls-protection.co.uk>","timestamp":"2021-09-19T00:19:39.123Z"}
+{"level":"info","message":"Preview URL: false","timestamp":"2021-09-19T00:19:39.124Z"}
