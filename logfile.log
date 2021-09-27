@@ -39,3 +39,32 @@
 {"level":"info","message":"New User Registered By Admin info@deevcorp.com","timestamp":"2021-09-19T21:49:12.377Z"}
 {"level":"info","message":"Message sent: <82c26b6a-7889-7233-fa9c-8a71200b23dc@mls-protection.co.uk>","timestamp":"2021-09-19T21:49:16.612Z"}
 {"level":"info","message":"Preview URL: false","timestamp":"2021-09-19T21:49:16.612Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS","timestamp":"2021-09-19T21:56:52.421Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-09-19T21:57:05.494Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-09-19T21:58:31.121Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-09-19T21:58:53.270Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT INFO CONFIRMATION BY James Williams","timestamp":"2021-09-19T22:48:40.209Z"}
+{"level":"info","message":"ACTION - UPDATED PAYMENT INFO FOR SHIFT BY James Williams","timestamp":"2021-09-19T22:50:07.399Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-23T21:08:21.838Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-23T21:08:21.989Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-25T16:10:12.890Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-25T16:10:12.914Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-26T20:04:05.649Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-26T20:04:05.671Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-26T20:22:40.447Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-26T20:22:40.478Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-27T20:52:48.324Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-27T20:52:48.384Z"}
+{"message":"Unexpected token n in JSON at position 0","stack":"SyntaxError: Unexpected token n in JSON at position 0\n    at JSON.parse (<anonymous>)\n    at createStrictSyntaxError (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\body-parser\\lib\\types\\json.js:158:10)\n    at parse (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\body-parser\\lib\\types\\json.js:83:15)\n    at D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\body-parser\\lib\\read.js:121:18\n    at invokeCallback (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\raw-body\\index.js:224:16)\n    at done (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\raw-body\\index.js:213:7)\n    at IncomingMessage.onEnd (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\raw-body\\index.js:273:7)\n    at IncomingMessage.emit (events.js:323:22)\n    at endReadableNT (_stream_readable.js:1204:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)","expose":true,"statusCode":400,"status":400,"body":"null","type":"entity.parse.failed","level":"error","timestamp":"2021-09-27T21:14:18.668Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-27T22:15:40.440Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-27T22:15:40.464Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-27T22:15:48.786Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-27T22:15:48.812Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-27T22:18:01.419Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-27T22:18:01.454Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-27T22:29:18.490Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-27T22:29:18.511Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-27T22:32:42.497Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-27T22:32:42.519Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-27T22:42:27.706Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-27T22:42:27.734Z"}
