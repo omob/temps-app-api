@@ -16,6 +16,88 @@ const SHIFT_STATUS = {
   OUTDATED: "OUTDATED"
 };
 
+// get all shifts assigned to me
+// get all shifts assigned to my colleagues for current day and same locaion
+
+
+//////////////////////////////// USER ACTIONS ////////////////////////////////////////////////////////
+const getAllMyShifts = async (req, res) => {
+ const userId = req.user._id;
+   try {
+     const userInfo = await User.findById(userId).select("name");
+     if (!userInfo) return res.status(500).send("Profile record not found");
+
+     const allShifts = await Shift.find({
+       employee: userId,
+     })
+       .populate({ path: "contractInfo.contract", select: "name" })
+       .populate({ path: "contractInfo.production", select: "name locations" })
+       .populate({ path: "admin.approvedBy", select: "name" })
+       .select("-createdDate")
+       .sort({ date: -1 }); // sorts by date descending order
+
+     const mappedShifts = await Promise.all(
+       allShifts.map(
+         async ({
+           _id,
+           contractInfo,
+           time,
+           date,
+           milleage,
+           meal,
+           accommodation,
+           perDiems,
+           notes,
+           status
+         }) => {
+           let { production, location, outRate, contract, position } = contractInfo;
+
+           production.locations.forEach((loc) => {
+             if (loc._id.toString() === location.toString()) {
+               location = loc;
+             }
+           });
+
+           return {
+             _id,
+             status,
+             contractInfo: {
+               contract: contract.name,
+               production: production.name,
+               location: location.name,
+               outRate,
+               position,
+               address: location.address,
+               milleage,
+               meal,
+               accommodation,
+               perDiems,
+             },
+             time,
+             hours: parseInt(time.end) - parseInt(time.start),
+             date,
+             employeesInSameShifts: [],
+             notes
+           };
+         }
+       )
+
+
+     );
+
+    //  console.log(mappedShifts);
+
+     res.send({ data: mappedShifts });
+   } catch (err) {
+     winston.error("SOMETHING WRONG HAPPENED: USER ROUTE - ALLSHIFT", err.message);
+     res.status(500).send(err.message);
+   }
+}
+
+
+
+//////////////////////////////// ADMIN ACTIONS ///////////////////////////////////////////////////////
+
 const createShift = async (req, res) => {
     const { error } = validateShift(req.body);
     if (error) return res.status(400).send(error.details[0].message);
@@ -501,4 +583,6 @@ module.exports = {
   getAllUsersShifts,
   updateUserShiftConfirmation,
   updateUserShiftPayment,
+  //usersInDb
+  getAllMyShifts
 };
