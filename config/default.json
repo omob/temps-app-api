@@ -1,5 +1,5 @@
 {
   "domainName": "mls-protection.co.uk",
   "requiresAuth": true,
-  "tokenExpiration": 3600
+  "tokenExpiration": 86400
 }

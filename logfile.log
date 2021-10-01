@@ -83,3 +83,117 @@
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-29T02:28:59.139Z"}
 {"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-29T02:36:18.019Z"}
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-29T02:36:18.051Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-29T21:27:19.330Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-29T21:27:19.436Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS","timestamp":"2021-09-29T21:38:02.760Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-30T00:34:35.292Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-30T00:34:35.315Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-30T00:35:42.067Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-30T00:35:42.102Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-30T00:37:35.793Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-30T00:37:35.820Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-30T00:39:04.418Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-30T00:39:04.447Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-30T00:58:41.077Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-30T00:58:41.099Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-30T00:58:49.754Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-30T00:58:49.777Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-30T01:01:22.951Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-30T01:01:22.982Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-30T01:03:36.633Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-30T01:03:36.653Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-30T06:44:22.312Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-30T06:44:22.333Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-30T12:39:00.580Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-30T12:39:00.800Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-30T13:15:38.639Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-30T13:15:38.673Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-09-30T13:50:44.312Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-09-30T13:50:44.334Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS","timestamp":"2021-09-30T14:52:49.915Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS","timestamp":"2021-09-30T14:53:12.355Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS","timestamp":"2021-09-30T15:14:10.353Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS","timestamp":"2021-09-30T15:37:06.840Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS","timestamp":"2021-09-30T16:10:40.792Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T04:59:32.408Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T04:59:32.434Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T05:17:00.981Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T05:17:01.023Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T05:20:19.139Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T05:20:19.170Z"}
+{"message":"shiftsServices.getDashboardDataForUser is not a function","stack":"TypeError: shiftsServices.getDashboardDataForUser is not a function\n    at D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\routes\\shifts.js:18:18\n    at D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express-async-errors\\index.js:17:20\n    at Layer.handle [as handle_request] (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at module.exports (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\middleware\\auth.js:14:5)\n    at D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express-async-errors\\index.js:17:20\n    at Layer.handle [as handle_request] (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express-async-errors\\index.js:17:20\n    at Layer.handle [as handle_request] (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\index.js:281:22\n    at Function.process_params (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at Function.handle (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\index.js:47:12)","level":"error","timestamp":"2021-10-01T05:23:44.695Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T05:24:30.080Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T05:24:30.114Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: USER ROUTE - ALLSHIFT Cannot read property 'locations' of undefined","timestamp":"2021-10-01T05:24:32.890Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T05:25:24.029Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T05:25:24.055Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T05:25:48.266Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T05:25:48.293Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: USER ROUTE - SHIFTS/ME/DASHBOARD Cannot read property 'locations' of undefined","timestamp":"2021-10-01T05:25:50.593Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T05:28:46.642Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T05:28:46.671Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: USER ROUTE - SHIFTS/ME/DASHBOARD Cannot read property 'locations' of undefined","timestamp":"2021-10-01T05:28:49.454Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T05:29:03.792Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T05:29:03.845Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T05:32:20.857Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T05:32:20.905Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T05:43:40.149Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T05:43:40.218Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T05:44:51.175Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T05:44:51.231Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T05:47:11.852Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T05:47:11.876Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T05:50:55.685Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T05:50:55.704Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T05:53:46.689Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T05:53:46.723Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T05:55:16.239Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T05:55:16.273Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T05:55:24.780Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T05:55:24.809Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T05:55:48.617Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T05:55:48.653Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T05:56:28.575Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T05:56:28.611Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T05:59:37.868Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T05:59:37.914Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T05:59:51.896Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T05:59:51.922Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T06:03:33.798Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T06:03:33.817Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T06:25:15.580Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T06:25:15.618Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS","timestamp":"2021-10-01T07:20:24.221Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS","timestamp":"2021-10-01T07:27:38.469Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T08:28:56.309Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T08:28:57.031Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T13:17:40.208Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T13:17:40.229Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS","timestamp":"2021-10-01T16:09:43.752Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T16:13:56.869Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T16:13:56.894Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T16:50:18.376Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T16:50:18.409Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-10-01T16:53:47.289Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T17:02:04.841Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T17:02:04.874Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-10-01T17:02:22.729Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: USER ROUTE - shifts/me/dashboard -getDashboardDataForUser() Cannot read property 'split' of undefined","timestamp":"2021-10-01T17:02:31.047Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: USER ROUTE - shifts/me/dashboard -getDashboardDataForUser() Cannot read property 'split' of undefined","timestamp":"2021-10-01T17:02:40.059Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T17:04:28.658Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T17:04:28.692Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: USER ROUTE - shifts/me/dashboard -getDashboardDataForUser() Cannot read property 'split' of undefined","timestamp":"2021-10-01T17:04:39.419Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: USER ROUTE - shifts/me/dashboard -getDashboardDataForUser() Cannot read property 'split' of undefined","timestamp":"2021-10-01T17:06:06.304Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T17:06:27.603Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T17:06:27.637Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: USER ROUTE - shifts/me/dashboard -getDashboardDataForUser() Cannot read property 'split' of undefined","timestamp":"2021-10-01T17:06:29.965Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T17:06:46.843Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T17:06:46.864Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T17:07:22.974Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T17:07:23.009Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T17:24:53.644Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T17:24:53.671Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS","timestamp":"2021-10-01T17:33:01.212Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-01T17:38:13.678Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-01T17:38:13.708Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2021-10-01T17:38:37.990Z"}

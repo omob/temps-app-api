@@ -10,6 +10,17 @@ router.get("/me", auth, (req, res) => {
   shiftsServices.getAllMyShifts(req, res);
 })
 
+router.put("/me/updateStatus", auth, (req, res) => {
+  shiftsServices.updateMyShiftStatus(req, res);
+});
+
+// mobile app
+router.get("/me/dashboard", auth, (req,res) => {
+  shiftsServices.getDashboardDataForUser(req, res); // gets data for mobile home screen
+})
+
+
+// ADMIN ROUTES //
 router.post("/", auth, admin, (req, res) => {
     shiftsServices.createShift(req, res);
 });
