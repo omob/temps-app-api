@@ -14,6 +14,10 @@ router.put("/me/updateStatus", auth, (req, res) => {
   shiftsServices.updateMyShiftStatus(req, res);
 });
 
+router.put("/me/manageClockInClockOut", auth, (req, res) => {
+  shiftsServices.manageClockInClockOut(req, res);
+});
+
 // mobile app
 router.get("/me/dashboard", auth, (req,res) => {
   shiftsServices.getDashboardDataForUser(req, res); // gets data for mobile home screen

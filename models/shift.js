@@ -31,7 +31,7 @@ const shiftSchema = new Schema(
         "ACCEPTED",
         "REJECTED",
         "OUTDATED",
-        "ONGOING",
+        "INPROGRESS",
         "COMPLETED",
         "PENDING",
       ],
