@@ -4,7 +4,10 @@ const { Employee: User } = require("../models/employee"); // Using User schema i
 const winston = require("winston");
 const { uploadReceiptDocument } = require("../functions/uploadInvoice");
 const { Payment } = require("../models/payments");
-const { recreatedShiftDateWithTime, isDateEqual } = require("../../src/common/functions");
+const {
+  recreatedShiftDateWithTime,
+  isDateEqual,
+} = require("../../src/common/functions");
 
 const SHIFT_STATUS = {
   PENDING: "PENDING",
@@ -115,55 +118,69 @@ const updateMyShiftStatus = async (req, res) => {
   return res.status(204).send("Done");
 };
 
+const _handleClockIn = async (shiftInDb, res) => {
+  const checkIfCurrentDay = isDateEqual(new Date(), shiftInDb.date);
+  if (!checkIfCurrentDay)
+    return res
+      .status(400)
+      .send("Cannot clock you in at this time. It's not time yet.");
+
+  const checkifWithinTimeFrame =
+    Date.now() >
+    recreatedShiftDateWithTime(
+      new Date(shiftInDb.date),
+      shiftInDb.time.start
+    ).getTime() -
+      MAX_CLOCK_IN_TIME;
+
+  if (!checkifWithinTimeFrame)
+    return res
+      .status(400)
+      .send("Cannot clock you in at this time. It's not time yet.");
+
+  // TO-DO algorithm for proximity to location
+
+  const time = { ...shiftInDb.time };
+  time.clockIn = `${new Date().getHours()}:${new Date().getMinutes()}`;
+  shiftInDb.status = SHIFT_STATUS.INPROGRESS;
+  shiftInDb.time = time;
+
+  await shiftInDb.save();
+  return res.status(204).send("Done");
+};
+
+const _handleClockOut = async (shiftInDb, res) => {
+  const time = { ...shiftInDb.time };
+  time.clockOut = `${new Date().getHours()}:${new Date().getMinutes()}`;
+  shiftInDb.status = SHIFT_STATUS.COMPLETED;
+  shiftInDb.time = time;
+
+  await shiftInDb.save();
+  return res.status(204).send("Done");
+};
+
 const manageClockInClockOut = async (req, res) => {
-   const { status, shiftId } = req.body;
-   if (!status || !shiftId)
-     return res.status(400).json("ClockIn or ClockOut Status and Shift Id is required");
+  const { status, shiftId } = req.body;
+  if (!status || !shiftId)
+    return res
+      .status(400)
+      .json("ClockIn or ClockOut Status and Shift Id is required");
 
-   const shiftInDb = await Shift.findOne({
-     _id: shiftId,
-     employee: req.user._id,
-   });
+  const shiftInDb = await Shift.findOne({
+    _id: shiftId,
+    employee: req.user._id,
+  });
 
-   if (!shiftInDb) return res.status(404).send("Shift Not Found");
+  if (!shiftInDb) return res.status(404).send("Shift Not Found");
 
-   if (shiftInDb.status === SHIFT_STATUS.OUTDATED)
-     return res.status(400).send("Something is wrong");
+  if (shiftInDb.status === SHIFT_STATUS.OUTDATED)
+    return res.status(400).send("Something is wrong");
 
-   // check va
-    const checkIfCurrentDay = isDateEqual(new Date(), shiftInDb.date);
-    if(!checkIfCurrentDay) return res.status(400).send("Cannot clock you in at this time. It's not time yet.");
-  
-   const checkifWithinTimeFrame =
-     Date.now() >
-     recreatedShiftDateWithTime(
-       new Date(shiftInDb.date),
-       shiftInDb.time.start
-     ).getTime() -
-       MAX_CLOCK_IN_TIME;
-
-   if (!checkifWithinTimeFrame)
-     return res.status(400).send("Cannot clock you in at this time. It's not time yet.");
- 
-    // TO-DO algorithm for proximity to location
-
-    const time = {...shiftInDb.time};
-
-    if (status.toLowerCase() === "clockin") {
-        time.clockIn = `${new Date().getHours()}:${new Date().getMinutes()}`;
-        // shiftInDb.time.clockIn = new Date();
-        shiftInDb.status = SHIFT_STATUS.INPROGRESS;
-    }
-    if (status.toLowerCase() === "clockout") {
-        time.clockOut = `${new Date().getHours()}:${new Date().getMinutes()}`;
-        // shiftInDb.time.clockOut = new Date();
-        shiftInDb.status = SHIFT_STATUS.COMPLETED;
-    }
-
-    shiftInDb.time = time;
-    await shiftInDb.save();
-   return res.status(204).send("Done");
-}
+  if (status.toLowerCase() === "clockin") {
+    return await _handleClockIn(shiftInDb, res);
+  }
+  return await _handleClockOut(shiftInDb, res);
+};
 
 // const shifts data for mobile app dashboard
 const getDashboardDataForUser = async (req, res) => {
@@ -228,15 +245,13 @@ const getDashboardDataForUser = async (req, res) => {
     const pendingRequests = mappedShifts.filter(
       (shift) => shift.status === SHIFT_STATUS.PENDING
     );
-    const upcomingShifts = mappedShifts.filter(
-      (shift) => {
-        return (
-          (recreatedShiftDateWithTime(shift.date, shift.time.start).getTime() +
-            MAX_CLOCK_IN_TIME) >
-            Date.now() && shift.status === SHIFT_STATUS.ACCEPTED
-        );
-      }
-    );
+    const upcomingShifts = mappedShifts.filter((shift) => {
+      return (
+        recreatedShiftDateWithTime(shift.date, shift.time.start).getTime() +
+          MAX_CLOCK_IN_TIME >
+          Date.now() && shift.status === SHIFT_STATUS.ACCEPTED
+      );
+    });
     // add open shifts data
     const openShifts = [];
     res.send({ data: { pendingRequests, upcomingShifts, openShifts } });
