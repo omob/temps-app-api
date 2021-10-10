@@ -5,7 +5,7 @@ const {
   Employee: User,
 } = require("../models/employee"); // Using User schema in the user route
 const { Token } = require("../models/token");
-
+const mongoose = require("mongoose");
 const {
   validateUser,
   validateUserOnUpdate,
@@ -15,6 +15,7 @@ const {
 } = require("../functions/user");
 
 const { generateRandomNumbers, addMinutesToDate } = require("../functions");
+const { uploadUserDocument } = require("../functions/uploadDocument");
 const Email = require("./email");
 
 const MAX_MINUTES_BEFORE_EXPIRATION = 20;
@@ -189,6 +190,47 @@ const resetPassword = async (req, res) => {
   res.send("Password changed");
 }
 
+
+//mobile App - User upload Documents
+const uploadDocument = async (req, res) => {
+  console.log("HERE")
+  uploadUserDocument(req, res, async (err) => {
+    if (err) return res.status(500).json({ success: false, message: err });
+    console.log(req.body);
+    console.log(req.file);
+
+    if (req.file === undefined)
+      return res.status(400).json({ success: false, message: "No file uploaded" });
+
+    const { type, name, doc_name, doc_number, issueDate, expiryDate } =
+      req.body;
+
+    const staff = await User.findOne({ _id: req.user_id });
+    console.log(staff.email)
+    if (!staff) return res.status(404).json({ success: false, message: "user not found" });
+
+    staff.documents.push({
+      _id: mongoose.Types.ObjectId(),
+      url: `${process.env.HOSTURL}/uploads/staff/documents/${req.file.filename}`,
+      name,
+      doc_name,
+      doc_number,
+      issueDate,
+      expiryDate,
+      type,
+      verified: false,
+      addedDate: new Date(),
+    });
+
+    await staff.save();
+      winston.info("Success uploading new user document ");
+    return res.json({
+      success: true,
+      message: "File Added Successfully",
+    });
+  });
+};
+
 module.exports = {
   getProfile,
   updateProfile,
@@ -196,5 +238,6 @@ module.exports = {
   changePassword,
   forgotPassword,
   resetPassword,
-  resendToken
+  resendToken,
+  uploadDocument,
 };

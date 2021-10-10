@@ -119,6 +119,7 @@ const updateMyShiftStatus = async (req, res) => {
 };
 
 const _handleClockIn = async (shiftInDb, res) => {
+  // TODO - Check user proximity to location- This is also implemented on the mobile app
   const checkIfCurrentDay = isDateEqual(new Date(), shiftInDb.date);
   if (!checkIfCurrentDay)
     return res
@@ -138,8 +139,6 @@ const _handleClockIn = async (shiftInDb, res) => {
       .status(400)
       .send("Cannot clock you in at this time. It's not time yet.");
 
-  // TO-DO algorithm for proximity to location
-
   const time = { ...shiftInDb.time };
   time.clockIn = `${new Date().getHours()}:${new Date().getMinutes()}`;
   shiftInDb.status = SHIFT_STATUS.INPROGRESS;
@@ -151,7 +150,9 @@ const _handleClockIn = async (shiftInDb, res) => {
 
 const _handleClockOut = async (shiftInDb, res) => {
   const time = { ...shiftInDb.time };
-  time.clockOut = `${new Date().getHours()}:${new Date().getMinutes()}`;
+  const hour = new Date().getHours() < 10 ? `0${new Date().getHours()}` : new Date().getHours();
+
+  time.clockOut = `${hour}:${new Date().getMinutes()}`;
   shiftInDb.status = SHIFT_STATUS.COMPLETED;
   shiftInDb.time = time;
 
@@ -229,6 +230,7 @@ const getDashboardDataForUser = async (req, res) => {
             outRate,
             position,
             address: location.address,
+            latLng: location.address.location,
             milleage,
             meal,
             accommodation,

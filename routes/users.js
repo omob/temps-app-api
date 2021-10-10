@@ -40,6 +40,10 @@ router.post("/", async (req, res) => {
   userServices.register(req, res);
 });
 
+router.post("/me/upload-document", async (req, res) => {
+  userServices.uploadDocument(req, res);
+});
+
 /********************* ADMIN **************************/
 
 // register new user - POST - /api/users
