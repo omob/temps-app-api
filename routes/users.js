@@ -22,6 +22,12 @@ router.put("/me", auth, (req, res) => {
   userServices.updateProfile(req, res);
 });
 
+router.post("/me/upload-document", auth, async (req, res) => {
+  console.log("I am called")
+  userServices.uploadDocument(req, res);
+});
+
+
 // check if email exists
 router.post("/forgot-password", async (req, res) => {
   userServices.forgotPassword(req, res);
@@ -40,9 +46,7 @@ router.post("/", async (req, res) => {
   userServices.register(req, res);
 });
 
-router.post("/me/upload-document", async (req, res) => {
-  userServices.uploadDocument(req, res);
-});
+
 
 /********************* ADMIN **************************/
 

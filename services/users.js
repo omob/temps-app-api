@@ -193,11 +193,11 @@ const resetPassword = async (req, res) => {
 
 //mobile App - User upload Documents
 const uploadDocument = async (req, res) => {
-  console.log("HERE")
   uploadUserDocument(req, res, async (err) => {
-    if (err) return res.status(500).json({ success: false, message: err });
-    console.log(req.body);
-    console.log(req.file);
+    if (err) {
+      console.log("We have an error here", err)
+      return res.status(500).json({ success: false, message: err });
+    }
 
     if (req.file === undefined)
       return res.status(400).json({ success: false, message: "No file uploaded" });
@@ -205,8 +205,9 @@ const uploadDocument = async (req, res) => {
     const { type, name, doc_name, doc_number, issueDate, expiryDate } =
       req.body;
 
-    const staff = await User.findOne({ _id: req.user_id });
-    console.log(staff.email)
+      console.log("USER", req.user)
+    const staff = await User.findById(req.user._id);
+    console.log(staff)
     if (!staff) return res.status(404).json({ success: false, message: "user not found" });
 
     staff.documents.push({

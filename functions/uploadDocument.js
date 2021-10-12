@@ -21,6 +21,8 @@ const checkFileType = (file, callback) => {
   // check ext
   const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
   // check mime
+
+  console.log(file);
   const mimetype = filetypes.test(file.mimetype);
   if (mimetype && extname) return callback(null, true);
   return callback("Error: Invalid file type");
