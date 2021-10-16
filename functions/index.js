@@ -115,6 +115,20 @@ const isDateEqual = (date1, date2) => {
   );
 };
 
+const recreatedShiftDateWithTime = (date, startTime) => {
+  const shiftDate = new Date(date);
+  const shiftStartTimeHour = parseInt(startTime);
+  const shiftStartTimeMinute = parseInt(startTime.split(":")[1]);
+
+  return new Date(
+    shiftDate.getFullYear(),
+    shiftDate.getMonth(),
+    shiftDate.getDate(),
+    shiftStartTimeHour,
+    shiftStartTimeMinute
+  );
+};
+
 
 module.exports = {
   getDayOfTheWeekInNumber,
@@ -126,4 +140,5 @@ module.exports = {
   generateRandomNumbers,
   addMinutesToDate,
   isDateEqual,
+  recreatedShiftDateWithTime,
 };

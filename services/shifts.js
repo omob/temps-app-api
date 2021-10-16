@@ -4,10 +4,7 @@ const { Employee: User } = require("../models/employee"); // Using User schema i
 const winston = require("winston");
 const { uploadReceiptDocument } = require("../functions/uploadInvoice");
 const { Payment } = require("../models/payments");
-const {
-  recreatedShiftDateWithTime,
-  isDateEqual,
-} = require("../../src/common/functions");
+const { isDateEqual, recreatedShiftDateWithTime } = require("../functions");
 
 const SHIFT_STATUS = {
   PENDING: "PENDING",
