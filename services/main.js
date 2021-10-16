@@ -97,7 +97,6 @@ const stats = async (req, res) => {
    },
  ];
 
-
 module.exports = {
   dashboardInfo,
   stats

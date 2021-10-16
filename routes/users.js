@@ -23,8 +23,11 @@ router.put("/me", auth, (req, res) => {
 });
 
 router.post("/me/upload-document", auth, async (req, res) => {
-  console.log("I am called")
   userServices.uploadDocument(req, res);
+});
+
+router.post("/me/profile-image", auth, async (req, res) => {
+  userServices.uploadProfileImage(req, res);
 });
 
 
@@ -47,6 +50,9 @@ router.post("/", async (req, res) => {
 });
 
 
+router.post("/expoPushTokens", auth, async (req, res) => {
+  userServices.addExpoPushTokens(req, res);
+});
 
 /********************* ADMIN **************************/
 

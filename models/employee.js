@@ -101,6 +101,7 @@ const employeeSchema = new Schema({
     enum: ["verified", "unverified"],
   },
   profileImageUrl: { type: String },
+  expoPushTokens: { type: Array }
 });
 
 employeeSchema.methods.generateAuthToken = function () {

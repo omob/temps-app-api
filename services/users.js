@@ -15,10 +15,14 @@ const {
 } = require("../functions/user");
 
 const { generateRandomNumbers, addMinutesToDate } = require("../functions");
-const { uploadUserDocument } = require("../functions/uploadDocument");
+const {
+  uploadUserDocument,
+} = require("../functions/uploadDocument");
+const { uploadImage } = require("../functions/uploadImage");
+
 const Email = require("./email");
 
-const MAX_MINUTES_BEFORE_EXPIRATION = 20;
+const MAX_MINUTES_BEFORE_TOKEN_EXPIRATION = 20;
 
 const getProfile = async (req, res) => {
   const userDocument = await User.findById(req.user._id).select("-password -isDeleted -__v -canLogin");
@@ -133,7 +137,7 @@ const _saveTokenInDb = async (token, email, userId) => {
     token: token,
     tokenExpirationDate: addMinutesToDate(
       new Date(),
-      MAX_MINUTES_BEFORE_EXPIRATION
+      MAX_MINUTES_BEFORE_TOKEN_EXPIRATION
     ),
   });
 
@@ -156,7 +160,7 @@ const forgotPassword = async (req, res) => {
   await _saveTokenInDb(token, email, user._id);
 
   // send email to user
-  new Email().sendToken(email, user.name, token, MAX_MINUTES_BEFORE_EXPIRATION);
+  new Email().sendToken(email, user.name, token, MAX_MINUTES_BEFORE_TOKEN_EXPIRATION);
   res.send("Success");
 }
 
@@ -232,6 +236,47 @@ const uploadDocument = async (req, res) => {
   });
 };
 
+
+const uploadProfileImage = async (req, res) => {
+  uploadImage(req, res, async (err) => {
+    if (err) return res.status(500).json({ success: false, message: err });
+
+    if (req.file === undefined)
+      return res.status(400).json({ success: false, message: "No file uploaded" });
+
+      console.log("SUCCESS")
+    await User.findOneAndUpdate(
+      { _id: req.user._id },
+      {
+        profileImageUrl: `${process.env.HOSTURL}/uploads/staff/images/${req.file.filename}`,
+      }
+    );
+
+    return res.json({
+      success: true,
+      message: "Profile Image Set Successfully",
+    });
+  });
+};
+
+
+ const addExpoPushTokens = async (req, res, next) => {
+   const userId = req.user._id;
+   const token = req.body.token;
+
+   console.log("Token", token);
+
+   if (!token) return res.status(400).json({ message: "No token provided" });
+
+   await User.findByIdAndUpdate(userId, {
+     $addToSet: {
+       expoPushTokens: token,
+     },
+   });
+
+   res.status(200).json({ message: "Success adding expo push token" });
+ };
+
 module.exports = {
   getProfile,
   updateProfile,
@@ -241,4 +286,6 @@ module.exports = {
   resetPassword,
   resendToken,
   uploadDocument,
+  uploadProfileImage,
+  addExpoPushTokens,
 };
