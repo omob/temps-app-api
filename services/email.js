@@ -28,7 +28,7 @@ module.exports = class Email {
           html: `${message}`, // html body
         });
         winston.info("Message sent: %s", info.messageId);
-        winston.info("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+        // winston.info("Preview URL: %s", nodemailer.getTestMessageUrl(info));
     } catch (error) {
       winston.error("Error sending mail. " + error);
     }

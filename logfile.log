@@ -439,3 +439,132 @@
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-16T01:49:05.784Z"}
 {"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-16T01:49:47.781Z"}
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-16T01:49:47.802Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T15:01:26.259Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T15:10:23.454Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T15:10:23.584Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T15:51:13.663Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T15:51:13.694Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T16:04:29.144Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T16:04:29.168Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T16:10:07.672Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T16:10:07.699Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T16:36:34.843Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T16:36:34.870Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T16:59:19.873Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T16:59:19.900Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T17:00:10.809Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T17:00:10.835Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS","timestamp":"2021-10-17T17:04:14.374Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T17:05:58.410Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T17:05:58.442Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS","timestamp":"2021-10-17T17:06:35.396Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T17:07:56.798Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T17:07:56.822Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS FOR MULTIPLE USERS","timestamp":"2021-10-17T17:08:40.023Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T17:09:17.032Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T17:09:17.066Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T17:09:30.204Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T17:09:30.224Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS FOR MULTIPLE USERS","timestamp":"2021-10-17T17:10:19.284Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T17:11:43.496Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T17:11:43.530Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS FOR MULTIPLE USERS","timestamp":"2021-10-17T17:12:06.438Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T17:13:11.303Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T17:13:11.335Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: HERE utils.populate: invalid path. Expected string. Got typeof `object`","timestamp":"2021-10-17T17:14:13.816Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T17:15:39.742Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T17:15:39.772Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS","timestamp":"2021-10-17T17:15:48.605Z"}
+{"level":"info","message":"Email sent successfully to Jammy on new shift assignment ","timestamp":"2021-10-17T17:15:48.622Z"}
+{"level":"info","message":"Message sent: <7b698a03-50de-870d-1c45-55b756bebc69@mls-protection.co.uk>","timestamp":"2021-10-17T17:15:52.540Z"}
+{"level":"info","message":"Preview URL: false","timestamp":"2021-10-17T17:15:52.541Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T17:35:39.163Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T17:35:39.186Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T17:36:40.635Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T17:36:40.656Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS","timestamp":"2021-10-17T17:39:50.569Z"}
+{"level":"info","message":"Email sent successfully to Jammy on new shift assignment ","timestamp":"2021-10-17T17:39:50.576Z"}
+{"level":"info","message":"Message sent: <cff353ac-6cf8-00d5-ff8e-f059759c4735@mls-protection.co.uk>","timestamp":"2021-10-17T17:39:54.832Z"}
+{"level":"info","message":"Preview URL: false","timestamp":"2021-10-17T17:39:54.832Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T17:41:28.888Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T17:41:28.908Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T17:44:54.255Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T17:44:54.288Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T17:45:16.341Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T17:45:16.362Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS","timestamp":"2021-10-17T17:47:39.450Z"}
+{"level":"info","message":"Email sent successfully to Jammy on new shift assignment ","timestamp":"2021-10-17T17:47:39.460Z"}
+{"level":"info","message":"Message sent: <cb80bf61-d189-b825-e95b-3c3d73ed3e83@mls-protection.co.uk>","timestamp":"2021-10-17T17:47:42.948Z"}
+{"level":"info","message":"Preview URL: false","timestamp":"2021-10-17T17:47:42.949Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS","timestamp":"2021-10-17T17:49:24.154Z"}
+{"level":"info","message":"Email sent successfully to Jammy on new shift assignment ","timestamp":"2021-10-17T17:49:24.156Z"}
+{"level":"info","message":"Message sent: <ab6cee36-4aa5-a096-efcf-c76dd26a2bda@mls-protection.co.uk>","timestamp":"2021-10-17T17:49:28.208Z"}
+{"level":"info","message":"Preview URL: false","timestamp":"2021-10-17T17:49:28.209Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T17:50:32.115Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T17:50:32.146Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T17:59:08.781Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T17:59:08.803Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS FOR aboayosam@gmail.com","timestamp":"2021-10-17T18:00:21.200Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS FOR aboayosam@gmail.com","timestamp":"2021-10-17T18:00:21.203Z"}
+{"level":"info","message":"Email sent successfully to Jammy on new shift assignment ","timestamp":"2021-10-17T18:00:21.210Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS FOR aboayosam@gmail.com","timestamp":"2021-10-17T18:00:21.212Z"}
+{"level":"info","message":"Email sent successfully to Jammy on new shift assignment ","timestamp":"2021-10-17T18:00:21.215Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS FOR ayodeji.abodunrin@mls-security.com","timestamp":"2021-10-17T18:00:21.216Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS FOR ayodeji.abodunrin@mls-security.com","timestamp":"2021-10-17T18:00:21.219Z"}
+{"level":"info","message":"Email sent successfully to Jammy on new shift assignment ","timestamp":"2021-10-17T18:00:21.221Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS FOR ayodeji.abodunrin@mls-security.com","timestamp":"2021-10-17T18:00:21.222Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS FOR MULTIPLE USERS","timestamp":"2021-10-17T18:00:21.222Z"}
+{"level":"info","message":"Email sent successfully to Ayodeji on new shift assignment ","timestamp":"2021-10-17T18:00:21.225Z"}
+{"level":"info","message":"Email sent successfully to Ayodeji on new shift assignment ","timestamp":"2021-10-17T18:00:21.229Z"}
+{"level":"info","message":"Email sent successfully to Ayodeji on new shift assignment ","timestamp":"2021-10-17T18:00:21.230Z"}
+{"level":"info","message":"Message sent: <d90395b0-fbab-ff36-956d-9facbf15e651@mls-protection.co.uk>","timestamp":"2021-10-17T18:00:25.951Z"}
+{"level":"info","message":"Preview URL: false","timestamp":"2021-10-17T18:00:25.952Z"}
+{"level":"info","message":"Message sent: <5dd3f782-153e-c7be-f46c-7a8e68b64155@mls-protection.co.uk>","timestamp":"2021-10-17T18:00:25.953Z"}
+{"level":"info","message":"Preview URL: false","timestamp":"2021-10-17T18:00:25.953Z"}
+{"level":"info","message":"Message sent: <746c69ea-416e-6b2a-63a5-2451a159af31@mls-protection.co.uk>","timestamp":"2021-10-17T18:00:25.954Z"}
+{"level":"info","message":"Preview URL: false","timestamp":"2021-10-17T18:00:25.954Z"}
+{"level":"info","message":"Message sent: <e0330ee6-4458-bb7c-b2fb-2e727f5010c7@mls-protection.co.uk>","timestamp":"2021-10-17T18:00:28.851Z"}
+{"level":"info","message":"Preview URL: false","timestamp":"2021-10-17T18:00:28.851Z"}
+{"level":"info","message":"Message sent: <8dd85bfc-27b3-7e62-2864-487207dab10f@mls-protection.co.uk>","timestamp":"2021-10-17T18:00:28.999Z"}
+{"level":"info","message":"Preview URL: false","timestamp":"2021-10-17T18:00:29.000Z"}
+{"level":"info","message":"Message sent: <f80b69c8-80fe-f385-5175-16779afc933f@mls-protection.co.uk>","timestamp":"2021-10-17T18:00:29.570Z"}
+{"level":"info","message":"Preview URL: false","timestamp":"2021-10-17T18:00:29.570Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T18:46:11.722Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T18:46:11.743Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T19:39:28.007Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T19:39:28.029Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFT FOR aboayosam@gmail.com","timestamp":"2021-10-17T19:43:31.689Z"}
+{"level":"info","message":"Email sent successfully to Jammy on new shift assignment ","timestamp":"2021-10-17T19:43:31.697Z"}
+{"level":"info","message":"Message sent: <59001641-664a-d67f-994c-f9d35ae4d0f3@mls-protection.co.uk>","timestamp":"2021-10-17T19:43:35.876Z"}
+{"level":"info","message":"Preview URL: false","timestamp":"2021-10-17T19:43:35.877Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T19:45:10.416Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T19:45:10.444Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T19:45:50.027Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T19:45:50.046Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T19:47:16.384Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T19:47:16.421Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T19:49:14.981Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T19:49:15.009Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: HERE pushData is not iterable","timestamp":"2021-10-17T19:50:14.858Z"}
+{"level":"info","message":"Email sent successfully to Jammy on new shift assignment ","timestamp":"2021-10-17T19:50:14.866Z"}
+{"level":"info","message":"Message sent: <6338e23e-eda6-a0df-62b3-8ec59e3c25f1@mls-protection.co.uk>","timestamp":"2021-10-17T19:50:19.073Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: HERE pushData is not iterable","timestamp":"2021-10-17T19:50:46.694Z"}
+{"level":"info","message":"Email sent successfully to Jammy on new shift assignment ","timestamp":"2021-10-17T19:50:46.696Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: HERE pushData is not iterable","timestamp":"2021-10-17T19:50:46.825Z"}
+{"level":"info","message":"Email sent successfully to Jammy on new shift assignment ","timestamp":"2021-10-17T19:50:46.827Z"}
+{"level":"info","message":"Message sent: <1cd52d43-e0d8-123a-eef0-df0e2a0bfbc4@mls-protection.co.uk>","timestamp":"2021-10-17T19:50:51.702Z"}
+{"level":"info","message":"Message sent: <96086464-f4c4-cb88-f27d-0b83645d9578@mls-protection.co.uk>","timestamp":"2021-10-17T19:50:52.518Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T19:52:34.250Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T19:52:34.275Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFT FOR aboayosam@gmail.com","timestamp":"2021-10-17T19:52:45.473Z"}
+{"level":"info","message":"Email sent successfully to Jammy on new shift assignment ","timestamp":"2021-10-17T19:52:45.482Z"}
+[{"id":"3346e5b3-5911-4092-be97-065699beead0","status":"ok"}]
+{"level":"info","message":"Message sent: <c42bbd3e-ebad-cb73-e8af-0c7f69b140f4@mls-protection.co.uk>","timestamp":"2021-10-17T19:52:49.206Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T19:56:01.978Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T19:56:02.005Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T19:56:20.256Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T19:56:20.276Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-17T19:56:31.977Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T19:56:32.008Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFT FOR aboayosam@gmail.com","timestamp":"2021-10-17T19:57:32.258Z"}
+[{"id":"855635bf-fe94-4983-ac7f-785a4d5aa7fe","status":"ok"}]

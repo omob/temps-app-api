@@ -1,10 +1,13 @@
 const { validateShift, validateShiftOnUpdate } = require("../functions/shift");
 const { Shift } = require("../models/shift");
+const { Contract } = require("../models/contract");
+const { Production } = require("../models/production");
 const { Employee: User } = require("../models/employee"); // Using User schema in the user route
 const winston = require("winston");
 const { uploadReceiptDocument } = require("../functions/uploadInvoice");
 const { Payment } = require("../models/payments");
 const { isDateEqual, recreatedShiftDateWithTime } = require("../functions");
+const { sendEmailNotificationOnNewShift, notifyUsersViaPushNotifications } = require("./notifications");
 
 const SHIFT_STATUS = {
   PENDING: "PENDING",
@@ -265,6 +268,34 @@ const getDashboardDataForUser = async (req, res) => {
 
 //////////////////////////////// ADMIN ACTIONS ///////////////////////////////////////////////////////
 
+
+  const getContractProductionLocationName = async (
+    contractId,
+    productionId,
+    locationId
+  ) => {
+
+     const contractName = (await Contract.findById({ _id: contractId }).select("name")).toObject().name;
+
+     const production = await Production.findById({ _id: productionId });
+     const productionName = production.name;
+
+     let { name, address } = production.locations.find(
+       (loc) =>
+         loc._id.toString() === locationId.toString()
+     );
+
+     address = `${address.line1} ${address.line2 || ""} ${address.city} ${
+              address.county || ""
+            } ${address.postCode}`
+     
+     return { contractName, productionName, locationName: name, address }
+  };
+
+  const getUserInfoById = async (id) => {
+    return await User.findById({ _id: id }).select("name email expoPushTokens");
+  }
+
 const createShift = async (req, res) => {
   const { error } = validateShift(req.body);
   if (error) return res.status(400).send(error.details[0].message);
@@ -288,8 +319,19 @@ const createShift = async (req, res) => {
     position,
   } = contract;
 
+  
+  const { contractName, productionName, locationName, address } =
+    await getContractProductionLocationName(
+      contractId,
+      productionId,
+      locationId
+    );
+
   try {
-    if (dates.length === 0 && employees.length === 0) {
+    if (dates.length === 1 && employees.length === 1) {
+      const employeeId = employees[0]._id;
+      const shiftDate = dates[0];
+
       const newShift = new Shift({
         contractInfo: {
           contract: contractId,
@@ -298,8 +340,8 @@ const createShift = async (req, res) => {
           outRate,
           position,
         },
-        employee: employees[0]._id,
-        date: dates[0],
+        employee: employeeId,
+        date: shiftDate,
         time,
         milleage,
         meal,
@@ -308,11 +350,35 @@ const createShift = async (req, res) => {
         notes,
       });
 
-      await newShift.save();
-      winston.info("ACTION - CREATED NEW SHIFTS");
+      // await newShift.save();
+
+      const userInfo = await getUserInfoById(employeeId);
+      // sendEmailNotificationOnNewShift(
+      //   userInfo.name,
+      //   userInfo.email,
+      //   {
+      //     contract: contractName,
+      //     production: productionName,
+      //     location: locationName,
+      //     address,
+      //   },
+      //   shiftDate
+      // );
+
+      if (userInfo.expoPushTokens) {
+        const pushData = {
+          pushTokens: userInfo.expoPushTokens,
+          message: { text: "A new shift has been assigned to you."}
+        };
+        await notifyUsersViaPushNotifications(Array.of(pushData));
+
+      }
+
+      winston.info(`ACTION - CREATED NEW SHIFT FOR ${userInfo.email}`);
       return res.status(204).json(newShift);
     }
 
+    // refactor O(N^2)
     for (var i = 0; i < employees.length; i++) {
       for (var j = 0; j < dates.length; j++) {
         const newShift = new Shift({
@@ -332,17 +398,33 @@ const createShift = async (req, res) => {
           perDiems,
           notes,
         });
-        await newShift.save();
+        // await newShift.save();
+
+        const userInfo = await getUserInfoById(employees[i]._id);
+        sendEmailNotificationOnNewShift(
+          userInfo.name,
+          userInfo.email,
+          {
+            contract: contractName,
+            production: productionName,
+            location: locationName,
+            address,
+          },
+          dates[j]
+        );
+        winston.info(`ACTION - CREATED NEW SHIFTS FOR ${userInfo.email}`);
       }
     }
 
-    winston.info("ACTION - CREATED NEW SHIFTS");
+    winston.info("ACTION - CREATED NEW SHIFTS FOR MULTIPLE USERS");
     return res.status(204).json({ message: "success" });
   } catch (err) {
     winston.error("SOMETHING WRONG HAPPENED: HERE", err.message);
     res.status(500).send(err.message);
   }
 };
+
+
 
 const _mapShiftToUi = (shift) => {
   if (!shift.contractInfo.production) return shift;
@@ -470,6 +552,7 @@ const updateShift = async (req, res) => {
   winston.info("ACTION - UPDATED SHIFT DETAIL");
   res.status(204).send(shiftInDb);
 };
+
 
 const getShiftById = async (req, res) => {
   const { id } = req.params;
