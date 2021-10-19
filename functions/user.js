@@ -24,6 +24,7 @@ function validateUser(user) {
           line2: Joi.string().allow(null).allow(""),
           city: Joi.string(),
           county: Joi.string(),
+          state: Joi.string(),
           country: Joi.string(),
           postCode: Joi.string(),
           location: Joi.object().allow(null),
@@ -63,6 +64,7 @@ function validateUserOnUpdate(employee) {
             line2: Joi.string().allow(null).allow(""),
             city: Joi.string(),
             county: Joi.string(),
+            state: Joi.string(),
             country: Joi.string(),
             postCode: Joi.string(),
             location: Joi.object().allow(null),
@@ -75,7 +77,7 @@ function validateUserOnUpdate(employee) {
         firstName: Joi.string().allow(null).allow(""),
         lastName: Joi.string().allow(null).allow(""),
         relationship: Joi.string().allow(null).allow(""),
-        phoneNumber: Joi.string().required().label("Next of Kin Phone Number")
+        phoneNumber: Joi.string().required().label("Next of Kin Phone Number"),
       }),
     };
 

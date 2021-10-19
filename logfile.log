@@ -568,3 +568,6 @@
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-17T19:56:32.008Z"}
 {"level":"info","message":"ACTION - CREATED NEW SHIFT FOR aboayosam@gmail.com","timestamp":"2021-10-17T19:57:32.258Z"}
 [{"id":"855635bf-fe94-4983-ac7f-785a4d5aa7fe","status":"ok"}]
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-18T16:02:15.595Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-18T16:03:15.030Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-18T16:03:15.053Z"}

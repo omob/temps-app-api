@@ -25,7 +25,7 @@ const Email = require("./email");
 const MAX_MINUTES_BEFORE_TOKEN_EXPIRATION = 20;
 
 const getProfile = async (req, res) => {
-  const userDocument = await User.findById(req.user._id).select("-password -isDeleted -__v -canLogin");
+  const userDocument = await User.findById(req.user._id).select("-password -isDeleted -__v -canLogin -expoPushTokens");
 
   if (!userDocument) return res.status(404).send("User not found");
 
@@ -209,9 +209,7 @@ const uploadDocument = async (req, res) => {
     const { type, name, doc_name, doc_number, issueDate, expiryDate } =
       req.body;
 
-      console.log("USER", req.user)
     const staff = await User.findById(req.user._id);
-    console.log(staff)
     if (!staff) return res.status(404).json({ success: false, message: "user not found" });
 
     staff.documents.push({
