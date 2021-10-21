@@ -30,7 +30,8 @@ const getProfile = async (req, res) => {
   if (!userDocument) return res.status(404).send("User not found");
 
   const user = userDocument.toJSON();
-
+  
+  winston.info(`PROFILE FETCHED - ${user.name.firstName} ${user.name.lastName}`);
   res.status(200).json({ data: user, message: "success"})
 };
 
@@ -50,6 +51,7 @@ const updateProfile = async (req, res) => {
       dob,
     }
   );
+  winston.info(`PROFILE UPDATED - ${name.firstName} ${name.lastName} `);
   res.status(200).json({ message: "success", data: updatedRecord });
 };
 
@@ -71,8 +73,7 @@ const changePassword = async (req, res) => {
     }
   );
 
-  // await new Email().sendPasswordChangeNotification(email, name);
-
+  await new Email().sendPasswordChangeNotification(email, name);
   res.send("Password changed");
 };
 
@@ -242,7 +243,6 @@ const uploadProfileImage = async (req, res) => {
     if (req.file === undefined)
       return res.status(400).json({ success: false, message: "No file uploaded" });
 
-      console.log("SUCCESS")
     await User.findOneAndUpdate(
       { _id: req.user._id },
       {

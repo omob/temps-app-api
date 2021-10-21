@@ -571,3 +571,149 @@
 {"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-18T16:02:15.595Z"}
 {"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-18T16:03:15.030Z"}
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-18T16:03:15.053Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T19:32:06.774Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T19:32:06.796Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T19:33:02.731Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T19:33:02.761Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T19:37:09.964Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T19:37:09.994Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T19:50:35.850Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T19:50:35.875Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T19:59:33.718Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T19:59:33.740Z"}
+{"message":"messagesService.createMessage is not a function","stack":"TypeError: messagesService.createMessage is not a function\n    at D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\routes\\messages.js:11:19\n    at D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express-async-errors\\index.js:17:20\n    at Layer.handle [as handle_request] (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express-async-errors\\index.js:17:20\n    at Layer.handle [as handle_request] (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\index.js:281:22\n    at Function.process_params (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at Function.handle (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express-async-errors\\index.js:17:20\n    at Layer.handle [as handle_request] (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\index.js:284:7","level":"error","timestamp":"2021-10-20T20:08:01.094Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T20:08:43.473Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T20:08:43.496Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T20:10:05.196Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T20:10:05.216Z"}
+[{"id":"24190bdd-6337-491c-9c88-bf8188f62442","status":"error","message":"The recipient device is not registered with FCM.","details":{"error":"DeviceNotRegistered","fault":"developer"}},{"status":"ok","id":"a5746bdd-f9bb-46e9-91cc-29c5cb9a2a4e"}]
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T20:11:16.113Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T20:11:16.132Z"}
+{"level":"info","message":"CREATED A NEW MESSAGE","timestamp":"2021-10-20T20:16:02.705Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T20:21:59.633Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T20:21:59.654Z"}
+{"message":"messagesService.postMessages is not a function","stack":"TypeError: messagesService.postMessages is not a function\n    at D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\routes\\messages.js:21:19\n    at D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express-async-errors\\index.js:17:20\n    at Layer.handle [as handle_request] (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express-async-errors\\index.js:17:20\n    at Layer.handle [as handle_request] (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\index.js:281:22\n    at param (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\index.js:354:14)\n    at param (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\index.js:365:14)\n    at Function.process_params (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\index.js:410:3)\n    at next (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at Function.handle (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express-async-errors\\index.js:17:20\n    at Layer.handle [as handle_request] (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)","level":"error","timestamp":"2021-10-20T20:23:20.163Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T20:23:38.328Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T20:23:38.362Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T20:24:05.507Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T20:24:05.528Z"}
+{"level":"info","message":"SENT NEW MESSAGE","timestamp":"2021-10-20T20:24:12.137Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T20:24:31.270Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T20:24:31.302Z"}
+{"level":"info","message":"SENT NEW MESSAGE","timestamp":"2021-10-20T20:24:32.905Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T20:26:49.595Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T20:26:49.615Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T20:41:44.971Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T20:41:44.993Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T20:45:25.961Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T20:45:25.986Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T20:46:22.478Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T20:46:22.507Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T20:47:19.036Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T20:47:19.068Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T20:47:23.101Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T20:47:23.128Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T20:48:10.147Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T20:48:10.178Z"}
+{"level":"info","message":"CREATED A NEW MESSAGE","timestamp":"2021-10-20T21:50:54.611Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T21:54:04.682Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T21:54:04.708Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T21:54:10.093Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T21:54:10.115Z"}
+{"level":"info","message":"PROFILE FETCHED - Jammy Williams","timestamp":"2021-10-20T21:57:46.949Z"}
+{"level":"info","message":"PROFILE FETCHED - Jammy Williams","timestamp":"2021-10-20T21:57:50.376Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T22:07:30.412Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T22:07:30.435Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T22:09:05.725Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T22:09:05.756Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T22:11:19.745Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T22:11:19.769Z"}
+{"level":"info","message":"CREATED A NEW MESSAGE","timestamp":"2021-10-20T22:12:09.621Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T22:12:41.911Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T22:12:41.943Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T22:13:16.837Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T22:13:16.857Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T22:14:32.456Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T22:14:32.479Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T22:15:09.303Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T22:15:09.333Z"}
+{"level":"info","message":"CREATED A NEW MESSAGE","timestamp":"2021-10-20T22:15:22.839Z"}
+{"level":"info","message":"PROFILE FETCHED - Jammy Williams","timestamp":"2021-10-20T22:45:46.474Z"}
+{"level":"info","message":"PROFILE FETCHED - Jammy Williams","timestamp":"2021-10-20T22:45:49.359Z"}
+{"level":"info","message":"PROFILE FETCHED - Jammy Williams","timestamp":"2021-10-20T22:45:50.595Z"}
+{"level":"info","message":"PROFILE FETCHED - Jammy Williams","timestamp":"2021-10-20T22:45:52.142Z"}
+{"level":"info","message":"PROFILE FETCHED - Jammy Williams","timestamp":"2021-10-20T22:45:56.848Z"}
+{"level":"info","message":"PROFILE FETCHED - Jammy Williams","timestamp":"2021-10-20T22:45:57.874Z"}
+{"level":"info","message":"SENT NEW MESSAGE","timestamp":"2021-10-20T22:47:31.941Z"}
+{"level":"info","message":"PROFILE FETCHED - Jammy Williams","timestamp":"2021-10-20T22:47:36.504Z"}
+{"level":"info","message":"PROFILE FETCHED - Jammy Williams","timestamp":"2021-10-20T22:47:37.381Z"}
+{"level":"info","message":"PROFILE FETCHED - Jammy Williams","timestamp":"2021-10-20T22:48:32.780Z"}
+{"level":"info","message":"PROFILE FETCHED - Jammy Williams","timestamp":"2021-10-20T22:48:33.647Z"}
+{"message":"Unexpected token \" in JSON at position 0","stack":"SyntaxError: Unexpected token \" in JSON at position 0\n    at JSON.parse (<anonymous>)\n    at createStrictSyntaxError (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\body-parser\\lib\\types\\json.js:158:10)\n    at parse (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\body-parser\\lib\\types\\json.js:83:15)\n    at D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\body-parser\\lib\\read.js:121:18\n    at invokeCallback (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\raw-body\\index.js:224:16)\n    at done (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\raw-body\\index.js:213:7)\n    at IncomingMessage.onEnd (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\raw-body\\index.js:273:7)\n    at IncomingMessage.emit (events.js:323:22)\n    at endReadableNT (_stream_readable.js:1204:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)","expose":true,"statusCode":400,"status":400,"body":"\"Hey!\"","type":"entity.parse.failed","level":"error","timestamp":"2021-10-20T23:14:33.497Z"}
+{"message":"Unexpected token \" in JSON at position 0","stack":"SyntaxError: Unexpected token \" in JSON at position 0\n    at JSON.parse (<anonymous>)\n    at createStrictSyntaxError (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\body-parser\\lib\\types\\json.js:158:10)\n    at parse (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\body-parser\\lib\\types\\json.js:83:15)\n    at D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\body-parser\\lib\\read.js:121:18\n    at invokeCallback (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\raw-body\\index.js:224:16)\n    at done (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\raw-body\\index.js:213:7)\n    at IncomingMessage.onEnd (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\raw-body\\index.js:273:7)\n    at IncomingMessage.emit (events.js:323:22)\n    at endReadableNT (_stream_readable.js:1204:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)","expose":true,"statusCode":400,"status":400,"body":"\"\\nHi!\"","type":"entity.parse.failed","level":"error","timestamp":"2021-10-20T23:20:00.368Z"}
+{"message":"Unexpected token \" in JSON at position 0","stack":"SyntaxError: Unexpected token \" in JSON at position 0\n    at JSON.parse (<anonymous>)\n    at createStrictSyntaxError (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\body-parser\\lib\\types\\json.js:158:10)\n    at parse (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\body-parser\\lib\\types\\json.js:83:15)\n    at D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\body-parser\\lib\\read.js:121:18\n    at invokeCallback (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\raw-body\\index.js:224:16)\n    at done (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\raw-body\\index.js:213:7)\n    at IncomingMessage.onEnd (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\raw-body\\index.js:273:7)\n    at IncomingMessage.emit (events.js:323:22)\n    at endReadableNT (_stream_readable.js:1204:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)","expose":true,"statusCode":400,"status":400,"body":"\"Hdhhd\"","type":"entity.parse.failed","level":"error","timestamp":"2021-10-20T23:21:21.078Z"}
+{"message":"Unexpected token \" in JSON at position 0","stack":"SyntaxError: Unexpected token \" in JSON at position 0\n    at JSON.parse (<anonymous>)\n    at createStrictSyntaxError (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\body-parser\\lib\\types\\json.js:158:10)\n    at parse (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\body-parser\\lib\\types\\json.js:83:15)\n    at D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\body-parser\\lib\\read.js:121:18\n    at invokeCallback (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\raw-body\\index.js:224:16)\n    at done (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\raw-body\\index.js:213:7)\n    at IncomingMessage.onEnd (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\raw-body\\index.js:273:7)\n    at IncomingMessage.emit (events.js:323:22)\n    at endReadableNT (_stream_readable.js:1204:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)","expose":true,"statusCode":400,"status":400,"body":"\"Bxnn\"","type":"entity.parse.failed","level":"error","timestamp":"2021-10-20T23:23:42.079Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T23:25:20.235Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T23:25:20.257Z"}
+{"message":"Unexpected token \" in JSON at position 0","stack":"SyntaxError: Unexpected token \" in JSON at position 0\n    at JSON.parse (<anonymous>)\n    at createStrictSyntaxError (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\body-parser\\lib\\types\\json.js:158:10)\n    at parse (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\body-parser\\lib\\types\\json.js:83:15)\n    at D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\body-parser\\lib\\read.js:121:18\n    at invokeCallback (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\raw-body\\index.js:224:16)\n    at done (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\raw-body\\index.js:213:7)\n    at IncomingMessage.onEnd (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\raw-body\\index.js:273:7)\n    at IncomingMessage.emit (events.js:323:22)\n    at endReadableNT (_stream_readable.js:1204:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)","expose":true,"statusCode":400,"status":400,"body":"\"Bxnn\"","type":"entity.parse.failed","level":"error","timestamp":"2021-10-20T23:25:26.402Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T23:26:11.963Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T23:26:11.985Z"}
+{"message":"Unexpected token \" in JSON at position 0","stack":"SyntaxError: Unexpected token \" in JSON at position 0\n    at JSON.parse (<anonymous>)\n    at createStrictSyntaxError (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\body-parser\\lib\\types\\json.js:158:10)\n    at parse (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\body-parser\\lib\\types\\json.js:83:15)\n    at D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\body-parser\\lib\\read.js:121:18\n    at invokeCallback (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\raw-body\\index.js:224:16)\n    at done (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\raw-body\\index.js:213:7)\n    at IncomingMessage.onEnd (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\raw-body\\index.js:273:7)\n    at IncomingMessage.emit (events.js:323:22)\n    at endReadableNT (_stream_readable.js:1204:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)","expose":true,"statusCode":400,"status":400,"body":"\"Bxnn\"","type":"entity.parse.failed","level":"error","timestamp":"2021-10-20T23:26:16.603Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T23:26:41.301Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T23:26:41.334Z"}
+{"message":"Unexpected token \" in JSON at position 0","stack":"SyntaxError: Unexpected token \" in JSON at position 0\n    at JSON.parse (<anonymous>)\n    at createStrictSyntaxError (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\body-parser\\lib\\types\\json.js:158:10)\n    at parse (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\body-parser\\lib\\types\\json.js:83:15)\n    at D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\body-parser\\lib\\read.js:121:18\n    at invokeCallback (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\raw-body\\index.js:224:16)\n    at done (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\raw-body\\index.js:213:7)\n    at IncomingMessage.onEnd (D:\\Project\\GitHub Project\\mls-security\\webapp\\server\\node_modules\\raw-body\\index.js:273:7)\n    at IncomingMessage.emit (events.js:323:22)\n    at endReadableNT (_stream_readable.js:1204:12)\n    at processTicksAndRejections (internal/process/task_queues.js:84:21)","expose":true,"statusCode":400,"status":400,"body":"\"Bxnn\"","type":"entity.parse.failed","level":"error","timestamp":"2021-10-20T23:26:42.988Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T23:27:39.813Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T23:27:39.845Z"}
+{"level":"info","message":"PROFILE FETCHED - Jammy Williams","timestamp":"2021-10-20T23:27:45.725Z"}
+{"level":"info","message":"PROFILE FETCHED - Jammy Williams","timestamp":"2021-10-20T23:27:47.289Z"}
+{"level":"info","message":"PROFILE FETCHED - Jammy Williams","timestamp":"2021-10-20T23:29:11.102Z"}
+{"level":"info","message":"PROFILE FETCHED - Jammy Williams","timestamp":"2021-10-20T23:29:14.428Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-20T23:30:26.534Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-20T23:30:26.557Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-21T00:13:55.920Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-21T00:13:55.947Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-21T00:15:12.919Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-21T00:15:12.945Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-21T00:15:35.306Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-21T00:15:35.333Z"}
+{"level":"info","message":"SENT NEW MESSAGE","timestamp":"2021-10-21T00:15:52.243Z"}
+{"level":"info","message":"PROFILE FETCHED - Jammy Williams","timestamp":"2021-10-21T00:16:05.408Z"}
+{"level":"info","message":"PROFILE FETCHED - Jammy Williams","timestamp":"2021-10-21T00:16:19.045Z"}
+{"level":"info","message":"SENT NEW MESSAGE","timestamp":"2021-10-21T00:18:59.916Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-21T00:19:56.533Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-21T00:19:56.558Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-21T00:25:16.234Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-21T00:25:16.254Z"}
+{"level":"info","message":"SENT NEW MESSAGE","timestamp":"2021-10-21T00:25:57.319Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-21T00:28:12.693Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-21T00:28:12.723Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-21T00:28:14.084Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-21T00:28:14.106Z"}
+{"level":"info","message":"SENT NEW MESSAGE","timestamp":"2021-10-21T00:28:54.315Z"}
+{"level":"info","message":"SENT NEW MESSAGE","timestamp":"2021-10-21T00:31:02.033Z"}
+[{"id":"cf850def-ca8f-4cab-a5df-e5b95929de96","status":"ok"}]
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-21T00:32:11.195Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-21T00:32:11.216Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-21T00:32:31.128Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-21T00:32:31.156Z"}
+{"level":"info","message":"SENT NEW MESSAGE","timestamp":"2021-10-21T00:34:03.243Z"}
+[{"id":"ef3918b9-e2cf-45d5-bd8e-b9be4a7c2db7","status":"ok"}]
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-21T00:36:44.848Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-21T00:36:44.871Z"}
+{"level":"info","message":"SENT NEW MESSAGE","timestamp":"2021-10-21T00:36:50.691Z"}
+[{"id":"83462320-2a1c-4049-8d7e-193652e79956","status":"ok"}]
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-21T00:37:58.015Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-21T00:37:58.044Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-21T00:38:03.917Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-21T00:38:03.944Z"}
+{"level":"info","message":"SENT NEW MESSAGE","timestamp":"2021-10-21T00:38:11.542Z"}
+[{"id":"39fb6ce8-8e3d-434f-9be5-8f669c2d9fb0","status":"ok"}]
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-21T00:41:57.937Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-21T00:41:57.957Z"}
+{"level":"info","message":"SENT NEW MESSAGE","timestamp":"2021-10-21T00:42:04.301Z"}
+[{"id":"2abde75b-eb7f-4543-b548-a6cca8156504","status":"ok"}]
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-21T00:43:00.097Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-21T00:43:00.131Z"}
+{"level":"info","message":"SENT NEW MESSAGE","timestamp":"2021-10-21T00:43:05.652Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-21T00:43:42.155Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-21T00:43:42.186Z"}

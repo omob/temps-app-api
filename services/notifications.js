@@ -56,7 +56,6 @@ const notifyUsersViaPushNotifications = async (pushData) => {
     // different strategies you could use. A simple one is to send one chunk at a
     // time, which nicely spreads the load out over time:
     for (let chunk of chunks) {
-        console.log(chunk.toString());
       try {
         let ticketChunk = await expo.sendPushNotificationsAsync(chunk);
         winston.info(ticketChunk);
@@ -66,6 +65,7 @@ const notifyUsersViaPushNotifications = async (pushData) => {
         // documentation:
         // https://docs.expo.io/push-notifications/sending-notifications/#individual-errors
       } catch (error) {
+        winston.error("SENDING PUSH NOTIFICATION ERROR: " + error)
         console.error(error);
       }
     }
