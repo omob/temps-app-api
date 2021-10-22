@@ -350,20 +350,9 @@ const createShift = async (req, res) => {
         notes,
       });
 
-      // await newShift.save();
+      await newShift.save();
 
       const userInfo = await getUserInfoById(employeeId);
-      // sendEmailNotificationOnNewShift(
-      //   userInfo.name,
-      //   userInfo.email,
-      //   {
-      //     contract: contractName,
-      //     production: productionName,
-      //     location: locationName,
-      //     address,
-      //   },
-      //   shiftDate
-      // );
 
       if (userInfo.expoPushTokens) {
         const pushData = {

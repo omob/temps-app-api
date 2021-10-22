@@ -59,6 +59,50 @@ const notifyUserViaPushNotifications = async (pushToken, message) => {
 
 };
 
+
+const notifyUsersViaPushNotifications = async (pushData) => {
+  let expo = new Expo();
+   const messages = [];
+
+  for(let data of pushData) {
+      if (!data.pushToken) continue;
+      if (!Expo.isExpoPushToken(data.pushToken)) {
+        winston.error(
+          `Push token ${data.pushToken} is not a valid Expo push token`
+        );
+      }
+
+      messages.push({
+        to: data.pushToken,
+        sound: "default",
+        body: data.message.text,
+        data: data.message.data,
+      });
+  }
+
+  let chunks = expo.chunkPushNotifications(messages);
+  let tickets = [];
+  (async () => {
+    // Send the chunks to the Expo push notification service. There are
+    // different strategies you could use. A simple one is to send one chunk at a
+    // time, which nicely spreads the load out over time:
+    for (let chunk of chunks) {
+      try {
+        let ticketChunk = await expo.sendPushNotificationsAsync(chunk);
+        console.log(ticketChunk);
+        tickets.push(...ticketChunk);
+        // NOTE: If a ticket contains an error code in ticket.details.error, you
+        // must handle it appropriately. The error codes are listed in the Expo
+        // documentation:
+        // https://docs.expo.io/push-notifications/sending-notifications/#individual-errors
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  })();
+
+}
+
 // const testPush = () => {
 //   let expo = new Expo({ accessToken: process.env.EXPO_ACCESS_TOKEN });
 
@@ -87,26 +131,26 @@ const notifyUserViaPushNotifications = async (pushToken, message) => {
 //   // recommend ts
 //   // and to compress them (notifications with similar content will getyou batch your notifications to reduce the number of reques
 //   // compressed).
-//   let chunks = expo.chunkPushNotifications(messages);
-//   let tickets = [];
-//   (async () => {
-//     // Send the chunks to the Expo push notification service. There are
-//     // different strategies you could use. A simple one is to send one chunk at a
-//     // time, which nicely spreads the load out over time:
-//     for (let chunk of chunks) {
-//       try {
-//         let ticketChunk = await expo.sendPushNotificationsAsync(chunk);
-//         console.log(ticketChunk);
-//         tickets.push(...ticketChunk);
-//         // NOTE: If a ticket contains an error code in ticket.details.error, you
-//         // must handle it appropriately. The error codes are listed in the Expo
-//         // documentation:
-//         // https://docs.expo.io/push-notifications/sending-notifications/#individual-errors
-//       } catch (error) {
-//         console.error(error);
-//       }
-//     }
-//   })();
+  // let chunks = expo.chunkPushNotifications(messages);
+  // let tickets = [];
+  // (async () => {
+  //   // Send the chunks to the Expo push notification service. There are
+  //   // different strategies you could use. A simple one is to send one chunk at a
+  //   // time, which nicely spreads the load out over time:
+  //   for (let chunk of chunks) {
+  //     try {
+  //       let ticketChunk = await expo.sendPushNotificationsAsync(chunk);
+  //       console.log(ticketChunk);
+  //       tickets.push(...ticketChunk);
+  //       // NOTE: If a ticket contains an error code in ticket.details.error, you
+  //       // must handle it appropriately. The error codes are listed in the Expo
+  //       // documentation:
+  //       // https://docs.expo.io/push-notifications/sending-notifications/#individual-errors
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   }
+  // })();
 // }
 
 module.exports = router;
