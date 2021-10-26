@@ -731,3 +731,41 @@
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-22T21:14:56.863Z"}
 {"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-22T21:16:48.862Z"}
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-22T21:16:48.888Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-22T21:17:57.859Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-22T21:17:57.881Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-24T22:49:09.170Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-24T22:49:09.189Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-25T20:40:45.739Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-25T20:40:45.760Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-25T23:53:50.890Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-25T23:53:50.913Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-25T23:56:11.795Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-25T23:56:11.834Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-26T20:03:04.082Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-26T20:03:04.103Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-26T20:30:48.936Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-26T20:30:48.956Z"}
+{"level":"info","message":"SENT NEW MESSAGE","timestamp":"2021-10-26T21:35:15.739Z"}
+{"level":"info","message":"CREATED A NEW MESSAGE","timestamp":"2021-10-26T21:42:18.857Z"}
+{"level":"info","message":"CREATED A NEW MESSAGE","timestamp":"2021-10-26T21:45:07.901Z"}
+[{"id":"b6c7f741-b0db-4802-aed4-87933f5e3585","status":"ok"}]
+{"level":"info","message":"SENT NEW MESSAGE","timestamp":"2021-10-26T21:45:33.278Z"}
+[{"id":"8f6e4878-9b16-4a9b-bbd2-a95d8b4f81fe","status":"ok"}]
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-26T21:54:30.950Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-26T21:54:30.973Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-26T21:55:08.166Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-26T21:55:08.186Z"}
+{"level":"info","message":"PROFILE FETCHED - Jammy Williams","timestamp":"2021-10-26T21:57:57.150Z"}
+{"level":"info","message":"PROFILE FETCHED - Jammy Williams","timestamp":"2021-10-26T21:58:00.443Z"}
+{"level":"info","message":"SENT NEW MESSAGE","timestamp":"2021-10-26T21:58:56.697Z"}
+[{"id":"ee1d8ebc-09fa-4130-85bb-6c293fd0bf80","status":"ok"}]
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-26T21:59:36.119Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-26T21:59:36.140Z"}
+{"level":"info","message":"SENT NEW MESSAGE","timestamp":"2021-10-26T22:01:11.112Z"}
+[{"id":"a040d319-eca1-48cd-aa56-6029acb2dcba","status":"ok"}]
+{"level":"info","message":"PROFILE FETCHED - Jammy Williams","timestamp":"2021-10-26T22:01:25.863Z"}
+{"level":"info","message":"PROFILE FETCHED - Jammy Williams","timestamp":"2021-10-26T22:01:27.435Z"}
+{"level":"info","message":"PROFILE FETCHED - Jammy Williams","timestamp":"2021-10-26T22:12:29.356Z"}
+{"level":"info","message":"PROFILE FETCHED - Jammy Williams","timestamp":"2021-10-26T22:12:32.245Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-26T22:33:28.215Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-26T22:33:28.235Z"}

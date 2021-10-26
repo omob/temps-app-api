@@ -55,6 +55,8 @@ const postMessage = async (req, res, next) => {
     }
   );
 
+  if(!messageInDB) return res.status(400).send("No message ID exists.");
+  
   const userIdToNotify =
     senderId !== messageInDB.sender
       ? messageInDB.recipient

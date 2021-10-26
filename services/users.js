@@ -262,8 +262,6 @@ const uploadProfileImage = async (req, res) => {
    const userId = req.user._id;
    const token = req.body.token;
 
-   console.log("Token", token);
-
    if (!token) return res.status(400).json({ message: "No token provided" });
 
    await User.findByIdAndUpdate(userId, {
