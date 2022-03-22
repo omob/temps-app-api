@@ -13,12 +13,13 @@ function validateContract(contract) {
     name: Joi.string().required(),
     contactNumber: Joi.string(),
     email: Joi.string().min(5).max(255).required().email(),
+    invoiceEmail: Joi.string().min(5).max(255).required().email(),
     businessType: Joi.string().allow(null).allow(""),
     address: Joi.object().keys({
       line1: Joi.string(),
       line2: Joi.string().allow(null).allow(""),
       city: Joi.string().allow(null).allow(""),
-      state: Joi.string(),
+      state: Joi.string().allow(null).allow(""),
       country: Joi.string().allow(null).allow(""),
       postCode: Joi.string().required(),
       location: Joi.object().allow(null),
@@ -32,9 +33,12 @@ function validateContract(contract) {
             name: Joi.string().label("Location Name"),
             address: Joi.object().keys({
               line1: Joi.string().label("Location Address Line 1"),
-              city: Joi.string().label("Location city"),
-              state: Joi.string().label("Location State"),
-              country: Joi.string().label("Location Country"),
+              city: Joi.string().label("Location city").allow(null).allow(""),
+              state: Joi.string().label("Location State").allow(null).allow(""),
+              country: Joi.string()
+                .label("Location Country")
+                .allow(null)
+                .allow(""),
               postCode: Joi.string().required().label("Location Postcode"),
               location: Joi.object().allow(null),
             }),
@@ -54,12 +58,13 @@ function validateContractOnUpdate(contract) {
     name: Joi.string().required(),
     contactNumber: Joi.string(),
     email: Joi.string().min(5).max(255).required().email(),
+    invoiceEmail: Joi.string().min(5).max(255).required().email(),
     businessType: Joi.string().allow(null).allow(""),
     address: Joi.object().keys({
       line1: Joi.string(),
       line2: Joi.string().allow(null).allow(""),
       city: Joi.string().allow(null).allow(""),
-      state: Joi.string(),
+      state: Joi.string().allow(null).allow(""),
       country: Joi.string().allow(null).allow(""),
       postCode: Joi.string().required(),
       location: Joi.object().allow(null),
@@ -76,7 +81,7 @@ function validateContractOnUpdate(contract) {
             address: Joi.object()
               .keys({
                 line1: Joi.string().label("Location Address Line 1"),
-                city: Joi.string().label("Location city"),
+                city: Joi.string().label("Location city").allow(null).allow(""),
                 state: Joi.string()
                   .label("Location State")
                   .allow(null)
@@ -98,7 +103,6 @@ function validateContractOnUpdate(contract) {
 
   return Joi.validate(contract, schema);
 }
-
 
 module.exports = {
   validateContract,

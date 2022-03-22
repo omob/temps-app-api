@@ -17,6 +17,7 @@ const createContract = async (req, res) => {
     name,
     contactNumber,
     email,
+    invoiceEmail,
     businessType,
     address,
     productions,
@@ -44,6 +45,7 @@ const createContract = async (req, res) => {
   contract = new Contract({
     name,
     email,
+    invoiceEmail,
     contactNumber,
     address,
     businessType,
@@ -92,6 +94,7 @@ const updateContract = async (req, res) => {
     name,
     contactNumber,
     email,
+    invoiceEmail,
     businessType,
     address,
     productions,
@@ -125,6 +128,7 @@ const updateContract = async (req, res) => {
     name,
     contactNumber,
     email,
+    invoiceEmail,
     businessType,
     address,
     inRate,
@@ -155,7 +159,7 @@ const getContractProfile = async (req, res) => {
 };
 
 const getAllContractWithEmployeesCount = async (req, res) => {
-  const contracts = await Contract.find({}).select("name address.state inRate");
+  const contracts = await Contract.find({}).select("name address.city inRate");
 
   const _allContract = [];
   await Promise.all(
@@ -167,7 +171,7 @@ const getAllContractWithEmployeesCount = async (req, res) => {
 
       _allContract.push({
         ...contract.toObject(),
-        location: contract.address.state,
+        location: contract.address.city,
         totalEmployees: totalEmployees.length,
       });
     })
