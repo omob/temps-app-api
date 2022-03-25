@@ -13,7 +13,7 @@ function validateContract(contract) {
     name: Joi.string().required(),
     contactNumber: Joi.string(),
     email: Joi.string().min(5).max(255).required().email(),
-    invoiceEmail: Joi.string().min(5).max(255).required().email(),
+    invoiceEmail: Joi.string().allow(null).min(5).max(255).email(),
     businessType: Joi.string().allow(null).allow(""),
     address: Joi.object().keys({
       line1: Joi.string(),
@@ -58,7 +58,7 @@ function validateContractOnUpdate(contract) {
     name: Joi.string().required(),
     contactNumber: Joi.string(),
     email: Joi.string().min(5).max(255).required().email(),
-    invoiceEmail: Joi.string().min(5).max(255).required().email(),
+    invoiceEmail: Joi.string().allow(null).min(5).max(255).email(),
     businessType: Joi.string().allow(null).allow(""),
     address: Joi.object().keys({
       line1: Joi.string(),
