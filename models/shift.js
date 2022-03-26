@@ -25,6 +25,7 @@ const shiftSchema = new Schema(
     accommodation: { type: Number },
     perDiems: { type: Number },
     notes: { type: String },
+    shiftOptions: { type: "array", default: [] },
     status: {
       type: String,
       enum: [
@@ -42,7 +43,7 @@ const shiftSchema = new Schema(
       isChecked: { type: Boolean },
       isPaid: { type: Boolean },
       approvedBy: { type: Schema.Types.ObjectId, ref: "Employee" },
-      receiptUrl: { type: String }
+      receiptUrl: { type: String },
     },
     createdDate: { type: Date, default: new Date() },
   },

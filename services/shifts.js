@@ -6,7 +6,11 @@ const { Employee: User } = require("../models/employee"); // Using User schema i
 const winston = require("winston");
 const { uploadReceiptDocument } = require("../functions/uploadInvoice");
 const { Payment } = require("../models/payments");
-const { isDateEqual, recreatedShiftDateWithTime } = require("../functions");
+const {
+  isDateEqual,
+  recreatedShiftDateWithTime,
+  calculateHours,
+} = require("../functions");
 const {
   sendEmailNotificationOnNewShift,
   notifyUsersViaPushNotifications,
@@ -81,7 +85,7 @@ const getAllMyShifts = async (req, res) => {
               perDiems,
             },
             time,
-            hours: parseInt(time.end) - parseInt(time.start),
+            hours: calculateHours(time.start, time.end),
             date,
             employeesInSameShifts: [],
             notes,
@@ -243,7 +247,7 @@ const getDashboardDataForUser = async (req, res) => {
             perDiems,
           },
           time,
-          hours: parseInt(time.end) - parseInt(time.start),
+          hours: calculateHours(time.start, time.end),
           date,
           notes,
         };
@@ -315,6 +319,7 @@ const createShift = async (req, res) => {
     accommodation,
     perDiems,
     notes,
+    shiftOptions,
   } = req.body;
 
   const {
@@ -352,12 +357,23 @@ const createShift = async (req, res) => {
         accommodation,
         perDiems,
         notes,
+        shiftOptions,
       });
 
       await newShift.save();
 
       const userInfo = await getUserInfoById(employeeId);
-
+      sendEmailNotificationOnNewShift(
+        userInfo.name,
+        userInfo.email,
+        {
+          contract: contractName,
+          production: productionName,
+          location: locationName,
+          address,
+        },
+        shiftDate
+      );
       if (userInfo.expoPushTokens) {
         const pushData = {
           pushTokens: userInfo.expoPushTokens,
@@ -389,6 +405,7 @@ const createShift = async (req, res) => {
           accommodation,
           perDiems,
           notes,
+          shiftOptions,
         });
         await newShift.save();
 
@@ -417,14 +434,23 @@ const createShift = async (req, res) => {
 };
 
 const _mapShiftToUi = (shift) => {
-  if (!shift.contractInfo.production) return shift;
-
+  if (!shift.contractInfo.production) {
+    const shiftObject = shift.toObject();
+    shiftObject.time.hours = calculateHours(
+      shiftObject.time.start,
+      shiftObject.time.end
+    );
+    return shiftObject;
+  }
   const shiftObject = shift.toObject();
 
   const { locations, ...otherProps } = shiftObject.contractInfo.production;
   shiftObject.contractInfo.production = otherProps;
+  shiftObject.time.hours = calculateHours(
+    shiftObject.time.start,
+    shiftObject.time.end
+  );
 
-  //  console.log(shiftObject.contractInfo.location);
   const foundLocation = locations.find(
     (loc) => loc._id.toString() === shiftObject.contractInfo.location.toString()
   );
@@ -446,7 +472,6 @@ const getAllShifts = async (req, res) => {
         return _mapShiftToUi(shift);
       })
     );
-
     res.send(mappedShifts);
   } catch (err) {
     winston.error("SOMETHING WRONG HAPPENED: ALLSHIFT", err.message);
@@ -470,6 +495,7 @@ const updateShift = async (req, res) => {
     perDiems,
     notes,
     status,
+    shiftOptions,
   } = req.body;
 
   const {
@@ -514,6 +540,7 @@ const updateShift = async (req, res) => {
       accommodation,
       perDiems,
       notes,
+      shiftOptions,
     });
 
     await newShift.save();
@@ -537,6 +564,7 @@ const updateShift = async (req, res) => {
   shiftInDb.perDiems = perDiems;
   shiftInDb.notes = notes;
   shiftInDb.status = status;
+  shiftInDb.shiftOptions = shiftOptions;
 
   await shiftInDb.save();
   winston.info("ACTION - UPDATED SHIFT DETAIL");
@@ -587,7 +615,7 @@ const getAllShiftsDetails = async (req, res) => {
       shiftInfo: {
         location: ms.contractInfo.location.name,
         time: `${ms.time.start} - ${ms.time.end}`,
-        hours: parseInt(ms.time.end) - parseInt(ms.time.start),
+        hours: calculateHours(ms.time.start, ms.time.end),
         date: ms.date,
       },
     }));
@@ -636,7 +664,7 @@ const getAllUserShifts = async (req, res) => {
               location = loc;
             }
           });
-          const hours = parseInt(time.clockOut) - parseInt(time.clockIn);
+          const hours = calculateHours(time.clockIn, time.clockOut);
           let totalPay = parseInt(outRate) * hours;
 
           totalPay +=
@@ -717,7 +745,7 @@ const getAllUsersShifts = async (req, res) => {
             }
           });
 
-          const hours = parseInt(time.clockOut) - parseInt(time.clockIn);
+          const hours = calculateHours(time.clockIn, time.clockOut);
           let totalPay = parseInt(outRate) * hours;
           totalPay +=
             milleage ||

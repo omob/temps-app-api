@@ -129,6 +129,20 @@ const recreatedShiftDateWithTime = (date, startTime) => {
   );
 };
 
+const calculateHours = (startTime, endTime) => {
+  const _startTime = parseInt(startTime);
+  const _endTime = parseInt(endTime);
+
+  if (_startTime < _endTime) return _endTime - _startTime;
+
+  // if (_endTime < _startTime && _startTime > 12) {
+  //   const hours = _startTime - 12 + _endTime;
+  //   return hours;
+  // }
+  if (_endTime < _startTime) return 24 - (_startTime - _endTime);
+
+  if (_endTime == _startTime) return 0;
+};
 
 module.exports = {
   getDayOfTheWeekInNumber,
@@ -141,4 +155,5 @@ module.exports = {
   addMinutesToDate,
   isDateEqual,
   recreatedShiftDateWithTime,
+  calculateHours,
 };
