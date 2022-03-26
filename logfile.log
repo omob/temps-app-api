@@ -868,3 +868,22 @@
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-25T01:09:16.180Z"}
 {"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-25T01:09:27.397Z"}
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-25T01:09:29.959Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-25T01:11:42.060Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-25T01:11:44.715Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T00:54:54.879Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T00:54:59.928Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T01:04:25.467Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T01:04:28.681Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS FOR aboayosam@gmail.com","timestamp":"2022-03-26T01:05:28.384Z"}
+{"level":"info","message":"Email sent successfully to Ayodeji on new shift assignment ","timestamp":"2022-03-26T01:05:28.424Z"}
+{"level":"error","message":"Error sending mail. Error: connect ECONNREFUSED 127.0.0.1:465","timestamp":"2022-03-26T01:05:28.523Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS FOR aboayosam@gmail.com","timestamp":"2022-03-26T01:05:28.981Z"}
+{"level":"info","message":"Email sent successfully to Ayodeji on new shift assignment ","timestamp":"2022-03-26T01:05:29.000Z"}
+{"level":"error","message":"Error sending mail. Error: connect ECONNREFUSED 127.0.0.1:465","timestamp":"2022-03-26T01:05:29.004Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS FOR aboayosam@gmail.com","timestamp":"2022-03-26T01:05:29.494Z"}
+{"level":"info","message":"Email sent successfully to Ayodeji on new shift assignment ","timestamp":"2022-03-26T01:05:29.505Z"}
+{"level":"error","message":"Error sending mail. Error: connect ECONNREFUSED 127.0.0.1:465","timestamp":"2022-03-26T01:05:29.510Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS FOR aboayosam@gmail.com","timestamp":"2022-03-26T01:05:30.105Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS FOR MULTIPLE USERS","timestamp":"2022-03-26T01:05:30.106Z"}
+{"level":"info","message":"Email sent successfully to Ayodeji on new shift assignment ","timestamp":"2022-03-26T01:05:30.114Z"}
+{"level":"error","message":"Error sending mail. Error: connect ECONNREFUSED 127.0.0.1:465","timestamp":"2022-03-26T01:05:30.118Z"}

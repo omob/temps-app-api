@@ -7,7 +7,10 @@ const winston = require("winston");
 const { uploadReceiptDocument } = require("../functions/uploadInvoice");
 const { Payment } = require("../models/payments");
 const { isDateEqual, recreatedShiftDateWithTime } = require("../functions");
-const { sendEmailNotificationOnNewShift, notifyUsersViaPushNotifications } = require("./notifications");
+const {
+  sendEmailNotificationOnNewShift,
+  notifyUsersViaPushNotifications,
+} = require("./notifications");
 
 const SHIFT_STATUS = {
   PENDING: "PENDING",
@@ -150,7 +153,10 @@ const _handleClockIn = async (shiftInDb, res) => {
 
 const _handleClockOut = async (shiftInDb, res) => {
   const time = { ...shiftInDb.time };
-  const hour = new Date().getHours() < 10 ? `0${new Date().getHours()}` : new Date().getHours();
+  const hour =
+    new Date().getHours() < 10
+      ? `0${new Date().getHours()}`
+      : new Date().getHours();
 
   time.clockOut = `${hour}:${new Date().getMinutes()}`;
   shiftInDb.status = SHIFT_STATUS.COMPLETED;
@@ -268,33 +274,32 @@ const getDashboardDataForUser = async (req, res) => {
 
 //////////////////////////////// ADMIN ACTIONS ///////////////////////////////////////////////////////
 
+const getContractProductionLocationName = async (
+  contractId,
+  productionId,
+  locationId
+) => {
+  const contractName = (
+    await Contract.findById({ _id: contractId }).select("name")
+  ).toObject().name;
 
-  const getContractProductionLocationName = async (
-    contractId,
-    productionId,
-    locationId
-  ) => {
+  const production = await Production.findById({ _id: productionId });
+  const productionName = production.name;
 
-     const contractName = (await Contract.findById({ _id: contractId }).select("name")).toObject().name;
+  let { name, address } = production.locations.find(
+    (loc) => loc._id.toString() === locationId.toString()
+  );
 
-     const production = await Production.findById({ _id: productionId });
-     const productionName = production.name;
+  address = `${address.line1} ${address.line2 || ""} ${address.city} ${
+    address.county || ""
+  } ${address.postCode}`;
 
-     let { name, address } = production.locations.find(
-       (loc) =>
-         loc._id.toString() === locationId.toString()
-     );
+  return { contractName, productionName, locationName: name, address };
+};
 
-     address = `${address.line1} ${address.line2 || ""} ${address.city} ${
-              address.county || ""
-            } ${address.postCode}`
-     
-     return { contractName, productionName, locationName: name, address }
-  };
-
-  const getUserInfoById = async (id) => {
-    return await User.findById({ _id: id }).select("name email expoPushTokens");
-  }
+const getUserInfoById = async (id) => {
+  return await User.findById({ _id: id }).select("name email expoPushTokens");
+};
 
 const createShift = async (req, res) => {
   const { error } = validateShift(req.body);
@@ -319,7 +324,6 @@ const createShift = async (req, res) => {
     position,
   } = contract;
 
-  
   const { contractName, productionName, locationName, address } =
     await getContractProductionLocationName(
       contractId,
@@ -357,10 +361,9 @@ const createShift = async (req, res) => {
       if (userInfo.expoPushTokens) {
         const pushData = {
           pushTokens: userInfo.expoPushTokens,
-          message: { text: "A new shift has been assigned to you."}
+          message: { text: "A new shift has been assigned to you." },
         };
         await notifyUsersViaPushNotifications(Array.of(pushData));
-
       }
 
       winston.info(`ACTION - CREATED NEW SHIFT FOR ${userInfo.email}`);
@@ -387,7 +390,7 @@ const createShift = async (req, res) => {
           perDiems,
           notes,
         });
-        // await newShift.save();
+        await newShift.save();
 
         const userInfo = await getUserInfoById(employees[i]._id);
         sendEmailNotificationOnNewShift(
@@ -412,8 +415,6 @@ const createShift = async (req, res) => {
     res.status(500).send(err.message);
   }
 };
-
-
 
 const _mapShiftToUi = (shift) => {
   if (!shift.contractInfo.production) return shift;
@@ -541,7 +542,6 @@ const updateShift = async (req, res) => {
   winston.info("ACTION - UPDATED SHIFT DETAIL");
   res.status(204).send(shiftInDb);
 };
-
 
 const getShiftById = async (req, res) => {
   const { id } = req.params;
