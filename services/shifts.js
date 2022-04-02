@@ -23,6 +23,7 @@ const SHIFT_STATUS = {
   INPROGRESS: "INPROGRESS",
   COMPLETED: "COMPLETED",
   OUTDATED: "OUTDATED",
+  CANCELED: "CANCELED",
 };
 
 const MAX_CLOCK_IN_TIME = 900000; // 15mins
@@ -59,6 +60,7 @@ const getAllMyShifts = async (req, res) => {
           perDiems,
           notes,
           status,
+          shiftOptions,
         }) => {
           let { production, location, outRate, contract, position } =
             contractInfo;
@@ -83,6 +85,7 @@ const getAllMyShifts = async (req, res) => {
               meal,
               accommodation,
               perDiems,
+              shiftOptions,
             },
             time,
             hours: calculateHours(time.start, time.end),
@@ -636,7 +639,10 @@ const getAllUserShifts = async (req, res) => {
 
     const allShifts = await Shift.find({
       employee: userId,
-      status: SHIFT_STATUS.COMPLETED,
+      $or: [
+        { status: SHIFT_STATUS.COMPLETED },
+        { status: SHIFT_STATUS.CANCELED },
+      ],
     })
       .populate({ path: "contractInfo.contract", select: "name" })
       .populate({ path: "contractInfo.production", select: "name locations" })
@@ -713,7 +719,10 @@ const getAllUsersShifts = async (req, res) => {
   const { isPaid } = req.query;
   try {
     const allShifts = await Shift.find({
-      status: SHIFT_STATUS.COMPLETED,
+      $or: [
+        { status: SHIFT_STATUS.COMPLETED },
+        { status: SHIFT_STATUS.CANCELED },
+      ],
       "admin.isPaid": isPaid,
     })
       .populate({ path: "contractInfo.contract", select: "name" })
@@ -736,6 +745,8 @@ const getAllUsersShifts = async (req, res) => {
           accommodation,
           perDiems,
           employee,
+          cancellationFee,
+          status,
         }) => {
           let { production, location, outRate, contract } = contractInfo;
 
@@ -753,6 +764,8 @@ const getAllUsersShifts = async (req, res) => {
             null + accommodation ||
             null + perDiems ||
             null;
+
+          if (status == SHIFT_STATUS.CANCELED) totalPay = cancellationFee;
 
           return {
             _id,
@@ -778,6 +791,7 @@ const getAllUsersShifts = async (req, res) => {
             meal,
             accommodation,
             perDiems,
+            status,
           };
         }
       )

@@ -11,7 +11,7 @@ const nameSchema = () =>
 function validateContract(contract) {
   const schema = {
     name: Joi.string().required(),
-    contactNumber: Joi.string(),
+    contactNumber: Joi.string().optional().allow(null).allow(""),
     email: Joi.string().min(5).max(255).required().email(),
     invoiceEmail: Joi.string().allow(null).min(5).max(255).email(),
     businessType: Joi.string().allow(null).allow(""),
@@ -31,6 +31,12 @@ function validateContract(contract) {
         locations: Joi.array().items(
           Joi.object().keys({
             name: Joi.string().label("Location Name"),
+            mileage: Joi.number()
+              .label("Mileage")
+              .optional()
+              .allow("")
+              .allow(null),
+            travel: Joi.number().optional().allow("").allow(null),
             address: Joi.object().keys({
               line1: Joi.string().label("Location Address Line 1"),
               city: Joi.string().label("Location city").allow(null).allow(""),
@@ -56,7 +62,7 @@ function validateContractOnUpdate(contract) {
   const schema = {
     _id: Joi.string(),
     name: Joi.string().required(),
-    contactNumber: Joi.string(),
+    contactNumber: Joi.string().optional().allow(null).allow(""),
     email: Joi.string().min(5).max(255).required().email(),
     invoiceEmail: Joi.string().allow(null).min(5).max(255).email(),
     businessType: Joi.string().allow(null).allow(""),
@@ -78,6 +84,12 @@ function validateContractOnUpdate(contract) {
           Joi.object().keys({
             _id: Joi.string().label("Location Id"),
             name: Joi.string().label("Location Name"),
+            mileage: Joi.number()
+              .label("Mileage")
+              .optional()
+              .allow("")
+              .allow(null),
+            travel: Joi.number().optional().allow("").allow(null),
             address: Joi.object()
               .keys({
                 line1: Joi.string().label("Location Address Line 1"),
