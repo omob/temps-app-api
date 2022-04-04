@@ -484,6 +484,7 @@ const getAllShifts = async (req, res) => {
 
 const updateShift = async (req, res) => {
   const { id } = req.params;
+  console.log(req.body);
   const { error } = validateShiftOnUpdate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -499,6 +500,7 @@ const updateShift = async (req, res) => {
     notes,
     status,
     shiftOptions,
+    cancellationFee,
   } = req.body;
 
   const {
@@ -568,6 +570,7 @@ const updateShift = async (req, res) => {
   shiftInDb.notes = notes;
   shiftInDb.status = status;
   shiftInDb.shiftOptions = shiftOptions;
+  shiftInDb.cancellationFee = cancellationFee;
 
   await shiftInDb.save();
   winston.info("ACTION - UPDATED SHIFT DETAIL");
@@ -662,6 +665,8 @@ const getAllUserShifts = async (req, res) => {
           meal,
           accommodation,
           perDiems,
+          cancellationFee,
+          status,
         }) => {
           let { production, location, outRate, contract } = contractInfo;
 
@@ -679,6 +684,11 @@ const getAllUserShifts = async (req, res) => {
             null + accommodation ||
             null + perDiems ||
             null;
+
+          if (status == SHIFT_STATUS.CANCELED) {
+            totalPay = cancellationFee;
+          }
+
           return {
             _id,
             contract: contract.name,
@@ -703,6 +713,8 @@ const getAllUserShifts = async (req, res) => {
             meal,
             accommodation,
             perDiems,
+            cancellationFee,
+            status,
           };
         }
       )
@@ -792,6 +804,7 @@ const getAllUsersShifts = async (req, res) => {
             accommodation,
             perDiems,
             status,
+            cancellationFee,
           };
         }
       )
@@ -813,7 +826,7 @@ const updateUserShiftConfirmation = async (req, res) => {
   if (!shiftInDb) return res.status(404).send("Shift Not Found");
 
   const result = await Shift.findByIdAndUpdate(shiftId, {
-    status: "COMPLETED",
+    status: shiftInDb.status,
     admin: {
       isChecked: isChecked,
       approvedBy: isChecked ? req.user._id : null,
