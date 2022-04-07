@@ -769,3 +769,7 @@
 {"level":"info","message":"PROFILE FETCHED - Jammy Williams","timestamp":"2021-10-26T22:12:32.245Z"}
 {"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-26T22:33:28.215Z"}
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-26T22:33:28.235Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-07T16:12:04.128Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-07T16:12:10.680Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-07T16:12:57.385Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-07T16:12:59.986Z"}
