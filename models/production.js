@@ -30,6 +30,12 @@ const productionSchema = new Schema({
       },
       mileage: { type: Number },
       travel: { type: Number },
+      customRates: [
+        {
+          type: { type: "string", required: true },
+          rate: { type: Number },
+        },
+      ],
     },
   ],
 });

@@ -48,6 +48,13 @@ function validateContract(contract) {
               postCode: Joi.string().required().label("Location Postcode"),
               location: Joi.object().allow(null),
             }),
+            customRates: Joi.array().items(
+              Joi.object().keys({
+                _id: Joi.string().optional().allow(null).allow(""),
+                rate: Joi.number().label("Rate").allow("").allow(null),
+                type: Joi.string().label("Custom rate type"),
+              })
+            ),
           })
         ),
       })
@@ -106,6 +113,13 @@ function validateContractOnUpdate(contract) {
                 location: Joi.object().allow(null),
               })
               .required(),
+            customRates: Joi.array().items(
+              Joi.object().keys({
+                _id: Joi.string().optional().allow(null).allow(""),
+                rate: Joi.number().label("Rate").allow("").allow(null),
+                type: Joi.string().label("Custom rate type"),
+              })
+            ),
           })
         ),
       })

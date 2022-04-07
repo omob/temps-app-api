@@ -1073,3 +1073,17 @@
 {"level":"info","message":"ACTION - UPDATED SHIFT INFO CONFIRMATION BY Ayodeji Admin User","timestamp":"2022-04-04T00:03:27.608Z"}
 {"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2022-04-04T00:25:02.290Z"}
 {"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2022-04-04T00:25:20.476Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-04T00:28:02.207Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-04T00:28:05.425Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-04T00:54:04.744Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-04T00:54:07.442Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-07T13:20:00.997Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-07T13:20:04.473Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-07T15:09:35.044Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-07T15:09:40.441Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-07T15:13:41.729Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-07T15:13:44.946Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-07T15:27:59.327Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-07T15:28:04.762Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-07T15:33:43.084Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-07T15:33:46.989Z"}
