@@ -6,8 +6,15 @@ const { Employee: User } = require("../models/employee"); // Using User schema i
 const winston = require("winston");
 const { uploadReceiptDocument } = require("../functions/uploadInvoice");
 const { Payment } = require("../models/payments");
-const { isDateEqual, recreatedShiftDateWithTime } = require("../functions");
-const { sendEmailNotificationOnNewShift, notifyUsersViaPushNotifications } = require("./notifications");
+const {
+  isDateEqual,
+  recreatedShiftDateWithTime,
+  calculateHours,
+} = require("../functions");
+const {
+  sendEmailNotificationOnNewShift,
+  notifyUsersViaPushNotifications,
+} = require("./notifications");
 
 const SHIFT_STATUS = {
   PENDING: "PENDING",
@@ -16,6 +23,7 @@ const SHIFT_STATUS = {
   INPROGRESS: "INPROGRESS",
   COMPLETED: "COMPLETED",
   OUTDATED: "OUTDATED",
+  CANCELED: "CANCELED",
 };
 
 const MAX_CLOCK_IN_TIME = 900000; // 15mins
@@ -52,6 +60,7 @@ const getAllMyShifts = async (req, res) => {
           perDiems,
           notes,
           status,
+          shiftOptions,
         }) => {
           let { production, location, outRate, contract, position } =
             contractInfo;
@@ -76,9 +85,10 @@ const getAllMyShifts = async (req, res) => {
               meal,
               accommodation,
               perDiems,
+              shiftOptions,
             },
             time,
-            hours: parseInt(time.end) - parseInt(time.start),
+            hours: calculateHours(time.start, time.end),
             date,
             employeesInSameShifts: [],
             notes,
@@ -150,7 +160,10 @@ const _handleClockIn = async (shiftInDb, res) => {
 
 const _handleClockOut = async (shiftInDb, res) => {
   const time = { ...shiftInDb.time };
-  const hour = new Date().getHours() < 10 ? `0${new Date().getHours()}` : new Date().getHours();
+  const hour =
+    new Date().getHours() < 10
+      ? `0${new Date().getHours()}`
+      : new Date().getHours();
 
   time.clockOut = `${hour}:${new Date().getMinutes()}`;
   shiftInDb.status = SHIFT_STATUS.COMPLETED;
@@ -237,7 +250,7 @@ const getDashboardDataForUser = async (req, res) => {
             perDiems,
           },
           time,
-          hours: parseInt(time.end) - parseInt(time.start),
+          hours: calculateHours(time.start, time.end),
           date,
           notes,
         };
@@ -268,33 +281,32 @@ const getDashboardDataForUser = async (req, res) => {
 
 //////////////////////////////// ADMIN ACTIONS ///////////////////////////////////////////////////////
 
+const getContractProductionLocationName = async (
+  contractId,
+  productionId,
+  locationId
+) => {
+  const contractName = (
+    await Contract.findById({ _id: contractId }).select("name")
+  ).toObject().name;
 
-  const getContractProductionLocationName = async (
-    contractId,
-    productionId,
-    locationId
-  ) => {
+  const production = await Production.findById({ _id: productionId });
+  const productionName = production.name;
 
-     const contractName = (await Contract.findById({ _id: contractId }).select("name")).toObject().name;
+  let { name, address } = production.locations.find(
+    (loc) => loc._id.toString() === locationId.toString()
+  );
 
-     const production = await Production.findById({ _id: productionId });
-     const productionName = production.name;
+  address = `${address.line1} ${address.line2 || ""} ${address.city} ${
+    address.county || ""
+  } ${address.postCode}`;
 
-     let { name, address } = production.locations.find(
-       (loc) =>
-         loc._id.toString() === locationId.toString()
-     );
+  return { contractName, productionName, locationName: name, address };
+};
 
-     address = `${address.line1} ${address.line2 || ""} ${address.city} ${
-              address.county || ""
-            } ${address.postCode}`
-     
-     return { contractName, productionName, locationName: name, address }
-  };
-
-  const getUserInfoById = async (id) => {
-    return await User.findById({ _id: id }).select("name email expoPushTokens");
-  }
+const getUserInfoById = async (id) => {
+  return await User.findById({ _id: id }).select("name email expoPushTokens");
+};
 
 const createShift = async (req, res) => {
   const { error } = validateShift(req.body);
@@ -310,6 +322,7 @@ const createShift = async (req, res) => {
     accommodation,
     perDiems,
     notes,
+    shiftOptions,
   } = req.body;
 
   const {
@@ -319,7 +332,6 @@ const createShift = async (req, res) => {
     position,
   } = contract;
 
-  
   const { contractName, productionName, locationName, address } =
     await getContractProductionLocationName(
       contractId,
@@ -348,19 +360,29 @@ const createShift = async (req, res) => {
         accommodation,
         perDiems,
         notes,
+        shiftOptions,
       });
 
       await newShift.save();
 
       const userInfo = await getUserInfoById(employeeId);
-
+      sendEmailNotificationOnNewShift(
+        userInfo.name,
+        userInfo.email,
+        {
+          contract: contractName,
+          production: productionName,
+          location: locationName,
+          address,
+        },
+        shiftDate
+      );
       if (userInfo.expoPushTokens) {
         const pushData = {
           pushTokens: userInfo.expoPushTokens,
-          message: { text: "A new shift has been assigned to you."}
+          message: { text: "A new shift has been assigned to you." },
         };
         await notifyUsersViaPushNotifications(Array.of(pushData));
-
       }
 
       winston.info(`ACTION - CREATED NEW SHIFT FOR ${userInfo.email}`);
@@ -386,8 +408,9 @@ const createShift = async (req, res) => {
           accommodation,
           perDiems,
           notes,
+          shiftOptions,
         });
-        // await newShift.save();
+        await newShift.save();
 
         const userInfo = await getUserInfoById(employees[i]._id);
         sendEmailNotificationOnNewShift(
@@ -413,17 +436,24 @@ const createShift = async (req, res) => {
   }
 };
 
-
-
 const _mapShiftToUi = (shift) => {
-  if (!shift.contractInfo.production) return shift;
-
+  if (!shift.contractInfo.production) {
+    const shiftObject = shift.toObject();
+    shiftObject.time.hours = calculateHours(
+      shiftObject.time.start,
+      shiftObject.time.end
+    );
+    return shiftObject;
+  }
   const shiftObject = shift.toObject();
 
   const { locations, ...otherProps } = shiftObject.contractInfo.production;
   shiftObject.contractInfo.production = otherProps;
+  shiftObject.time.hours = calculateHours(
+    shiftObject.time.start,
+    shiftObject.time.end
+  );
 
-  //  console.log(shiftObject.contractInfo.location);
   const foundLocation = locations.find(
     (loc) => loc._id.toString() === shiftObject.contractInfo.location.toString()
   );
@@ -445,7 +475,6 @@ const getAllShifts = async (req, res) => {
         return _mapShiftToUi(shift);
       })
     );
-
     res.send(mappedShifts);
   } catch (err) {
     winston.error("SOMETHING WRONG HAPPENED: ALLSHIFT", err.message);
@@ -455,6 +484,7 @@ const getAllShifts = async (req, res) => {
 
 const updateShift = async (req, res) => {
   const { id } = req.params;
+  console.log(req.body);
   const { error } = validateShiftOnUpdate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -469,6 +499,8 @@ const updateShift = async (req, res) => {
     perDiems,
     notes,
     status,
+    shiftOptions,
+    cancellationFee,
   } = req.body;
 
   const {
@@ -513,6 +545,7 @@ const updateShift = async (req, res) => {
       accommodation,
       perDiems,
       notes,
+      shiftOptions,
     });
 
     await newShift.save();
@@ -536,12 +569,13 @@ const updateShift = async (req, res) => {
   shiftInDb.perDiems = perDiems;
   shiftInDb.notes = notes;
   shiftInDb.status = status;
+  shiftInDb.shiftOptions = shiftOptions;
+  shiftInDb.cancellationFee = cancellationFee;
 
   await shiftInDb.save();
   winston.info("ACTION - UPDATED SHIFT DETAIL");
   res.status(204).send(shiftInDb);
 };
-
 
 const getShiftById = async (req, res) => {
   const { id } = req.params;
@@ -587,7 +621,7 @@ const getAllShiftsDetails = async (req, res) => {
       shiftInfo: {
         location: ms.contractInfo.location.name,
         time: `${ms.time.start} - ${ms.time.end}`,
-        hours: parseInt(ms.time.end) - parseInt(ms.time.start),
+        hours: calculateHours(ms.time.start, ms.time.end),
         date: ms.date,
       },
     }));
@@ -608,7 +642,10 @@ const getAllUserShifts = async (req, res) => {
 
     const allShifts = await Shift.find({
       employee: userId,
-      status: SHIFT_STATUS.COMPLETED,
+      $or: [
+        { status: SHIFT_STATUS.COMPLETED },
+        { status: SHIFT_STATUS.CANCELED },
+      ],
     })
       .populate({ path: "contractInfo.contract", select: "name" })
       .populate({ path: "contractInfo.production", select: "name locations" })
@@ -628,6 +665,8 @@ const getAllUserShifts = async (req, res) => {
           meal,
           accommodation,
           perDiems,
+          cancellationFee,
+          status,
         }) => {
           let { production, location, outRate, contract } = contractInfo;
 
@@ -636,7 +675,7 @@ const getAllUserShifts = async (req, res) => {
               location = loc;
             }
           });
-          const hours = parseInt(time.clockOut) - parseInt(time.clockIn);
+          const hours = calculateHours(time.clockIn, time.clockOut);
           let totalPay = parseInt(outRate) * hours;
 
           totalPay +=
@@ -645,6 +684,11 @@ const getAllUserShifts = async (req, res) => {
             null + accommodation ||
             null + perDiems ||
             null;
+
+          if (status == SHIFT_STATUS.CANCELED) {
+            totalPay = cancellationFee;
+          }
+
           return {
             _id,
             contract: contract.name,
@@ -669,6 +713,8 @@ const getAllUserShifts = async (req, res) => {
             meal,
             accommodation,
             perDiems,
+            cancellationFee,
+            status,
           };
         }
       )
@@ -685,7 +731,10 @@ const getAllUsersShifts = async (req, res) => {
   const { isPaid } = req.query;
   try {
     const allShifts = await Shift.find({
-      status: SHIFT_STATUS.COMPLETED,
+      $or: [
+        { status: SHIFT_STATUS.COMPLETED },
+        { status: SHIFT_STATUS.CANCELED },
+      ],
       "admin.isPaid": isPaid,
     })
       .populate({ path: "contractInfo.contract", select: "name" })
@@ -708,6 +757,8 @@ const getAllUsersShifts = async (req, res) => {
           accommodation,
           perDiems,
           employee,
+          cancellationFee,
+          status,
         }) => {
           let { production, location, outRate, contract } = contractInfo;
 
@@ -717,7 +768,7 @@ const getAllUsersShifts = async (req, res) => {
             }
           });
 
-          const hours = parseInt(time.clockOut) - parseInt(time.clockIn);
+          const hours = calculateHours(time.clockIn, time.clockOut);
           let totalPay = parseInt(outRate) * hours;
           totalPay +=
             milleage ||
@@ -725,6 +776,8 @@ const getAllUsersShifts = async (req, res) => {
             null + accommodation ||
             null + perDiems ||
             null;
+
+          if (status == SHIFT_STATUS.CANCELED) totalPay = cancellationFee;
 
           return {
             _id,
@@ -750,6 +803,8 @@ const getAllUsersShifts = async (req, res) => {
             meal,
             accommodation,
             perDiems,
+            status,
+            cancellationFee,
           };
         }
       )
@@ -771,7 +826,7 @@ const updateUserShiftConfirmation = async (req, res) => {
   if (!shiftInDb) return res.status(404).send("Shift Not Found");
 
   const result = await Shift.findByIdAndUpdate(shiftId, {
-    status: "COMPLETED",
+    status: shiftInDb.status,
     admin: {
       isChecked: isChecked,
       approvedBy: isChecked ? req.user._id : null,

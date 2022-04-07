@@ -11,14 +11,15 @@ const nameSchema = () =>
 function validateContract(contract) {
   const schema = {
     name: Joi.string().required(),
-    contactNumber: Joi.string(),
+    contactNumber: Joi.string().optional().allow(null).allow(""),
     email: Joi.string().min(5).max(255).required().email(),
+    invoiceEmail: Joi.string().allow(null).min(5).max(255).email(),
     businessType: Joi.string().allow(null).allow(""),
     address: Joi.object().keys({
       line1: Joi.string(),
       line2: Joi.string().allow(null).allow(""),
       city: Joi.string().allow(null).allow(""),
-      state: Joi.string(),
+      state: Joi.string().allow(null).allow(""),
       country: Joi.string().allow(null).allow(""),
       postCode: Joi.string().required(),
       location: Joi.object().allow(null),
@@ -30,14 +31,30 @@ function validateContract(contract) {
         locations: Joi.array().items(
           Joi.object().keys({
             name: Joi.string().label("Location Name"),
+            mileage: Joi.number()
+              .label("Mileage")
+              .optional()
+              .allow("")
+              .allow(null),
+            travel: Joi.number().optional().allow("").allow(null),
             address: Joi.object().keys({
               line1: Joi.string().label("Location Address Line 1"),
-              city: Joi.string().label("Location city"),
-              state: Joi.string().label("Location State"),
-              country: Joi.string().label("Location Country"),
+              city: Joi.string().label("Location city").allow(null).allow(""),
+              state: Joi.string().label("Location State").allow(null).allow(""),
+              country: Joi.string()
+                .label("Location Country")
+                .allow(null)
+                .allow(""),
               postCode: Joi.string().required().label("Location Postcode"),
               location: Joi.object().allow(null),
             }),
+            customRates: Joi.array().items(
+              Joi.object().keys({
+                _id: Joi.string().optional().allow(null).allow(""),
+                rate: Joi.number().label("Rate").allow("").allow(null),
+                type: Joi.string().label("Custom rate type"),
+              })
+            ),
           })
         ),
       })
@@ -52,14 +69,15 @@ function validateContractOnUpdate(contract) {
   const schema = {
     _id: Joi.string(),
     name: Joi.string().required(),
-    contactNumber: Joi.string(),
+    contactNumber: Joi.string().optional().allow(null).allow(""),
     email: Joi.string().min(5).max(255).required().email(),
+    invoiceEmail: Joi.string().allow(null).min(5).max(255).email(),
     businessType: Joi.string().allow(null).allow(""),
     address: Joi.object().keys({
       line1: Joi.string(),
       line2: Joi.string().allow(null).allow(""),
       city: Joi.string().allow(null).allow(""),
-      state: Joi.string(),
+      state: Joi.string().allow(null).allow(""),
       country: Joi.string().allow(null).allow(""),
       postCode: Joi.string().required(),
       location: Joi.object().allow(null),
@@ -73,10 +91,16 @@ function validateContractOnUpdate(contract) {
           Joi.object().keys({
             _id: Joi.string().label("Location Id"),
             name: Joi.string().label("Location Name"),
+            mileage: Joi.number()
+              .label("Mileage")
+              .optional()
+              .allow("")
+              .allow(null),
+            travel: Joi.number().optional().allow("").allow(null),
             address: Joi.object()
               .keys({
                 line1: Joi.string().label("Location Address Line 1"),
-                city: Joi.string().label("Location city"),
+                city: Joi.string().label("Location city").allow(null).allow(""),
                 state: Joi.string()
                   .label("Location State")
                   .allow(null)
@@ -89,6 +113,13 @@ function validateContractOnUpdate(contract) {
                 location: Joi.object().allow(null),
               })
               .required(),
+            customRates: Joi.array().items(
+              Joi.object().keys({
+                _id: Joi.string().optional().allow(null).allow(""),
+                rate: Joi.number().label("Rate").allow("").allow(null),
+                type: Joi.string().label("Custom rate type"),
+              })
+            ),
           })
         ),
       })
@@ -98,7 +129,6 @@ function validateContractOnUpdate(contract) {
 
   return Joi.validate(contract, schema);
 }
-
 
 module.exports = {
   validateContract,

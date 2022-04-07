@@ -10,10 +10,16 @@ const locationSchema = new Schema({
     country: { type: String, default: "" },
     postCode: { type: String, required: true },
   },
+  customRates: [
+    {
+      type: { type: "string", required: true },
+      rate: { type: Number },
+    },
+  ],
 });
 
 const Location = mongoose.model("Location", locationSchema);
 
 module.exports = {
-  Location
+  Location,
 };

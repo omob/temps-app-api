@@ -4,7 +4,6 @@ const { Roles } = require("../models/roles");
 const mongoose = require("mongoose");
 const ObjectId = mongoose.Types.ObjectId;
 
-
 function validateUser(user) {
   const schema = {
     name: Joi.object().keys({
@@ -22,9 +21,9 @@ function validateUser(user) {
         address: Joi.object().keys({
           line1: Joi.string(),
           line2: Joi.string().allow(null).allow(""),
-          city: Joi.string(),
-          county: Joi.string(),
-          state: Joi.string(),
+          city: Joi.string().allow(null).allow(""),
+          county: Joi.string().allow(null).allow(""),
+          state: Joi.string().allow(null).allow(""),
           country: Joi.string(),
           postCode: Joi.string(),
           location: Joi.object().allow(null),
@@ -37,53 +36,52 @@ function validateUser(user) {
       firstName: Joi.string().allow(null).allow(""),
       lastName: Joi.string().allow(null).allow(""),
       relationship: Joi.string().allow(null).allow(""),
-      phoneNumber: Joi.string().required().label("Next of Kin Phone Number")
+      phoneNumber: Joi.string().required().label("Next of Kin Phone Number"),
     }),
     password: Joi.string().min(5).required(),
   };
 
   return Joi.validate(user, schema);
-};
+}
 
 function validateUserOnUpdate(employee) {
-    const schema = {
-      name: Joi.object().keys({
-        firstName: Joi.string().required(),
-        lastName: Joi.string().required(),
-        middleName: Joi.string().allow(null).allow(""),
-      }),
-      title: Joi.string().allow(null).allow(""),
-      dob: Joi.string().required().label("Date of Birth"),
-      utrNumber: Joi.string().allow(null).allow(""),
-      email: Joi.string().min(5).max(255).required().email(),
-      contact: Joi.object()
-        .keys({
-          phoneNumber: Joi.string().required().label("contact phone number"),
-          address: Joi.object().keys({
-            line1: Joi.string(),
-            line2: Joi.string().allow(null).allow(""),
-            city: Joi.string(),
-            county: Joi.string(),
-            state: Joi.string(),
-            country: Joi.string(),
-            postCode: Joi.string(),
-            location: Joi.object().allow(null),
-          }),
-        })
-        .required(),
-      documents: Joi.array(),
-      gender: Joi.string().required(),
-      nextOfKin: Joi.object().keys({
-        firstName: Joi.string().allow(null).allow(""),
-        lastName: Joi.string().allow(null).allow(""),
-        relationship: Joi.string().allow(null).allow(""),
-        phoneNumber: Joi.string().required().label("Next of Kin Phone Number"),
-      }),
-    };
+  const schema = {
+    name: Joi.object().keys({
+      firstName: Joi.string().required(),
+      lastName: Joi.string().required(),
+      middleName: Joi.string().allow(null).allow(""),
+    }),
+    title: Joi.string().allow(null).allow(""),
+    dob: Joi.string().required().label("Date of Birth"),
+    utrNumber: Joi.string().allow(null).allow(""),
+    email: Joi.string().min(5).max(255).required().email(),
+    contact: Joi.object()
+      .keys({
+        phoneNumber: Joi.string().required().label("contact phone number"),
+        address: Joi.object().keys({
+          line1: Joi.string(),
+          line2: Joi.string().allow(null).allow(""),
+          city: Joi.string().allow(null).allow(""),
+          county: Joi.string().allow(null).allow(""),
+          state: Joi.string().allow(null).allow(""),
+          country: Joi.string().allow(null).allow(""),
+          postCode: Joi.string(),
+          location: Joi.object().allow(null),
+        }),
+      })
+      .required(),
+    documents: Joi.array(),
+    gender: Joi.string().required(),
+    nextOfKin: Joi.object().keys({
+      firstName: Joi.string().allow(null).allow(""),
+      lastName: Joi.string().allow(null).allow(""),
+      relationship: Joi.string().allow(null).allow(""),
+      phoneNumber: Joi.string().required().label("Next of Kin Phone Number"),
+    }),
+  };
 
   return Joi.validate(employee, schema);
 }
-
 
 function validatePassword(password) {
   const schema = {
@@ -126,8 +124,7 @@ const getUserRoles = async (userId) => {
   return userRoles;
 };
 
-
-function validateResetPassword (resetPassword) {
+function validateResetPassword(resetPassword) {
   const schema = {
     email: Joi.string().email().required(),
     token: Joi.string().required(),
@@ -182,7 +179,7 @@ function validateAdminUser(user) {
   };
 
   return Joi.validate(user, schema);
-};
+}
 
 function validateAdminUserOnUpdate(employee) {
   const schema = {
@@ -228,7 +225,6 @@ function validateAdminUserOnUpdate(employee) {
   return Joi.validate(employee, schema);
 }
 
-
 module.exports = {
   validateUser,
   validateUserOnUpdate,
@@ -237,5 +233,5 @@ module.exports = {
   validateResetPassword,
   getUserRoles,
   validateAdminUserOnUpdate,
-  validateAdminUser
+  validateAdminUser,
 };

@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-
-// const productionSchema = new Schema({ 
+// const productionSchema = new Schema({
 //     name: { type: "string", required: true},
 //     licenses: { type: "array", default: [] },
 //     locations: [
@@ -29,6 +28,14 @@ const productionSchema = new Schema({
         country: { type: String, default: "" },
         postCode: { type: String, required: true },
       },
+      mileage: { type: Number },
+      travel: { type: Number },
+      customRates: [
+        {
+          type: { type: "string", required: true },
+          rate: { type: Number },
+        },
+      ],
     },
   ],
 });
@@ -38,7 +45,3 @@ const Production = mongoose.model("Production", productionSchema);
 module.exports = {
   Production,
 };
-
-
-
-
