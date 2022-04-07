@@ -10,6 +10,12 @@ const contractSchema = new Schema({
     maxlength: 255,
     unique: true,
   },
+  invoiceEmail: {
+    type: String,
+    minlength: 5,
+    email: true,
+    maxlength: 255,
+  },
   businessType: { type: String },
   contactNumber: { type: String, default: "" },
   address: {

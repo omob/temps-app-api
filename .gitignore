@@ -27,4 +27,4 @@ yarn-error.log*
 
 # user specific
 /config/production.json
-/resources/
+/resources

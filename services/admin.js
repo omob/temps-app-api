@@ -1,6 +1,8 @@
 const { Employee: User } = require("../models/employee"); // Using User schema in the user route
 const {
-  validateAdminUser, getUserRoles, validateAdminUserOnUpdate,
+  validateAdminUser,
+  getUserRoles,
+  validateAdminUserOnUpdate,
 } = require("../functions/user");
 const { Roles } = require("../models/roles");
 const _ = require("lodash");
@@ -14,13 +16,13 @@ const winston = require("winston");
 const Email = require("../services/email");
 
 const USER_STATUS = {
-  VERIFIED : "verified",
-  UNVERIFIED : "unverified"
+  VERIFIED: "verified",
+  UNVERIFIED: "unverified",
 };
 
 const USER_ROLES = {
   ADMIN: "admin",
-  EMPLOYEE: "employee"
+  EMPLOYEE: "employee",
 };
 
 const _sendAccountCreatedEmail = (name, email, password) => {
@@ -35,17 +37,28 @@ const _sendAccountCreatedEmail = (name, email, password) => {
       message = message.replace("{{password}}", password);
       message = message.replace("{{url}}", process.env.FRONTEND_URL);
 
-      new Email().sendMail("New User Registration", message, email)
-     // winston.info(`Email sent successfully to ${name.firstName} on account creation`);
+      new Email().sendMail("New User Registration", message, email);
+      // winston.info(`Email sent successfully to ${name.firstName} on account creation`);
     }
   );
-}
+};
 
 const registerUser = async (req, res) => {
   const { error } = validateAdminUser(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  const { name, gender, dob, utrNumber, email, contact, password, nextOfKin, role, notifyUser } = req.body;
+  const {
+    name,
+    gender,
+    dob,
+    utrNumber,
+    email,
+    contact,
+    password,
+    nextOfKin,
+    role,
+    notifyUser,
+  } = req.body;
 
   let user = await User.findOne({
     $or: [{ email }, { phoneNumber: contact.phoneNumber }],
@@ -88,14 +101,14 @@ const registerUser = async (req, res) => {
   );
 
   // raise an event on completion. This can then be used to either send mail or log
-  if (notifyUser)
-    _sendAccountCreatedEmail(name, email, password);
+  if (notifyUser) _sendAccountCreatedEmail(name, email, password);
 
   winston.info(`New User Registered By Admin ${email}`);
-  
-  res
-    .status(201)
-    .json({ data: {..._.pick(user, ["_id", "name", "email"]), role }, message: "success"});
+
+  res.status(201).json({
+    data: { ..._.pick(user, ["_id", "name", "email"]), role },
+    message: "success",
+  });
 };
 
 const getRoles = async (req, res) => {
@@ -116,87 +129,101 @@ const manageAccess = async (req, res) => {
 
 const getUserProfile = async (req, res) => {
   const { id } = req.params;
-  const userDocument = await User.findById({ _id: id }).select(
-    "-password"
-  );
+  const userDocument = await User.findById({ _id: id }).select("-password");
 
   if (!userDocument) return res.status(404).send("User not found");
 
   let userRole = await getUserRoles(id);
   userRole = userRole[USER_ROLES.ADMIN]
-     ? USER_ROLES.ADMIN
-     : USER_ROLES.EMPLOYEE;
+    ? USER_ROLES.ADMIN
+    : USER_ROLES.EMPLOYEE;
 
   res.status(200).json({ ...userDocument.toObject(), role: userRole });
 };
 
 const updateUserProfile = async (req, res) => {
- const { id } = req.params;
- const { error } = validateAdminUserOnUpdate(req.body);
- if (error) return res.status(400).send(error.details[0].message);
+  const { id } = req.params;
+  const { error } = validateAdminUserOnUpdate(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
 
- const { name, gender, dob, utrNumber, email, contact, nextOfKin, canLogin, notifyUser } =
-   req.body; 
+  const {
+    name,
+    gender,
+    dob,
+    utrNumber,
+    email,
+    contact,
+    nextOfKin,
+    canLogin,
+    notifyUser,
+  } = req.body;
 
- await User.findOneAndUpdate(
-   { _id: id },
-   {
-     name,
-     email,
-     gender,
-     contact,
-     nextOfKin,
-     dob,
-     utrNumber,
-     canLogin: canLogin === undefined ? true : canLogin,
-   }
- );
- res.status(200).json({ message: "success" });
+  await User.findOneAndUpdate(
+    { _id: id },
+    {
+      name,
+      email,
+      gender,
+      contact,
+      nextOfKin,
+      dob,
+      utrNumber,
+      canLogin: canLogin === undefined ? true : canLogin,
+    }
+  );
+  res.status(200).json({ message: "success" });
 };
 
 const getAllUsers = async (req, res) => {
-  const usersInDb = await User.find({}).select("name isDeleted status profileImageUrl");
+  const usersInDb = await User.find({})
+    .select("name isDeleted status profileImageUrl")
+    .sort({
+      "name.firstName": 1,
+    });
 
-  const users = await Promise.all(usersInDb.map(async user => {
-    let userRole= await getUserRoles(user._id);
-    
-    userRole = userRole[USER_ROLES.ADMIN] ? USER_ROLES.ADMIN : USER_ROLES.EMPLOYEE;
-    return { ...user._doc, role: userRole };
-  }));
+  const users = await Promise.all(
+    usersInDb.map(async (user) => {
+      let userRole = await getUserRoles(user._id);
+
+      userRole = userRole[USER_ROLES.ADMIN]
+        ? USER_ROLES.ADMIN
+        : USER_ROLES.EMPLOYEE;
+      return { ...user._doc, role: userRole };
+    })
+  );
 
   res.send(users);
 };
 
 const _getDistanceBetweenLocationInMiles = (lat1, lat2, lon1, lon2) => {
-    // The math module contains a function
-    // named toRadians which converts from
-    // degrees to radians.
-    lon1 =  lon1 * Math.PI / 180;
-    lon2 = lon2 * Math.PI / 180;
-    lat1 = lat1 * Math.PI / 180;
-    lat2 = lat2 * Math.PI / 180;
+  // The math module contains a function
+  // named toRadians which converts from
+  // degrees to radians.
+  lon1 = (lon1 * Math.PI) / 180;
+  lon2 = (lon2 * Math.PI) / 180;
+  lat1 = (lat1 * Math.PI) / 180;
+  lat2 = (lat2 * Math.PI) / 180;
 
-    // Haversine formula
-    let dlon = lon2 - lon1;
-    let dlat = lat2 - lat1;
-    let a = Math.pow(Math.sin(dlat / 2), 2)
-              + Math.cos(lat1) * Math.cos(lat2)
-              * Math.pow(Math.sin(dlon / 2),2);
-            
-    let c = 2 * Math.asin(Math.sqrt(a));
+  // Haversine formula
+  let dlon = lon2 - lon1;
+  let dlat = lat2 - lat1;
+  let a =
+    Math.pow(Math.sin(dlat / 2), 2) +
+    Math.cos(lat1) * Math.cos(lat2) * Math.pow(Math.sin(dlon / 2), 2);
 
-    // Radius of earth in kilometers. Use 3956
-    // for miles
-    let r = 3956;
+  let c = 2 * Math.asin(Math.sqrt(a));
 
-    // calculate the result
-    return c * r;
-}
+  // Radius of earth in kilometers. Use 3956
+  // for miles
+  let r = 3956;
+
+  // calculate the result
+  return c * r;
+};
 
 const getAllUsersSortingByGeoCode = async (req, res) => {
-  
   const { longitude, latitude } = req.query;
-  const usersInDb = await User.find({status: 'verified'}).select(
+  const usersInDb = await User.find({ status: "verified" }).select(
     "name contact.address.location contact.address.postCode profileImageUrl"
   );
 
@@ -228,7 +255,7 @@ const getAllUsersSortingByGeoCode = async (req, res) => {
     };
   });
   res.send(result.sort((a, b) => a.distanceInMiles < b.distanceInMiles));
-}
+};
 
 const deleteUser = async (req, res) => {
   const { id: _id } = req.params;
@@ -244,10 +271,11 @@ const uploadDocument = async (req, res) => {
     if (req.file === undefined)
       return res.json({ success: false, message: "No file uploaded" });
 
-    const {type, name, doc_name, doc_number, issueDate, expiryDate, userId } = req.body;
+    const { type, name, doc_name, doc_number, issueDate, expiryDate, userId } =
+      req.body;
 
-    const staff = await User.findOne({_id: userId});
-    if (!staff) return res.json({ success: false, message: "user not found"});
+    const staff = await User.findOne({ _id: userId });
+    if (!staff) return res.json({ success: false, message: "user not found" });
 
     staff.documents.push({
       _id: mongoose.Types.ObjectId(),
@@ -259,7 +287,7 @@ const uploadDocument = async (req, res) => {
       expiryDate,
       type,
       verified: false,
-      addedDate: new Date()
+      addedDate: new Date(),
     });
 
     await staff.save();
@@ -268,10 +296,8 @@ const uploadDocument = async (req, res) => {
       success: true,
       message: "File Added Successfully",
     });
-
   });
-
-}
+};
 
 const uploadProfileImage = async (req, res) => {
   uploadImage(req, res, async (err) => {
@@ -287,14 +313,13 @@ const uploadProfileImage = async (req, res) => {
         profileImageUrl: `${process.env.HOSTURL}/uploads/staff/images/${req.file.filename}`,
       }
     );
-  
+
     return res.json({
       success: true,
       message: "Profile Image Set Successfully",
     });
   });
-
-}
+};
 
 const userStatusVerification = async (req, res) => {
   const { staffId, verification } = req.body;
@@ -302,29 +327,27 @@ const userStatusVerification = async (req, res) => {
   const result = await User.findOneAndUpdate(
     { _id: staffId },
     {
-      status: verification
+      status: verification,
     }
   );
 
-  if(!result) return res.status(404).send("Not found");
-  
+  if (!result) return res.status(404).send("Not found");
+
   res.status(200).json({ message: "success" });
 };
 
 const acceptUserDocument = async (req, res) => {
-  const {staffId,
-    documentId,
-    isVerified} = req.body;
+  const { staffId, documentId, isVerified } = req.body;
 
-    await User.findOneAndUpdate(
-      { 
-        _id: staffId, 
-        "documents._id": documentId
-      },
-      { $set: { "documents.$.verified": isVerified } }
-    );
-    res.status(200).json({ message: "success" });
-}
+  await User.findOneAndUpdate(
+    {
+      _id: staffId,
+      "documents._id": documentId,
+    },
+    { $set: { "documents.$.verified": isVerified } }
+  );
+  res.status(200).json({ message: "success" });
+};
 
 const rejectUserDocument = async (req, res) => {
   const { staffId, documentId, note } = req.body;
@@ -338,12 +361,12 @@ const rejectUserDocument = async (req, res) => {
       $set: {
         "documents.$.verified": false,
         "documents.$.note": note,
-        "documents.$.status": 'REJECTED',
+        "documents.$.status": "REJECTED",
       },
     }
   );
   res.status(200).json({ message: "success" });
-}
+};
 
 module.exports = {
   acceptUserDocument,

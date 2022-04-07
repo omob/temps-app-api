@@ -769,3 +769,321 @@
 {"level":"info","message":"PROFILE FETCHED - Jammy Williams","timestamp":"2021-10-26T22:12:32.245Z"}
 {"level":"info","message":"Listening on port 3900...","timestamp":"2021-10-26T22:33:28.215Z"}
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2021-10-26T22:33:28.235Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-21T23:55:11.235Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-21T23:55:17.263Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-21T23:59:01.909Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-21T23:59:07.541Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-21T23:59:50.443Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-21T23:59:57.051Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T00:00:01.314Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T00:01:03.128Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T00:01:06.757Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T00:02:03.165Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T00:02:06.779Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T00:03:57.630Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T00:04:01.663Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T00:06:01.894Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T00:06:06.171Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T00:07:27.238Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T00:07:31.909Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T00:08:38.065Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T00:08:42.791Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T00:09:20.781Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T00:09:25.747Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T00:10:55.684Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T00:10:59.683Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T00:11:48.756Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T00:11:53.109Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T00:14:50.451Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T00:14:54.287Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T00:15:00.386Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T00:15:04.235Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T00:15:08.876Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T00:15:12.586Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T00:16:03.102Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T00:16:07.191Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T00:17:46.144Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T00:17:50.151Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T00:19:42.638Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T00:19:47.071Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T00:19:49.920Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T00:20:56.607Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T00:21:00.621Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T00:23:51.511Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T00:23:55.138Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T00:31:15.041Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T00:31:19.437Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T00:32:01.772Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T00:32:04.999Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T00:33:13.543Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T00:33:17.411Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T00:33:21.960Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T00:33:25.807Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T00:34:20.450Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T00:34:23.932Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T11:22:43.719Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T11:22:47.459Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T11:27:54.578Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T11:27:57.295Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T11:28:53.997Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T11:28:56.397Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T11:29:38.162Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T11:29:40.791Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T11:31:33.608Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T11:31:36.085Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T11:35:03.027Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T11:35:05.445Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T11:36:01.346Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T11:36:03.610Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T11:39:13.798Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T11:39:16.738Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T11:44:57.968Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T11:45:00.954Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T11:49:02.602Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T11:49:04.954Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T11:52:51.615Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T11:52:53.962Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T16:09:30.409Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T16:09:33.741Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T16:11:46.335Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T16:11:49.983Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-22T16:17:32.252Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-22T16:17:35.793Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFT FOR aboayosam@gmail.com","timestamp":"2022-03-22T16:33:12.680Z"}
+[{"id":"a2ba5b92-f49a-48e1-a5e7-6b1e9dcf4bb1","status":"ok"},{"status":"ok","id":"8e927601-205e-4d7d-94aa-e2698905afa2"}]
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-25T00:17:37.785Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-25T00:17:43.405Z"}
+{"message":"mainServices.licenses is not a function","stack":"TypeError: mainServices.licenses is not a function\n    at C:\\Users\\Ayodeji.Abodunrin\\Documents\\projects\\Private Github\\mls-security-api\\routes\\main.js:15:16\n    at C:\\Users\\Ayodeji.Abodunrin\\Documents\\projects\\Private Github\\mls-security-api\\node_modules\\express-async-errors\\index.js:17:20\n    at Layer.handle [as handle_request] (C:\\Users\\Ayodeji.Abodunrin\\Documents\\projects\\Private Github\\mls-security-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\Ayodeji.Abodunrin\\Documents\\projects\\Private Github\\mls-security-api\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (C:\\Users\\Ayodeji.Abodunrin\\Documents\\projects\\Private Github\\mls-security-api\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at C:\\Users\\Ayodeji.Abodunrin\\Documents\\projects\\Private Github\\mls-security-api\\node_modules\\express-async-errors\\index.js:17:20\n    at Layer.handle [as handle_request] (C:\\Users\\Ayodeji.Abodunrin\\Documents\\projects\\Private Github\\mls-security-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\Ayodeji.Abodunrin\\Documents\\projects\\Private Github\\mls-security-api\\node_modules\\express\\lib\\router\\index.js:281:22\n    at Function.process_params (C:\\Users\\Ayodeji.Abodunrin\\Documents\\projects\\Private Github\\mls-security-api\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (C:\\Users\\Ayodeji.Abodunrin\\Documents\\projects\\Private Github\\mls-security-api\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at Function.handle (C:\\Users\\Ayodeji.Abodunrin\\Documents\\projects\\Private Github\\mls-security-api\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (C:\\Users\\Ayodeji.Abodunrin\\Documents\\projects\\Private Github\\mls-security-api\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at C:\\Users\\Ayodeji.Abodunrin\\Documents\\projects\\Private Github\\mls-security-api\\node_modules\\express-async-errors\\index.js:17:20\n    at Layer.handle [as handle_request] (C:\\Users\\Ayodeji.Abodunrin\\Documents\\projects\\Private Github\\mls-security-api\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (C:\\Users\\Ayodeji.Abodunrin\\Documents\\projects\\Private Github\\mls-security-api\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at C:\\Users\\Ayodeji.Abodunrin\\Documents\\projects\\Private Github\\mls-security-api\\node_modules\\express\\lib\\router\\index.js:284:7","level":"error","timestamp":"2022-03-25T00:18:27.742Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-03-25T00:19:30.085Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-25T00:19:35.741Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-25T00:23:18.821Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-25T00:23:22.219Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-25T00:51:20.971Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-25T00:51:24.414Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-25T00:51:39.680Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-25T00:51:42.310Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-25T01:03:14.729Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-25T01:03:17.289Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-25T01:09:13.665Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-25T01:09:16.180Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-25T01:09:27.397Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-25T01:09:29.959Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-25T01:11:42.060Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-25T01:11:44.715Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T00:54:54.879Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T00:54:59.928Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T01:04:25.467Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T01:04:28.681Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS FOR aboayosam@gmail.com","timestamp":"2022-03-26T01:05:28.384Z"}
+{"level":"info","message":"Email sent successfully to Ayodeji on new shift assignment ","timestamp":"2022-03-26T01:05:28.424Z"}
+{"level":"error","message":"Error sending mail. Error: connect ECONNREFUSED 127.0.0.1:465","timestamp":"2022-03-26T01:05:28.523Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS FOR aboayosam@gmail.com","timestamp":"2022-03-26T01:05:28.981Z"}
+{"level":"info","message":"Email sent successfully to Ayodeji on new shift assignment ","timestamp":"2022-03-26T01:05:29.000Z"}
+{"level":"error","message":"Error sending mail. Error: connect ECONNREFUSED 127.0.0.1:465","timestamp":"2022-03-26T01:05:29.004Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS FOR aboayosam@gmail.com","timestamp":"2022-03-26T01:05:29.494Z"}
+{"level":"info","message":"Email sent successfully to Ayodeji on new shift assignment ","timestamp":"2022-03-26T01:05:29.505Z"}
+{"level":"error","message":"Error sending mail. Error: connect ECONNREFUSED 127.0.0.1:465","timestamp":"2022-03-26T01:05:29.510Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS FOR aboayosam@gmail.com","timestamp":"2022-03-26T01:05:30.105Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFTS FOR MULTIPLE USERS","timestamp":"2022-03-26T01:05:30.106Z"}
+{"level":"info","message":"Email sent successfully to Ayodeji on new shift assignment ","timestamp":"2022-03-26T01:05:30.114Z"}
+{"level":"error","message":"Error sending mail. Error: connect ECONNREFUSED 127.0.0.1:465","timestamp":"2022-03-26T01:05:30.118Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T09:10:21.166Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T09:10:25.116Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFT FOR aboayosam@gmail.com","timestamp":"2022-03-26T09:11:00.809Z"}
+{"level":"info","message":"Email sent successfully to Ayodeji on new shift assignment ","timestamp":"2022-03-26T09:11:00.832Z"}
+[{"id":"203c00ca-8c66-4eaf-a75e-074b14dc524b","status":"ok"},{"status":"ok","id":"886a64f1-c431-41ba-963a-d703da0dcd11"}]
+{"level":"error","message":"Error sending mail. Error: connect ECONNREFUSED 127.0.0.1:465","timestamp":"2022-03-26T09:11:05.988Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T09:42:44.503Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T09:42:49.711Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T11:05:29.040Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T11:05:34.683Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T11:05:39.597Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T11:05:42.585Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T11:06:35.826Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T11:06:39.193Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T11:07:04.360Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T11:07:07.760Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFT FOR aboayosam@gmail.com","timestamp":"2022-03-26T11:08:35.277Z"}
+{"level":"info","message":"Email sent successfully to Ayodeji on new shift assignment ","timestamp":"2022-03-26T11:08:35.337Z"}
+{"level":"error","message":"Error sending mail. Error: connect ECONNREFUSED 127.0.0.1:465","timestamp":"2022-03-26T11:08:35.491Z"}
+[{"id":"b98f4267-31a4-441e-8dcf-c576f8e0454a","status":"ok"},{"status":"ok","id":"87238e92-5f2a-4bce-92e2-b36eb08909b9"}]
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T11:17:19.963Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T11:17:24.283Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T11:17:52.744Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T11:17:55.845Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T12:06:21.511Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T12:06:24.982Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T12:06:30.438Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T12:08:17.415Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T12:08:21.824Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T12:08:31.885Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T12:08:35.158Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T12:08:44.262Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T12:08:47.372Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: ALLSHIFT calculateHours is not defined","timestamp":"2022-03-26T12:08:49.227Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T12:09:32.111Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T12:09:39.437Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T12:11:04.051Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T12:11:09.052Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFT FOR info@mls-protection.co.uk","timestamp":"2022-03-26T12:17:04.935Z"}
+{"level":"info","message":"Email sent successfully to Admin on new shift assignment ","timestamp":"2022-03-26T12:17:04.999Z"}
+{"level":"error","message":"Error sending mail. Error: connect ECONNREFUSED 127.0.0.1:465","timestamp":"2022-03-26T12:17:05.116Z"}
+[{"status":"ok","id":"cd7d250f-96ae-4450-aeff-880003a1f629"}]
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T12:20:50.731Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T12:20:55.823Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T12:21:05.149Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T12:21:08.095Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T12:21:51.919Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T12:21:55.305Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T12:22:28.804Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T12:22:32.063Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2022-03-26T12:22:39.133Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2022-03-26T12:24:53.554Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T14:53:36.792Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T14:53:39.777Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: getAllUsersShifts computeHours is not defined","timestamp":"2022-03-26T14:54:23.034Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: getAllUsersShifts computeHours is not defined","timestamp":"2022-03-26T14:54:28.174Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T14:55:16.338Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T14:55:25.030Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T14:57:40.783Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T14:57:48.891Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT INFO CONFIRMATION BY Ayodeji Admin User","timestamp":"2022-03-26T14:58:40.820Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2022-03-26T16:37:52.671Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T17:23:42.536Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T17:23:45.468Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-03-26T18:05:40.843Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-03-26T18:05:44.583Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2022-03-26T18:08:35.616Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T18:19:48.299Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T18:19:56.680Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T20:11:19.889Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T20:11:24.595Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2022-03-26T20:15:48.578Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2022-03-26T20:18:01.807Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2022-03-26T20:19:03.978Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T21:31:21.852Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T21:31:27.578Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T21:32:10.921Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T21:32:14.017Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2022-03-26T21:52:35.938Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T21:54:25.683Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T21:54:28.099Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-26T21:55:25.736Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-26T21:55:31.206Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2022-03-26T21:55:51.014Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-27T20:51:09.218Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-27T20:51:12.815Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-03-27T20:55:51.408Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-03-27T20:55:55.683Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-03-27T20:56:27.837Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-03-27T20:56:37.655Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-03-27T20:57:02.922Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-03-27T20:57:04.631Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-03-27T20:57:19.277Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-03-27T20:57:20.548Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFT FOR aboayosam@gmail.com","timestamp":"2022-03-27T21:06:52.039Z"}
+{"level":"info","message":"Email sent successfully to Ayodeji on new shift assignment ","timestamp":"2022-03-27T21:06:52.050Z"}
+{"level":"error","message":"Error sending mail. Error: connect ECONNREFUSED 127.0.0.1:465","timestamp":"2022-03-27T21:06:52.458Z"}
+[{"id":"9c5f1a22-f125-459a-9d56-c8a083c4eae1","status":"ok"},{"status":"ok","id":"ec57a9e9-7a3e-4aa1-8f24-e76addf5e50e"}]
+{"level":"error","message":"SOMETHING WRONG HAPPENED: USER ROUTE - ALLSHIFT Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/","timestamp":"2022-03-27T21:28:14.838Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-02T08:33:47.351Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-02T08:33:55.549Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-02T09:08:01.601Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-02T09:08:10.914Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-02T09:09:03.610Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-02T09:09:06.151Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-02T09:09:30.957Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-02T09:09:38.178Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-02T09:14:28.117Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-02T09:14:33.350Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-02T09:15:21.183Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-02T09:15:26.097Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-02T09:16:12.331Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-02T09:16:18.299Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2022-04-02T12:17:15.322Z"}
+{"level":"info","message":"ACTION - CREATED NEW SHIFT FOR aboayosam@gmail.com","timestamp":"2022-04-02T12:58:57.699Z"}
+{"level":"info","message":"Email sent successfully to Ayodeji on new shift assignment ","timestamp":"2022-04-02T12:58:57.730Z"}
+{"level":"error","message":"Error sending mail. Error: connect ECONNREFUSED 127.0.0.1:465","timestamp":"2022-04-02T12:58:57.843Z"}
+[{"id":"bfcec22a-b1ad-421f-93c3-fc469143d5ed","status":"ok"},{"status":"ok","id":"9b3e2270-8524-4f98-ae8b-d466a141266c"}]
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-02T13:01:04.497Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-02T13:01:07.787Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-02T13:07:32.042Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-02T13:07:35.117Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-02T13:07:50.682Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-02T13:07:53.930Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-02T13:09:16.162Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-02T13:09:18.995Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-02T13:15:39.391Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-02T13:15:44.206Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2022-04-02T13:23:13.565Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-02T13:26:21.401Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-02T13:26:24.882Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-02T13:26:57.876Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-02T13:27:01.356Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-02T13:32:10.681Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-02T13:32:15.587Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-02T13:32:44.187Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-02T13:32:46.735Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-02T13:36:05.502Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-02T13:36:11.580Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-02T13:36:50.389Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-02T13:36:54.495Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-02T13:39:49.291Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-02T13:39:56.488Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-02T13:39:58.983Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-02T13:41:11.879Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-02T13:41:20.647Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-02T13:44:41.532Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-02T13:44:44.619Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-02T13:46:22.180Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-02T13:46:26.749Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-03T00:54:00.757Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-03T22:13:32.616Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-03T22:13:37.739Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2022-04-03T22:14:35.052Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2022-04-03T22:14:56.434Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2022-04-03T22:15:14.707Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-03T22:19:11.901Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-03T22:19:19.435Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-03T22:22:12.395Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-03T22:22:18.545Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2022-04-03T22:22:21.518Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-03T22:23:32.493Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-03T22:23:37.680Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-03T22:28:22.036Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-03T22:28:29.126Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-03T22:32:26.096Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-03T22:32:29.030Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-03T22:37:31.234Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-03T22:37:34.600Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT INFO CONFIRMATION BY Ayodeji Admin User","timestamp":"2022-04-03T22:40:04.452Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT INFO CONFIRMATION BY Ayodeji Admin User","timestamp":"2022-04-03T22:41:25.195Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT INFO CONFIRMATION BY Ayodeji Admin User","timestamp":"2022-04-03T22:41:35.074Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-03T22:52:40.654Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-03T22:52:44.543Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-03T22:53:56.029Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-03T22:53:59.975Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2022-04-03T22:54:08.391Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2022-04-03T22:54:29.077Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT INFO CONFIRMATION BY Ayodeji Admin User","timestamp":"2022-04-03T22:55:09.397Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-04T00:00:52.964Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-04T00:02:11.641Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-04T00:02:14.804Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2022-04-04T00:02:45.468Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT INFO CONFIRMATION BY Ayodeji Admin User","timestamp":"2022-04-04T00:03:27.608Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2022-04-04T00:25:02.290Z"}
+{"level":"info","message":"ACTION - UPDATED SHIFT DETAIL","timestamp":"2022-04-04T00:25:20.476Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-04T00:28:02.207Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-04T00:28:05.425Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-04T00:54:04.744Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-04T00:54:07.442Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-07T13:20:00.997Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-07T13:20:04.473Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-07T15:09:35.044Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-07T15:09:40.441Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-07T15:13:41.729Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-07T15:13:44.946Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-07T15:27:59.327Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-07T15:28:04.762Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-07T15:33:43.084Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-07T15:33:46.989Z"}
