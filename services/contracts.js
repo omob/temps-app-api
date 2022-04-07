@@ -179,7 +179,7 @@ const getAllContractWithEmployeesCount = async (req, res) => {
   );
 
   let sortedContracts = _allContract.sort(
-    (a, b) => a?.name?.charAt(0).charCodeAt() - b?.name?.charAt(0).charCodeAt()
+    (a, b) => a.name.charAt(0).charCodeAt() - b.name.charAt(0).charCodeAt()
   );
 
   res.status(200).send(sortedContracts);

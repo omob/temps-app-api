@@ -1094,3 +1094,7 @@
 {"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-07T15:33:43.084Z"}
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-07T15:33:46.989Z"}
 >>>>>>> 3ec410c7ffbe0bbf3be333c1969cb3b8fa6a5bf8
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-07T16:57:45.291Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-07T16:57:50.704Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-07T21:16:24.506Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-07T21:16:32.052Z"}
