@@ -27,6 +27,7 @@ const shiftSchema = new Schema(
     perDiems: { type: Number },
     notes: { type: String },
     shiftOptions: { type: "array", default: [] },
+    preferredShiftOption: { type : String },
     status: {
       type: String,
       enum: [

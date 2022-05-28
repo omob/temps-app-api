@@ -61,6 +61,7 @@ const getAllMyShifts = async (req, res) => {
           notes,
           status,
           shiftOptions,
+          preferredShiftOption
         }) => {
           let { production, location, outRate, contract, position } =
             contractInfo;
@@ -86,6 +87,7 @@ const getAllMyShifts = async (req, res) => {
               accommodation,
               perDiems,
               shiftOptions,
+              preferredShiftOption,
             },
             time,
             hours: calculateHours(time.start, time.end),
@@ -108,7 +110,7 @@ const getAllMyShifts = async (req, res) => {
 };
 
 const updateMyShiftStatus = async (req, res) => {
-  const { status, shiftId } = req.body;
+  const { status, shiftId, preferredShiftOption } = req.body;
   if (!status || !shiftId)
     return res.status(400).json("Status and Shift Id is required");
 
@@ -120,9 +122,13 @@ const updateMyShiftStatus = async (req, res) => {
   if (!shiftInDb) return res.status(404).send("Shift Not Found");
 
   if (shiftInDb.status === SHIFT_STATUS.OUTDATED)
-    return res.status(400).send("Something is wrong");
+    return res
+      .status(400)
+      .send(`Something is wrong. shift is ${SHIFT_STATUS.OUTDATED}`);
 
   shiftInDb.status = status;
+  shiftInDb.preferredShiftOption = preferredShiftOption;
+
   await shiftInDb.save();
 
   return res.status(204).send("Done");
@@ -223,6 +229,8 @@ const getDashboardDataForUser = async (req, res) => {
         perDiems,
         notes,
         status,
+        shiftOptions,
+        preferredShiftOption
       }) => {
         let { production, location, outRate, contract, position } =
           contractInfo;
@@ -253,6 +261,8 @@ const getDashboardDataForUser = async (req, res) => {
           hours: calculateHours(time.start, time.end),
           date,
           notes,
+          shiftOptions,
+          preferredShiftOption,
         };
       }
     );
@@ -469,6 +479,7 @@ const getAllShifts = async (req, res) => {
     .populate({ path: "employee", select: "name profileImageUrl" })
     .select("-createdDate");
 
+  console.log("ALL SHIFTS", allShifts);
   try {
     const mappedShifts = await Promise.all(
       allShifts.map(async (shift) => {

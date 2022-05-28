@@ -4,7 +4,6 @@ const auth = require("../middleware/auth");
 const router = express.Router();
 
 const shiftsServices = require("../services/shifts")
-
 // user making request for his/her shifts
 router.get("/me", auth, (req, res) => {
   shiftsServices.getAllMyShifts(req, res);

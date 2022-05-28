@@ -1098,3 +1098,89 @@
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-07T16:57:50.704Z"}
 {"level":"info","message":"Listening on port 3900...","timestamp":"2022-04-07T21:16:24.506Z"}
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2022-04-07T21:16:32.052Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-05-28T10:31:59.022Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-05-28T10:32:01.827Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-05-28T10:41:44.302Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-05-28T10:41:47.032Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-05-28T10:44:38.457Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-05-28T10:44:41.175Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T10:49:34.742Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T10:49:47.399Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: USER ROUTE - shifts/me/dashboard -getDashboardDataForUser() Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/","timestamp":"2022-05-28T11:20:28.793Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: USER ROUTE - shifts/me/dashboard -getDashboardDataForUser() Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/","timestamp":"2022-05-28T11:21:03.603Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-05-28T13:08:41.182Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-05-28T13:08:43.820Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-05-28T13:09:28.894Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-05-28T13:09:31.155Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-05-28T13:10:07.258Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-05-28T13:10:09.942Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-05-28T13:10:40.043Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-05-28T13:10:42.023Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T14:25:27.443Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T14:25:30.567Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T14:25:32.822Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T14:25:34.794Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-05-28T15:02:21.752Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-05-28T15:02:26.503Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-05-28T15:03:38.685Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-05-28T15:03:41.182Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-05-28T15:22:57.896Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-05-28T15:23:00.650Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T15:25:53.424Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T15:25:59.777Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-05-28T15:48:48.341Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-05-28T15:48:53.019Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-05-28T15:51:26.638Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-05-28T15:51:29.816Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:28:28.127Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:28:49.609Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:28:59.228Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:40:42.456Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:41:47.006Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:48:47.993Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:49:18.916Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:53:05.128Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:53:12.931Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:53:15.322Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:53:16.420Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:53:22.492Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:53:34.032Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:53:35.695Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:53:36.820Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:53:37.915Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:53:39.464Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:53:40.948Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:53:54.026Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:53:58.299Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:53:59.521Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:54:03.044Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:54:04.613Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:54:05.374Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:54:06.908Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:54:07.822Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:54:09.253Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:54:16.214Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:54:20.932Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:54:21.934Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:54:24.773Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:54:25.849Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:54:28.512Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:54:29.765Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:55:12.316Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:55:13.169Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:55:19.974Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:55:23.492Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:55:25.774Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T16:56:27.107Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T17:02:13.372Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T17:02:15.569Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T17:02:17.748Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T17:02:20.343Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T17:12:53.497Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T17:12:59.901Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T17:14:18.755Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T17:14:21.095Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T17:14:27.657Z"}
+{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T17:14:29.222Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-05-28T19:24:04.023Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-05-28T19:24:07.269Z"}
