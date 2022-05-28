@@ -110,7 +110,6 @@ const updateContract = async (req, res) => {
       await productions.map(async (production) => {
         const { _id, licenses, name, locations } = production;
 
-        console.log(locations);
         let updatedProduction = await Production.findByIdAndUpdate(_id, {
           licenses,
           name,

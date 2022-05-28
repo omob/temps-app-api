@@ -1184,3 +1184,7 @@
 {"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-05-28T17:14:29.222Z"}
 {"level":"info","message":"Listening on port 3000...","timestamp":"2022-05-28T19:24:04.023Z"}
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2022-05-28T19:24:07.269Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-05-28T19:24:43.857Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-05-28T19:24:48.185Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-05-28T22:40:07.576Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-05-28T22:40:10.447Z"}

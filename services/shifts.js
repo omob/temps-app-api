@@ -479,7 +479,6 @@ const getAllShifts = async (req, res) => {
     .populate({ path: "employee", select: "name profileImageUrl" })
     .select("-createdDate");
 
-  console.log("ALL SHIFTS", allShifts);
   try {
     const mappedShifts = await Promise.all(
       allShifts.map(async (shift) => {
@@ -495,7 +494,6 @@ const getAllShifts = async (req, res) => {
 
 const updateShift = async (req, res) => {
   const { id } = req.params;
-  console.log(req.body);
   const { error } = validateShiftOnUpdate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 

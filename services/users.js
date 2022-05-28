@@ -200,7 +200,7 @@ const resetPassword = async (req, res) => {
 const uploadDocument = async (req, res) => {
   uploadUserDocument(req, res, async (err) => {
     if (err) {
-      console.log("We have an error here", err)
+      winston.error("We have an error here", err)
       return res.status(500).json({ success: false, message: err });
     }
 
