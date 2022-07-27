@@ -130,9 +130,7 @@ const manageAccess = async (req, res) => {
 const getUserProfile = async (req, res) => {
   const { id } = req.params;
   const userDocument = await User.findById({ _id: id }).select("-password");
-
   if (!userDocument) return res.status(404).send("User not found");
-
   let userRole = await getUserRoles(id);
   userRole = userRole[USER_ROLES.ADMIN]
     ? USER_ROLES.ADMIN
