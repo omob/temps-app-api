@@ -26,7 +26,7 @@ const SHIFT_STATUS = {
   CANCELED: "CANCELED",
 };
 
-const MAX_CLOCK_IN_TIME = 900000; // 15mins
+const MAX_CLOCK_IN_TIME = process.env.MAX_CLOCK_IN_TIME;
 
 // get all shifts assigned to me
 // get all shifts assigned to my colleagues for current day and same locaion
@@ -61,7 +61,7 @@ const getAllMyShifts = async (req, res) => {
           notes,
           status,
           shiftOptions,
-          preferredShiftOption
+          preferredShiftOption,
         }) => {
           let { production, location, outRate, contract, position } =
             contractInfo;
@@ -98,8 +98,11 @@ const getAllMyShifts = async (req, res) => {
         }
       )
     );
+    const filteredMappedShift = mappedShifts.filter(
+      (s) => s.status !== SHIFT_STATUS.OUTDATED
+    );
 
-    res.send({ data: mappedShifts });
+    res.send({ data: filteredMappedShift });
   } catch (err) {
     winston.error(
       "SOMETHING WRONG HAPPENED: USER ROUTE - ALLSHIFT",
@@ -142,18 +145,18 @@ const _handleClockIn = async (shiftInDb, res) => {
       .status(400)
       .send("Cannot clock you in at this time. It's not time yet.");
 
-  const checkifWithinTimeFrame =
-    Date.now() >
-    recreatedShiftDateWithTime(
-      new Date(shiftInDb.date),
-      shiftInDb.time.start
-    ).getTime() -
-      MAX_CLOCK_IN_TIME;
+  // const checkifWithinTimeFrame =
+  //   Date.now() >
+  //   recreatedShiftDateWithTime(
+  //     new Date(shiftInDb.date),
+  //     shiftInDb.time.start
+  //   ).getTime() -
+  //     MAX_CLOCK_IN_TIME;
 
-  if (!checkifWithinTimeFrame)
-    return res
-      .status(400)
-      .send("Cannot clock you in at this time. It's not time yet.");
+  // if (!checkifWithinTimeFrame)
+  //   return res
+  //     .status(400)
+  //     .send("Cannot clock you in at this time. It's not time yet.");
 
   const time = { ...shiftInDb.time };
   time.clockIn = `${new Date().getHours()}:${new Date().getMinutes()}`;
@@ -230,7 +233,7 @@ const getDashboardDataForUser = async (req, res) => {
         notes,
         status,
         shiftOptions,
-        preferredShiftOption
+        preferredShiftOption,
       }) => {
         let { production, location, outRate, contract, position } =
           contractInfo;
@@ -472,7 +475,6 @@ const _mapShiftToUi = (shift) => {
 };
 
 const getAllShifts = async (req, res) => {
-  // if query -> date, filter by date
   const allShifts = await Shift.find({})
     .populate({ path: "contractInfo.contract", select: "name" })
     .populate({ path: "contractInfo.production", select: "name locations" })
@@ -485,7 +487,11 @@ const getAllShifts = async (req, res) => {
         return _mapShiftToUi(shift);
       })
     );
-    res.send(mappedShifts);
+    const filteredMappedShift = mappedShifts.filter(
+      (s) => s.status !== SHIFT_STATUS.OUTDATED
+    );
+
+    res.send(filteredMappedShift);
   } catch (err) {
     winston.error("SOMETHING WRONG HAPPENED: ALLSHIFT", err.message);
     res.status(500).send(err.message);
@@ -742,7 +748,7 @@ const getAllUsersShifts = async (req, res) => {
     const allShifts = await Shift.find({
       $or: [
         { status: SHIFT_STATUS.COMPLETED },
-        { status: SHIFT_STATUS.CANCELED },
+        { cancellationFee: { $gt: 0 } },
       ],
       "admin.isPaid": isPaid,
     })

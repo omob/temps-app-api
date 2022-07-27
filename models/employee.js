@@ -10,10 +10,10 @@ const employeeSchema = new Schema({
     lastName: { type: String, required: true },
     middleName: { type: String, default: "" },
   },
-  dob: { type: String, required: true },
+  dob: { type: String },
   utrNumber: { type: String },
   title: { type: String },
-  gender: { type: String, required: true, enum: ["male", "female"] },
+  gender: { type: String, enum: ["male", "female", ""] },
   email: {
     type: String,
     required: true,
@@ -27,7 +27,6 @@ const employeeSchema = new Schema({
     email: { type: String, default: this.email },
     phoneNumber: {
       type: String,
-      required: true,
       unique: true,
     },
     address: {
@@ -46,7 +45,6 @@ const employeeSchema = new Schema({
     relationship: { type: String, default: "" },
     phoneNumber: {
       type: String,
-      required: true,
     },
     contact: {
       type: Object,
@@ -101,7 +99,7 @@ const employeeSchema = new Schema({
     enum: ["verified", "unverified"],
   },
   profileImageUrl: { type: String },
-  expoPushTokens: { type: Array }
+  expoPushTokens: { type: Array },
 });
 
 employeeSchema.methods.generateAuthToken = function () {
@@ -132,5 +130,5 @@ employeeSchema.methods.comparePassword = async function (password) {
 const Employee = mongoose.model("Employee", employeeSchema);
 
 module.exports = {
-  Employee
+  Employee,
 };
