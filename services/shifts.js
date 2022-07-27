@@ -479,7 +479,7 @@ const getAllShifts = async (req, res) => {
     .populate({ path: "contractInfo.contract", select: "name" })
     .populate({ path: "contractInfo.production", select: "name locations" })
     .populate({ path: "employee", select: "name profileImageUrl" })
-    .select("-createdDate -shift");
+    .select("-createdDate");
 
   try {
     const mappedShifts = await Promise.all(
@@ -487,9 +487,9 @@ const getAllShifts = async (req, res) => {
         return _mapShiftToUi(shift);
       })
     );
-    const filteredMappedShift = mappedShifts
-      // .filter((s) => s.status !== SHIFT_STATUS.CANCELED)
-      .filter((s) => s.status !== SHIFT_STATUS.OUTDATED);
+    const filteredMappedShift = mappedShifts.filter(
+      (s) => s.status !== SHIFT_STATUS.OUTDATED
+    );
 
     res.send(filteredMappedShift);
   } catch (err) {
