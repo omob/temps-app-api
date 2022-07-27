@@ -61,7 +61,7 @@ const getAllMyShifts = async (req, res) => {
           notes,
           status,
           shiftOptions,
-          preferredShiftOption
+          preferredShiftOption,
         }) => {
           let { production, location, outRate, contract, position } =
             contractInfo;
@@ -98,8 +98,11 @@ const getAllMyShifts = async (req, res) => {
         }
       )
     );
+    const filteredMappedShift = mappedShifts.filter(
+      (s) => s.status !== SHIFT_STATUS.OUTDATED
+    );
 
-    res.send({ data: mappedShifts });
+    res.send({ data: filteredMappedShift });
   } catch (err) {
     winston.error(
       "SOMETHING WRONG HAPPENED: USER ROUTE - ALLSHIFT",
@@ -230,7 +233,7 @@ const getDashboardDataForUser = async (req, res) => {
         notes,
         status,
         shiftOptions,
-        preferredShiftOption
+        preferredShiftOption,
       }) => {
         let { production, location, outRate, contract, position } =
           contractInfo;
@@ -477,7 +480,7 @@ const getAllShifts = async (req, res) => {
     .populate({ path: "contractInfo.contract", select: "name" })
     .populate({ path: "contractInfo.production", select: "name locations" })
     .populate({ path: "employee", select: "name profileImageUrl" })
-    .select("-createdDate");
+    .select("-createdDate -shift");
 
   try {
     const mappedShifts = await Promise.all(
@@ -485,7 +488,12 @@ const getAllShifts = async (req, res) => {
         return _mapShiftToUi(shift);
       })
     );
-    res.send(mappedShifts);
+    const filteredMappedShift = mappedShifts
+      .filter((s) => s.status !== SHIFT_STATUS.CANCELED)
+      .filter((s) => s.status !== SHIFT_STATUS.OUTDATED);
+
+    console.log(filteredMappedShift);
+    res.send(filteredMappedShift);
   } catch (err) {
     winston.error("SOMETHING WRONG HAPPENED: ALLSHIFT", err.message);
     res.status(500).send(err.message);
@@ -493,6 +501,7 @@ const getAllShifts = async (req, res) => {
 };
 
 const updateShift = async (req, res) => {
+  console.log("HERE");
   const { id } = req.params;
   const { error } = validateShiftOnUpdate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
