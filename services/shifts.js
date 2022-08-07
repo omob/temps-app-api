@@ -474,6 +474,11 @@ const _mapShiftToUi = (shift) => {
   return shiftObject;
 };
 
+const notifyAdminUsers = (message) => {
+  // fetch all admin users expoTokens
+
+  notifyUsersViaPushNotifications;
+};
 const getAllShifts = async (req, res) => {
   const allShifts = await Shift.find({})
     .populate({ path: "contractInfo.contract", select: "name" })

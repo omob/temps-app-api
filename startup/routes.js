@@ -6,8 +6,8 @@ const contracts = require("../routes/contracts");
 const main = require("../routes/main");
 const shifts = require("../routes/shifts");
 const messages = require("../routes/messages");
+const automate = require("../routes/automate");
 const test = require("../routes/test");
-
 
 const error = require("../middleware/error");
 
@@ -19,9 +19,9 @@ module.exports = function (app) {
   app.use("/api/main", main);
   app.use("/api/shifts", shifts);
   app.use("/api/messages", messages);
+  app.use("/api/automate", automate);
   app.use("/api/test", test);
 
-
-  app.use("/api/hello", (req, res) => res.send("Hello World"))
+  app.use("/api/hello", (req, res) => res.send("Hello World"));
   app.use(error);
 };

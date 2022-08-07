@@ -14,6 +14,7 @@ const { uploadUserDocument } = require("../functions/uploadDocument");
 const mongoose = require("mongoose");
 const winston = require("winston");
 const Email = require("../services/email");
+const UserService = require("./users");
 
 const USER_STATUS = {
   VERIFIED: "verified",
@@ -365,6 +366,27 @@ const rejectUserDocument = async (req, res) => {
   );
   res.status(200).json({ message: "success" });
 };
+
+const _getAdminUsersId = async () => {
+  const roles = await (await Roles.findOne({}).select("admin")).toJSON();
+  return roles?.admin;
+};
+
+const adminUsersExpoTokens = async () => {
+  const adminUsers = await _getAdminUsersId();
+
+  let adminTokens = [];
+
+  await Promise.all(
+    adminUsers.map(async ({ userId }) => {
+      const tokens = await UserService.getExpoPushTokens(userId);
+      if (tokens) adminTokens.push(...tokens);
+    })
+  );
+  return adminTokens;
+};
+
+adminUsersExpoTokens();
 
 module.exports = {
   acceptUserDocument,
