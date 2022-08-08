@@ -14,19 +14,27 @@ const sendEmailNotificationOnNewShift = (name, email, contractInfo, date) => {
       if (err) return winston.error("Could not read new-shift.html file");
 
       let message = data;
-      message = message.replace("{{username}}", `${name.firstName} ${name.lastName}`);
+      message = message.replace(
+        "{{username}}",
+        `${name.firstName} ${name.lastName}`
+      );
       message = message.replace("{{contract}}", contract);
       message = message.replace("{{production}}", production);
       message = message.replace("{{location}}", location);
       message = message.replace("{{address}}", address);
       message = message.replace("{{date}}", new Date(date).toDateString());
 
-      new Email().sendMail("New shift has been assigned to you.", message, email);
-      winston.info(`Email sent successfully to ${name.firstName} on new shift assignment `);
+      new Email().sendMail(
+        "New shift has been assigned to you.",
+        message,
+        email
+      );
+      winston.info(
+        `Email sent successfully to ${name.firstName} on new shift assignment `
+      );
     }
   );
 };
-
 
 const notifyUsersViaPushNotifications = async (pushData) => {
   let expo = new Expo();
@@ -36,16 +44,17 @@ const notifyUsersViaPushNotifications = async (pushData) => {
     if (!data.pushTokens || data.pushTokens.length === 0) continue;
 
     for (let token of data.pushTokens) {
-        if (!Expo.isExpoPushToken(token)) {
-          winston.error(`Push token ${token} is not a valid Expo push token`);
-        }
+      if (!Expo.isExpoPushToken(token)) {
+        winston.error(`Push token ${token} is not a valid Expo push token`);
+      }
 
-        messages.push({
-          to: token,
-          sound: "default",
-          body: data.message.text,
-          data: data.message.data,
-        });
+      messages.push({
+        to: token,
+        sound: "default",
+        title: data.message.title ?? "🔐 MLS Protection",
+        body: data.message.text,
+        data: data.message.data,
+      });
     }
   }
 
@@ -65,13 +74,12 @@ const notifyUsersViaPushNotifications = async (pushData) => {
         // documentation:
         // https://docs.expo.io/push-notifications/sending-notifications/#individual-errors
       } catch (error) {
-        winston.error("SENDING PUSH NOTIFICATION ERROR: " + error)
+        winston.error("SENDING PUSH NOTIFICATION ERROR: " + error);
         console.error(error);
       }
     }
   })();
 };
-
 
 module.exports = {
   sendEmailNotificationOnNewShift,

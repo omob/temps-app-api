@@ -15,6 +15,7 @@ const {
   sendEmailNotificationOnNewShift,
   notifyUsersViaPushNotifications,
 } = require("./notifications");
+const { notifyAdminUsers } = require("./admin");
 
 const SHIFT_STATUS = {
   PENDING: "PENDING",
@@ -134,10 +135,22 @@ const updateMyShiftStatus = async (req, res) => {
 
   await shiftInDb.save();
 
+  if (status === SHIFT_STATUS.ACCEPTED) {
+    await notifyAdminUsers(
+      "Shift Accepted 💃🏼🕺🏼💃🏼",
+      `${req.user.name.firstName} has accepted the assigned shift`
+    );
+  } else {
+    await notifyAdminUsers(
+      "Shift Rejected 😒🙈",
+      `${req.user.name.firstName} rejected the assigned shift`
+    );
+  }
+
   return res.status(204).send("Done");
 };
 
-const _handleClockIn = async (shiftInDb, res) => {
+const _handleClockIn = async (shiftInDb, req, res) => {
   // TODO - Check user proximity to location- This is also implemented on the mobile app
   const checkIfCurrentDay = isDateEqual(new Date(), shiftInDb.date);
   if (!checkIfCurrentDay)
@@ -164,10 +177,15 @@ const _handleClockIn = async (shiftInDb, res) => {
   shiftInDb.time = time;
 
   await shiftInDb.save();
+  // notify admin users of clock in
+  await notifyAdminUsers(
+    "🚀🚀🚀 Just clocked in",
+    `Hi, ${req.user.name.firstName} has clocked in for the shift at ${shiftInDb.contractInfo.contract.name}`
+  );
   return res.status(204).send("Done");
 };
 
-const _handleClockOut = async (shiftInDb, res) => {
+const _handleClockOut = async (shiftInDb, req, res) => {
   const time = { ...shiftInDb.time };
   const hour =
     new Date().getHours() < 10
@@ -179,6 +197,10 @@ const _handleClockOut = async (shiftInDb, res) => {
   shiftInDb.time = time;
 
   await shiftInDb.save();
+  await notifyAdminUsers(
+    "🏌🏾‍♂️🏌🏾‍♂️🏌🏾‍♂️ Just clocked out",
+    `Hi, ${req.user.name.firstName} has clocked out for the shift at ${shiftInDb.contractInfo.contract.name}`
+  );
   return res.status(204).send("Done");
 };
 
@@ -192,7 +214,7 @@ const manageClockInClockOut = async (req, res) => {
   const shiftInDb = await Shift.findOne({
     _id: shiftId,
     employee: req.user._id,
-  });
+  }).populate({ path: "contractInfo.contract", select: "name" });
 
   if (!shiftInDb) return res.status(404).send("Shift Not Found");
 
@@ -200,9 +222,9 @@ const manageClockInClockOut = async (req, res) => {
     return res.status(400).send("Something is wrong");
 
   if (status.toLowerCase() === "clockin") {
-    return await _handleClockIn(shiftInDb, res);
+    return await _handleClockIn(shiftInDb, req, res);
   }
-  return await _handleClockOut(shiftInDb, res);
+  return await _handleClockOut(shiftInDb, req, res);
 };
 
 // const shifts data for mobile app dashboard

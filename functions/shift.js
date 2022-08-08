@@ -68,6 +68,7 @@ function validateShiftOnUpdate(shiftInfo) {
     perDiems: Joi.number().optional().allow("").allow(null),
     notes: Joi.string().label("Notes").allow(null).allow(""),
     shiftOptions: Joi.array().allow([]),
+    preferredShiftOption: Joi.string().allow("").allow(null),
   };
 
   return Joi.validate(shiftInfo, schema);
