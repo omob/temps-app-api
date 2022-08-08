@@ -14,7 +14,7 @@ const { uploadUserDocument } = require("../functions/uploadDocument");
 const mongoose = require("mongoose");
 const winston = require("winston");
 const Email = require("../services/email");
-const UserService = require("./users");
+const { notifyUsersViaPushNotifications } = require("./notifications");
 
 const USER_STATUS = {
   VERIFIED: "verified",
@@ -372,6 +372,14 @@ const _getAdminUsersId = async () => {
   return roles?.admin;
 };
 
+const getPushTokens = async (userId) => {
+  const tokens = await User.findById({ _id: userId }).select("expoPushTokens");
+  if (!tokens) return;
+
+  const { expoPushTokens } = tokens;
+  return expoPushTokens;
+};
+
 const adminUsersExpoTokens = async () => {
   const adminUsers = await _getAdminUsersId();
 
@@ -379,14 +387,25 @@ const adminUsersExpoTokens = async () => {
 
   await Promise.all(
     adminUsers.map(async ({ userId }) => {
-      const tokens = await UserService.getExpoPushTokens(userId);
+      const tokens = await getPushTokens(userId);
       if (tokens) adminTokens.push(...tokens);
     })
   );
   return adminTokens;
 };
 
-adminUsersExpoTokens();
+const notifyAdminUsers = async (title, message) => {
+  // fetch all admin users expoTokens
+  const tokens = await adminUsersExpoTokens();
+  const pushData = {
+    pushTokens: tokens,
+    message: {
+      title: title,
+      text: `${message}`,
+    },
+  };
+  await notifyUsersViaPushNotifications(Array.of(pushData));
+};
 
 module.exports = {
   acceptUserDocument,
@@ -402,4 +421,6 @@ module.exports = {
   uploadProfileImage,
   userStatusVerification,
   rejectUserDocument,
+  adminUsersExpoTokens,
+  notifyAdminUsers,
 };

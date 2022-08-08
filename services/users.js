@@ -17,6 +17,7 @@ const { uploadUserDocument } = require("../functions/uploadDocument");
 const { uploadImage } = require("../functions/uploadImage");
 
 const Email = require("./email");
+const { notifyAdminUsers } = require("./admin");
 
 const MAX_MINUTES_BEFORE_TOKEN_EXPIRATION = 20;
 
@@ -228,6 +229,10 @@ const uploadDocument = async (req, res) => {
     });
 
     await staff.save();
+    await notifyAdminUsers(
+      `📑 A new document has been uploaded`,
+      `Hi, ${req.user.name.firstName} has uploaded a document for your review.`
+    );
     winston.info("Success uploading new user document ");
     return res.json({
       success: true,
