@@ -1,4 +1,5 @@
 const multer = require("multer");
+const { checkFileType } = require(".");
 const FileStorage = require("./file-storage");
 
 const keyPath = "uploads/staff/images";
