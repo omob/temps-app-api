@@ -69,10 +69,9 @@ class FileStorage {
         cb(null, { fieldName: file.fieldname });
       },
       key: function (req, file, cb) {
+        console.log(req.user);
         const extName = path.extname(file.originalname).toLowerCase();
-        const spacePath = `${keyPath}/${
-          req.user.name.firstName
-        }${Date.now()}${extName}`;
+        const spacePath = `${keyPath}/${file.fieldname}${Date.now()}${extName}`;
 
         const fileUrl = `${spaceBaseUrl}/${spacePath}`;
         req.filePath = fileUrl;
