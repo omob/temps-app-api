@@ -83,13 +83,13 @@ const notifyUsersWithShiftFallingInCurrentDate = async () => {
     status: { $in: ["PENDING", "ACCEPTED"] },
   }).populate({ path: "contractInfo.contract", select: "name" });
 
-  console.log(currentDayShifts.length);
+  console.log(currentDayShifts);
   if (!currentDayShifts || currentDayShifts.length === 0) return;
 
   const results = _getNotStartedShifts(currentDayShifts);
   if (!results || results.length === 0) return;
   const userRecords = await _getUsersDetailsFromShift(results);
-  await sendShiftNotificationsToUsers(userRecords);
+  // await sendShiftNotificationsToUsers(userRecords);
 };
 
 const notifyUsersOfUpcomingShifts = async () => {
@@ -101,10 +101,11 @@ const notifyUsersOfUpcomingShifts = async () => {
   }).populate({ path: "contractInfo.contract", select: "name" });
 
   const results = _getNotStartedShifts(shifts);
+  console.log(results);
   if (!results || results.length === 0) return;
   const userRecords = await _getUsersDetailsFromShift(results);
 
-  await sendShiftNotificationsToUsers(userRecords);
+  // await sendShiftNotificationsToUsers(userRecords);
 };
 
 // tomorrow shift notifications

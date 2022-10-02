@@ -1,3 +1,5 @@
+const path = require("path");
+
 const getDayOfTheWeekInNumber = (dayOfTheWeek) => {
   let dayInNo = 0;
   switch (dayOfTheWeek) {
@@ -144,6 +146,18 @@ const calculateHours = (startTime, endTime) => {
   if (_endTime == _startTime) return 0;
 };
 
+// Check file type
+const checkFileType = (file, callback) => {
+  // allowed ext
+  const filetypes = /jpeg|jpg|png|gif|doc|docx|pdf/;
+  // check ext
+  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+  // check mime
+  const mimetype = filetypes.test(file.mimetype);
+  if (mimetype && extname) return callback(null, true);
+  return callback("Error: Invalid file type");
+};
+
 module.exports = {
   getDayOfTheWeekInNumber,
   differenceInDays,
@@ -156,4 +170,5 @@ module.exports = {
   isDateEqual,
   recreatedShiftDateWithTime,
   calculateHours,
+  checkFileType,
 };

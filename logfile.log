@@ -1,306 +1,140 @@
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T14:39:47.723Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T14:39:52.244Z"}
-{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-08-08T14:40:02.932Z"}
-{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-08-08T14:40:04.781Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T14:43:13.077Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T14:43:18.144Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T14:45:07.789Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T14:45:11.279Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T14:45:16.201Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T14:48:12.357Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T14:48:16.570Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T14:49:09.969Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T14:49:14.048Z"}
-{"level":"error","message":"Push token E is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.897Z"}
-{"level":"error","message":"Push token x is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.898Z"}
-{"level":"error","message":"Push token p is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.898Z"}
-{"level":"error","message":"Push token o is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.898Z"}
-{"level":"error","message":"Push token n is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.899Z"}
-{"level":"error","message":"Push token e is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.899Z"}
-{"level":"error","message":"Push token n is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.899Z"}
-{"level":"error","message":"Push token t is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.900Z"}
-{"level":"error","message":"Push token P is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.900Z"}
-{"level":"error","message":"Push token u is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.900Z"}
-{"level":"error","message":"Push token s is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.900Z"}
-{"level":"error","message":"Push token h is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.901Z"}
-{"level":"error","message":"Push token T is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.901Z"}
-{"level":"error","message":"Push token o is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.901Z"}
-{"level":"error","message":"Push token k is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.901Z"}
-{"level":"error","message":"Push token e is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.901Z"}
-{"level":"error","message":"Push token n is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.901Z"}
-{"level":"error","message":"Push token [ is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.901Z"}
-{"level":"error","message":"Push token B is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.901Z"}
-{"level":"error","message":"Push token x is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.901Z"}
-{"level":"error","message":"Push token C is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.901Z"}
-{"level":"error","message":"Push token S is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.901Z"}
-{"level":"error","message":"Push token E is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.901Z"}
-{"level":"error","message":"Push token g is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.901Z"}
-{"level":"error","message":"Push token E is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.902Z"}
-{"level":"error","message":"Push token P is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.902Z"}
-{"level":"error","message":"Push token R is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.902Z"}
-{"level":"error","message":"Push token 9 is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.902Z"}
-{"level":"error","message":"Push token L is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.902Z"}
-{"level":"error","message":"Push token 8 is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.902Z"}
-{"level":"error","message":"Push token T is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.902Z"}
-{"level":"error","message":"Push token D is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.902Z"}
-{"level":"error","message":"Push token c is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.902Z"}
-{"level":"error","message":"Push token p is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.902Z"}
-{"level":"error","message":"Push token m is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.902Z"}
-{"level":"error","message":"Push token C is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.902Z"}
-{"level":"error","message":"Push token q is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.902Z"}
-{"level":"error","message":"Push token V is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.902Z"}
-{"level":"error","message":"Push token 0 is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.902Z"}
-{"level":"error","message":"Push token - is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.902Z"}
-{"level":"error","message":"Push token ] is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.902Z"}
-{"level":"error","message":"Push token E is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.909Z"}
-{"level":"error","message":"Push token x is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.909Z"}
-{"level":"error","message":"Push token p is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.909Z"}
-{"level":"error","message":"Push token o is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.909Z"}
-{"level":"error","message":"Push token n is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.909Z"}
-{"level":"error","message":"Push token e is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.909Z"}
-{"level":"error","message":"Push token n is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.909Z"}
-{"level":"error","message":"Push token t is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.909Z"}
-{"level":"error","message":"Push token P is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.909Z"}
-{"level":"error","message":"Push token u is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.909Z"}
-{"level":"error","message":"Push token s is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.909Z"}
-{"level":"error","message":"Push token h is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.911Z"}
-{"level":"error","message":"Push token T is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.911Z"}
-{"level":"error","message":"Push token o is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.911Z"}
-{"level":"error","message":"Push token k is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.911Z"}
-{"level":"error","message":"Push token e is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.911Z"}
-{"level":"error","message":"Push token n is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.911Z"}
-{"level":"error","message":"Push token [ is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.911Z"}
-{"level":"error","message":"Push token Q is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.911Z"}
-{"level":"error","message":"Push token K is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.911Z"}
-{"level":"error","message":"Push token R is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.911Z"}
-{"level":"error","message":"Push token 2 is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.911Z"}
-{"level":"error","message":"Push token j is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.911Z"}
-{"level":"error","message":"Push token 8 is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.911Z"}
-{"level":"error","message":"Push token L is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.911Z"}
-{"level":"error","message":"Push token b is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.912Z"}
-{"level":"error","message":"Push token y is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.912Z"}
-{"level":"error","message":"Push token C is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.912Z"}
-{"level":"error","message":"Push token H is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.912Z"}
-{"level":"error","message":"Push token n is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.912Z"}
-{"level":"error","message":"Push token q is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.912Z"}
-{"level":"error","message":"Push token F is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.912Z"}
-{"level":"error","message":"Push token W is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.912Z"}
-{"level":"error","message":"Push token Y is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.912Z"}
-{"level":"error","message":"Push token n is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.913Z"}
-{"level":"error","message":"Push token w is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.913Z"}
-{"level":"error","message":"Push token V is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.913Z"}
-{"level":"error","message":"Push token 3 is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.913Z"}
-{"level":"error","message":"Push token S is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.913Z"}
-{"level":"error","message":"Push token 0 is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.913Z"}
-{"level":"error","message":"Push token ] is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.913Z"}
-{"level":"error","message":"Push token E is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.913Z"}
-{"level":"error","message":"Push token x is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.913Z"}
-{"level":"error","message":"Push token p is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.913Z"}
-{"level":"error","message":"Push token o is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.913Z"}
-{"level":"error","message":"Push token n is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.913Z"}
-{"level":"error","message":"Push token e is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.913Z"}
-{"level":"error","message":"Push token n is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.913Z"}
-{"level":"error","message":"Push token t is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.913Z"}
-{"level":"error","message":"Push token P is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.913Z"}
-{"level":"error","message":"Push token u is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.913Z"}
-{"level":"error","message":"Push token s is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.913Z"}
-{"level":"error","message":"Push token h is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.913Z"}
-{"level":"error","message":"Push token T is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.913Z"}
-{"level":"error","message":"Push token o is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token k is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token e is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token n is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token [ is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token A is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token H is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token c is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token 6 is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token m is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token i is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token B is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token d is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token I is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token s is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token A is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token R is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token j is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token l is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token f is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token a is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token C is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token 9 is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token 6 is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token G is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token G is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token d is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"error","message":"Push token ] is not a valid Expo push token","timestamp":"2022-08-08T14:49:44.914Z"}
-{"level":"info","message":"Success uploading new user document ","timestamp":"2022-08-08T14:49:44.914Z"}
-[{"status":"error","message":"\"E\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"E"}},{"status":"error","message":"\"x\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"x"}},{"status":"error","message":"\"p\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"p"}},{"status":"error","message":"\"o\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"o"}},{"status":"error","message":"\"n\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"n"}},{"status":"error","message":"\"e\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"e"}},{"status":"error","message":"\"n\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"n"}},{"status":"error","message":"\"t\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"t"}},{"status":"error","message":"\"P\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"P"}},{"status":"error","message":"\"u\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"u"}},{"status":"error","message":"\"s\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"s"}},{"status":"error","message":"\"h\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"h"}},{"status":"error","message":"\"T\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"T"}},{"status":"error","message":"\"o\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"o"}},{"status":"error","message":"\"k\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"k"}},{"status":"error","message":"\"e\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"e"}},{"status":"error","message":"\"n\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"n"}},{"status":"error","message":"\"[\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"["}},{"status":"error","message":"\"Q\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"Q"}},{"status":"error","message":"\"K\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"K"}},{"status":"error","message":"\"R\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"R"}},{"status":"error","message":"\"2\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"2"}},{"status":"error","message":"\"j\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"j"}},{"status":"error","message":"\"8\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"8"}},{"status":"error","message":"\"L\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"L"}},{"status":"error","message":"\"b\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"b"}},{"status":"error","message":"\"y\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"y"}},{"status":"error","message":"\"C\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"C"}},{"status":"error","message":"\"H\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"H"}},{"status":"error","message":"\"n\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"n"}},{"status":"error","message":"\"q\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"q"}},{"status":"error","message":"\"F\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"F"}},{"status":"error","message":"\"W\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"W"}},{"status":"error","message":"\"Y\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"Y"}},{"status":"error","message":"\"n\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"n"}},{"status":"error","message":"\"w\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"w"}},{"status":"error","message":"\"V\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"V"}},{"status":"error","message":"\"3\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"3"}},{"status":"error","message":"\"S\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"S"}},{"status":"error","message":"\"0\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"0"}},{"status":"error","message":"\"]\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"]"}}]
-[{"status":"error","message":"\"E\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"E"}},{"status":"error","message":"\"x\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"x"}},{"status":"error","message":"\"p\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"p"}},{"status":"error","message":"\"o\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"o"}},{"status":"error","message":"\"n\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"n"}},{"status":"error","message":"\"e\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"e"}},{"status":"error","message":"\"n\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"n"}},{"status":"error","message":"\"t\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"t"}},{"status":"error","message":"\"P\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"P"}},{"status":"error","message":"\"u\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"u"}},{"status":"error","message":"\"s\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"s"}},{"status":"error","message":"\"h\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"h"}},{"status":"error","message":"\"T\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"T"}},{"status":"error","message":"\"o\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"o"}},{"status":"error","message":"\"k\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"k"}},{"status":"error","message":"\"e\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"e"}},{"status":"error","message":"\"n\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"n"}},{"status":"error","message":"\"[\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"["}},{"status":"error","message":"\"B\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"B"}},{"status":"error","message":"\"x\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"x"}},{"status":"error","message":"\"C\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"C"}},{"status":"error","message":"\"S\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"S"}},{"status":"error","message":"\"E\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"E"}},{"status":"error","message":"\"g\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"g"}},{"status":"error","message":"\"E\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"E"}},{"status":"error","message":"\"P\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"P"}},{"status":"error","message":"\"R\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"R"}},{"status":"error","message":"\"9\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"9"}},{"status":"error","message":"\"L\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"L"}},{"status":"error","message":"\"8\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"8"}},{"status":"error","message":"\"T\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"T"}},{"status":"error","message":"\"D\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"D"}},{"status":"error","message":"\"c\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"c"}},{"status":"error","message":"\"p\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"p"}},{"status":"error","message":"\"m\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"m"}},{"status":"error","message":"\"C\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"C"}},{"status":"error","message":"\"q\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"q"}},{"status":"error","message":"\"V\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"V"}},{"status":"error","message":"\"0\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"0"}},{"status":"error","message":"\"-\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"-"}},{"status":"error","message":"\"]\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"]"}}]
-[{"status":"error","message":"\"E\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"E"}},{"status":"error","message":"\"x\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"x"}},{"status":"error","message":"\"p\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"p"}},{"status":"error","message":"\"o\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"o"}},{"status":"error","message":"\"n\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"n"}},{"status":"error","message":"\"e\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"e"}},{"status":"error","message":"\"n\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"n"}},{"status":"error","message":"\"t\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"t"}},{"status":"error","message":"\"P\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"P"}},{"status":"error","message":"\"u\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"u"}},{"status":"error","message":"\"s\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"s"}},{"status":"error","message":"\"h\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"h"}},{"status":"error","message":"\"T\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"T"}},{"status":"error","message":"\"o\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"o"}},{"status":"error","message":"\"k\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"k"}},{"status":"error","message":"\"e\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"e"}},{"status":"error","message":"\"n\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"n"}},{"status":"error","message":"\"[\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"["}},{"status":"error","message":"\"A\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"A"}},{"status":"error","message":"\"H\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"H"}},{"status":"error","message":"\"c\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"c"}},{"status":"error","message":"\"6\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"6"}},{"status":"error","message":"\"m\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"m"}},{"status":"error","message":"\"i\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"i"}},{"status":"error","message":"\"B\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"B"}},{"status":"error","message":"\"d\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"d"}},{"status":"error","message":"\"I\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"I"}},{"status":"error","message":"\"s\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"s"}},{"status":"error","message":"\"A\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"A"}},{"status":"error","message":"\"R\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"R"}},{"status":"error","message":"\"j\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"j"}},{"status":"error","message":"\"l\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"l"}},{"status":"error","message":"\"f\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"f"}},{"status":"error","message":"\"a\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"a"}},{"status":"error","message":"\"C\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"C"}},{"status":"error","message":"\"9\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"9"}},{"status":"error","message":"\"6\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"6"}},{"status":"error","message":"\"G\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"G"}},{"status":"error","message":"\"G\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"G"}},{"status":"error","message":"\"d\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"d"}},{"status":"error","message":"\"]\" is not a registered push notification recipient","details":{"error":"DeviceNotRegistered","expoPushToken":"]"}}]
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T14:52:19.156Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T14:52:25.195Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T14:52:47.226Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T14:52:53.218Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T14:55:29.882Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T15:01:50.403Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T15:01:54.432Z"}
-[{"status":"ok","id":"87a5c212-c1ef-4436-b64b-c6f005488073"},{"status":"ok","id":"a4273aa9-5afb-42bf-b82f-74c3d148c090"},{"status":"ok","id":"53fa1625-bc06-4706-816c-5e76d8e481bb"}]
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T15:02:51.883Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T15:02:55.524Z"}
-{"level":"info","message":"Success uploading new user document ","timestamp":"2022-08-08T15:03:29.653Z"}
-[{"status":"ok","id":"5d65f021-f2a0-49b3-a72d-215b93b4ce5b"},{"status":"ok","id":"2b481bd5-5d20-40a1-8023-6e4505d483ef"},{"status":"ok","id":"35a160c1-0a3b-468e-b03e-6a6fb61a8a19"}]
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T15:06:09.997Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T15:06:14.634Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T15:09:03.836Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T15:09:09.248Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T15:09:37.279Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T15:09:41.264Z"}
-[{"status":"ok","id":"9752faeb-4fa2-4c98-a4c5-d7ffb500ac5f"},{"status":"ok","id":"3b296afb-a724-4944-b48d-3f00f1e99cfb"},{"status":"ok","id":"11984ed6-c660-4fbf-990c-f62f05b4b7d7"}]
-{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-08-08T15:10:59.630Z"}
-{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-08-08T15:11:00.767Z"}
-{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-08-08T15:11:01.203Z"}
-{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-08-08T15:11:02.303Z"}
-{"level":"info","message":"Success uploading new user document ","timestamp":"2022-08-08T15:11:28.926Z"}
-[{"status":"ok","id":"b2d37e99-b157-4a4a-ab4e-e5798ebc223f"},{"status":"ok","id":"c4e6239c-7da3-4f4e-951d-b5c800c4545e"},{"status":"ok","id":"5df090f6-20ac-44ba-bb8d-09a182d9bf3c"}]
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T15:13:04.915Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T15:13:08.900Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T15:19:07.833Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T15:19:12.141Z"}
-[{"status":"ok","id":"4c1ec823-0a7d-4d76-b468-cc7533d0cae6"},{"status":"ok","id":"64303e57-e2ee-40db-8bec-c3e9f73cb36e"},{"status":"ok","id":"8db66390-4787-46de-a697-de3a4befc0d7"}]
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T15:20:13.842Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T15:20:19.224Z"}
-[{"status":"ok","id":"056b7c67-c38f-4b6d-a04b-cef792d0783f"},{"status":"ok","id":"9ce033ad-fd53-49fc-a852-d5b8cf641cb8"},{"status":"ok","id":"59711e0b-612a-471b-bbea-fd3e17023055"}]
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T15:21:47.589Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T15:21:58.891Z"}
-{"level":"info","message":"Success uploading new user document ","timestamp":"2022-08-08T15:22:19.771Z"}
-[{"status":"ok","id":"4601d125-eb7e-4fa6-99e0-b471808621f2"},{"status":"ok","id":"7e00ecbe-7a6b-4ff6-a3ae-63d753ff1148"},{"status":"ok","id":"056d9826-fcb4-4d0c-8d6f-f62a6db30cff"}]
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T15:24:24.441Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T15:24:34.500Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T15:30:43.401Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T15:30:47.494Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T15:31:08.471Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T15:31:11.739Z"}
-{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-08-08T15:31:43.605Z"}
-{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-08-08T15:31:46.144Z"}
-{"level":"info","message":"Success uploading new user document ","timestamp":"2022-08-08T15:32:10.808Z"}
-{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-08-08T15:32:12.725Z"}
-{"level":"info","message":"PROFILE FETCHED - Ayodeji Admin User","timestamp":"2022-08-08T15:32:13.190Z"}
-[{"status":"ok","id":"da5cf135-0cfc-45b9-93eb-9c63f08fce1c"},{"status":"ok","id":"47ef378c-4c12-474c-823b-18980a8e1d09"},{"status":"ok","id":"c73b2ff9-6dd4-4a84-aa30-e962f6eb94c7"}]
-[{"status":"ok","id":"60c02c89-b57d-47c4-b3a6-1e1838db51ad"},{"status":"ok","id":"618f5c05-76ca-41d1-ab63-05dad5322891"},{"status":"ok","id":"5fedd4f5-7a9e-4050-9b40-a0007835659e"}]
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T15:36:42.705Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T15:36:45.943Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T15:44:02.877Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T15:44:06.848Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T15:44:31.958Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T15:44:36.981Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T15:48:42.887Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T15:48:48.157Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T16:02:07.551Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T16:02:13.430Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T16:17:56.863Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T16:18:03.818Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T16:19:10.276Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T16:19:16.652Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T16:27:09.644Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T16:27:14.914Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T16:27:21.771Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T16:27:30.507Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T16:27:35.350Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T16:53:33.421Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T16:54:10.209Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T16:54:12.297Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T16:54:17.441Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T16:55:22.266Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T16:55:58.287Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T16:56:10.345Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T16:56:57.105Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T16:57:07.660Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T17:05:10.428Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T17:05:14.064Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T17:05:59.925Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T17:06:02.087Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T17:07:12.435Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T17:07:15.169Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T17:11:06.450Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T17:11:09.386Z"}
-[{"status":"ok","id":"7c69fd3c-5f6c-48a1-b227-5f6101821be1"},{"status":"ok","id":"81a989d6-0585-49f5-a0ac-dda5a370090b"},{"status":"ok","id":"015b073e-cb1b-45dc-8fc1-852f327dd9b9"}]
-[{"status":"ok","id":"a4e5f8aa-f332-4050-a4a1-0b79bbb2f409"},{"status":"ok","id":"e5c1757a-f483-4e21-8f1e-a41e5a33a7e5"},{"status":"ok","id":"c52baee6-44d7-4808-8610-8e57edc15493"}]
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T21:19:28.552Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T21:19:52.386Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T21:24:15.310Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T21:24:29.246Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T21:25:22.091Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T21:37:09.764Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T21:38:14.709Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T21:38:16.876Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T21:40:04.706Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T21:40:07.548Z"}
-[{"status":"ok","id":"5f4dcfc2-9ed6-46ad-bb18-ba91197d938b"},{"status":"ok","id":"e40732bd-78a9-498a-82c0-860b87364017"},{"status":"ok","id":"3cfddd9d-ce25-423d-b88a-ec86f3a96481"}]
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T21:45:26.297Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T21:45:29.114Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T21:46:00.371Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T21:46:02.773Z"}
-[{"status":"ok","id":"8659a1e3-9d12-4d8b-b271-4527b581fe5b"},{"status":"ok","id":"0c46c386-6b79-43a9-b50f-bb214b926fbf"},{"status":"ok","id":"b04d3536-31a2-42f4-966e-0ff904da2530"}]
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T21:48:14.698Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T21:48:17.456Z"}
-[{"status":"ok","id":"c4237749-5a43-476c-8669-a357109c6888"},{"status":"ok","id":"94467adb-da79-421e-9de4-41ddc28458c0"},{"status":"ok","id":"319bbec6-18a3-4b1a-bb61-00c3751c06a5"}]
-[{"status":"ok","id":"48794206-4456-42e9-bbf8-b429480c7412"},{"status":"ok","id":"420a2774-e287-4c9d-ac6f-4da8a13e08df"},{"status":"ok","id":"223f0953-2377-4429-ac6f-d4f796fefe72"}]
-[{"status":"ok","id":"4fe0dbdc-3624-4e9b-9965-44aaf9d33f85"},{"status":"ok","id":"fb0f778c-cb52-4be2-9c2e-24fe9414cf1e"},{"status":"ok","id":"db2b70ef-54d1-414d-a168-a28af0c59af0"}]
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T21:50:36.151Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T21:50:38.770Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T21:50:51.934Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T21:50:54.639Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T21:51:04.555Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T21:51:06.922Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T21:52:01.046Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T21:52:03.325Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T21:52:19.179Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T21:52:21.291Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T21:54:46.052Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T21:54:48.805Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T21:54:56.834Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T21:54:58.955Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T21:56:19.820Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T21:56:22.373Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T21:58:25.389Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T21:58:27.963Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T22:01:02.467Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T22:01:05.320Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T22:02:39.821Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T22:02:42.288Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T22:03:55.662Z"}
-{"message":"ERROR: ","stack":"Error: querySrv ETIMEOUT _mongodb._tcp.mlscluster.sod8f.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (node:dns:213:19)","code":"ETIMEOUT","syscall":"querySrv","hostname":"_mongodb._tcp.mlscluster.sod8f.mongodb.net","level":"error","timestamp":"2022-08-08T22:04:11.272Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T22:05:00.155Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T22:05:08.401Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T22:05:55.568Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T22:06:05.248Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T22:11:16.272Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T22:11:29.151Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T22:12:28.090Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T22:12:38.192Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T22:17:18.231Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T22:17:30.590Z"}
-[{"status":"ok","id":"5cceb7ea-66cb-4aad-8e72-b185cd459e76"},{"status":"ok","id":"a7ee6ffe-0a07-4896-a6b9-18b2669bfde8"},{"status":"ok","id":"4767b33a-7e6d-4902-90da-8a4742a24bf9"}]
-[{"status":"ok","id":"675997aa-a68e-4a75-a21f-bde3e4981ada"},{"status":"ok","id":"5771c168-abde-4c11-b4c9-f8b931a41285"},{"status":"ok","id":"fafa0825-3ca1-41a6-beef-bdd12079f3d9"}]
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T22:27:55.194Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T22:27:57.938Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T22:29:38.635Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T22:29:42.846Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T22:32:56.912Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T22:32:59.573Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T22:33:39.200Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T22:33:42.412Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T22:36:39.275Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T22:36:43.455Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T22:38:18.719Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T22:38:21.387Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T22:38:50.242Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T22:38:52.630Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T22:41:48.722Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T22:41:51.689Z"}
-[{"status":"ok","id":"e8034b2d-b811-4277-ad4b-6ace6ef0524b"},{"status":"ok","id":"7124b0bb-c612-4b19-ac3f-9f0cc9cfde97"},{"status":"ok","id":"1077dd32-3fe3-4454-86a4-f44925d28600"}]
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T22:46:29.668Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T22:46:32.708Z"}
-{"level":"info","message":"Listening on port 3900...","timestamp":"2022-08-08T22:47:23.323Z"}
-{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-08-08T22:47:27.796Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T13:02:57.930Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T13:03:03.437Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T15:31:15.253Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T15:31:17.225Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T15:31:20.596Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T15:33:40.417Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T15:33:43.828Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T15:38:31.748Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T15:38:38.293Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T15:44:37.797Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T15:44:40.757Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T15:48:23.301Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T15:48:27.348Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T15:48:48.618Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T15:48:53.412Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T15:50:25.085Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T15:50:30.949Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T15:50:39.940Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T15:50:44.935Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T16:02:13.634Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T16:02:17.891Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T16:02:50.789Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T16:02:53.843Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T16:03:21.989Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T16:03:26.358Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T16:06:28.645Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T16:06:34.214Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T16:13:37.150Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T16:13:41.195Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T16:19:40.288Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T16:19:44.327Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T16:26:36.404Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T16:26:47.495Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T16:27:07.288Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T16:27:17.714Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T16:28:42.022Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T16:28:50.190Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T16:37:29.342Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T16:37:34.482Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T16:37:40.072Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T16:38:32.620Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T16:38:38.389Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T16:39:47.286Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T16:39:53.697Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T16:42:34.020Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T16:42:38.849Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T16:45:06.796Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T16:45:12.581Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T16:46:17.243Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T16:46:23.436Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T16:46:28.643Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T16:46:35.043Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T16:57:09.704Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T16:57:13.864Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T17:00:13.884Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T17:00:17.373Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T17:10:11.232Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T17:10:15.084Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T17:13:35.737Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T17:13:39.143Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T17:22:04.180Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T17:22:14.295Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T17:23:15.696Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T17:23:21.395Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T17:29:04.950Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T17:29:12.089Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T17:29:42.501Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T17:29:46.221Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T17:35:59.125Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T17:36:06.813Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T17:45:59.618Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T17:46:07.095Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T17:46:27.659Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T17:46:32.998Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T18:01:29.351Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T18:02:08.012Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T18:02:17.206Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T19:52:53.736Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T19:52:57.067Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T19:54:09.365Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T19:54:21.391Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T19:55:45.835Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T19:55:49.574Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T19:56:02.857Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T19:56:08.605Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T20:01:26.664Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T20:01:31.520Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T20:03:48.569Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T20:03:54.887Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T20:05:28.399Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T20:05:33.217Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T20:06:45.815Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T20:07:00.883Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T20:22:25.513Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T20:22:36.818Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T21:13:58.262Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T21:14:53.636Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T21:15:49.835Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T21:17:26.012Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T21:17:28.888Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T21:18:39.341Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T21:18:42.152Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T21:19:07.057Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T21:19:10.428Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T21:19:53.561Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T21:19:56.665Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T21:26:23.981Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T21:26:26.519Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T21:29:08.173Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T21:29:10.949Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T21:29:14.472Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T21:29:17.546Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T21:29:21.537Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T21:29:23.875Z"}
+{"level":"info","message":"Success uploading new user document ","timestamp":"2022-10-02T21:29:29.461Z"}
+[{"status":"ok","id":"f0b8c279-295c-4af7-ba48-f3011a58e23a"},{"status":"ok","id":"0b03a671-e17a-4f0a-9027-256d82fdc8f1"}]
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T21:32:38.680Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T21:32:41.239Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T21:34:29.372Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T21:34:32.303Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T21:34:50.752Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T21:34:53.753Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T21:39:37.169Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T21:39:43.072Z"}
+{"level":"info","message":"Success uploading new user document ","timestamp":"2022-10-02T21:42:31.515Z"}
+[{"status":"ok","id":"370d8ea8-a440-4d1d-9d7a-8aaa15e3e26e"},{"status":"ok","id":"f9b710d3-b6c1-46db-875a-9dd74368f39c"}]
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T21:44:51.985Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T21:44:58.378Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T21:45:18.569Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T21:45:25.198Z"}
+{"level":"info","message":"Success uploading new user document ","timestamp":"2022-10-02T21:45:44.927Z"}
+[{"status":"ok","id":"b96f7961-061b-40e6-a9d1-688fbfa58307"},{"status":"ok","id":"be051953-efe5-4cc7-af2f-4e70021e8a63"}]
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T22:01:04.625Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T22:01:14.697Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T22:05:30.109Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T22:05:42.146Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T22:06:08.260Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T22:06:19.201Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-02T22:07:17.245Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-02T22:07:24.488Z"}

@@ -215,9 +215,10 @@ const uploadDocument = async (req, res) => {
         .status(404)
         .json({ success: false, message: "user not found" });
 
+    console.log(req.filePath);
     staff.documents.push({
       _id: mongoose.Types.ObjectId(),
-      url: `${process.env.HOSTURL}/uploads/staff/documents/${req.file.filename}`,
+      url: `${req.filePath}`,
       name,
       doc_name,
       doc_number,
@@ -253,7 +254,7 @@ const uploadProfileImage = async (req, res) => {
     await User.findOneAndUpdate(
       { _id: req.user._id },
       {
-        profileImageUrl: `${process.env.HOSTURL}/uploads/staff/images/${req.file.filename}`,
+        profileImageUrl: `${req.filePath}`,
       }
     );
 
