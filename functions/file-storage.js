@@ -10,6 +10,7 @@ class FileStorage {
   #space_region = process.env.SPACE_REGION;
   #spaceBaseUrl = process.env.MLS_SPACE_URL;
   #bucket = "mls-storage";
+  #space_acl = process.env.SPACE_ACL;
 
   constructor() {
     this.initialize();
@@ -71,13 +72,16 @@ class FileStorage {
       key: function (req, file, cb) {
         console.log(req.user);
         const extName = path.extname(file.originalname).toLowerCase();
-        const spacePath = `${keyPath}/${file.fieldname}${Date.now()}${extName}`;
+        const spacePath = `${keyPath}/${file.fieldname}-${
+          req?.body?.userId
+        }${Date.now()}${extName}`;
 
         const fileUrl = `${spaceBaseUrl}/${spacePath}`;
         req.filePath = fileUrl;
 
         cb(null, spacePath);
       },
+      acl: this.#space_acl,
     });
 
     return cloudStorage;
