@@ -713,14 +713,10 @@ const getAllUserShifts = async (req, res) => {
             }
           });
           const hours = calculateHours(time.clockIn, time.clockOut);
-          let totalPay = parseInt(outRate) * hours;
+          let totalHoursPay = parseInt(outRate) * hours;
 
-          totalPay +=
-            milleage ||
-            null + meal ||
-            null + accommodation ||
-            null + perDiems ||
-            null;
+          let totalPay =
+            totalHoursPay + milleage + meal + accommodation + perDiems;
 
           if (status == SHIFT_STATUS.CANCELED) {
             totalPay = cancellationFee;
@@ -806,13 +802,10 @@ const getAllUsersShifts = async (req, res) => {
           });
 
           const hours = calculateHours(time.clockIn, time.clockOut);
-          let totalPay = parseInt(outRate) * hours;
-          totalPay +=
-            milleage ||
-            null + meal ||
-            null + accommodation ||
-            null + perDiems ||
-            null;
+          let totalHoursPay = parseInt(outRate) * hours;
+
+          let totalPay =
+            totalHoursPay + milleage + meal + accommodation + perDiems;
 
           if (status == SHIFT_STATUS.CANCELED) totalPay = cancellationFee;
 
@@ -891,7 +884,7 @@ const updateUserShiftPayment = async (req, res) => {
 
           const payment = new Payment({
             shiftId: shiftInfo._id,
-            receiptUrl: `${process.env.HOSTURL}/uploads/staff/receipts/${req.file.filename}`,
+            receiptUrl: `${req.filePath}`,
             uploadedBy: req.user._id,
             notes: note,
             employee: shiftInfo.employeeId,
@@ -901,7 +894,7 @@ const updateUserShiftPayment = async (req, res) => {
 
           var shift = await Shift.findById(shiftInfo._id);
           shift.admin.isPaid = true;
-          shift.admin.receiptUrl = `${process.env.HOSTURL}/uploads/staff/receipts/${req.file.filename}`;
+          shift.admin.receiptUrl = `${req.filePath}`;
           await shift.save();
 
           winston.info(

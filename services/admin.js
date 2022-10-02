@@ -278,7 +278,7 @@ const uploadDocument = async (req, res) => {
 
     staff.documents.push({
       _id: mongoose.Types.ObjectId(),
-      url: `${process.env.HOSTURL}/uploads/staff/documents/${req.file.filename}`,
+      url: `${req.filePath}`,
       name,
       doc_name,
       doc_number,
@@ -309,7 +309,7 @@ const uploadProfileImage = async (req, res) => {
     await User.findOneAndUpdate(
       { _id: userId },
       {
-        profileImageUrl: `${process.env.HOSTURL}/uploads/staff/images/${req.file.filename}`,
+        profileImageUrl: `${req.filePath}`,
       }
     );
 

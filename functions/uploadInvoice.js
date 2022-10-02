@@ -1,33 +1,14 @@
 const multer = require("multer");
-const path = require("path");
+const { checkFileType } = require(".");
+const FileStorage = require("./file-storage");
 
-const uploadPath = "./resources/uploads/staff/receipts";
+const keyPath = "uploads/staff/receipts";
 
-const storage = multer.diskStorage({
-  destination: uploadPath,
-  filename: (req, file, callback) => {
-    callback(
-      null,
-      `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`
-    );
-  },
-});
-
-// Check file type
-const checkFileType = (file, callback) => {
-  // allowed ext
-  const filetypes = /jpeg|jpg|png|doc|docx|pdf/;
-  // check ext
-  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-  // check mime
-  const mimetype = filetypes.test(file.mimetype);
-  if (mimetype && extname) return callback(null, true);
-  return callback("Error: Invalid file type");
-};
+const fileStorage = new FileStorage();
 
 const upload = multer({
-  storage,
-  limits: { fileSize: 2000000 },
+  storage: fileStorage.multerS3(keyPath),
+  limits: { fileSize: 2000000 }, // 2mb
   fileFilter: (req, file, callback) => {
     checkFileType(file, callback);
   },
