@@ -73,7 +73,7 @@ class FileStorage {
         console.log(req.user);
         const extName = path.extname(file.originalname).toLowerCase();
         const spacePath = `${keyPath}/${file.fieldname}-${
-          req?.body?.userId
+          req?.body?.userId ?? ""
         }${Date.now()}${extName}`;
 
         const fileUrl = `${spaceBaseUrl}/${spacePath}`;
