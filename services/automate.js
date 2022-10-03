@@ -25,6 +25,10 @@ const _getUsersDetailsFromShift = async (shifts) => {
   const userRecords = await Promise.all(
     shifts.map(async (shift) => {
       const userRecord = await _getUserInfoById(shift.employee);
+      const { locations } = shift.contractInfo.production;
+      const foundLocation = locations.find(
+        (loc) => loc._id.toString() === shift.contractInfo.location.toString()
+      );
 
       return {
         name: userRecord.name,
@@ -34,6 +38,7 @@ const _getUsersDetailsFromShift = async (shifts) => {
         shiftDay: getDayOfTheWeekFromNumber(new Date(shift.date).getDay()),
         contract: shift.contractInfo.contract,
         shiftTime: shift.time.start,
+        location: foundLocation,
       };
     })
   );
@@ -50,7 +55,7 @@ const sendShiftNotificationsToUsers = async (userRecords, message, title) => {
           title: title || `🚀🚀🚀 Upcoming shift`,
           text:
             message ||
-            `Hi ${user.name?.firstName}, you have an upcoming shift at ${user.contract.name} on ${user.shiftDay} at ${user.shiftTime}`,
+            `Hi ${user.name?.firstName}, you have an upcoming shift at ${user.location?.name} on ${user.shiftDay} at ${user.shiftTime}`,
         },
       };
       await notifyUsersViaPushNotifications(Array.of(pushData));
@@ -81,15 +86,15 @@ const notifyUsersWithShiftFallingInCurrentDate = async () => {
   const currentDayShifts = await Shift.find({
     date: { $gte: todayInISO, $lt: tomorrowInISO },
     status: { $in: ["PENDING", "ACCEPTED"] },
-  }).populate({ path: "contractInfo.contract", select: "name" });
+  })
+    .populate({ path: "contractInfo.contract", select: "name" })
+    .populate({ path: "contractInfo.production", select: "name locations" });
 
-  console.log(currentDayShifts);
   if (!currentDayShifts || currentDayShifts.length === 0) return;
-
   const results = _getNotStartedShifts(currentDayShifts);
   if (!results || results.length === 0) return;
   const userRecords = await _getUsersDetailsFromShift(results);
-  // await sendShiftNotificationsToUsers(userRecords);
+  await sendShiftNotificationsToUsers(userRecords);
 };
 
 const notifyUsersOfUpcomingShifts = async () => {
@@ -98,23 +103,16 @@ const notifyUsersOfUpcomingShifts = async () => {
   const shifts = await Shift.find({
     date: { $gte: tomorrowInISO, $lt: nextTomorrowInISO },
     status: { $in: ["PENDING", "ACCEPTED"] },
-  }).populate({ path: "contractInfo.contract", select: "name" });
+  })
+    .populate({ path: "contractInfo.contract", select: "name" })
+    .populate({ path: "contractInfo.production", select: "name locations" });
 
   const results = _getNotStartedShifts(shifts);
   console.log(results);
   if (!results || results.length === 0) return;
   const userRecords = await _getUsersDetailsFromShift(results);
 
-  // await sendShiftNotificationsToUsers(userRecords);
-};
-
-// tomorrow shift notifications
-// should be run twice a  day
-const daily = async (req, res) => {
-  await notifyUsersOfUpcomingShifts();
-  await notifyUsersWithShiftFallingInCurrentDate();
-
-  res.send("Done!");
+  await sendShiftNotificationsToUsers(userRecords);
 };
 
 // -notifications via app to staff to clock in 5mins before start of accepted shift.
@@ -209,7 +207,14 @@ const minutes = async (req, res) => {
   res.send("Done!");
 };
 
-// minutes();
+// tomorrow shift notifications
+// should be run twice a  day
+const daily = async (req, res) => {
+  await notifyUsersOfUpcomingShifts();
+  await notifyUsersWithShiftFallingInCurrentDate();
+
+  res.send("Done!");
+};
 
 module.exports = {
   daily,
