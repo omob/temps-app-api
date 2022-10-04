@@ -207,3 +207,28 @@
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-03T00:48:00.086Z"}
 {"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-03T00:48:07.648Z"}
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-03T00:48:11.293Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-04T10:20:26.656Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-04T10:20:29.471Z"}
+{"level":"error","message":"ERROR OCCURED UPDATING PAYMENT INFO FOR SHIFT BY Ayodeji Admin User","timestamp":"2022-10-04T10:29:10.804Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-04T10:53:31.882Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-04T10:53:45.156Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-04T10:53:48.117Z"}
+{"level":"error","message":"ERROR OCCURED UPDATING PAYMENT INFO FOR SHIFT BY Ayodeji Admin User","timestamp":"2022-10-04T10:53:52.387Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-04T10:54:40.707Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-04T10:54:43.192Z"}
+{"level":"error","message":"ERROR OCCURED UPDATING PAYMENT INFO FOR SHIFT BY Ayodeji Admin User","timestamp":"2022-10-04T10:54:45.121Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-04T11:23:49.406Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-04T11:23:51.865Z"}
+{"level":"info","message":"ACTION - UPDATED PAYMENT INFO FOR SHIFT BY Ayodeji Admin User","timestamp":"2022-10-04T11:29:45.594Z"}
+{"level":"info","message":"ACTION - UPDATED PAYMENT INFO FOR SHIFT BY Ayodeji Admin User","timestamp":"2022-10-04T11:44:55.405Z"}
+{"level":"info","message":"ACTION - UPDATED PAYMENT INFO FOR SHIFT BY Ayodeji Admin User","timestamp":"2022-10-04T11:47:45.593Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-04T11:48:20.190Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-04T11:48:22.799Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-04T11:48:39.452Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-04T11:48:41.671Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-04T11:48:57.801Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-04T11:48:59.934Z"}
+{"level":"info","message":"ACTION - UPDATED PAYMENT INFO FOR SHIFT BY Ayodeji Admin User","timestamp":"2022-10-04T11:49:33.899Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: ALLSHIFT Cast to ObjectId failed for value \"undefined\" at path \"_id\" for model \"Employee\"","timestamp":"2022-10-04T11:51:14.787Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: ALLSHIFT Cast to ObjectId failed for value \"undefined\" at path \"_id\" for model \"Employee\"","timestamp":"2022-10-04T11:51:51.936Z"}
+{"level":"info","message":"ACTION - UPDATED PAYMENT INFO FOR SHIFT BY Ayodeji Admin User","timestamp":"2022-10-04T11:58:55.824Z"}

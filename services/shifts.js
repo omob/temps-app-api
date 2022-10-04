@@ -871,11 +871,9 @@ const updateUserShiftConfirmation = async (req, res) => {
 const updateUserShiftPayment = async (req, res) => {
   uploadReceiptDocument(req, res, async (err) => {
     if (err) return res.status(500).json({ success: false, message: err });
-    if (req.file === undefined)
-      return res.json({ success: false, message: "No file uploaded" });
-
+    // if (req.file === undefined)
+    //   return res.json({ success: false, message: "No file uploaded" });
     const { shiftsInfo, note } = req.body;
-
     try {
       await Promise.all(
         JSON.parse(shiftsInfo).map(async (shiftInfo) => {
@@ -890,6 +888,7 @@ const updateUserShiftPayment = async (req, res) => {
             employee: shiftInfo.employeeId,
             status: "PAID",
           });
+
           await payment.save();
 
           var shift = await Shift.findById(shiftInfo._id);
@@ -928,7 +927,6 @@ module.exports = {
   getAllUsersShifts,
   updateUserShiftConfirmation,
   updateUserShiftPayment,
-  //usersInDb
   getAllMyShifts,
   updateMyShiftStatus,
   getDashboardDataForUser,
