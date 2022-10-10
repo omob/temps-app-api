@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "seed": "node seed.js",
-    "test": "jest --watchAll --verbose"
+    "test": "NODE_ENV=test jest --watchAll --verbose"
   },
   "keywords": [],
   "author": "",
@@ -41,5 +41,9 @@
   "devDependencies": {
     "jest": "^22.2.2",
     "supertest": "^3.0.0"
+  },
+  "jest": {
+    "verbose": true,
+    "testURL": "http://localhost/"
   }
 }

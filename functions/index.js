@@ -131,7 +131,7 @@ const recreatedShiftDateWithTime = (date, startTime) => {
   );
 };
 
-const calculateHours = (startTime, endTime) => {
+const calculateHours2 = (startTime, endTime) => {
   const _startTime = parseInt(startTime);
   const _endTime = parseInt(endTime);
 
@@ -144,6 +144,38 @@ const calculateHours = (startTime, endTime) => {
   if (_endTime < _startTime) return 24 - (_startTime - _endTime);
 
   if (_endTime == _startTime) return 0;
+};
+
+const calculateHours = (startTime, endTime) => {
+  if (parseInt(endTime) == parseInt(startTime)) return 0;
+
+  let startTimeHour = parseInt(startTime.split(":")[0]);
+  let startTimeMinute = parseInt(startTime.split(":")[1]);
+
+  let endTimeHour = parseInt(endTime.split(":")[0]);
+  let endTimeMinute = parseInt(endTime.split(":")[1]);
+
+  let differenceInHour = endTimeHour - startTimeHour;
+
+  if (endTimeHour < startTimeHour) {
+    differenceInHour = 24 - (startTimeHour - endTimeHour);
+  }
+
+  let minuteDifference = 0;
+  if (startTimeMinute > endTimeMinute) {
+    differenceInHour = differenceInHour - 1;
+
+    endTimeMinute += 60; // add 60 minutes
+    minuteDifference = endTimeMinute - startTimeMinute;
+  } else {
+    minuteDifference = endTimeMinute - startTimeMinute;
+  }
+
+  let minutes = minuteDifference / 60;
+
+  let hourDifference = differenceInHour + minutes;
+
+  return hourDifference.toFixed(2);
 };
 
 // Check file type
@@ -171,4 +203,5 @@ module.exports = {
   recreatedShiftDateWithTime,
   calculateHours,
   checkFileType,
+  calculateHours2,
 };

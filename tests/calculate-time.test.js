@@ -1,4 +1,4 @@
-const { calculateHours2 } = require("../functions");
+const { calculateHours } = require("../functions");
 
-const result = calculateHours2("8:00", "10:00");
+const result = calculateHours("19:30", "23:00");
 console.log(result);
