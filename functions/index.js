@@ -147,6 +147,8 @@ const calculateHours2 = (startTime, endTime) => {
 };
 
 const calculateHours = (startTime, endTime) => {
+  if (!startTime || !endTime) return;
+
   if (parseInt(endTime) == parseInt(startTime)) return 0;
 
   let startTimeHour = parseInt(startTime.split(":")[0]);

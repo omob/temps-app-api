@@ -246,3 +246,23 @@
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-10T21:47:21.818Z"}
 {"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-10T21:52:18.139Z"}
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-10T21:52:24.067Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-12T13:52:52.096Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-12T13:52:54.517Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: getAllUsersShifts Cannot read properties of undefined (reading 'split')","timestamp":"2022-10-12T13:53:27.699Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: getAllUsersShifts Cannot read properties of undefined (reading 'split')","timestamp":"2022-10-12T13:54:56.272Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: getAllUsersShifts Cannot read properties of undefined (reading 'split')","timestamp":"2022-10-12T13:55:18.609Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: getAllUsersShifts Cannot read properties of undefined (reading 'split')","timestamp":"2022-10-12T13:58:50.239Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: getAllUsersShifts Cannot read properties of undefined (reading 'split')","timestamp":"2022-10-12T14:00:03.450Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-12T14:00:22.520Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-12T14:00:25.029Z"}
+{"level":"error","message":"SOMETHING WRONG HAPPENED: getAllUsersShifts Cannot read properties of undefined (reading 'split')","timestamp":"2022-10-12T14:00:30.660Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-12T14:00:55.628Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-12T14:00:57.874Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-12T14:01:25.976Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-12T14:01:28.138Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-12T14:01:33.300Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-12T14:01:35.505Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-12T14:01:36.400Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-12T14:01:38.543Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2022-10-12T14:02:38.402Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2022-10-12T14:02:40.860Z"}
