@@ -713,7 +713,7 @@ const getAllUserShifts = async (req, res) => {
             }
           });
           const hours = calculateHours(time.clockIn, time.clockOut);
-          let totalHoursPay = parseInt(outRate) * hours;
+          let totalHoursPay = +outRate * hours;
 
           let totalPay =
             totalHoursPay + milleage + meal + accommodation + perDiems;
@@ -802,7 +802,7 @@ const getAllUsersShifts = async (req, res) => {
           });
 
           const hours = calculateHours(time.clockIn, time.clockOut);
-          let totalHoursPay = parseInt(outRate) * hours;
+          let totalHoursPay = +outRate * hours;
 
           let totalPay =
             totalHoursPay + milleage + meal + accommodation + perDiems;
