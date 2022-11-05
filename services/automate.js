@@ -5,6 +5,7 @@ const {
   recreatedShiftDateWithTime,
   getDayOfTheWeekFromNumber,
 } = require("../functions");
+const winston = require("winston");
 
 const _getDatesForDailyNotifications = () => {
   const _date = new Date();
@@ -26,7 +27,7 @@ const _getUsersDetailsFromShift = async (shifts) => {
     shifts.map(async (shift) => {
       const userRecord = await _getUserInfoById(shift.employee);
       const { locations } = shift.contractInfo.production;
-      const foundLocation = locations.find(
+      const foundLocation = locations?.find(
         (loc) => loc._id.toString() === shift.contractInfo.location.toString()
       );
 
@@ -200,20 +201,30 @@ const _notifyUsersOfShiftsEndingIn5mins = async () => {
 };
 
 const minutes = async (req, res) => {
-  // get all shift starting in 5 mins
-  await _notifyUsersOfShiftsStartingIn5mins();
-  // get all shift ending in 5 mins
-  await _notifyUsersOfShiftsEndingIn5mins();
-  res.send("Done!");
+  try {
+    // get all shift starting in 5 mins
+    await _notifyUsersOfShiftsStartingIn5mins();
+    // get all shift ending in 5 mins
+    await _notifyUsersOfShiftsEndingIn5mins();
+    res.send("Done!");
+  } catch (err) {
+    console.log(err);
+    winston.error(err);
+  }
 };
 
 // tomorrow shift notifications
 // should be run twice a  day
 const daily = async (req, res) => {
-  await notifyUsersOfUpcomingShifts();
-  await notifyUsersWithShiftFallingInCurrentDate();
+  try {
+    await notifyUsersOfUpcomingShifts();
+    await notifyUsersWithShiftFallingInCurrentDate();
 
-  res.send("Done!");
+    res.send("Done!");
+  } catch (err) {
+    console.log(err);
+    winston.error(err);
+  }
 };
 
 module.exports = {
