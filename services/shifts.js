@@ -16,6 +16,7 @@ const {
   notifyUsersViaPushNotifications,
 } = require("./notifications");
 const { notifyAdminUsers } = require("./admin");
+const GenerateInvoice = require("./generateInvoice");
 
 const SHIFT_STATUS = {
   PENDING: "PENDING",
@@ -157,19 +158,6 @@ const _handleClockIn = async (shiftInDb, req, res) => {
     return res
       .status(400)
       .send("Cannot clock you in at this time. It's not time yet.");
-
-  // const checkifWithinTimeFrame =
-  //   Date.now() >
-  //   recreatedShiftDateWithTime(
-  //     new Date(shiftInDb.date),
-  //     shiftInDb.time.start
-  //   ).getTime() -
-  //     MAX_CLOCK_IN_TIME;
-
-  // if (!checkifWithinTimeFrame)
-  //   return res
-  //     .status(400)
-  //     .send("Cannot clock you in at this time. It's not time yet.");
 
   const time = { ...shiftInDb.time };
   time.clockIn = `${new Date().getHours()}:${new Date().getMinutes()}`;
@@ -891,7 +879,7 @@ const updateUserShiftPayment = async (req, res) => {
 
           await payment.save();
 
-          var shift = await Shift.findById(shiftInfo._id);
+          const shift = await Shift.findById(shiftInfo._id);
           shift.admin.isPaid = true;
           shift.admin.receiptUrl = `${req.filePath}`;
           await shift.save();
@@ -915,6 +903,80 @@ const updateUserShiftPayment = async (req, res) => {
   });
 };
 
+const _calculateTotalAmount = (items) => {
+  if (!items) return;
+  return items
+    .map(({ totalPay, isChecked }) => (isChecked ? totalPay : 0))
+    .reduce((sum, i) => sum + i, 0)
+    .toFixed(2);
+};
+
+const _formatShiftForInvoice = (shifts) => {
+  return shifts.map((shift) => ({
+    description: shift.production,
+    place: shift.location,
+    role: "",
+    times: `${shift.time.clockIn} - ${shift.time.clockOut}`,
+    date: new Date(shift.date).toDateString(),
+    hours: shift.hours,
+    unitPrice: shift.outRate,
+    amount: shift.totalPay?.toFixed(2),
+  }));
+};
+
+const _getSiaLicenseNumber = (documents) => {
+  const siaDoc = documents.find((doc) => doc.type == "sia_license");
+  if (!siaDoc) return;
+  return { licenseNumber: siaDoc.doc_number, expiry: siaDoc.expiryDate };
+};
+
+const generateTimesheetInvoice = async (req, res) => {
+  try {
+    winston.info(
+      `ShiftService [generateTimesheetInvoice]: Received request for user => `,
+      req.body?.userId
+    );
+    const { userId, shifts } = req.body;
+    if (!userId) return res.status(400).send("Operation Failed.");
+
+    const userInfo = await User.findById(userId).select(
+      "name email utrNumber contact.address documents"
+    );
+
+    if (!userInfo) return res.status(400).send("Profile record not found");
+
+    const totalAmount = _calculateTotalAmount(shifts);
+
+    const siaDoc = _getSiaLicenseNumber(userInfo.documents);
+
+    const data = {
+      invoiceNumber: new Date().getTime(),
+      shifts: _formatShiftForInvoice(shifts),
+      subTotal: totalAmount,
+      total: totalAmount,
+      date: new Date().toDateString(),
+      userInfo: {
+        name: userInfo.getFullName(),
+        postCode: userInfo.contact.address.postCode,
+        utr: userInfo.utrNumber,
+        address: userInfo.getFullAddress(),
+        siaLicence: siaDoc && siaDoc.licenseNumber,
+        siaLicenseExpiry: siaDoc && siaDoc.expiry,
+      },
+    };
+
+    const invoicePath = await new GenerateInvoice().execute(data);
+    console.log(invoicePath);
+
+    // get user info
+  } catch (error) {
+    winston.error(
+      `ShiftService [generateTimesheetInvoice]: Error occured => ${error.message}`
+    );
+    res.status(500).send("Something unexpected happened");
+  }
+};
+
 module.exports = {
   SHIFT_STATUS,
   createShift,
@@ -931,4 +993,5 @@ module.exports = {
   updateMyShiftStatus,
   getDashboardDataForUser,
   manageClockInClockOut,
+  generateTimesheetInvoice,
 };
