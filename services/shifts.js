@@ -4,7 +4,7 @@ const { Contract } = require("../models/contract");
 const { Production } = require("../models/production");
 const { Employee: User } = require("../models/employee"); // Using User schema in the user route
 const winston = require("winston");
-const { uploadReceiptDocument } = require("../functions/uploadInvoice");
+const { uploadReceiptDocument } = require("../functions/uploadPaymentReceipt");
 const { Payment } = require("../models/payments");
 const {
   isDateEqual,
@@ -917,10 +917,16 @@ const _formatShiftForInvoice = (shifts) => {
     place: shift.location,
     role: "",
     times: `${shift.time.clockIn} - ${shift.time.clockOut}`,
-    date: new Date(shift.date).toDateString(),
+    date: new Date(shift.date).toLocaleDateString(),
     hours: shift.hours,
     unitPrice: shift.outRate,
     amount: shift.totalPay?.toFixed(2),
+    meal: shift.meal || 0,
+    milleage: shift.milleage || 0,
+    accommodation: shift.accommodation || 0,
+    perDiems: shift.perDiems || 0,
+    cc: 0,
+    ulex: 0,
   }));
 };
 
@@ -928,6 +934,30 @@ const _getSiaLicenseNumber = (documents) => {
   const siaDoc = documents.find((doc) => doc.type == "sia_license");
   if (!siaDoc) return;
   return { licenseNumber: siaDoc.doc_number, expiry: siaDoc.expiryDate };
+};
+
+const _getDataForGeneratingInvoice = (shifts, userInfo) => {
+  const totalAmount = _calculateTotalAmount(shifts);
+
+  const siaDoc = _getSiaLicenseNumber(userInfo.documents);
+
+  const data = {
+    invoiceNumber: new Date().getTime(),
+    shifts: _formatShiftForInvoice(shifts),
+    subTotal: totalAmount,
+    total: totalAmount,
+    date: new Date().toLocaleDateString(),
+    userInfo: {
+      name: userInfo.getFullName(),
+      postCode: userInfo.contact.address.postCode,
+      utr: userInfo.utrNumber,
+      address: userInfo.getFullAddress(),
+      siaLicense: siaDoc && siaDoc.licenseNumber,
+      siaLicenseExpiry: siaDoc && new Date(siaDoc.expiry).toLocaleDateString(),
+    },
+  };
+
+  return data;
 };
 
 const generateTimesheetInvoice = async (req, res) => {
@@ -945,29 +975,24 @@ const generateTimesheetInvoice = async (req, res) => {
 
     if (!userInfo) return res.status(400).send("Profile record not found");
 
-    const totalAmount = _calculateTotalAmount(shifts);
+    const invoiceGenerationData = _getDataForGeneratingInvoice(
+      shifts,
+      userInfo
+    );
 
-    const siaDoc = _getSiaLicenseNumber(userInfo.documents);
+    const invoiceGenerator = new GenerateInvoice();
+    const invoicePath = await invoiceGenerator.execute(invoiceGenerationData);
 
-    const data = {
-      invoiceNumber: new Date().getTime(),
-      shifts: _formatShiftForInvoice(shifts),
-      subTotal: totalAmount,
-      total: totalAmount,
-      date: new Date().toDateString(),
-      userInfo: {
-        name: userInfo.getFullName(),
-        postCode: userInfo.contact.address.postCode,
-        utr: userInfo.utrNumber,
-        address: userInfo.getFullAddress(),
-        siaLicence: siaDoc && siaDoc.licenseNumber,
-        siaLicenseExpiry: siaDoc && siaDoc.expiry,
-      },
-    };
+    if (!invoicePath.filename) {
+      return res
+        .status(500)
+        .send("Error generating invoice. Please try again.");
+    }
 
-    const invoicePath = await new GenerateInvoice().execute(data);
-    console.log(invoicePath);
+    // upload invoice to digital storage
+    await invoiceGenerator.uploadInvoice(invoicePath.filename);
 
+    res.status(200).send("Invoice generated successfully");
     // get user info
   } catch (error) {
     winston.error(

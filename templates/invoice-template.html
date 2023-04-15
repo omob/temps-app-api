@@ -8,12 +8,12 @@
 
 <style>
     table td {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     table th {
         text-transform: uppercase;
-        font-size: 14px;
+        font-size: 12px;
     }
 
     table thead {
@@ -27,38 +27,30 @@
     #username {
         position: absolute;
         bottom: -15px;
-        font-size: 20px
+        font-size: 18px
     }
 
     #invoice-wrapper {
         width: 100%;
+        max-width: 100%;
         margin-top: 20px;
         border-spacing: 0px;
         border: 1px solid;
     }
 
-    #invoice-wrapper thead {
-        background-color: #000;
+
+    #invoice-wrapper .tr-style:nth-child(even) {
+        background-color: #383838;
         color: #fff
     }
 
     #invoice-wrapper td,
     th {
-        padding: 10px;
-    }
-
-    #invoice-wrapper tr:even {
-        background-color: #000;
-        padding: 30px;
-    }
-
-    #invoice-wrapper th {
-        background-color: #000;
-        color: #fff;
+        padding: 5px;
     }
 
     .bg-deep {
-        background-color: #000;
+        background-color: #000000;
         color: #fff;
     }
 
@@ -77,8 +69,10 @@
 
     #billToTable thead {
         text-align: left;
-        background-color: #000;
-        color: #fff;
+    }
+
+    .f-10 {
+        font-size: 10px;
     }
 
     .f-12 {
@@ -158,8 +152,8 @@
         </tbody>
     </table>
     <br />
-    <table id="billToTable" style="width: 100%">
-        <thead>
+    <table id="billToTable" style="width: 100%" class="no-border-spacing">
+        <thead class="bg-deep">
             <tr>
                 <th class="p-5"> Bill to </th>
                 <th class="p-5">Customer ID </th>
@@ -183,14 +177,21 @@
     </table>
 
 
-    <table id="invoice-wrapper">
-        <thead>
+    <table id="invoice-wrapper" style="width: 100%" class="no-border-spacing">
+        <thead class="bg-deep">
             <tr>
-                <td>DESCRIPTION</td>
-                <td>PLACE</td>
-                <td>ROLE</td>
-                <td>TIMES</td>
                 <td>DATE</td>
+                <td>DESC</td>
+                <td>PLACE</td>
+                <td>TIMES</td>
+
+                <td>MA</td> <!-- Meal -->
+                <td>ML</td> <!-- Milleage -->
+                <td>ACC</td> <!-- Accomodation -->
+                <td>P/D</td> <!-- PierDiems -->
+                <td>CC</td> <!-- CongestionCharge -->
+                <td>UL</td> <!-- Ulez -->
+
                 <td>HOURS</td>
                 <td>UNIT PRICE</td>
                 <td>AMOUNT</td>
@@ -198,12 +199,19 @@
         </thead>
         <tbody>
             {{#each shifts}}
-            <tr>
+            <tr class="tr-style">
+                <td>{{this.date}}</td>
                 <td>{{this.description}}</td>
                 <td>{{this.place}}</td>
-                <td>{{this.role}}</td>
                 <td>{{this.times}}</td>
-                <td>{{this.date}}</td>
+
+                <td>{{this.meal}}</td>
+                <td>{{this.milleage}}</td>
+                <td>{{this.accommodation}}</td>
+                <td>{{this.perDiems}}</td>
+                <td>{{this.cc}}</td>
+                <td>{{this.ulex}}</td>
+
                 <td>{{this.hours}}</td>
                 <td>{{this.unitPrice}}</td>
                 <td>{{this.amount}}</td>
@@ -214,30 +222,43 @@
             <tr>
                 <td> </td>
             </tr>
+
             <tr style="border: 1px solid">
-                <td colspan=5>
+                <td colspan=7>
                     <p style="text-align: center; font-style: italic"> Thank you for your business </p>
                 </td>
-                <span class="bg-deep">
-                    <th class="f-12" style="text-align: right"> SubTotal</th>
-                    <th colspan=2 class="f-12" style="text-align: right"> {{subTotal}}</th>
-                </span>
+                <td colspan=3>
+                <th class="f-12 bg-deep" style="text-align: right"> SubTotal</th>
+                <th colspan=2 class="f-12 bg-deep" style="text-align: right"> {{subTotal}}</th>
+                </td>
+
             </tr>
             <tr>
-                <td colspan=5> <!-- Empty --> </td>
-                <span class="bg-deep">
-                    <th style="text-align: right"> Total</th>
-                    <th colspan=2 style="font-size: 18px; text-align: right"> £ {{total}}</th>
-                </span>
+                <td colspan=7> <!-- Empty --> </td>
+
+                <td colspan=3>
+                <th class="f-12 bg-deep" style="text-align: right"> Total</th>
+                <th class="bg-deep" colspan=2 style="font-size: 18px; text-align: right"> £ {{total}} </th>
+                </td>
             </tr>
 
             <tr>
                 <td> </td>
             </tr>
 
+            <tr>
+                <td colspan=100 class="f-10">
+                    MA: Meal Allowance <br />
+                    ML: Milleage <br />
+                    ACC: Accommodation <br />
+                    P/D: Per Diem <br />
+                    CC: Congestion Charge Zone <br />
+                    UL: Ulez <br />
+                </td>
+            </tr>
             <tr style="width: 100%">
-                <td colspan=8>
-                    <div id="t_and_c" class="p-5 f-12 text-center m-auto w-80">
+                <td colspan="100">
+                    <div id="t_and_c" class="p-5 f-10 text-center m-auto w-80">
                         <p> I confirm that the details in this invoice are all correct and up to date. As a self-employed individual, I am personally and fully responsible for the payment of any tax, national insurance, and VAT that arises from this invoice. </p>
                     </div>
                 </td>

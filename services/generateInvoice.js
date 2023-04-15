@@ -1,9 +1,12 @@
 const pdf = require("pdf-creator-node");
 const fs = require("fs");
 const path = require("path");
+const FileStorage = require("../functions/file-storage");
 
+const fileStorage = new FileStorage();
 class GenerateInvoice {
   invoicePath = path.join(__dirname, "../resources/uploads/staff/invoices");
+  invoiceUploadPath = "resources/uploads/staff/invoices";
 
   invoiceOptions = {
     format: "A3",
@@ -37,6 +40,19 @@ class GenerateInvoice {
     } catch (err) {
       console.error(err);
     }
+  }
+
+  async uploadInvoice(filePath) {
+    fs.readFile(filePath, async (err, data) => {
+      if (err) throw new Error(err);
+
+      const keyPath = this.invoiceUploadPath;
+
+      const extName = path.extname(filePath).toLowerCase();
+      const spacePath = `invoice-${Date.now()}${extName}`;
+
+      await fileStorage.upload(keyPath, spacePath, data, "public-read");
+    });
   }
 }
 
