@@ -38,14 +38,15 @@ class FileStorage {
   async upload(path, key, body, mode) {
     try {
       const params = this.#getParams(path, key, body, mode);
-
       const data = await this.#client.send(new PutObjectCommand(params));
-      console.log(
+      winston.info(
         "Successfully uploaded object: " + params.Bucket + "/" + params.Key
       );
-      return data;
+
+      const fileUploadPath = `${this.#spaceBaseUrl}/${path}/${key}`;
+      return { fileUploadPath, data };
     } catch (err) {
-      console.log("Error", err);
+      winston.error(`FileStorage [upload]: Error occured => ${err}`);
     }
   }
 

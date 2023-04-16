@@ -17,6 +17,7 @@ const {
 } = require("./notifications");
 const { notifyAdminUsers } = require("./admin");
 const GenerateInvoice = require("./generateInvoice");
+const { Mongoose } = require("mongoose");
 
 const SHIFT_STATUS = {
   PENDING: "PENDING",
@@ -484,7 +485,7 @@ const _mapShiftToUi = (shift) => {
   return shiftObject;
 };
 
-const getAllShifts = async (req, res) => {
+const getAllShifts = async (_req, res) => {
   const allShifts = await Shift.find({})
     .populate({ path: "contractInfo.contract", select: "name" })
     .populate({ path: "contractInfo.production", select: "name locations" })
@@ -625,7 +626,7 @@ const deleteShift = async (req, res) => {
   res.status(204).send("Deleted");
 };
 
-const getAllShiftsDetails = async (req, res) => {
+const getAllShiftsDetails = async (_req, res) => {
   const allShifts = await Shift.find({})
     .populate({ path: "contractInfo.contract", select: "name" })
     .populate({ path: "contractInfo.production", select: "name locations" })
@@ -859,8 +860,7 @@ const updateUserShiftConfirmation = async (req, res) => {
 const updateUserShiftPayment = async (req, res) => {
   uploadReceiptDocument(req, res, async (err) => {
     if (err) return res.status(500).json({ success: false, message: err });
-    // if (req.file === undefined)
-    //   return res.json({ success: false, message: "No file uploaded" });
+
     const { shiftsInfo, note } = req.body;
     try {
       await Promise.all(
@@ -942,7 +942,7 @@ const _getDataForGeneratingInvoice = (shifts, userInfo) => {
   const siaDoc = _getSiaLicenseNumber(userInfo.documents);
 
   const data = {
-    invoiceNumber: new Date().getTime(),
+    invoiceNumber: new Mongoose().Types.ObjectId(),
     shifts: _formatShiftForInvoice(shifts),
     subTotal: totalAmount,
     total: totalAmount,
@@ -958,6 +958,29 @@ const _getDataForGeneratingInvoice = (shifts, userInfo) => {
   };
 
   return data;
+};
+
+const updateInvoiceDetailInDb = async (shifts, invoiceUrl, invoiceNumber) => {
+  try {
+    await Promise.all(
+      shifts.map(async (shiftInfo) => {
+        const shift = await Shift.findById(shiftInfo._id);
+        shift.invoice.id = invoiceNumber;
+        shift.invoice.url = invoiceUrl;
+
+        await shift.save();
+
+        winston.info(
+          `Updated Shift Invoice in DB. InvoiceNumber =>  ${invoiceNumber}`
+        );
+      })
+    );
+  } catch (err) {
+    winston.error(
+      `Error occured updating invoice in DB. InvoiceNumber =>  ${invoiceNumber}`
+    );
+    throw err;
+  }
 };
 
 const generateTimesheetInvoice = async (req, res) => {
@@ -990,9 +1013,23 @@ const generateTimesheetInvoice = async (req, res) => {
     }
 
     // upload invoice to digital storage
-    await invoiceGenerator.uploadInvoice(invoicePath.filename);
+    const result = await invoiceGenerator.uploadInvoice(
+      invoicePath.filename,
+      userId
+    );
 
-    res.status(200).send("Invoice generated successfully");
+    // upload invoice to shift information
+    await updateInvoiceDetailInDb(
+      shifts,
+      result.fileUploadPath,
+      invoiceGenerationData.invoiceNumber
+    );
+
+    res.status(200).send({
+      message: "Invoice generated successfully",
+      url: result.fileUploadPath,
+    });
+
     // get user info
   } catch (error) {
     winston.error(

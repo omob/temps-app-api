@@ -702,3 +702,143 @@
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-15T20:21:25.382Z"}
 {"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-15T20:21:42.897Z"}
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-15T20:21:44.643Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T16:29:29.910Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T16:29:31.921Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T16:31:11.983Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T16:31:13.990Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T16:31:29.800Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T16:31:31.534Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T16:33:19.595Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T16:33:21.598Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T16:34:41.676Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T16:34:43.703Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T16:36:55.969Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T16:36:57.948Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T16:39:27.990Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T16:39:30.042Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T16:40:08.014Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T16:40:09.739Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T16:40:25.179Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T16:40:26.897Z"}
+{"level":"info","message":"ShiftService [generateTimesheetInvoice]: Received request for user =>  6255de97f3ff0700118e70b1","timestamp":"2023-04-16T16:40:43.565Z"}
+{"level":"info","message":"Successfully uploaded object: mls-storage/resources/uploads/staff/invoices/6255de97f3ff0700118e70b1-1681663245742.pdf","timestamp":"2023-04-16T16:40:46.324Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T16:42:05.591Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T16:42:08.352Z"}
+{"level":"info","message":"ShiftService [generateTimesheetInvoice]: Received request for user =>  6255de97f3ff0700118e70b1","timestamp":"2023-04-16T16:42:15.143Z"}
+{"level":"info","message":"Successfully uploaded object: mls-storage/resources/uploads/staff/invoices/6255de97f3ff0700118e70b1-1681663337147.pdf","timestamp":"2023-04-16T16:42:17.721Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T16:48:56.789Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T16:48:59.571Z"}
+{"level":"info","message":"ShiftService [generateTimesheetInvoice]: Received request for user =>  6255de97f3ff0700118e70b1","timestamp":"2023-04-16T16:49:03.139Z"}
+{"level":"info","message":"Successfully uploaded object: mls-storage/resources/uploads/staff/invoices/6255de97f3ff0700118e70b1-1681663745034.pdf","timestamp":"2023-04-16T16:49:05.639Z"}
+{"level":"error","message":"Error uploading file resources/uploads/staff/invoices => ReferenceError: spaceBaseUrl is not defined","timestamp":"2023-04-16T16:49:05.639Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T16:50:36.742Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T16:50:41.833Z"}
+{"level":"info","message":"ShiftService [generateTimesheetInvoice]: Received request for user =>  6255de97f3ff0700118e70b1","timestamp":"2023-04-16T16:50:51.921Z"}
+{"level":"info","message":"Successfully uploaded object: mls-storage/resources/uploads/staff/invoices/6255de97f3ff0700118e70b1-1681663853796.pdf","timestamp":"2023-04-16T16:50:54.361Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T16:52:23.919Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T16:52:25.930Z"}
+{"level":"info","message":"ShiftService [generateTimesheetInvoice]: Received request for user =>  6255de97f3ff0700118e70b1","timestamp":"2023-04-16T16:52:33.662Z"}
+{"level":"info","message":"Successfully uploaded object: mls-storage/resources/uploads/staff/invoices/6255de97f3ff0700118e70b1-1681663955531.pdf","timestamp":"2023-04-16T16:52:36.927Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T16:53:16.553Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T16:53:18.291Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T16:56:11.663Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T16:56:13.658Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T16:57:50.735Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T16:57:52.715Z"}
+{"level":"info","message":"ShiftService [generateTimesheetInvoice]: Received request for user =>  6255de97f3ff0700118e70b1","timestamp":"2023-04-16T16:58:06.052Z"}
+{"level":"info","message":"Successfully uploaded object: mls-storage/resources/uploads/staff/invoices/6255de97f3ff0700118e70b1-1681664288685.pdf","timestamp":"2023-04-16T16:58:09.727Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T16:58:29.403Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T16:58:31.191Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T16:58:52.358Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T16:58:54.216Z"}
+{"level":"info","message":"ShiftService [generateTimesheetInvoice]: Received request for user =>  6255de97f3ff0700118e70b1","timestamp":"2023-04-16T16:58:58.911Z"}
+{"level":"info","message":"Successfully uploaded object: mls-storage/resources/uploads/staff/invoices/6255de97f3ff0700118e70b1-1681664340743.pdf","timestamp":"2023-04-16T16:59:01.337Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T17:01:43.240Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T17:01:45.304Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T17:02:47.828Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T17:02:49.754Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T17:03:18.246Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T17:03:20.152Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T17:03:24.566Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T17:03:26.325Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T17:03:31.169Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T17:03:32.938Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T17:04:16.115Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T17:04:18.375Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T17:04:32.016Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T17:04:33.725Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T17:10:15.954Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T17:10:17.953Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T17:10:52.886Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T17:10:54.634Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T17:11:36.421Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T17:11:38.472Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T17:11:52.586Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T17:11:54.385Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T17:12:15.299Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T17:12:17.011Z"}
+{"level":"info","message":"ShiftService [generateTimesheetInvoice]: Received request for user =>  6255de97f3ff0700118e70b1","timestamp":"2023-04-16T17:12:32.361Z"}
+{"level":"error","message":"GenerateInvoice [uploadInvoice]: Error occurred: util.promisify is not a function","timestamp":"2023-04-16T17:12:34.335Z"}
+{"level":"error","message":"ShiftService [generateTimesheetInvoice]: Error occured => util.promisify is not a function","timestamp":"2023-04-16T17:12:34.335Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T17:16:12.764Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T17:16:14.811Z"}
+{"level":"info","message":"ShiftService [generateTimesheetInvoice]: Received request for user =>  6255de97f3ff0700118e70b1","timestamp":"2023-04-16T17:16:25.193Z"}
+{"level":"info","message":"Successfully uploaded object: mls-storage/resources/uploads/staff/invoices/6255de97f3ff0700118e70b1-1681665387047.pdf","timestamp":"2023-04-16T17:16:27.821Z"}
+{"fileUploadPath":"https://mls-storage.ams3.digitaloceanspaces.com/resources/uploads/staff/invoices/6255de97f3ff0700118e70b1-1681665387047.pdf","data":{"$metadata":{"httpStatusCode":200,"attempts":1,"totalRetryDelay":0},"ETag":"\"a4787d2e97b87749dc14d503555031ef\""},"level":"info","message":"GenerateInvoice [uploadInvoice] => upload response","timestamp":"2023-04-16T17:16:27.832Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T17:18:05.873Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T17:18:07.862Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T17:18:08.682Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T17:18:11.112Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T17:19:46.617Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T17:19:48.645Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T17:21:56.653Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T17:21:58.621Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T17:23:57.601Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T17:23:59.594Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T17:25:03.290Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T17:25:05.208Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T17:42:51.856Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T17:42:53.890Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T17:43:00.162Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T17:43:01.918Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T17:44:48.310Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T17:44:50.303Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T18:32:13.076Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T18:32:15.210Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T18:33:56.476Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T18:33:58.481Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T18:36:46.535Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T18:36:48.560Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T19:43:42.327Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T19:43:44.232Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T20:18:36.431Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T20:18:38.356Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T20:18:39.045Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T20:18:40.684Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T20:18:42.497Z"}
+{"level":"info","message":"ShiftService [generateTimesheetInvoice]: Received request for user =>  62363982be80b200119d6e8d","timestamp":"2023-04-16T20:19:35.936Z"}
+{"level":"error","message":"ShiftService [generateTimesheetInvoice]: Error occured => mongoose is not defined","timestamp":"2023-04-16T20:19:36.131Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T20:20:03.433Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T20:20:05.421Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T20:20:10.882Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T20:20:13.291Z"}
+{"level":"info","message":"ShiftService [generateTimesheetInvoice]: Received request for user =>  62363982be80b200119d6e8d","timestamp":"2023-04-16T20:20:15.615Z"}
+{"level":"error","message":"ShiftService [generateTimesheetInvoice]: Error occured => Cannot read properties of undefined (reading 'ObjectId')","timestamp":"2023-04-16T20:20:15.814Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T20:20:29.181Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T20:20:30.928Z"}
+{"level":"info","message":"ShiftService [generateTimesheetInvoice]: Received request for user =>  62363982be80b200119d6e8d","timestamp":"2023-04-16T20:20:40.124Z"}
+{"level":"info","message":"Successfully uploaded object: mls-storage/resources/uploads/staff/invoices/62363982be80b200119d6e8d-1681676442252.pdf","timestamp":"2023-04-16T20:20:42.856Z"}
+{"fileUploadPath":"https://mls-storage.ams3.digitaloceanspaces.com/resources/uploads/staff/invoices/62363982be80b200119d6e8d-1681676442252.pdf","data":{"$metadata":{"httpStatusCode":200,"attempts":1,"totalRetryDelay":0},"ETag":"\"85c08bb9c81412c932f652a27d77ae39\""},"level":"info","message":"GenerateInvoice [uploadInvoice] => upload response","timestamp":"2023-04-16T20:20:42.856Z"}
+{"level":"info","message":"Updated Shift Invoice in DB. InvoiceNumber =>  643c589820c89d2c51adc800","timestamp":"2023-04-16T20:20:43.261Z"}
+{"level":"info","message":"Updated Shift Invoice in DB. InvoiceNumber =>  643c589820c89d2c51adc800","timestamp":"2023-04-16T20:20:43.263Z"}
+{"level":"info","message":"Updated Shift Invoice in DB. InvoiceNumber =>  643c589820c89d2c51adc800","timestamp":"2023-04-16T20:20:43.264Z"}
+{"level":"info","message":"Updated Shift Invoice in DB. InvoiceNumber =>  643c589820c89d2c51adc800","timestamp":"2023-04-16T20:20:43.267Z"}
+{"level":"info","message":"ShiftService [generateTimesheetInvoice]: Received request for user =>  62363982be80b200119d6e8d","timestamp":"2023-04-16T20:43:15.694Z"}
+{"level":"info","message":"Successfully uploaded object: mls-storage/resources/uploads/staff/invoices/62363982be80b200119d6e8d-1681677797638.pdf","timestamp":"2023-04-16T20:43:18.272Z"}
+{"fileUploadPath":"https://mls-storage.ams3.digitaloceanspaces.com/resources/uploads/staff/invoices/62363982be80b200119d6e8d-1681677797638.pdf","data":{"$metadata":{"httpStatusCode":200,"attempts":1,"totalRetryDelay":0},"ETag":"\"faddc7b7d1b477b75f31ed0e8d9bdde7\""},"level":"info","message":"GenerateInvoice [uploadInvoice] => upload response","timestamp":"2023-04-16T20:43:18.273Z"}
+{"level":"info","message":"Updated Shift Invoice in DB. InvoiceNumber =>  643c5de320c89d2c51adc801","timestamp":"2023-04-16T20:43:18.664Z"}
+{"level":"info","message":"Updated Shift Invoice in DB. InvoiceNumber =>  643c5de320c89d2c51adc801","timestamp":"2023-04-16T20:43:18.692Z"}
+{"level":"info","message":"Updated Shift Invoice in DB. InvoiceNumber =>  643c5de320c89d2c51adc801","timestamp":"2023-04-16T20:43:18.692Z"}
+{"level":"info","message":"Updated Shift Invoice in DB. InvoiceNumber =>  643c5de320c89d2c51adc801","timestamp":"2023-04-16T20:43:18.692Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T23:23:46.004Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T23:23:48.107Z"}

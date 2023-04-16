@@ -2,11 +2,14 @@ const pdf = require("pdf-creator-node");
 const fs = require("fs");
 const path = require("path");
 const FileStorage = require("../functions/file-storage");
+const winston = require("winston");
+const util = require("util");
 
 const fileStorage = new FileStorage();
 class GenerateInvoice {
   invoicePath = path.join(__dirname, "../resources/uploads/staff/invoices");
   invoiceUploadPath = "resources/uploads/staff/invoices";
+  invoiceTemplatePath = "../templates/invoice-template.html";
 
   invoiceOptions = {
     format: "A3",
@@ -24,10 +27,7 @@ class GenerateInvoice {
 
   execute(data) {
     try {
-      const templatePath = path.join(
-        __dirname,
-        "../templates/invoice-template.html"
-      );
+      const templatePath = path.join(__dirname, this.invoiceTemplatePath);
       const template = fs.readFileSync(templatePath, "utf8");
 
       const document = {
@@ -38,21 +38,39 @@ class GenerateInvoice {
       };
       return pdf.create(document, this.invoiceOptions);
     } catch (err) {
-      console.error(err);
+      winston.error(
+        `GenerateInvoice [execute]: Error occured generating invoice =>  ${err}`
+      );
     }
   }
 
-  async uploadInvoice(filePath) {
-    fs.readFile(filePath, async (err, data) => {
-      if (err) throw new Error(err);
+  async uploadInvoice(filePath, userId) {
+    try {
+      const readFilePromise = util.promisify(fs.readFile);
 
+      const data = await readFilePromise(filePath);
       const keyPath = this.invoiceUploadPath;
 
       const extName = path.extname(filePath).toLowerCase();
-      const spacePath = `invoice-${Date.now()}${extName}`;
+      const spacePath = `${userId}-${Date.now()}${extName}`;
 
-      await fileStorage.upload(keyPath, spacePath, data, "public-read");
-    });
+      const response = await fileStorage.upload(
+        keyPath,
+        spacePath,
+        data,
+        "public-read"
+      );
+      winston.info(
+        "GenerateInvoice [uploadInvoice] => upload response",
+        response
+      );
+      return response;
+    } catch (err) {
+      winston.error(
+        "GenerateInvoice [uploadInvoice]: Error occurred: " + err.message
+      );
+      throw err;
+    }
   }
 }
 

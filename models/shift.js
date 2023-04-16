@@ -27,7 +27,7 @@ const shiftSchema = new Schema(
     perDiems: { type: Number },
     notes: { type: String },
     shiftOptions: { type: "array", default: [] },
-    preferredShiftOption: { type : String },
+    preferredShiftOption: { type: String },
     status: {
       type: String,
       enum: [
@@ -47,6 +47,12 @@ const shiftSchema = new Schema(
       isPaid: { type: Boolean },
       approvedBy: { type: Schema.Types.ObjectId, ref: "Employee" },
       receiptUrl: { type: String },
+    },
+    invoice: {
+      id: { type: String },
+      url: { type: String },
+      isApproved: { type: Boolean },
+      approvalNote: { type: String },
     },
     createdDate: { type: Date, default: new Date() },
   },
