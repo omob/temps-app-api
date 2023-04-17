@@ -11,6 +11,7 @@ const {
   recreatedShiftDateWithTime,
   calculateHours,
 } = require("../functions");
+
 const {
   sendEmailNotificationOnNewShift,
   notifyUsersViaPushNotifications,
@@ -1004,21 +1005,27 @@ const generateTimesheetInvoice = async (req, res) => {
     );
 
     const invoiceGenerator = new GenerateInvoice();
-    const invoicePath = await invoiceGenerator.execute(invoiceGenerationData);
+    const invoiceGeneratorResponse = await invoiceGenerator.execute(
+      invoiceGenerationData
+    );
 
-    if (!invoicePath.filename) {
+    if (!invoiceGeneratorResponse.filename) {
       return res
         .status(500)
         .send("Error generating invoice. Please try again.");
     }
 
+    const { filename: invoiceFilePath } = invoiceGeneratorResponse;
+
     // upload invoice to digital storage
     const result = await invoiceGenerator.uploadInvoice(
-      invoicePath.filename,
+      invoiceFilePath,
       userId
     );
 
-    // upload invoice to shift information
+    invoiceGenerator.deleteFileFromDisk(invoiceFilePath);
+
+    // update invoice details to shift information
     await updateInvoiceDetailInDb(
       shifts,
       result.fileUploadPath,

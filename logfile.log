@@ -842,3 +842,45 @@
 {"level":"info","message":"Updated Shift Invoice in DB. InvoiceNumber =>  643c5de320c89d2c51adc801","timestamp":"2023-04-16T20:43:18.692Z"}
 {"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-16T23:23:46.004Z"}
 {"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-16T23:23:48.107Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-17T17:39:34.715Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-17T17:39:36.863Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-17T17:40:01.868Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-17T17:40:03.568Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-17T17:42:25.504Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-17T17:42:27.526Z"}
+{"level":"info","message":"ShiftService [generateTimesheetInvoice]: Received request for user =>  62363982be80b200119d6e8d","timestamp":"2023-04-17T17:43:07.014Z"}
+{"level":"info","message":"Successfully uploaded object: mls-storage/resources/uploads/staff/invoices/62363982be80b200119d6e8d-1681753390316.pdf","timestamp":"2023-04-17T17:43:10.915Z"}
+{"fileUploadPath":"https://mls-storage.ams3.digitaloceanspaces.com/resources/uploads/staff/invoices/62363982be80b200119d6e8d-1681753390316.pdf","data":{"$metadata":{"httpStatusCode":200,"attempts":1,"totalRetryDelay":0},"ETag":"\"0cc3c7bdbfb6db71673a2ce7ca99bd56\""},"level":"info","message":"GenerateInvoice [uploadInvoice] => upload response","timestamp":"2023-04-17T17:43:10.916Z"}
+{"level":"info","message":"Updated Shift Invoice in DB. InvoiceNumber =>  643d852b94b34607a54324dd","timestamp":"2023-04-17T17:43:11.301Z"}
+{"level":"info","message":"Updated Shift Invoice in DB. InvoiceNumber =>  643d852b94b34607a54324dd","timestamp":"2023-04-17T17:43:11.303Z"}
+{"level":"info","message":"Updated Shift Invoice in DB. InvoiceNumber =>  643d852b94b34607a54324dd","timestamp":"2023-04-17T17:43:11.308Z"}
+{"level":"info","message":"Updated Shift Invoice in DB. InvoiceNumber =>  643d852b94b34607a54324dd","timestamp":"2023-04-17T17:43:11.310Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-17T17:45:15.017Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-17T17:45:16.984Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-17T17:46:57.456Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-17T17:46:59.429Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-17T17:47:26.611Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-17T17:47:28.328Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-17T17:47:54.278Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-17T17:47:56.028Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-17T17:48:10.471Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-17T17:48:12.372Z"}
+{"level":"info","message":"ShiftService [generateTimesheetInvoice]: Received request for user =>  62363982be80b200119d6e8d","timestamp":"2023-04-17T17:48:49.865Z"}
+{"level":"info","message":"Successfully uploaded object: mls-storage/resources/uploads/staff/invoices/62363982be80b200119d6e8d-1681753732242.pdf","timestamp":"2023-04-17T17:48:52.850Z"}
+{"fileUploadPath":"https://mls-storage.ams3.digitaloceanspaces.com/resources/uploads/staff/invoices/62363982be80b200119d6e8d-1681753732242.pdf","data":{"$metadata":{"httpStatusCode":200,"attempts":1,"totalRetryDelay":0},"ETag":"\"7391720da08fb100c22f48eabc21944c\""},"level":"info","message":"GenerateInvoice [uploadInvoice] => upload response","timestamp":"2023-04-17T17:48:52.851Z"}
+{"level":"error","message":"ShiftService [generateTimesheetInvoice]: Error occured => fs is not defined","timestamp":"2023-04-17T17:48:52.851Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-17T17:50:12.828Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-17T17:50:14.797Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-17T17:50:30.824Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-17T17:50:32.523Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-17T17:50:37.281Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-17T17:50:39.042Z"}
+{"level":"info","message":"Listening on port 3900...","timestamp":"2023-04-17T17:51:03.545Z"}
+{"level":"info","message":"Connected to Mongo Database","timestamp":"2023-04-17T17:51:05.447Z"}
+{"level":"info","message":"ShiftService [generateTimesheetInvoice]: Received request for user =>  62363982be80b200119d6e8d","timestamp":"2023-04-17T17:51:19.815Z"}
+{"level":"info","message":"Successfully uploaded object: mls-storage/resources/uploads/staff/invoices/62363982be80b200119d6e8d-1681753882171.pdf","timestamp":"2023-04-17T17:51:22.783Z"}
+{"fileUploadPath":"https://mls-storage.ams3.digitaloceanspaces.com/resources/uploads/staff/invoices/62363982be80b200119d6e8d-1681753882171.pdf","data":{"$metadata":{"httpStatusCode":200,"attempts":1,"totalRetryDelay":0},"ETag":"\"21452d1eb8d429efb8d189c88d0f1adb\""},"level":"info","message":"GenerateInvoice [uploadInvoice] => upload response","timestamp":"2023-04-17T17:51:22.783Z"}
+{"level":"info","message":"Updated Shift Invoice in DB. InvoiceNumber =>  643d8718a4a520098f6e6227","timestamp":"2023-04-17T17:51:23.149Z"}
+{"level":"info","message":"Updated Shift Invoice in DB. InvoiceNumber =>  643d8718a4a520098f6e6227","timestamp":"2023-04-17T17:51:23.150Z"}
+{"level":"info","message":"Updated Shift Invoice in DB. InvoiceNumber =>  643d8718a4a520098f6e6227","timestamp":"2023-04-17T17:51:23.151Z"}
+{"level":"info","message":"Updated Shift Invoice in DB. InvoiceNumber =>  643d8718a4a520098f6e6227","timestamp":"2023-04-17T17:51:23.155Z"}

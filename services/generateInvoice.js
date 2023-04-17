@@ -72,6 +72,15 @@ class GenerateInvoice {
       throw err;
     }
   }
+
+  deleteFileFromDisk = (filePath) => {
+    fs.unlink(filePath, (err) => {
+      if (err)
+        winston.error(
+          `Error deleting file from disk: ${err.message}. FilePath is ${filePath}`
+        );
+    });
+  };
 }
 
 module.exports = GenerateInvoice;
