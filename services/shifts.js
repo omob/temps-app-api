@@ -694,6 +694,7 @@ const getAllUserShifts = async (req, res) => {
           perDiems,
           cancellationFee,
           status,
+          invoice,
         }) => {
           let { production, location, outRate, contract } = contractInfo;
 
@@ -738,6 +739,7 @@ const getAllUserShifts = async (req, res) => {
             perDiems,
             cancellationFee,
             status,
+            invoice,
           };
         }
       )
