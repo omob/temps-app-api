@@ -353,7 +353,6 @@ const _getTotalPayable = (
 const userUpdateInvoice = async (req, res) => {
   const { invoiceId, status, note } = req.body;
 
-  console.log("SHift body", req.body);
   const shiftsInDb = await Shift.find({ "invoice.id": invoiceId });
   if (shiftsInDb.length == 0) return res.status(500).send("Operation failed");
 
@@ -1061,6 +1060,19 @@ const _updateInvoiceDetailInDb = async (shifts, invoiceUrl, invoiceNumber) => {
   }
 };
 
+const notifiyUserOnInvoice = async (expoPushTokens) => {
+  if (expoPushTokens) {
+    const pushData = {
+      pushTokens: expoPushTokens,
+      message: {
+        text: "An invoice has been generated for your review",
+        title: "Invoice Available",
+      },
+    };
+    await notifyUsersViaPushNotifications(Array.of(pushData));
+  }
+};
+
 const generateTimesheetInvoice = async (req, res) => {
   try {
     winston.info(
@@ -1071,7 +1083,7 @@ const generateTimesheetInvoice = async (req, res) => {
     if (!userId) return res.status(400).send("Operation Failed.");
 
     const userInfo = await User.findById(userId).select(
-      "name email utrNumber contact.address documents"
+      "name email utrNumber contact.address documents expoPushTokens"
     );
 
     if (!userInfo) return res.status(400).send("Profile record not found");
@@ -1109,6 +1121,7 @@ const generateTimesheetInvoice = async (req, res) => {
       invoiceGenerationData.invoiceNumber
     );
 
+    await notifiyUserOnInvoice(userInfo.expoPushTokens);
     res.status(200).send({
       message: "Invoice generated successfully",
       url: result.fileUploadPath,
