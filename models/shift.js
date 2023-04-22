@@ -52,7 +52,7 @@ const shiftSchema = new Schema(
       id: { type: String },
       url: { type: String },
       isApproved: { type: Boolean },
-      approvalNote: { type: String },
+      note: { type: String },
     },
     createdDate: { type: Date, default: new Date() },
   },

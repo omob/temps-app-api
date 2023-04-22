@@ -52,7 +52,7 @@ class GenerateInvoice {
       const keyPath = this.invoiceUploadPath;
 
       const extName = path.extname(filePath).toLowerCase();
-      const spacePath = `${userId}-${Date.now()}${extName}`;
+      const spacePath = `MLS-${userId}-${Date.now()}${extName}`;
 
       const response = await fileStorage.upload(
         keyPath,

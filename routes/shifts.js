@@ -18,10 +18,13 @@ router.put("/me/manageClockInClockOut", auth, (req, res) => {
 });
 
 // mobile app
+router.put("/me/shift-invoice", auth, (req, res) => {
+  shiftsServices.userUpdateInvoice(req, res); // updates invoice detail
+});
+
 router.get("/me/dashboard", auth, (req, res) => {
   shiftsServices.getDashboardDataForUser(req, res); // gets data for mobile home screen
 });
-
 // ADMIN ROUTES //
 router.post("/", auth, admin, (req, res) => {
   shiftsServices.createShift(req, res);

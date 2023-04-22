@@ -66,6 +66,7 @@ const getAllMyShifts = async (req, res) => {
           status,
           shiftOptions,
           preferredShiftOption,
+          invoice,
         }) => {
           let { production, location, outRate, contract, position } =
             contractInfo;
@@ -75,6 +76,16 @@ const getAllMyShifts = async (req, res) => {
               location = loc;
             }
           });
+
+          let totalPayable = _getTotalPayable(
+            time,
+            outRate,
+            status,
+            milleage,
+            meal,
+            accommodation,
+            perDiems
+          );
 
           return {
             _id,
@@ -92,12 +103,14 @@ const getAllMyShifts = async (req, res) => {
               perDiems,
               shiftOptions,
               preferredShiftOption,
+              invoice,
             },
             time,
             hours: calculateHours(time.start, time.end),
             date,
             employeesInSameShifts: [],
             notes,
+            totalPayable,
           };
         }
       )
@@ -256,6 +269,16 @@ const getDashboardDataForUser = async (req, res) => {
           }
         });
 
+        const totalPayable = _getTotalPayable(
+          time,
+          outRate,
+          status,
+          milleage,
+          meal,
+          accommodation,
+          perDiems
+        );
+
         return {
           _id,
           status,
@@ -278,6 +301,7 @@ const getDashboardDataForUser = async (req, res) => {
           notes,
           shiftOptions,
           preferredShiftOption,
+          totalPayable: totalPayable,
         };
       }
     );
@@ -296,9 +320,60 @@ const getDashboardDataForUser = async (req, res) => {
     const openShifts = [];
     res.send({ data: { pendingRequests, upcomingShifts, openShifts } });
   } catch (err) {
+    console.error(err);
     winston.error(
       "SOMETHING WRONG HAPPENED: USER ROUTE - shifts/me/dashboard -getDashboardDataForUser()",
       err.message
+    );
+    res.status(500).send(err.message);
+  }
+};
+
+const _getTotalPayable = (
+  time,
+  outRate,
+  status,
+  milleage,
+  meal,
+  accommodation,
+  perDiems
+) => {
+  const hours = calculateHours(time.clockIn, time.clockOut);
+  let totalHoursPay = +outRate * hours;
+
+  let totalPay = totalHoursPay + milleage + meal + accommodation + perDiems;
+
+  if (status == SHIFT_STATUS.CANCELED) {
+    totalPay = cancellationFee;
+  }
+
+  return `£ ${totalPay}`;
+};
+
+const userUpdateInvoice = async (req, res) => {
+  const { invoiceId, status, note } = req.body;
+
+  console.log("SHift body", req.body);
+  const shiftsInDb = await Shift.find({ "invoice.id": invoiceId });
+  if (shiftsInDb.length == 0) return res.status(500).send("Operation failed");
+
+  try {
+    await Promise.all(
+      shiftsInDb.map(async (shift) => {
+        shift.invoice.isApproved = status === SHIFT_STATUS.ACCEPTED;
+        shift.invoice.note = note;
+
+        await shift.save();
+
+        winston.info(
+          `User updated Shift Invoice in DB. InvoiceNumber =>  ${invoiceId}`
+        );
+      })
+    );
+    res.status(200).send("Operation successful");
+  } catch (err) {
+    winston.error(
+      `Error occured updating invoice in DB. InvoiceNumber =>  ${invoiceId}`
     );
     res.status(500).send(err.message);
   }
@@ -963,7 +1038,7 @@ const _getDataForGeneratingInvoice = (shifts, userInfo) => {
   return data;
 };
 
-const updateInvoiceDetailInDb = async (shifts, invoiceUrl, invoiceNumber) => {
+const _updateInvoiceDetailInDb = async (shifts, invoiceUrl, invoiceNumber) => {
   try {
     await Promise.all(
       shifts.map(async (shiftInfo) => {
@@ -1028,7 +1103,7 @@ const generateTimesheetInvoice = async (req, res) => {
     invoiceGenerator.deleteFileFromDisk(invoiceFilePath);
 
     // update invoice details to shift information
-    await updateInvoiceDetailInDb(
+    await _updateInvoiceDetailInDb(
       shifts,
       result.fileUploadPath,
       invoiceGenerationData.invoiceNumber
@@ -1065,4 +1140,5 @@ module.exports = {
   getDashboardDataForUser,
   manageClockInClockOut,
   generateTimesheetInvoice,
+  userUpdateInvoice,
 };
