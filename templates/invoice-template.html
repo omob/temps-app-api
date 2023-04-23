@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>MLS Invoice</title>
+</head>
+
+<style>
+    table td {
+        font-size: 12px;
+    }
+
+    table th {
+        text-transform: uppercase;
+        font-size: 12px;
+    }
+
+    table thead {
+        font-weight: bold;
+    }
+
+    body {
+        padding: 10px;
+    }
+
+    #username {
+        position: absolute;
+        bottom: -15px;
+        font-size: 18px
+    }
+
+    #invoice-wrapper {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 20px;
+        border-spacing: 0px;
+        border: 1px solid;
+    }
+
+
+    #invoice-wrapper .tr-style:nth-child(even) {
+        background-color: #383838;
+        color: #fff
+    }
+
+    #invoice-wrapper td,
+    th {
+        padding: 5px;
+    }
+
+    .bg-deep {
+        background-color: #000000;
+        color: #fff;
+    }
+
+    .bold {
+        font-weight: bold;
+    }
+
+    a {
+        color: inherit;
+    }
+
+
+    #billToTable {
+        position: relative;
+    }
+
+    #billToTable thead {
+        text-align: left;
+    }
+
+    .f-10 {
+        font-size: 10px;
+    }
+
+    .f-12 {
+        font-size: 12px;
+    }
+
+    .text-right {
+        text-align: right;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .no-border-spacing {
+        border-spacing: 0px;
+    }
+
+    .p-5 {
+        padding: 5px;
+    }
+
+    .m-auto {
+        margin: auto;
+    }
+
+    .w-80 {
+        width: 80%;
+    }
+
+    #t_and_c {
+        font-style: italic;
+    }
+</style>
+
+<body>
+
+    <table style="width: 100%" class="no-border-spacing">
+        <thead>
+            <tr>
+                <td style="position: relative">
+                    <h3 id="username">{{userInfo.name}}</h3>
+                </td>
+                <td colspan="3" class="text-right">
+                    <img src="https://mls-storage.ams3.digitaloceanspaces.com/mls-logo.png" height="auto" width="80px" />
+                    <h2> MLS INVOICE </h2>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="width: 100%">
+                <td>
+            <tr>
+                <td> <span class="bold">Address:</span> {{userInfo.address}} </td>
+                <td style="width: 70px" class="text-center bg-deep p-5"> Invoice Reference</td>
+                <td class="bg-deep text-center"> Date </td>
+            </tr>
+            <tr>
+                <td> <span class="bold ">Postcode:</span> {{userInfo.postCode}} </td>
+                <td class="text-center">{{invoiceNumber}} </td>
+                <td class="text-center"> {{date}} </td>
+            </tr>
+            <tr>
+                <td> <span class="bold">UTR:</span> {{userInfo.utr}} </td>
+            </tr>
+            <tr>
+                <td> <span class="bold">SIA Licence:</span> {{userInfo.siaLicense}} </td>
+            </tr>
+            </td>
+            <td>
+                <tr>
+                    <td> <span class="bold">Expiry:</span> {{userInfo.siaLicenseExpiry}} </td>
+                </tr>
+            </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <br />
+    <table id="billToTable" style="width: 100%" class="no-border-spacing">
+        <thead class="bg-deep">
+            <tr>
+                <th class="p-5"> Bill to </th>
+                <th class="p-5">Customer ID </th>
+                <th class="p-5" style="width: 150px">Terms </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="position: relative">
+                <td style="line-height: 1.5em; padding-left: 8px">
+                    MLS Protection <br />
+                    Unit 2a, Newington Enterprise Centre <br />
+                    Wardwell Lane <br />
+                    07756 640947 <br />
+                    <a href="mailto:Invoices@mls-protection.co.uk">Invoices@mls-protection.co.uk</a>
+                </td>
+                <td style="position: absolute; top: 35px"> MLS </td> <!-- customerID -->
+                <td style="position: absolute; top: 35px; right: 30px">Monday Weekly <br />14 days after Invoice
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <table id="invoice-wrapper" style="width: 100%" class="no-border-spacing">
+        <thead class="bg-deep">
+            <tr>
+                <td>DATE</td>
+                <td>DESC</td>
+                <td>PLACE</td>
+                <td>TIMES</td>
+
+                <td>MA</td> <!-- Meal -->
+                <td>ML</td> <!-- Milleage -->
+                <td>ACC</td> <!-- Accomodation -->
+                <td>P/D</td> <!-- PierDiems -->
+                <td>CC</td> <!-- CongestionCharge -->
+                <td>UL</td> <!-- Ulez -->
+
+                <td>HOURS</td>
+                <td>UNIT PRICE</td>
+                <td>AMOUNT</td>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each shifts}}
+            <tr class="tr-style">
+                <td>{{this.date}}</td>
+                <td>{{this.description}}</td>
+                <td>{{this.place}}</td>
+                <td>{{this.times}}</td>
+
+                <td>{{this.meal}}</td>
+                <td>{{this.milleage}}</td>
+                <td>{{this.accommodation}}</td>
+                <td>{{this.perDiems}}</td>
+                <td>{{this.cc}}</td>
+                <td>{{this.ulex}}</td>
+
+                <td>{{this.hours}}</td>
+                <td>{{this.unitPrice}}</td>
+                <td>{{this.amount}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+        <tfooter>
+            <tr>
+                <td> </td>
+            </tr>
+
+            <tr style="border: 1px solid">
+                <td colspan=7>
+                    <p style="text-align: center; font-style: italic"> Thank you for your business </p>
+                </td>
+                <td colspan=3>
+                <th class="f-12 bg-deep" style="text-align: right"> SubTotal</th>
+                <th colspan=2 class="f-12 bg-deep" style="text-align: right"> {{subTotal}}</th>
+                </td>
+
+            </tr>
+            <tr>
+                <td colspan=7> <!-- Empty --> </td>
+
+                <td colspan=3>
+                <th class="f-12 bg-deep" style="text-align: right"> Total</th>
+                <th class="bg-deep" colspan=2 style="font-size: 18px; text-align: right"> £ {{total}} </th>
+                </td>
+            </tr>
+
+            <tr>
+                <td> </td>
+            </tr>
+
+            <tr>
+                <td colspan=100 class="f-10">
+                    MA: Meal Allowance <br />
+                    ML: Milleage <br />
+                    ACC: Accommodation <br />
+                    P/D: Per Diem <br />
+                    CC: Congestion Charge Zone <br />
+                    UL: Ulez <br />
+                </td>
+            </tr>
+            <tr style="width: 100%">
+                <td colspan="100">
+                    <div id="t_and_c" class="p-5 f-10 text-center m-auto w-80">
+                        <p> I confirm that the details in this invoice are all correct and up to date. As a self-employed individual, I am personally and fully responsible for the payment of any tax, national insurance, and VAT that arises from this invoice. </p>
+                    </div>
+                </td>
+            </tr>
+
+        </tfooter>
+    </table>
+
+
+</body>
+
+</html>

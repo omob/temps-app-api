@@ -127,6 +127,15 @@ employeeSchema.methods.comparePassword = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
 
+employeeSchema.methods.getFullName = function () {
+  return `${this.name.firstName} ${this.name.lastName}`;
+};
+
+employeeSchema.methods.getFullAddress = function () {
+  const address = this.contact.address;
+  return `${address.line1} ${address.line1}, ${address.city} ${address.county}`;
+};
+
 const Employee = mongoose.model("Employee", employeeSchema);
 
 module.exports = {

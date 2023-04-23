@@ -4,18 +4,21 @@ const { Contract } = require("../models/contract");
 const { Production } = require("../models/production");
 const { Employee: User } = require("../models/employee"); // Using User schema in the user route
 const winston = require("winston");
-const { uploadReceiptDocument } = require("../functions/uploadInvoice");
+const { uploadReceiptDocument } = require("../functions/uploadPaymentReceipt");
 const { Payment } = require("../models/payments");
 const {
   isDateEqual,
   recreatedShiftDateWithTime,
   calculateHours,
 } = require("../functions");
+
 const {
   sendEmailNotificationOnNewShift,
   notifyUsersViaPushNotifications,
 } = require("./notifications");
 const { notifyAdminUsers } = require("./admin");
+const GenerateInvoice = require("./generateInvoice");
+const { Mongoose } = require("mongoose");
 
 const SHIFT_STATUS = {
   PENDING: "PENDING",
@@ -63,6 +66,7 @@ const getAllMyShifts = async (req, res) => {
           status,
           shiftOptions,
           preferredShiftOption,
+          invoice,
         }) => {
           let { production, location, outRate, contract, position } =
             contractInfo;
@@ -72,6 +76,16 @@ const getAllMyShifts = async (req, res) => {
               location = loc;
             }
           });
+
+          let totalPayable = _getTotalPayable(
+            time,
+            outRate,
+            status,
+            milleage,
+            meal,
+            accommodation,
+            perDiems
+          );
 
           return {
             _id,
@@ -89,12 +103,14 @@ const getAllMyShifts = async (req, res) => {
               perDiems,
               shiftOptions,
               preferredShiftOption,
+              invoice,
             },
             time,
             hours: calculateHours(time.start, time.end),
             date,
             employeesInSameShifts: [],
             notes,
+            totalPayable,
           };
         }
       )
@@ -157,19 +173,6 @@ const _handleClockIn = async (shiftInDb, req, res) => {
     return res
       .status(400)
       .send("Cannot clock you in at this time. It's not time yet.");
-
-  // const checkifWithinTimeFrame =
-  //   Date.now() >
-  //   recreatedShiftDateWithTime(
-  //     new Date(shiftInDb.date),
-  //     shiftInDb.time.start
-  //   ).getTime() -
-  //     MAX_CLOCK_IN_TIME;
-
-  // if (!checkifWithinTimeFrame)
-  //   return res
-  //     .status(400)
-  //     .send("Cannot clock you in at this time. It's not time yet.");
 
   const time = { ...shiftInDb.time };
   time.clockIn = `${new Date().getHours()}:${new Date().getMinutes()}`;
@@ -266,6 +269,16 @@ const getDashboardDataForUser = async (req, res) => {
           }
         });
 
+        const totalPayable = _getTotalPayable(
+          time,
+          outRate,
+          status,
+          milleage,
+          meal,
+          accommodation,
+          perDiems
+        );
+
         return {
           _id,
           status,
@@ -288,6 +301,7 @@ const getDashboardDataForUser = async (req, res) => {
           notes,
           shiftOptions,
           preferredShiftOption,
+          totalPayable: totalPayable,
         };
       }
     );
@@ -306,9 +320,59 @@ const getDashboardDataForUser = async (req, res) => {
     const openShifts = [];
     res.send({ data: { pendingRequests, upcomingShifts, openShifts } });
   } catch (err) {
+    console.error(err);
     winston.error(
       "SOMETHING WRONG HAPPENED: USER ROUTE - shifts/me/dashboard -getDashboardDataForUser()",
       err.message
+    );
+    res.status(500).send(err.message);
+  }
+};
+
+const _getTotalPayable = (
+  time,
+  outRate,
+  status,
+  milleage,
+  meal,
+  accommodation,
+  perDiems
+) => {
+  const hours = calculateHours(time.clockIn, time.clockOut);
+  let totalHoursPay = +outRate * hours;
+
+  let totalPay = totalHoursPay + milleage + meal + accommodation + perDiems;
+
+  if (status == SHIFT_STATUS.CANCELED) {
+    totalPay = cancellationFee;
+  }
+
+  return `£ ${totalPay}`;
+};
+
+const userUpdateInvoice = async (req, res) => {
+  const { invoiceId, status, note } = req.body;
+
+  const shiftsInDb = await Shift.find({ "invoice.id": invoiceId });
+  if (shiftsInDb.length == 0) return res.status(500).send("Operation failed");
+
+  try {
+    await Promise.all(
+      shiftsInDb.map(async (shift) => {
+        shift.invoice.isApproved = status === SHIFT_STATUS.ACCEPTED;
+        shift.invoice.note = note;
+
+        await shift.save();
+
+        winston.info(
+          `User updated Shift Invoice in DB. InvoiceNumber =>  ${invoiceId}`
+        );
+      })
+    );
+    res.status(200).send("Operation successful");
+  } catch (err) {
+    winston.error(
+      `Error occured updating invoice in DB. InvoiceNumber =>  ${invoiceId}`
     );
     res.status(500).send(err.message);
   }
@@ -496,7 +560,7 @@ const _mapShiftToUi = (shift) => {
   return shiftObject;
 };
 
-const getAllShifts = async (req, res) => {
+const getAllShifts = async (_req, res) => {
   const allShifts = await Shift.find({})
     .populate({ path: "contractInfo.contract", select: "name" })
     .populate({ path: "contractInfo.production", select: "name locations" })
@@ -637,7 +701,7 @@ const deleteShift = async (req, res) => {
   res.status(204).send("Deleted");
 };
 
-const getAllShiftsDetails = async (req, res) => {
+const getAllShiftsDetails = async (_req, res) => {
   const allShifts = await Shift.find({})
     .populate({ path: "contractInfo.contract", select: "name" })
     .populate({ path: "contractInfo.production", select: "name locations" })
@@ -704,6 +768,7 @@ const getAllUserShifts = async (req, res) => {
           perDiems,
           cancellationFee,
           status,
+          invoice,
         }) => {
           let { production, location, outRate, contract } = contractInfo;
 
@@ -748,6 +813,7 @@ const getAllUserShifts = async (req, res) => {
             perDiems,
             cancellationFee,
             status,
+            invoice,
           };
         }
       )
@@ -871,8 +937,7 @@ const updateUserShiftConfirmation = async (req, res) => {
 const updateUserShiftPayment = async (req, res) => {
   uploadReceiptDocument(req, res, async (err) => {
     if (err) return res.status(500).json({ success: false, message: err });
-    // if (req.file === undefined)
-    //   return res.json({ success: false, message: "No file uploaded" });
+
     const { shiftsInfo, note } = req.body;
     try {
       await Promise.all(
@@ -891,7 +956,7 @@ const updateUserShiftPayment = async (req, res) => {
 
           await payment.save();
 
-          var shift = await Shift.findById(shiftInfo._id);
+          const shift = await Shift.findById(shiftInfo._id);
           shift.admin.isPaid = true;
           shift.admin.receiptUrl = `${req.filePath}`;
           await shift.save();
@@ -915,6 +980,162 @@ const updateUserShiftPayment = async (req, res) => {
   });
 };
 
+const _calculateTotalAmount = (items) => {
+  if (!items) return;
+  return items
+    .map(({ totalPay, isChecked }) => (isChecked ? totalPay : 0))
+    .reduce((sum, i) => sum + i, 0)
+    .toFixed(2);
+};
+
+const _formatShiftForInvoice = (shifts) => {
+  return shifts.map((shift) => ({
+    description: shift.production,
+    place: shift.location,
+    role: "",
+    times: `${shift.time.clockIn} - ${shift.time.clockOut}`,
+    date: new Date(shift.date).toLocaleDateString(),
+    hours: shift.hours,
+    unitPrice: shift.outRate,
+    amount: shift.totalPay?.toFixed(2),
+    meal: shift.meal || 0,
+    milleage: shift.milleage || 0,
+    accommodation: shift.accommodation || 0,
+    perDiems: shift.perDiems || 0,
+    cc: 0,
+    ulex: 0,
+  }));
+};
+
+const _getSiaLicenseNumber = (documents) => {
+  const siaDoc = documents.find((doc) => doc.type == "sia_license");
+  if (!siaDoc) return;
+  return { licenseNumber: siaDoc.doc_number, expiry: siaDoc.expiryDate };
+};
+
+const _getDataForGeneratingInvoice = (shifts, userInfo) => {
+  const totalAmount = _calculateTotalAmount(shifts);
+
+  const siaDoc = _getSiaLicenseNumber(userInfo.documents);
+
+  const data = {
+    invoiceNumber: new Mongoose().Types.ObjectId(),
+    shifts: _formatShiftForInvoice(shifts),
+    subTotal: totalAmount,
+    total: totalAmount,
+    date: new Date().toLocaleDateString(),
+    userInfo: {
+      name: userInfo.getFullName(),
+      postCode: userInfo.contact.address.postCode,
+      utr: userInfo.utrNumber,
+      address: userInfo.getFullAddress(),
+      siaLicense: siaDoc && siaDoc.licenseNumber,
+      siaLicenseExpiry: siaDoc && new Date(siaDoc.expiry).toLocaleDateString(),
+    },
+  };
+
+  return data;
+};
+
+const _updateInvoiceDetailInDb = async (shifts, invoiceUrl, invoiceNumber) => {
+  try {
+    await Promise.all(
+      shifts.map(async (shiftInfo) => {
+        const shift = await Shift.findById(shiftInfo._id);
+        shift.invoice.id = invoiceNumber;
+        shift.invoice.url = invoiceUrl;
+
+        await shift.save();
+
+        winston.info(
+          `Updated Shift Invoice in DB. InvoiceNumber =>  ${invoiceNumber}`
+        );
+      })
+    );
+  } catch (err) {
+    winston.error(
+      `Error occured updating invoice in DB. InvoiceNumber =>  ${invoiceNumber}`
+    );
+    throw err;
+  }
+};
+
+const notifiyUserOnInvoice = async (expoPushTokens) => {
+  if (expoPushTokens) {
+    const pushData = {
+      pushTokens: expoPushTokens,
+      message: {
+        text: "An invoice has been generated for your review",
+        title: "Invoice Available",
+      },
+    };
+    await notifyUsersViaPushNotifications(Array.of(pushData));
+  }
+};
+
+const generateTimesheetInvoice = async (req, res) => {
+  try {
+    winston.info(
+      `ShiftService [generateTimesheetInvoice]: Received request for user => `,
+      req.body?.userId
+    );
+    const { userId, shifts } = req.body;
+    if (!userId) return res.status(400).send("Operation Failed.");
+
+    const userInfo = await User.findById(userId).select(
+      "name email utrNumber contact.address documents expoPushTokens"
+    );
+
+    if (!userInfo) return res.status(400).send("Profile record not found");
+
+    const invoiceGenerationData = _getDataForGeneratingInvoice(
+      shifts,
+      userInfo
+    );
+
+    const invoiceGenerator = new GenerateInvoice();
+    const invoiceGeneratorResponse = await invoiceGenerator.execute(
+      invoiceGenerationData
+    );
+
+    if (!invoiceGeneratorResponse.filename) {
+      return res
+        .status(500)
+        .send("Error generating invoice. Please try again.");
+    }
+
+    const { filename: invoiceFilePath } = invoiceGeneratorResponse;
+
+    // upload invoice to digital storage
+    const result = await invoiceGenerator.uploadInvoice(
+      invoiceFilePath,
+      userId
+    );
+
+    invoiceGenerator.deleteFileFromDisk(invoiceFilePath);
+
+    // update invoice details to shift information
+    await _updateInvoiceDetailInDb(
+      shifts,
+      result.fileUploadPath,
+      invoiceGenerationData.invoiceNumber
+    );
+
+    await notifiyUserOnInvoice(userInfo.expoPushTokens);
+    res.status(200).send({
+      message: "Invoice generated successfully",
+      url: result.fileUploadPath,
+    });
+
+    // get user info
+  } catch (error) {
+    winston.error(
+      `ShiftService [generateTimesheetInvoice]: Error occured => ${error.message}`
+    );
+    res.status(500).send("Something unexpected happened");
+  }
+};
+
 module.exports = {
   SHIFT_STATUS,
   createShift,
@@ -931,4 +1152,6 @@ module.exports = {
   updateMyShiftStatus,
   getDashboardDataForUser,
   manageClockInClockOut,
+  generateTimesheetInvoice,
+  userUpdateInvoice,
 };

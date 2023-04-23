@@ -1,6 +1,7 @@
 const { PutObjectCommand, S3Client } = require("@aws-sdk/client-s3");
 const multerS3 = require("multer-s3");
 const path = require("path");
+const winston = require("winston");
 
 class FileStorage {
   #client;
@@ -38,12 +39,14 @@ class FileStorage {
     try {
       const params = this.#getParams(path, key, body, mode);
       const data = await this.#client.send(new PutObjectCommand(params));
-      console.log(
+      winston.info(
         "Successfully uploaded object: " + params.Bucket + "/" + params.Key
       );
-      return data;
+
+      const fileUploadPath = `${this.#spaceBaseUrl}/${path}/${key}`;
+      return { fileUploadPath, data };
     } catch (err) {
-      console.log("Error", err);
+      winston.error(`FileStorage [upload]: Error occured => ${err}`);
     }
   }
 
@@ -52,7 +55,7 @@ class FileStorage {
       Bucket: this.#bucket, // The path to the directory you want to upload the object to, starting with your Space name.
       Key: `${path}/${key}`, // Object key, referenced whenever you want to access this file later.
       Body: body, // The object's contents. This variable is an object, not a string.
-      ACL: mode ?? "private", // Defines ACL permissions, such as private or public.
+      ACL: mode ?? this.#space_acl, // Defines ACL permissions, such as private or public.
       Metadata: {
         // Defines metadata tags.
         "x-amz-meta-my-key": "your-value",
@@ -70,7 +73,6 @@ class FileStorage {
         cb(null, { fieldName: file.fieldname });
       },
       key: function (req, file, cb) {
-        console.log(req.user);
         const extName = path.extname(file.originalname).toLowerCase();
         const spacePath = `${keyPath}/${file.fieldname}-${
           req?.body?.userId ?? ""
