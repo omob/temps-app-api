@@ -1042,8 +1042,10 @@ const _updateInvoiceDetailInDb = async (shifts, invoiceUrl, invoiceNumber) => {
     await Promise.all(
       shifts.map(async (shiftInfo) => {
         const shift = await Shift.findById(shiftInfo._id);
-        shift.invoice.id = invoiceNumber;
-        shift.invoice.url = invoiceUrl;
+        shift.invoice = {
+          id: invoiceNumber,
+          url: invoiceUrl,
+        };
 
         await shift.save();
 
