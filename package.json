@@ -36,7 +36,7 @@
     "nodemailer": "^6.4.10",
     "pdf-creator-node": "^2.3.5",
     "swagger-ui-express": "^4.1.6",
-    "winston": "^2.4.0",
+    "winston": "^2.4.7",
     "winston-mongodb": "^3.0.0"
   },
   "devDependencies": {
