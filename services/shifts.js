@@ -112,7 +112,7 @@ const getAllMyShifts = async (req, res) => {
             date,
             employeesInSameShifts: [],
             notes,
-            totalPayable,
+            totalPayable: `£ ${totalPayable}`,
           };
         }
       )
@@ -305,7 +305,7 @@ const getDashboardDataForUser = async (req, res) => {
           notes,
           shiftOptions,
           preferredShiftOption,
-          totalPayable: totalPayable,
+          totalPayable: `£ ${totalPayable}`,
         };
       }
     );
@@ -352,7 +352,7 @@ const _getTotalPayable = ({
     totalPay = cancellationFee;
   }
 
-  return `£ ${totalPay}`;
+  return totalPay;
 };
 
 const userUpdateInvoice = async (req, res) => {
@@ -783,15 +783,17 @@ const getAllUserShifts = async (req, res) => {
               location = loc;
             }
           });
-          const hours = calculateHours(time.clockIn, time.clockOut);
-          let totalHoursPay = +outRate * hours;
 
-          let totalPay =
-            totalHoursPay + milleage + meal + accommodation + perDiems;
-
-          if (status == SHIFT_STATUS.CANCELED) {
-            totalPay = cancellationFee;
-          }
+          let totalPayable = _getTotalPayable({
+            time,
+            outRate,
+            status,
+            milleage,
+            meal,
+            accommodation,
+            perDiems,
+            cancellationFee,
+          });
 
           return {
             _id,
@@ -801,8 +803,8 @@ const getAllUserShifts = async (req, res) => {
             employeeId: userId,
             outRate,
             time,
-            hours: hours,
-            totalPay: totalPay,
+            hours: calculateHours(time.start, time.end),
+            totalPay: totalPayable,
             isPaid:
               admin.isPaid === undefined || admin.isPaid === false
                 ? false
