@@ -67,6 +67,7 @@ const getAllMyShifts = async (req, res) => {
           shiftOptions,
           preferredShiftOption,
           invoice,
+          cancellationFee,
         }) => {
           let { production, location, outRate, contract, position } =
             contractInfo;
@@ -77,15 +78,16 @@ const getAllMyShifts = async (req, res) => {
             }
           });
 
-          let totalPayable = _getTotalPayable(
+          let totalPayable = _getTotalPayable({
             time,
             outRate,
             status,
             milleage,
             meal,
             accommodation,
-            perDiems
-          );
+            perDiems,
+            cancellationFee,
+          });
 
           return {
             _id,
@@ -259,6 +261,7 @@ const getDashboardDataForUser = async (req, res) => {
         status,
         shiftOptions,
         preferredShiftOption,
+        cancellationFee,
       }) => {
         let { production, location, outRate, contract, position } =
           contractInfo;
@@ -269,15 +272,16 @@ const getDashboardDataForUser = async (req, res) => {
           }
         });
 
-        const totalPayable = _getTotalPayable(
+        const totalPayable = _getTotalPayable({
           time,
           outRate,
           status,
           milleage,
           meal,
           accommodation,
-          perDiems
-        );
+          perDiems,
+          cancellationFee,
+        });
 
         return {
           _id,
@@ -329,15 +333,16 @@ const getDashboardDataForUser = async (req, res) => {
   }
 };
 
-const _getTotalPayable = (
+const _getTotalPayable = ({
   time,
   outRate,
   status,
   milleage,
   meal,
   accommodation,
-  perDiems
-) => {
+  perDiems,
+  cancellationFee,
+}) => {
   const hours = calculateHours(time.clockIn, time.clockOut);
   let totalHoursPay = +outRate * hours;
 
@@ -365,7 +370,8 @@ const userUpdateInvoice = async (req, res) => {
         await shift.save();
 
         winston.info(
-          `User updated Shift Invoice in DB. InvoiceNumber =>  ${invoiceId}`
+          `User updated Shift Invoice in DB. InvoiceNumber =>  ${invoiceId}`,
+          { body: req.body }
         );
       })
     );
