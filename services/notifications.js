@@ -51,7 +51,7 @@ const notifyUsersViaPushNotifications = async (pushData) => {
       messages.push({
         to: token,
         sound: "default",
-        title: data.message.title ?? "🔐 MLS Protection",
+        title: data.message.title ?? "🔐 TEMPS APP",
         body: data.message.text,
         data: data.message.data,
       });

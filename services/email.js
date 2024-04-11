@@ -22,7 +22,7 @@ module.exports = class Email {
   async sendMail(subject, message, email) {
     try {
       const info = await this.transporter.sendMail({
-          from: `"MLS Protection " <${process.env.EMAILUSER}>`, // sender address
+          from: `"TEMPS APP " <${process.env.EMAILUSER}>`, // sender address
           to: `${email}`, // list of receivers
           subject: `${subject}`, // Subject line
           html: `${message}`, // html body
@@ -44,7 +44,7 @@ module.exports = class Email {
       </span>
 
       <p> Regards </p>
-      <b>MLS Protection Team </b>
+      <b>TEMPS APP Team </b>
     `;
 
     try {
@@ -66,7 +66,7 @@ module.exports = class Email {
     <br />
     <code> If you did not initiate a password reset, kindly disregard this email </code>
     <p> Regards </p>
-    <b>MLS Protection Team </b>
+    <b>TEMPS APP Team </b>
     `;
 
     try {
