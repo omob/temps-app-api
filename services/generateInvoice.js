@@ -19,6 +19,11 @@ class GenerateInvoice {
       height: "0px",
     },
     footer: {},
+    childProcessOptions: {
+      env: {
+        OPENSSL_CONF: '/dev/null',
+      },
+  }
   };
 
   constructor() {
@@ -52,7 +57,7 @@ class GenerateInvoice {
       const keyPath = this.invoiceUploadPath;
 
       const extName = path.extname(filePath).toLowerCase();
-      const spacePath = `MLS-${userId}-${Date.now()}${extName}`;
+      const spacePath = `TEMPS-${userId}-${Date.now()}${extName}`;
 
       const response = await fileStorage.upload(
         keyPath,
